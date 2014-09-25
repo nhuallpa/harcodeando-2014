@@ -84,6 +84,7 @@ public class MainFrameUI extends javax.swing.JFrame implements ItemListener {
         menu1 = new java.awt.Menu();
         menu2 = new java.awt.Menu();
         jLayeredPane1 = new javax.swing.JLayeredPane();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
@@ -110,18 +111,27 @@ public class MainFrameUI extends javax.swing.JFrame implements ItemListener {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setText("Para comenzar, seleccione un algoritmo del menú");
+
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 607, Short.MAX_VALUE)
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addGap(122, 122, 122)
+                .addComponent(jLabel1)
+                .addContainerGap(172, Short.MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 358, Short.MAX_VALUE)
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addComponent(jLabel1)
+                .addContainerGap(248, Short.MAX_VALUE))
         );
+        jLayeredPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jMenu3.setText("Principal");
+        jMenu3.setText("Algoritmos");
 
         jMenu5.setText("Hill Cipher");
 
@@ -143,42 +153,70 @@ public class MainFrameUI extends javax.swing.JFrame implements ItemListener {
 
         jMenu3.add(jMenu5);
 
-        jMenu7.setText("jMenu7");
+        jMenu7.setText("NLFSR");
 
-        jMenuItem6.setText("jMenuItem6");
+        jMenuItem6.setText("Aprender");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu7.add(jMenuItem6);
 
-        jMenuItem7.setText("jMenuItem7");
+        jMenuItem7.setText("Autoevaluar");
         jMenu7.add(jMenuItem7);
 
         jMenu3.add(jMenu7);
 
-        jMenu8.setText("jMenu8");
+        jMenu8.setText("DES");
 
-        jMenuItem8.setText("jMenuItem8");
+        jMenuItem8.setText("Aprender");
         jMenu8.add(jMenuItem8);
 
-        jMenuItem9.setText("jMenuItem9");
+        jMenuItem9.setText("Autoevaluar");
         jMenu8.add(jMenuItem9);
 
         jMenu3.add(jMenu8);
 
-        jMenu6.setText("jMenu6");
+        jMenu6.setText("RSA");
 
-        jMenuItem10.setText("jMenuItem10");
+        jMenuItem10.setText("Aprender");
         jMenu6.add(jMenuItem10);
 
-        jMenuItem11.setText("jMenuItem11");
+        jMenuItem11.setText("Autoevaluar");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenuItem11);
 
         jMenu3.add(jMenu6);
 
-        jMenu2.setText("jMenu2");
+        jMenu2.setText("MD5");
 
-        jMenuItem12.setText("jMenuItem12");
+        jMenuItem12.setText("Aprender");
+        jMenuItem12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem12MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenuItem12MousePressed(evt);
+            }
+        });
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem12);
 
-        jMenuItem13.setText("jMenuItem13");
+        jMenuItem13.setText("Autoevaluar");
+        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem13ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem13);
 
         jMenu3.add(jMenu2);
@@ -209,6 +247,34 @@ public class MainFrameUI extends javax.swing.JFrame implements ItemListener {
         this.hillPanel.setVisible(true);
 
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem13ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+       
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
+
+    private void jMenuItem12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem12MouseClicked
+         
+    }//GEN-LAST:event_jMenuItem12MouseClicked
+
+    private void jMenuItem12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem12MousePressed
+        
+        HillPanel hpanel = new HillPanel();
+        this.add(hpanel);
+        hpanel.setVisible(true);
+//System.exit(0);
+    }//GEN-LAST:event_jMenuItem12MousePressed
 
     /**
      * @param args the command line arguments
@@ -248,6 +314,7 @@ public class MainFrameUI extends javax.swing.JFrame implements ItemListener {
 
     private HillPanel hillPanel;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
