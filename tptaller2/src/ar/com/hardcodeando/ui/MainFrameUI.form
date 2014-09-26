@@ -8,6 +8,9 @@
           <Properties>
             <Property name="label" type="java.lang.String" value="File"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu1ActionPerformed"/>
+          </Events>
         </Menu>
         <Menu class="java.awt.Menu" name="menu2">
           <Properties>
@@ -27,12 +30,16 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hill Cipher"/>
               </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenu5MousePressed"/>
+              </Events>
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Aprender"/>
                   </Properties>
                   <Events>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuItem4MousePressed"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem4ActionPerformed"/>
                   </Events>
                 </MenuItem>
