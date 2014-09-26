@@ -12,6 +12,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -30,12 +31,12 @@ public class MainFrameUI extends javax.swing.JFrame implements ItemListener {
      */
     public MainFrameUI() {
         initComponents();
-        hillPanel = new HillPanel();
-        hillPanel.setVisible(false);
+     /*  hillPanel = new HillPanel();
+        hillPanel.setVisible(true);
         
         this.addComponentToPane(this.getContentPane());
         this.pack();
-        this.setVisible(true);
+        this.setVisible(true);*/
     }
     
     public void itemStateChanged(ItemEvent evt) {
@@ -104,6 +105,11 @@ public class MainFrameUI extends javax.swing.JFrame implements ItemListener {
         jMenuItem13 = new javax.swing.JMenuItem();
 
         menu1.setLabel("File");
+        menu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu1ActionPerformed(evt);
+            }
+        });
         menuBar1.add(menu1);
 
         menu2.setLabel("Edit");
@@ -134,8 +140,18 @@ public class MainFrameUI extends javax.swing.JFrame implements ItemListener {
         jMenu3.setText("Algoritmos");
 
         jMenu5.setText("Hill Cipher");
+        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenu5MousePressed(evt);
+            }
+        });
 
         jMenuItem4.setText("Aprender");
+        jMenuItem4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenuItem4MousePressed(evt);
+            }
+        });
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
@@ -269,12 +285,26 @@ public class MainFrameUI extends javax.swing.JFrame implements ItemListener {
     }//GEN-LAST:event_jMenuItem12MouseClicked
 
     private void jMenuItem12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem12MousePressed
-        
-        HillPanel hpanel = new HillPanel();
-        this.add(hpanel);
-        hpanel.setVisible(true);
-//System.exit(0);
+       
     }//GEN-LAST:event_jMenuItem12MousePressed
+
+    private void menu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menu1ActionPerformed
+
+    private void jMenu5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu5MousePressed
+
+    private void jMenuItem4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem4MousePressed
+        
+        HillPanel hpanel = new HillPanel();       
+        this.setLayout(new BorderLayout());            
+        this.add(hpanel, BorderLayout.CENTER);        
+        this.pack();
+        this.setVisible(true);
+        jLabel1.setVisible(false);
+    }//GEN-LAST:event_jMenuItem4MousePressed
 
     /**
      * @param args the command line arguments
@@ -307,7 +337,7 @@ public class MainFrameUI extends javax.swing.JFrame implements ItemListener {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new MainFrameUI().setVisible(true);
+                new MainFrameUI().setVisible(true);              
             }
         });
     }
