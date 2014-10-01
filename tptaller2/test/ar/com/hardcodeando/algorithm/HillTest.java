@@ -46,34 +46,31 @@ public class HillTest {
     @Test
     public void verificarClaveValida() {
         HillCipher hill = new HillCipher();
-        
-        // Armar matriz M inversible
-        // mcd(det(M),26) = 1 con esto nos asegurarmos de desifrar
-        int[][] clave = {{3,2},{5,7}};
-       
-        assertTrue(hill.validarClave(clave));
-    }
-    @Test
-    public void verificarOtraClaveValida() {
-        HillCipher hill = new HillCipher();
-        
-        // Armar matriz M inversible
-        // mcd(det(M),26) = 1 con esto nos asegurarmos de desifrar
-        int[][] clave = {{4,9},{13,18}};
-        
-        hill.validarClave(clave);
-        
-        assertTrue(hill.validarClave(clave));
+        assertTrue(hill.check("dcfh",2)); // 3257
     }
     
     @Test
     public void verificarClaveInvalida() {
         HillCipher hill = new HillCipher();
-        
-        
-        int[][] clave = {{1,1},{1,1}};
-               
-        assertFalse(hill.validarClave(clave));
+        assertFalse(hill.check("bbaa",2)); // 1100
+    }
+    
+    @Test
+    public void verificarClaveInvalidaFactorComunCon26() {
+        HillCipher hill = new HillCipher();
+        assertFalse(hill.check("dbbb",2)); //2111
+    }
+    
+    @Test
+    public void verificarOtraClaveValida() {
+        HillCipher hill = new HillCipher();
+        assertTrue(hill.check("ejns", 2)); //4 9 13 18
+    }
+    
+    @Test
+    public void verificarOtraClaveInvalida() {
+        HillCipher hill = new HillCipher();
+        assertFalse(hill.check("bbbb",2)); // 1 1 1 1
     }
     
     
