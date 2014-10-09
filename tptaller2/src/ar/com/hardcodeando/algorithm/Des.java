@@ -417,62 +417,7 @@ public class Des {
         return ciphertext;
     }
     
-    /**
-     * Encrypt the supplied message with the provided key, and return
-     * the ciphertext.  If the message is not a multiple of 64 bits
-     * (8 bytes), then it is padded with zeros.
-     * 
-     * This method uses the Electronic Code Book (ECB) mode of
-     * operation -- each 64-bit block is encrypted individually with
-     * the same key.
-     * 
-     * The provided password is converted into a key with the bits
-     * of each byte reversed, to generate a stronger key.
-     * See passwordToKey() for more details.
-     */
-    public static byte[] encrypt(byte[] challenge, String password) {
-        return encrypt(challenge, passwordToKey(password));
-    }
     
-    /**
-     * Convert a password string into a byte array, reversing the bits
-     * of each byte to place more useful key bits into non-discarded
-     * bit-positions of the 64-bit DES key input.  The ever-popular
-     * 7-bit ASCII characters have useful information in the least
-     * significant bit which is discarded by DES, and always have zero
-     * in the most significant bit, so reversing the bit order of the
-     * password bytes results in a stronger key.
-     * 
-     * This is consistent with the "VNC Authentication" scheme used in
-     * the RFB protocol:
-     * 
-     * "The RFB specification says that VNC authentication is done by
-     * receiving a 16 byte challenge, encrypting it with DES using the
-     * user specified password, and sending back the resulting 16 bytes.
-     * The actual software encrypts the challenge with all the bit fields
-     * in each byte of the password mirrored."
-     *     - http://www.vidarholen.net/contents/junk/vnc.html
-     */
-    private static byte[] passwordToKey(String password) {
-        byte[] pwbytes = password.getBytes();
-        byte[] key = new byte[8];
-        for (int i=0; i<8; i++) {
-            if (i < pwbytes.length) {
-                byte b = pwbytes[i];
-                // flip the byte
-                byte b2 = 0;
-                for (int j=0; j<8; j++) {
-                    b2<<=1;
-                    b2 |= (b&0x01);
-                    b>>>=1;
-                }
-                key[i] = b2;
-            } else {
-                key[i] = 0;
-            }
-        }
-        return key;
-    }
     
     /* Decrypting is left as an exercise for the reader. ;) */
     
@@ -501,6 +446,10 @@ public class Des {
         byte[] ba = new byte[s.length()/2];
         if (s.length()%2 > 0) { s = s+'0'; }
         for (int i=0; i<s.length(); i+=2) {
+            char a3 = s.charAt(i);
+            char a4 = s.charAt(i+1);
+            int a = charToNibble(s.charAt(i));
+            int a2 = charToNibble(s.charAt(i+1));
             ba[i/2] = (byte) (charToNibble(s.charAt(i))<<4 | charToNibble(s.charAt(i+1)));
         }
         return ba;
@@ -513,13 +462,12 @@ public class Des {
         return sb.toString();
     }
 
-    public static boolean test(byte[] message, byte[] expected, String password) {
-        return test(message, expected, passwordToKey(password));
-    }
+    
     
     private static int testCount = 0;
     public static boolean test(byte[] message, byte[] expected, byte[] key) {
         System.out.println("Test #"+(++testCount)+":");
+        
         System.out.println("\tmessage:  "+hex(message));
         System.out.println("\tkey:      "+hex(key));
         System.out.println("\texpected: "+hex(expected));
@@ -531,20 +479,28 @@ public class Des {
     }
     
     public static void main(String[] args) {
-
+        
+       
         // These tests were derived from the password challenge-response
         // conversations observed between a VNC client and server. 
-        test(
-            parseBytes("a4b2 c9ef 0876 c1ce 438d e282 3820 dbde"),
-            parseBytes("fa60 69b9 85fa 1cf7 0bea a041 9137 a6d3"),
-            "mypass"
-        );
-        test(
-            parseBytes("f3ed a6dc f8b7 9dd6 5be0 db8b 1e7b a551"),
-            parseBytes("b669 d033 6c3f 42b7 68e8 e937 b4a5 7546"),
-            "mypass"
-        );
-
+        
+        String str = "mypasseo";
+        byte[] bts = str.getBytes();
+        StringBuilder binary = new StringBuilder();
+        for (byte b : bts)
+        {
+           int val = b;
+           for (int i = 0; i < 8; i++)
+           {
+              binary.append((val & 128) == 0 ? 0 : 1);
+              val <<= 1;
+           }
+           binary.append(' ');
+        }
+        System.out.println("'" + str + "' to binary: " + binary);       
+        
+        System.out.println(bts);
+                
         // This is the example from "The DES Algorithm Illustrated"
         // by J. Orlin Grabbe, and his step-by-step walkthrough
         // is invaluable for debugging the internals of your
@@ -552,8 +508,8 @@ public class Des {
         //     http://orlingrabbe.com/des.htm
         test(
             parseBytes("0123456789ABCDEF"),
-            parseBytes("85E813540F0AB405"),
-            parseBytes("133457799BBCDFF1")
+            parseBytes("c30987c30cbb1bab"),
+            parseBytes("6D7970617373656F")
         );
         
     }
