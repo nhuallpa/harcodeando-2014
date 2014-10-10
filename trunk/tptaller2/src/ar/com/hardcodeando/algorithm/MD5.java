@@ -93,7 +93,7 @@ import java.io.*;
 //
 // MD5 Class
 //
-class MD5
+public class MD5
 {
   private static long S11 = 7L;
   private static long S12 = 12L;

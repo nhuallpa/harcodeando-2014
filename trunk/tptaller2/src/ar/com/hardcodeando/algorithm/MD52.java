@@ -7,15 +7,15 @@
  *    El algoritmo MD5 produce una huella digital de 128 bits (firma) de un conjunto de datos de longitud arbitraria.
  *     
  *    Resumen
- * 		El algoritmo MD5 está pensado para aplicaciones de firma digital en un archivo de gran tamaño debe ser "comprimido" de manera segura
- * 		antes de ser cifrado con una clave privada (secreta) en virtud de un sistema de cifrado de clave pública como RSA. 
- * 		El algoritmo MD5 está diseñado para ser muy rápido en máquinas de 32 bits. 
- * 		MD5 es un poco más lento que MD4, pero es más "conservador" en el diseño. 
+ * 		El algoritmo MD5 estï¿½ pensado para aplicaciones de firma digital en un archivo de gran tamaï¿½o debe ser "comprimido" de manera segura
+ * 		antes de ser cifrado con una clave privada (secreta) en virtud de un sistema de cifrado de clave pï¿½blica como RSA. 
+ * 		El algoritmo MD5 estï¿½ diseï¿½ado para ser muy rï¿½pido en mï¿½quinas de 32 bits. 
+ * 		MD5 es un poco mï¿½s lento que MD4, pero es mï¿½s "conservador" en el diseï¿½o. 
 */
 
 import java.io.*;
 
-class MD5 {
+class MD52 {
 	/*Desplazamientos antes de cada ronda*/
 	private static long S11 = 7L;
 	private static long S12 = 12L;
@@ -44,7 +44,7 @@ class MD5 {
 	private long lngByteCount = 0;
 	private static int pasos = 1;
 	
-	MD5() {
+	MD52() {
 		this.init();
 	}
 
@@ -59,10 +59,10 @@ class MD5 {
 	}
 
 	/**
-	 * Función de compresión: consta de cuatro rondas; cada una utiliza operaciones distintas durante 16 iteraciones; 
-	 * cada operación realiza una función no lineal sobre tres de las variables a, b, c y d, y el resultado es sumado a la cuarta variable 
+	 * Funciï¿½n de compresiï¿½n: consta de cuatro rondas; cada una utiliza operaciones distintas durante 16 iteraciones; 
+	 * cada operaciï¿½n realiza una funciï¿½n no lineal sobre tres de las variables a, b, c y d, y el resultado es sumado a la cuarta variable 
 	 * que no fue elegida, un sub-bloque del texto y una constante.
-	 * A ese resultado se le aplica una rotación circular a la izquierda un número variable de bits y se suma el resultado
+	 * A ese resultado se le aplica una rotaciï¿½n circular a la izquierda un nï¿½mero variable de bits y se suma el resultado
 	 * a una de las variables a, b, c o d. Finalmente el resultado reemplaza a una de las variables a, b, c o d. 
 	 * La salida de la cuarta ronda se suma a la entrada de la primera.
 	 * */
@@ -196,7 +196,7 @@ class MD5 {
 		if (pasos == 1 || pasos == 4 || pasos == 16) {
 			System.out.println("II A " + lngA + "II D " + lngD + "II C " + lngC + "II B " + lngB);
 		}
-		 /* Este es el incremento de cada uno de los cuatro registros por el valor que tenían antes de que
+		 /* Este es el incremento de cada uno de los cuatro registros por el valor que tenï¿½an antes de que
 	    este bloque fuera inicializado.	 */
 		lngState[0] = (lngState[0] + lngA) & 0xFFFFFFFFL; //A = A + AA
 		lngState[1] = (lngState[1] + lngB) & 0xFFFFFFFFL; //B = B + BB
@@ -316,8 +316,8 @@ class MD5 {
 		return (mystring);
 	}
 
-	/**	Paso 3: Proceso de reducción
-		Se utiliza un registro de 128 bits que almacena y mantiene los resultados intermedios y final de la función hash. 
+	/**	Paso 3: Proceso de reducciï¿½n
+		Se utiliza un registro de 128 bits que almacena y mantiene los resultados intermedios y final de la funciï¿½n hash. 
 		El registro se divide en cuatro secciones de 32 bits cada una (A, B, C y D)	que son inicializadas con valores hexadecimales
 	 */
 	public void init() {
@@ -332,7 +332,7 @@ class MD5 {
  	public static void main(String args[]) throws IOException {
 
 		char chrTestData[] = new char[64];
-		MD5 md5Test = new MD5();
+		MD52 md5Test = new MD52();
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("Ingresar cantidad de pasos (1, 4, 16, o 64)");
