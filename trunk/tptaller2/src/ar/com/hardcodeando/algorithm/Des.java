@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ar.com.hardcodeando.algorithm;
 
 import java.util.Arrays;
@@ -13,24 +8,11 @@ import java.util.Arrays;
  */
 public class Des {
     
-    //////////////////////////////////////////////////////////////////////
-    //
-    // Various static data tables used by the DES algorithm.
-    //
-    // Many of these tables are based on bit permutations, where the
-    // index of the array corresponds to the output bit, and the value
-    // indicates which bit of the input should be used.
-    //
-    // The bit position values, provided by Wikipedia, start counting
-    // with the left-most bit as "1".
-    //
-    //////////////////////////////////////////////////////////////////////
-    
-    // High-level permutations
+   
+    // Permutaciones de alto nivel
     
     /**
-     * Input Permutation.  The message block is permuted by this
-     * permutation at the beginning of the algorithm.
+     * Permutacion inicial
      */
     private static final byte[] IP = { 
         58, 50, 42, 34, 26, 18, 10, 2,
@@ -44,8 +26,7 @@ public class Des {
     };
 
     /**
-     * Final Permutation.  The final result is permuted by this
-     * permutation to generate the final ciphertext block.
+     * Permutacion final.
      */
     private static final byte[] FP = {
         40, 8, 48, 16, 56, 24, 64, 32,
@@ -58,12 +39,10 @@ public class Des {
         33, 1, 41, 9, 49, 17, 57, 25
     };
 
-    // Permutations relating to the Feistel function.
+    // Permutaciones de la funcion de Feistel
 
     /**
-     * Expansion Permutation.  The Feistel function begins by applying
-     * this permutation to its 32-bit input half-block to create an
-     * "expanded" 48-bit value.
+     * Permutacion de expansion. 
      */
     private static final byte[] E = {
         32, 1,  2,  3,  4,  5,
@@ -77,15 +56,9 @@ public class Des {
     };
     
     /**
-     * Substitution Boxes.  A crucial step in the Feistel function is
-     * to perform bit substitutions according to this table.  A 48-bit
-     * value is split into 6-bit sections, and each section is permuted
-     * into a different 6-bit value according to these eight tables.
-     * (One table for each section.)
-     * 
-     *  According to Wikipedia:
-     *  "The S-boxes provide the core of the security of DES - without
-     *  them, the cipher would be linear, and trivially breakable."
+     * Sustitucion S-box. Se dividen 48 bits en 8 secciones de 6 bits. A cada
+     * seccion se le realiza una permutacion de acuerdo con los valores de las
+     * siguientes 8 tablas
      */
     private static final byte[][] S = { {
         14, 4,  13, 1,  2,  15, 11, 8,  3,  10, 6,  12, 5,  9,  0,  7,
@@ -130,10 +103,9 @@ public class Des {
     } };
     
     /**
-     * "P" Permutation.  The Feistel function concludes by applying this
-     * 32-bit permutation to the result of the S-box substitution, in
-     * order to spread the output bits across 6 different S-boxes in
-     * the next round.
+     * "P" Permutacion. Paso final de la funcion de Feistel: se le aplica
+     * al resultado de la sustitucion S-box la siguiente permutacion de 32 bits
+     * The Feistel function concludes by applying this
      */
     private static final byte[] P = {
         16, 7,  20, 21,
@@ -146,13 +118,11 @@ public class Des {
         22, 11, 4,  25
     };
 
-    // Permutations relating to subkey generation
+    // Permutaciones relacionadas con la creacion de las subclaves
 
     /**
-     * PC1 Permutation.  The supplied 64-bit key is permuted according
-     * to this table into a 56-bit key.  (This is why DES is only a
-     * 56-bit algorithm, even though you provide 64 bits of key
-     * material.)
+     * PC1 Permutacion. La clave suministrada de 64 bits se permuta con la
+     * siguiente tabla obteniendose una nueva clave de 56 bits
      */
     private static final byte[] PC1 = {
         57, 49, 41, 33, 25, 17, 9,
@@ -166,9 +136,8 @@ public class Des {
     };
     
     /**
-     * PC2 Permutation.  The subkey generation process applies this
-     * permutation to transform its running 56-bit keystuff value into
-     * the final set of 16 48-bit subkeys.
+     * PC2 Permutacion. Permutacion que aplica el metodo generador de subclaves
+     * para crear las 16 subclaves de 48 bits.
      */
     private static final byte[] PC2 = {
         14, 17, 11, 24, 1,  5,
@@ -182,22 +151,24 @@ public class Des {
     };
     
     /**
-     * Subkey Rotations.  Part of the subkey generation process
-     * involves rotating certain bit-sections of the keystuff by either
-     * one or two bits to the left.  This table specifies how many bits
-     * to rotate left for each of the 16 steps.
+     * Subkey Rotations. Parte del proceso de generacion de subclaves implica
+     * rotar cierta cantidad de bits. Esta tabla especifica cuantos bits deben 
+     * rotarse en cada uno de los 16 pasos
      */
     private static final byte[] rotations = {
         1, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1
     };
     
+    
+    private static final long subkeys[] = new long[16];
+    
     //////////////////////////////////////////////////////////////////////
     //
-    // Numerical utility methods
+    // Metodos numericos
     //
     //////////////////////////////////////////////////////////////////////
 
-    // convenience methods for performing the basic permutations.
+    // Metodos para las permutaciones
     
     private static long IP(long src)  { return permute(IP, 64, src);                 } // 64-bit output
     private static long FP(long src)  { return permute(FP, 64, src);                 } // 64-bit output
@@ -207,10 +178,8 @@ public class Des {
     private static long PC2(long src) { return permute(PC2, 56, src);                } // 48-bit output
 
     /**
-     * Permute an input value "src" of srcWidth bits according to the
-     * supplied permutation table.  (Note that our permutation tables,
-     * supplied by Wikipedia, start counting with the left-most bit as
-     * "1".) 
+     * Permuta un valor de entrada "src" de "srcWidth" bits de acuerdo con lo
+     * especificado en la tabla de permutacion.
      */
     private static long permute(byte[] table, int srcWidth, long src) {
         long dst = 0;
@@ -222,9 +191,8 @@ public class Des {
     }
 
     /**
-     * Permute the supplied 6-bit value based on the S-Box at the
-     * specified box number.  (Box numbers start at 1, to be consistent
-     * with the literature.)
+     * Permuta el valor de 6 bits suministrado basado en la tabla S-box basado
+     * en el numero de tabla especificado.
      */
     private static byte S(int boxNumber, byte src) {
         // The first and last bits determine which 16-value row to
@@ -236,11 +204,9 @@ public class Des {
     }
     
     /**
-     * Utility method to convert 8 bytes (starting at the specified
-     * offset to the supplied byte array) into a single 64-bit long
-     * value.  If the supplied byte array does not contain 8 elements
-     * starting at offset, the missing bytes are regarded as zero
-     * padding.
+     * Metodo para convertir 8 bytes (empezando en el offset especificado) 
+     * en un long de 64 bits.
+     * Si el array de byte no contiene 8 elementos, se completa con 0's
      */
     private static long getLongFromBytes(byte[] ba, int offset) {
         long l = 0;
@@ -257,10 +223,8 @@ public class Des {
     }
 
     /**
-     * Utility method to convert a 64-bit long value into eight bytes,
-     * which are written into the supplied byte array at the specified
-     * offset.  If the destination byte array does not have eight bytes
-     * starting at offset, the remaining bytes are silently discarded. 
+     * Metodo para pasar de un long a un array de byte en el offset 
+     * especificado. 
      */
     private static void getBytesFromLong(byte[] ba, int offset, long l) {
         for (int i=7; i>=0; i--) {
@@ -275,12 +239,12 @@ public class Des {
     
     //////////////////////////////////////////////////////////////////////
     //
-    // Primary DES algorithm methods
+    // Metodos DES
     //
     //////////////////////////////////////////////////////////////////////
 
     /**
-     * The Feistel function is the heart of DES.
+     * Funcion de Feistel.
      */
     private static int feistel(int r, /* 48 bits */ long subkey) {
         // 1. expansion
@@ -300,11 +264,9 @@ public class Des {
     }
     
     /**
-     * Generate 16 48-bit subkeys based on the provided 64-bit key
-     * value.
+     * Genera las 16 subclaves a partir de la clave de 64 bit original
      */
-    private static long[] createSubkeys(/* 64 bits */ long key) {
-        long subkeys[] = new long[16];
+    private static void createSubkeys(/* 64 bits */ long key) {
         
         // perform the PC1 permutation
         key = PC1(key);
@@ -336,16 +298,14 @@ public class Des {
             subkeys[i] = PC2(cd);
         }
         
-        return subkeys; /* 48-bit values */ 
     }
     
     /**
-     * Encrypt a 64-bit block of plaintext message into a 64-bit
-     * ciphertext.
+     * Encripta un bloque de 64 bits.
      */
     public static long encryptBlock(long m, /* 64 bits */ long key) {
         // generate the 16 subkeys
-        long subkeys[] = createSubkeys(key);
+        createSubkeys(key);
 
         // perform the initial permutation
         long ip = IP(m);
@@ -375,16 +335,9 @@ public class Des {
     }
     
     /**
-     * Wrapper around encryptBlock() that allows arguments to be byte
-     * arrays instead of longs.
+     * Wrapper que permite pasar array de byte por parametro en lugar de long.
      */
-    public static void encryptBlock(
-        byte[] message,
-        int messageOffset,
-        byte[] ciphertext,
-        int ciphertextOffset,
-        byte[] key
-    ) {
+    public static void encryptBlock(byte[] message, int messageOffset, byte[] ciphertext, int ciphertextOffset, byte[] key ) {
         long m = getLongFromBytes(message, messageOffset);
         long k = getLongFromBytes(key, 0);
         long c = encryptBlock(m, k);
@@ -398,13 +351,9 @@ public class Des {
     //////////////////////////////////////////////////////////////////////
     
     /**
-     * Encrypt the supplied message with the provided key, and return
-     * the ciphertext.  If the message is not a multiple of 64 bits
-     * (8 bytes), then it is padded with zeros.
-     * 
-     * This method uses the Electronic Code Book (ECB) mode of
-     * operation -- each 64-bit block is encrypted individually with
-     * the same key.
+     * Encripta el mensaje suministrado con la clave provista y retorna
+     * el texto cifrado. Si el mensaje no es multiplo de 8 bytes se completa
+     * con 0's. Modo ECB.
      */
     public static byte[] encrypt(byte[] message, byte[] key) {
         byte[] ciphertext = new byte[message.length];
@@ -416,11 +365,7 @@ public class Des {
         
         return ciphertext;
     }
-    
-    
-    
-    /* Decrypting is left as an exercise for the reader. ;) */
-    
+  
     //////////////////////////////////////////////////////////////////////
     //
     // Test methods
@@ -441,7 +386,7 @@ public class Des {
             return 0;
         }
     }
-    private static byte[] parseBytes(String s) {
+    public static byte[] parseBytes(String s) {
         s = s.replace(" ", "");
         byte[] ba = new byte[s.length()/2];
         if (s.length()%2 > 0) { s = s+'0'; }
@@ -454,7 +399,7 @@ public class Des {
         }
         return ba;
     }
-    private static String hex(byte[] bytes) {
+    public static String hex(byte[] bytes) {
         StringBuilder sb = new StringBuilder();
         for (int i=0; i<bytes.length; i++) {
             sb.append(String.format("%02X ",bytes[i]));
@@ -475,32 +420,18 @@ public class Des {
         System.out.println("\treceived: "+hex(received));
         boolean result = Arrays.equals(expected, received);
         System.out.println("\tverdict: "+(result?"PASS":"FAIL"));
+        
+        System.out.println("Las 16 subclaves son: ");
+        for (int i=0; i<16; i++) {
+            System.out.println("Subclave " + i + ": " + (String.format("%02X ",subkeys[i])).toUpperCase() );
+        }
+        
+        
         return result;
     }
     
     public static void main(String[] args) {
-        
-       
-        // These tests were derived from the password challenge-response
-        // conversations observed between a VNC client and server. 
-        
-        String str = "mypasseo";
-        byte[] bts = str.getBytes();
-        StringBuilder binary = new StringBuilder();
-        for (byte b : bts)
-        {
-           int val = b;
-           for (int i = 0; i < 8; i++)
-           {
-              binary.append((val & 128) == 0 ? 0 : 1);
-              val <<= 1;
-           }
-           binary.append(' ');
-        }
-        System.out.println("'" + str + "' to binary: " + binary);       
-        
-        System.out.println(bts);
-                
+                        
         // This is the example from "The DES Algorithm Illustrated"
         // by J. Orlin Grabbe, and his step-by-step walkthrough
         // is invaluable for debugging the internals of your
