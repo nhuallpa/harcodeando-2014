@@ -20,9 +20,9 @@ import static org.junit.Assert.*;
  *
  * @author Nestor
  */
-public class HillTest {
+public class HillVerifyKeysTest {
     
-    public HillTest() {
+    public HillVerifyKeysTest() {
     }
     
     @BeforeClass
@@ -46,19 +46,19 @@ public class HillTest {
     @Test
     public void verificarClaveValida() {
         HillCipher hill = new HillCipher();
-        assertTrue(hill.check("dcfh",2)); // 3257
+        assertTrue(hill.check("dcfh",2)); // 3 2 5 7
     }
     
     @Test
     public void verificarClaveInvalida() {
         HillCipher hill = new HillCipher();
-        assertFalse(hill.check("bbaa",2)); // 1100
+        assertFalse(hill.check("bbaa",2)); // 1 1 0 0
     }
     
     @Test
     public void verificarClaveInvalidaFactorComunCon26() {
         HillCipher hill = new HillCipher();
-        assertFalse(hill.check("dbbb",2)); //2111
+        assertFalse(hill.check("dbbb",2)); //2 1 1 1
     }
     
     @Test
@@ -71,51 +71,6 @@ public class HillTest {
     public void verificarOtraClaveInvalida() {
         HillCipher hill = new HillCipher();
         assertFalse(hill.check("bbbb",2)); // 1 1 1 1
-    }
-    
-    
-    @Test
-    public void encriptarHola() {
-        HillCipher hill = new HillCipher();
-        
-        int[][] clave = null;
-        
-        hill.validarClave(clave);
-        
-        String msgEncriptado = hill.encriptar("HOLAS", clave);
-        assertEquals("ASD", msgEncriptado);
-    }
-    
-    @Test
-    public void desencriptarHola() {
-        HillCipher hill = new HillCipher();
-        
-        int[][] clave = null;
-       
-        String msgEncriptado = hill.desencriptar("A", clave);
-        assertEquals("ASD", msgEncriptado);
-    }
-    
-    @Test
-    public void encriptarTallerII() {
-        HillCipher hill = new HillCipher();
-        
-        int[][] clave = null;
-        
-        hill.validarClave(clave);
-        
-        String msgEncriptado = hill.encriptar("TALLERII", clave);
-        assertEquals("ASD", msgEncriptado);
-    }
-    
-    @Test
-    public void desencriptarTallerII() {
-        HillCipher hill = new HillCipher();
-        
-        int[][] clave = null;
-       
-        String msgEncriptado = hill.desencriptar("A", clave);
-        assertEquals("ASD", msgEncriptado);
     }
     
 }

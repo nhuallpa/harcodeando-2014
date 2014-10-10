@@ -11,27 +11,82 @@ package ar.com.hardcodeando.algorithm;
  */
 public class HillCipher {
     
+    int len = 2;
     int keymatrix[][];
+    int resultmatrix[];
+    int linematrix[];
 
-    public String encriptar(String mensaje, int[][] clave) {
-        return "ASD";
+    public String encrypt(String mensaje) {
+        mensaje = mensaje.toLowerCase().trim();
+        mensaje = mensaje.replaceAll(" ", "");
+        return divide(mensaje, len);
     }
     
-    public String desencriptar(String criptograma, int[][] clave) {
-        return "ASD";
+    public String decoding(String criptograma) {
+        return  null;//cofact(keymatrix, len);
     }
     
-    /**
-     * - Armar matriz M inversible. det(M)<>0
-     * - mcd(det(M),26) = 1 con esto nos asegurarmos de desifrar
-     * @param clave
-     * @return 
-     */
-    public boolean validarClave(int[][] clave) {
-        return false;
+  
+    
+    public String divide(String temp, int s)
+    {
+        String result="";
+        while(temp.length()>s)
+        {
+            String sub=temp.substring(0,s);
+            temp=temp.substring(s,temp.length());
+            result=result.concat(perform(sub));
+        }
+        if (temp.length() == s) {
+            result=result.concat(perform(temp));
+        } else if(temp.length()<s) {
+            for (int i=temp.length();i<s;i++) {
+                temp=temp+'x';
+            }
+            result=result.concat(perform(temp));
+        }
+        return result;
     }
     
-    public void keytomatrix(String key,int len)
+    public String perform(String line)
+    {
+        linetomatrix(line);
+        linemultiplykey(line.length());
+        return result(line.length());
+    }
+    
+    public void linetomatrix(String line)
+    {
+        linematrix=new int[line.length()];
+        for(int i=0;i<line.length();i++)
+        {
+            linematrix[i]=((int)line.charAt(i))-97;
+        }
+    }
+    public void linemultiplykey(int len)
+    {
+        resultmatrix=new int[len];
+        for(int i=0;i<len;i++)
+        {
+            for(int j=0;j<len;j++)
+            {
+                resultmatrix[i]+=keymatrix[i][j]*linematrix[j];
+            }
+            resultmatrix[i]%=26;
+        }
+    }
+    public String result(int len)
+    {
+        String aResult="";
+        for(int i=0;i<len;i++)
+        {
+            aResult+=(char)(resultmatrix[i]+97);
+        }
+        
+        return aResult;
+    }
+    
+    private void keytomatrix(String key,int len)
     {
         keymatrix=new int[len][len];
         int c=0;
