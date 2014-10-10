@@ -187,9 +187,24 @@ public class MainFrameUI extends javax.swing.JFrame implements ItemListener {
         jMenu8.setText("DES");
 
         jMenuItem8.setText("Aprender");
+        jMenuItem8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenuItem8MousePressed(evt);
+            }
+        });
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
         jMenu8.add(jMenuItem8);
 
         jMenuItem9.setText("Autoevaluar");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
         jMenu8.add(jMenuItem9);
 
         jMenu3.add(jMenu8);
@@ -309,6 +324,25 @@ public class MainFrameUI extends javax.swing.JFrame implements ItemListener {
         jLabel1.setVisible(false);
     }//GEN-LAST:event_jMenuItem4MousePressed
 
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem8MousePressed
+        DesPanel dpanel = new DesPanel();       
+        this.setLayout(new BorderLayout());            
+        this.add(dpanel, BorderLayout.CENTER);        
+        this.pack();
+        this.setVisible(true);
+        jLabel1.setVisible(false);
+    }//GEN-LAST:event_jMenuItem8MousePressed
+
+
+    
     /**
      * @param args the command line arguments
      */
@@ -346,6 +380,8 @@ public class MainFrameUI extends javax.swing.JFrame implements ItemListener {
     }
 
     private HillPanel hillPanel;
+    private DesPanel desPanel;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane jLayeredPane1;
