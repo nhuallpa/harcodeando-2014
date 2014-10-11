@@ -22,9 +22,9 @@ import static org.junit.Assert.*;
  *
  * @author Nestor
  */
-public class HillDecodingTest {
+public class HillVerifyInvertKeysTest {
     
-    public HillDecodingTest() {
+    public HillVerifyInvertKeysTest() {
     }
     
     @BeforeClass
@@ -42,37 +42,19 @@ public class HillDecodingTest {
     @After
     public void tearDown() {
 
-    }    
-    
-    @Test
-    public void decodingTopsecret() {
-        HillCipher hill = new HillCipher(2);
-        
-        String clave = "dcfh";
-        String claveInv;
-        try {
-            claveInv = hill.calculateKeyInv(clave);
-            String msgDecoding = hill.decoding("HLDTQIHJDXWQCMAG", claveInv);
-            assertEquals("TOPSECRETMESSAGE", msgDecoding.toUpperCase());
-        } catch (BadFormedKeyException ex) {
-            Logger.getLogger(HillDecodingTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
     }
-    
+
+
     @Test
-    public void decodingHola() {
+    public void verificarClaveValida() {
         HillCipher hill = new HillCipher(2);
-        
-        String clave = "dcfh";
-        String claveInv;
+        assertTrue(hill.check("dcfh")); // 3 2 5 7
         try {
-            claveInv = hill.calculateKeyInv(clave);
-            String msgDecoding = hill.decoding("XDHD", claveInv);
-            assertEquals("HOLA", msgDecoding.toUpperCase());
+            assertEquals("dojf", hill.calculateKeyInv("dcfh"));
         } catch (BadFormedKeyException ex) {
-            Logger.getLogger(HillDecodingTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HillVerifyInvertKeysTest.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
- 
+    
+   
 }

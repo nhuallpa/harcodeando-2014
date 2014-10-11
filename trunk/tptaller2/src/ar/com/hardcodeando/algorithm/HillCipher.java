@@ -16,17 +16,28 @@ public class HillCipher {
     int resultmatrix[];
     int linematrix[];
 
-    public String encrypt(String mensaje) {
+    
+    public HillCipher(int lenMatrix){
+        this.len = lenMatrix;
+    }
+    
+    public String encrypt(String mensaje, String key) throws BadFormedKeyException {
+        if (!this.check(key)) {
+            throw new BadFormedKeyException();
+        }
         mensaje = mensaje.toLowerCase().trim();
         mensaje = mensaje.replaceAll(" ", "");
         return divide(mensaje, len);
     }
     
-    public String decoding(String criptograma) {
-        return  null;//cofact(keymatrix, len);
+    public String decoding(String secretMessage, String invertedKey) throws BadFormedKeyException {
+        if (!this.check(invertedKey)) {
+            throw new BadFormedKeyException();
+        }
+        secretMessage = secretMessage.toLowerCase().trim();
+        secretMessage = secretMessage.replaceAll(" ", "");
+        return divide(secretMessage, len);
     }
-    
-  
     
     public String divide(String temp, int s)
     {
@@ -86,7 +97,7 @@ public class HillCipher {
         return aResult;
     }
     
-    private void keytomatrix(String key,int len)
+    private void keytomatrix(String key)
     {
         keymatrix=new int[len][len];
         int c=0;
@@ -128,9 +139,9 @@ public class HillCipher {
         return res;
     }
     
-    public boolean check(String key,int len)
+    public boolean check(String key)
     {
-        keytomatrix(key,len);
+        keytomatrix(key);
         int d=determinant(keymatrix,len);
         d=d%26;
         if(d==0)
@@ -149,4 +160,110 @@ public class HillCipher {
         }
     }
     
+    
+    public String cofact(int num[][],int f)
+    {
+        int b[][],fac[][];
+        b=new int[f][f];
+        fac=new int[f][f];
+        int p,q,m,n,i,j;
+        for(q=0;q<f;q++)
+        {
+            for(p=0;p<f;p++)
+            {
+                m=0;
+                n=0;
+                for(i=0;i<f;i++)
+                {
+                    for(j=0;j<f;j++)
+                    {
+                        b[i][j]=0;
+                        if(i!=q&&j!=p)
+                        {
+                            b[m][n]=num[i][j];
+                            if(n<(f-2))
+                            n++;
+                            else
+                            {
+                                n=0;
+                                m++;
+                            }
+                        }
+                    }
+                }
+                fac[q][p]=(int)Math.pow(-1,q+p)*determinant(b,f-1);
+            }
+        }
+        return trans(fac,f);
+    }
+    private String trans(int fac[][],int r)
+    {
+        int i,j;
+        int b[][],inv[][];
+        b=new int[r][r];
+        inv=new int[r][r];
+        int d=determinant(keymatrix,r);
+        int mi=mi(d%26);
+        mi%=26;
+        if(mi<0)
+            mi+=26;
+        for(i=0;i<r;i++)
+        {
+            for(j=0;j<r;j++)
+            {
+                b[i][j]=fac[j][i];
+            }
+        }
+        for(i=0;i<r;i++)
+        {
+            for(j=0;j<r;j++)
+            {
+                inv[i][j]=b[i][j]%26;
+                if(inv[i][j]<0)
+                    inv[i][j]+=26;
+                inv[i][j]*=mi;
+                inv[i][j]%=26;
+            }
+        }
+        
+        return matrixtoinvkey(inv,r);
+    }
+    public int mi(int d)
+    {
+        int q,r1,r2,r,t1,t2,t;
+        r1=26;
+        r2=d;
+        t1=0;
+        t2=1;
+        while(r1!=1&&r2!=0)
+        {
+            q=r1/r2;
+            r=r1%r2;
+            t=t1-(t2*q);
+            r1=r2;
+            r2=r;
+            t1=t2;
+            t2=t;
+        }
+        return (t1+t2);
+    }
+    private String matrixtoinvkey(int inv[][],int n)
+    {
+        String invkey = "";
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                invkey+=(char)(inv[i][j]+97);
+            }
+        }
+        return invkey;
+    }
+
+    public String calculateKeyInv(String key) throws BadFormedKeyException {
+        if (!this.check(key)) {
+            throw new BadFormedKeyException();
+        }
+        return cofact(keymatrix, len);
+    }
 }

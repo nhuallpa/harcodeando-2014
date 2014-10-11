@@ -9,6 +9,8 @@
 package ar.com.hardcodeando.algorithm;
 
 import ar.com.hardcodeando.algorithm.HillCipher;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,22 +46,33 @@ public class HillEncryptTest {
     
     @Test
     public void encryptOk() {
-        HillCipher hill = new HillCipher();
+        HillCipher hill = new HillCipher(2);
         
         String clave = "dcfh";
-        hill.check(clave, 2);
-        String msgEncriptado = hill.encrypt("TOP SECRET MESSAGE");
-        assertEquals("HLDTQIHJDXWQCMAG", msgEncriptado.toUpperCase());
+        String msgEncriptado;
+        try {
+            msgEncriptado = hill.encrypt("TOP SECRET MESSAGE", clave);
+            assertEquals("HLDTQIHJDXWQCMAG", msgEncriptado.toUpperCase());
+        } catch (BadFormedKeyException ex) {
+            Logger.getLogger(HillEncryptTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
-    @Test
     
+    @Test
     public void encryptOK2() {
-        HillCipher hill = new HillCipher();
+        HillCipher hill = new HillCipher(2);
         
         String clave = "dcfh";
-        hill.check(clave, 2);
-        String msgEncriptado = hill.encrypt("HOLA");
-        assertEquals("XDHD", msgEncriptado.toUpperCase());
+        String msgEncriptado;
+        try {
+            msgEncriptado = hill.encrypt("HOLA", clave);
+            assertEquals("XDHD", msgEncriptado.toUpperCase());
+        } catch (BadFormedKeyException ex) {
+            Logger.getLogger(HillEncryptTest.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+        
     }
  
 }
