@@ -45,32 +45,32 @@ public class HillVerifyKeysTest {
 
     @Test
     public void verificarClaveValida() {
-        HillCipher hill = new HillCipher();
-        assertTrue(hill.check("dcfh",2)); // 3 2 5 7
+        HillCipher hill = new HillCipher(2);
+        assertTrue(hill.check("dcfh")); // 3 2 5 7
     }
     
     @Test
     public void verificarClaveInvalida() {
-        HillCipher hill = new HillCipher();
-        assertFalse(hill.check("bbaa",2)); // 1 1 0 0
+        HillCipher hill = new HillCipher(2);
+        assertFalse(hill.check("bbaa")); // 1 1 0 0
     }
     
     @Test
     public void verificarClaveInvalidaFactorComunCon26() {
-        HillCipher hill = new HillCipher();
-        assertFalse(hill.check("dbbb",2)); //2 1 1 1
+        HillCipher hill = new HillCipher(2);
+        assertFalse(hill.check("dbbb")); //2 1 1 1
     }
     
     @Test
     public void verificarOtraClaveValida() {
-        HillCipher hill = new HillCipher();
-        assertTrue(hill.check("ejns", 2)); //4 9 13 18
+        HillCipher hill = new HillCipher(2);
+        assertTrue(hill.check("ejns")); //4 9 13 18
     }
     
     @Test
     public void verificarOtraClaveInvalida() {
-        HillCipher hill = new HillCipher();
-        assertFalse(hill.check("bbbb",2)); // 1 1 1 1
+        HillCipher hill = new HillCipher(2);
+        assertFalse(hill.check("bbbb")); // 1 1 1 1
     }
     
 }
