@@ -39,6 +39,15 @@ public class HillPanel extends javax.swing.JPanel {
             JLabel picLabel = new JLabel(new ImageIcon(myPicture));
             IntroHillPanel.add(picLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 431, 129));
             
+            BufferedImage imgFormarClave = ImageIO.read(new File("./res/validar_clave.png"));
+            JLabel picLabelClave = new JLabel(new ImageIcon(imgFormarClave));
+            hillPaso1Panel.add(picLabelClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 394, 172));
+            
+            BufferedImage imgFormarCifrar = ImageIO.read(new File("./res/cifrar.png"));
+            JLabel picLabelCifrar = new JLabel(new ImageIcon(imgFormarCifrar));
+            hillPaso2Panel.add(picLabelCifrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 392, 333));
+            
+            
             // Deshabilitamos tabs
             jTabbedPane1.setEnabledAt(1, false);
             jTabbedPane1.setEnabledAt(2, false);
@@ -66,11 +75,18 @@ public class HillPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        hillPaso1Panel = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        lblHeaderPaso1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        hillPaso2Panel = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Hill Cipher");
@@ -85,10 +101,10 @@ public class HillPanel extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        IntroHillPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 330, -1, -1));
+        IntroHillPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 380, -1, -1));
 
-        jLabel2.setText("Hill Cipher es un algoritmo de encriptacion basado en algebra lineal");
-        IntroHillPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 640, -1));
+        jLabel2.setText("Hill Cipher es un algoritmo de encriptacion basado en algebra lineal, el cual toma el alfabeto de 26 letras como un espacio lineal.");
+        IntroHillPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 750, -1));
 
         jLabel3.setText("<html>Para encriptar o desencriptar, el algoritmo asigna <br> valores numericos al alfabeto. <br><br> Para el aprendizaje de este algoritmos por tres pasos.<br><br> <strong>Paso 1</strong>: Se explicara el procedimiento y las condiciones <br> necesarias para armar una clave.<br><br> <strong>Paso 2</strong>: Se utilizara la clave obtenida para encriptar <br>un mensaje de ejemplo.<br><br> <strong>Paso 3</strong>: Se calculara otra clave para desencriptar <br> un mensaje un mesaje secreto<br><br> </html>");
         jLabel3.setDoubleBuffered(true);
@@ -102,31 +118,29 @@ public class HillPanel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Introducción", IntroHillPanel);
 
+        hillPaso1Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jButton1.setText("Siguiente");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        hillPaso1Panel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 380, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(638, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(137, 137, 137))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(349, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(43, 43, 43))
-        );
+        lblHeaderPaso1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblHeaderPaso1.setText("Paso 1: Obtener una clave");
+        hillPaso1Panel.add(lblHeaderPaso1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        jTabbedPane1.addTab("Paso 1 de 3", jPanel1);
+        jLabel5.setText("<html>La clave es una matriz de nxn la cual tiene que cumplir con lo siguiente para ser valida. <br> Para este ejemplo vamos a utilizar n=2.</html>");
+        hillPaso1Panel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 44, 610, -1));
+
+        jLabel7.setText("<html> <ul> <li>Dicha matriz es la matriz de encriptación cuyos valores se encuentran <br>entre los valores designados del alfabeto.<br><br></li> <li>Esta matriz encriptación debe ser inversible porque su inversa se usara <br>para desencriptar mas adelante.<br><br></li> <li>El determinante de la matriz tiene que ser un primo relativo al tamaño<br> de del alfabeto (26)<br><br></li> </ul> </html>");
+        hillPaso1Panel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 90, 310, 190));
+
+        jTabbedPane1.addTab("Paso 1 de 3", hillPaso1Panel);
+
+        hillPaso2Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton3.setText("Siguiente");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -134,36 +148,25 @@ public class HillPanel extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
+        hillPaso2Panel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 380, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(626, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(149, 149, 149))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(340, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(52, 52, 52))
-        );
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel8.setText("Paso 2: Vamos a encriptar");
+        hillPaso2Panel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        jTabbedPane1.addTab("Paso 2 de 3", jPanel2);
+        jLabel9.setText("Supongamos que queremos encriptar \"TOP SECRET MESSAGE\"");
+        hillPaso2Panel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 852, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 415, Short.MAX_VALUE)
-        );
+        jLabel10.setText("<html> <ul> <li>Separamos el texto en bloques de n=2 (ignorando espacios)<br><br></li> <li>Detarminarmos el valor numerico de cada letra y los alineamos <br>como vectores columnas.<br><br></li> <li>Multiplicamos cada uno de estos vectores por la matriz de encriptacion y <br>tomamos modulo 26 del resultado.<br><br></li> <li>Convertimos cada unos de los vectores obtenidos en vectores alfabeticos <br>y los combinamos para formar el texto cifrado.<br><br></li> </ul> </html>");
+        hillPaso2Panel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 320, 260));
+
+        jTabbedPane1.addTab("Paso 2 de 3", hillPaso2Panel);
+
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel6.setText("Paso 3: Desencriptando");
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jTabbedPane1.addTab("Paso 3 de 3", jPanel3);
 
@@ -186,7 +189,7 @@ public class HillPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jTabbedPane1)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -209,16 +212,23 @@ public class HillPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel IntroHillPanel;
+    private javax.swing.JPanel hillPaso1Panel;
+    private javax.swing.JPanel hillPaso2Panel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel lblHeaderPaso1;
     // End of variables declaration//GEN-END:variables
 }
