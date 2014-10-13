@@ -1,21 +1,19 @@
+package ar.com.hardcodeando.algorithm;
+
 /**
  *
  * CLASE: MD5
- *
- * DESCRIPCION:
- *    Esta es una clase que encapsula un conjunto de funciones MD5 Message Digest.
- *    El algoritmo MD5 produce una huella digital de 128 bits (firma) de un conjunto de datos de longitud arbitraria.
- *     
+ *  Esta clase encapsula un conjunto de funciones MD5 Message Digest.
+ *         
  *    Resumen
  * 		El algoritmo MD5 est� pensado para aplicaciones de firma digital en un archivo de gran tama�o debe ser "comprimido" de manera segura
  * 		antes de ser cifrado con una clave privada (secreta) en virtud de un sistema de cifrado de clave p�blica como RSA. 
  * 		El algoritmo MD5 est� dise�ado para ser muy r�pido en m�quinas de 32 bits. 
- * 		MD5 es un poco m�s lento que MD4, pero es m�s "conservador" en el dise�o. 
 */
 
 import java.io.*;
 
-class MD52 {
+class MD5 {
 	/*Desplazamientos antes de cada ronda*/
 	private static long S11 = 7L;
 	private static long S12 = 12L;
@@ -44,7 +42,7 @@ class MD52 {
 	private long lngByteCount = 0;
 	private static int pasos = 1;
 	
-	MD52() {
+	MD5() {
 		this.init();
 	}
 
@@ -318,7 +316,7 @@ class MD52 {
 
 	/**	Paso 3: Proceso de reducci�n
 		Se utiliza un registro de 128 bits que almacena y mantiene los resultados intermedios y final de la funci�n hash. 
-		El registro se divide en cuatro secciones de 32 bits cada una (A, B, C y D)	que son inicializadas con valores hexadecimales
+		El registro se divide en cuatro secciones de 32 bits cada una (A, B, C y D) que son inicializadas con valores hexadecimales
 	 */
 	public void init() {
 		this.lngByteCount = 0;
@@ -332,10 +330,10 @@ class MD52 {
  	public static void main(String args[]) throws IOException {
 
 		char chrTestData[] = new char[64];
-		MD52 md5Test = new MD52();
+		MD5 md5Test = new MD5();
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("Ingresar cantidad de pasos (1, 4, 16, o 64)");
+		System.out.println("Ingresar cantidad de pasos (1, 4, 16)");
 		pasos = Integer.valueOf(br.readLine());
 		System.out.println("Ingresar String");
 		String strTestData = br.readLine();

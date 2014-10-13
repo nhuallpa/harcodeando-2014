@@ -6,15 +6,7 @@
 package ar.com.hardcodeando.ui;
 
 import java.awt.BorderLayout;
-import java.awt.CardLayout;
-import java.awt.Container;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.JComponent;
 
 /**
  *
@@ -22,10 +14,6 @@ import javax.swing.JTextField;
  */
 public class MainFrameUI extends javax.swing.JFrame {
 
-    JPanel cards;
-    final static String BUTTONPANEL = "Card with JButtons";
-    final static String TEXTPANEL = "Card with JTextField";
-    
     /**
      * Creates new form MainFrameUI
      */
@@ -261,11 +249,24 @@ public class MainFrameUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void jMenuItem12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem12MouseClicked
-         
+
     }//GEN-LAST:event_jMenuItem12MouseClicked
 
     private void jMenuItem12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem12MousePressed
-       
+        
+        if(this.md5panel==null){
+            this.md5panel = new MD5Panel();       
+        }
+        if(this.currentComponent!=null){
+            this.remove(this.currentComponent);
+        }
+        
+        this.currentComponent=md5panel;
+        this.setLayout(new BorderLayout());
+        this.add(this.currentComponent, BorderLayout.CENTER);
+        this.pack();
+        this.setVisible(true);
+        jLabel1.setVisible(false);
     }//GEN-LAST:event_jMenuItem12MousePressed
 
     private void menu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu1ActionPerformed
@@ -278,9 +279,16 @@ public class MainFrameUI extends javax.swing.JFrame {
 
     private void jMenuItem4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem4MousePressed
         
-        HillPanel hpanel = new HillPanel();       
-        this.setLayout(new BorderLayout());            
-        this.add(hpanel, BorderLayout.CENTER);        
+        if(this.hpanel==null){
+            this.hpanel = new HillPanel();       
+        }
+        if(this.currentComponent!=null){
+            this.remove(this.currentComponent);
+        }
+        this.setLayout(new BorderLayout());
+        this.currentComponent=hpanel;
+        
+        this.add(this.currentComponent, BorderLayout.CENTER);        
         this.pack();
         this.setVisible(true);
         jLabel1.setVisible(false);
@@ -341,8 +349,11 @@ public class MainFrameUI extends javax.swing.JFrame {
         });
     }
 
-    private HillPanel hillPanel;
-    private DesPanel desPanel;
+    private HillPanel hpanel=null;
+    private MD5Panel md5panel=null;
+    private DesPanel despanel=null;
+    private JComponent currentComponent=null;
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
