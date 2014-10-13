@@ -101,14 +101,14 @@ public class HillPanel extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        IntroHillPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 380, -1, -1));
+        IntroHillPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 360, -1, -1));
 
         jLabel2.setText("Hill Cipher es un algoritmo de encriptacion basado en algebra lineal, el cual toma el alfabeto de 26 letras como un espacio lineal.");
         IntroHillPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 750, -1));
 
         jLabel3.setText("<html>Para encriptar o desencriptar, el algoritmo asigna <br> valores numericos al alfabeto. <br><br> Para el aprendizaje de este algoritmos por tres pasos.<br><br> <strong>Paso 1</strong>: Se explicara el procedimiento y las condiciones <br> necesarias para armar una clave.<br><br> <strong>Paso 2</strong>: Se utilizara la clave obtenida para encriptar <br>un mensaje de ejemplo.<br><br> <strong>Paso 3</strong>: Se calculara otra clave para desencriptar <br> un mensaje un mesaje secreto<br><br> </html>");
         jLabel3.setDoubleBuffered(true);
-        IntroHillPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 330, 230));
+        IntroHillPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 330, 250));
         jLabel3.getAccessibleContext().setAccessibleName("");
         jLabel3.getAccessibleContext().setAccessibleDescription("");
 
