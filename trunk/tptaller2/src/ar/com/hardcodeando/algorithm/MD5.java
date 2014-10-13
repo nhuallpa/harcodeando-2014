@@ -1,15 +1,9 @@
 package ar.com.hardcodeando.algorithm;
 
 /**
- *
- * CLASE: MD5
+ *  MD5
  *  Esta clase encapsula un conjunto de funciones MD5 Message Digest.
- *         
- *    Resumen
- * 		El algoritmo MD5 est� pensado para aplicaciones de firma digital en un archivo de gran tama�o debe ser "comprimido" de manera segura
- * 		antes de ser cifrado con una clave privada (secreta) en virtud de un sistema de cifrado de clave p�blica como RSA. 
- * 		El algoritmo MD5 est� dise�ado para ser muy r�pido en m�quinas de 32 bits. 
-*/
+ */
 
 import java.io.*;
 
