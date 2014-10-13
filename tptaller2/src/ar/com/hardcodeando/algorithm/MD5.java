@@ -51,11 +51,12 @@ class MD5 {
 	}
 
 	/**
-	 * Funci�n de compresi�n: consta de cuatro rondas; cada una utiliza operaciones distintas durante 16 iteraciones; 
-	 * cada operaci�n realiza una funci�n no lineal sobre tres de las variables a, b, c y d, y el resultado es sumado a la cuarta variable 
-	 * que no fue elegida, un sub-bloque del texto y una constante.
-	 * A ese resultado se le aplica una rotaci�n circular a la izquierda un n�mero variable de bits y se suma el resultado
-	 * a una de las variables a, b, c o d. Finalmente el resultado reemplaza a una de las variables a, b, c o d. 
+	 * Funcion de compresion: son cuatro rondas con operaciones distintas durante 16 iteraciones; 
+	 * cada operacion realiza una funcion no lineal sobre tres de las variables a, b, c y d, y el resultado 
+         * es sumado a la cuarta variable que no fue elegida, un sub-bloque del texto y una constante.
+	 * A ese resultado se le aplica una rotacion circular a la izquierda un numero variable de bits y se suma
+         * el resultado a una de las variables a, b, c o d. 
+         * Finalmente el resultado reemplaza a una de las variables a, b, c o d. 
 	 * La salida de la cuarta ronda se suma a la entrada de la primera.
 	 * */
 	private static void transform(long lngState[], char bytBlock[]) {
@@ -188,7 +189,7 @@ class MD5 {
 		if (pasos == 1 || pasos == 4 || pasos == 16) {
 			System.out.println("II A " + lngA + "II D " + lngD + "II C " + lngC + "II B " + lngB);
 		}
-		 /* Este es el incremento de cada uno de los cuatro registros por el valor que ten�an antes de que
+        /* Este es el incremento de cada uno de los cuatro registros por el valor que tenian antes de que
 	    este bloque fuera inicializado.	 */
 		lngState[0] = (lngState[0] + lngA) & 0xFFFFFFFFL; //A = A + AA
 		lngState[1] = (lngState[1] + lngB) & 0xFFFFFFFFL; //B = B + BB
@@ -308,9 +309,11 @@ class MD5 {
 		return (mystring);
 	}
 
-	/**	Paso 3: Proceso de reducci�n
-		Se utiliza un registro de 128 bits que almacena y mantiene los resultados intermedios y final de la funci�n hash. 
-		El registro se divide en cuatro secciones de 32 bits cada una (A, B, C y D) que son inicializadas con valores hexadecimales
+	/**	Paso 3: Proceso de reduccion
+		Se utiliza un registro de 128 bits que almacena y mantiene los resultados intermedios y final 
+                de la funcion hash. 
+		El registro se divide en cuatro secciones de 32 bits cada una (A, B, C y D) que son inicializadas
+                con valores hexadecimales
 	 */
 	public void init() {
 		this.lngByteCount = 0;
@@ -336,19 +339,5 @@ class MD5 {
 		md5Test.md5final();
 		System.out.println("MD5 (" + strTestData + ") = " + md5Test.toHexString());
 
-//    md5Test.init();
-//    strTestData = new String("a");
-//    chrTestData = strTestData.toCharArray();    
-//    md5Test.update(chrTestData,chrTestData.length);    
-//    md5Test.md5final();
-//    System.out.println("MD5 (" + strTestData +") = " + md5Test.toHexString() );
-//
-//    md5Test.init();
-//    strTestData = new String("message digest");
-//    chrTestData = strTestData.toCharArray();    
-//    md5Test.update(chrTestData,chrTestData.length);    
-//    md5Test.md5final();
-//    System.out.println("MD5 (" + strTestData +") = " + md5Test.toHexString() );
-//
 	}
 }
