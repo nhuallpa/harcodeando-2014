@@ -66,6 +66,7 @@ public class MainFrameUI extends javax.swing.JFrame {
         menuBar1.add(menu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(860, 540));
 
         jLabel1.setText("Para comenzar, seleccione un algoritmo del menú");
 
@@ -303,9 +304,16 @@ public class MainFrameUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuItem8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem8MousePressed
-        DesPanel dpanel = new DesPanel();       
-        this.setLayout(new BorderLayout());            
-        this.add(dpanel, BorderLayout.CENTER);        
+        if(this.dpanel==null){
+            this.dpanel = new DesPanel();       
+        }
+        if(this.currentComponent!=null){
+            this.remove(this.currentComponent);
+        }
+        this.setLayout(new BorderLayout());
+        this.currentComponent=dpanel;
+        
+        this.add(this.currentComponent, BorderLayout.CENTER);        
         this.pack();
         this.setVisible(true);
         jLabel1.setVisible(false);
@@ -351,7 +359,7 @@ public class MainFrameUI extends javax.swing.JFrame {
 
     private HillPanel hpanel=null;
     private MD5Panel md5panel=null;
-    private DesPanel despanel=null;
+    private DesPanel dpanel=null;
     private JComponent currentComponent=null;
     
     
