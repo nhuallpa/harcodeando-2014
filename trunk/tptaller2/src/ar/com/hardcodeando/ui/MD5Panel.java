@@ -5,6 +5,15 @@
  */
 package ar.com.hardcodeando.ui;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author estefi
@@ -16,6 +25,15 @@ public class MD5Panel extends javax.swing.JPanel {
      */
     public MD5Panel() {
         initComponents();
+        
+        BufferedImage compresionAlgoritmo;
+        try {
+            compresionAlgoritmo = ImageIO.read(new File("./res/funcionCompresionMd5.png"));
+            JLabel picCompresionAlgo = new JLabel(new ImageIcon(compresionAlgoritmo));
+            panelPaso4.add(picCompresionAlgo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 394, 172));
+        } catch (IOException ex) {
+            Logger.getLogger(MD5Panel.class.getName()).log(Level.SEVERE, null, ex);
+        }
         jTabbedPane1.setEnabledAt(1, false);
         jTabbedPane1.setEnabledAt(2, false);
         jTabbedPane1.setEnabledAt(3, false);
@@ -40,7 +58,7 @@ public class MD5Panel extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
+        panelPaso1 = new javax.swing.JPanel();
         lblHeaderPaso3 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -48,20 +66,29 @@ public class MD5Panel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
+        panelPaso2 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        panelPaso3 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        panelPaso4 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        panelPaso5 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(846, 519));
@@ -98,14 +125,14 @@ public class MD5Panel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Introducción", IntroMD5);
 
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelPaso1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblHeaderPaso3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblHeaderPaso3.setText("Paso 1: Adición de bits");
-        jPanel6.add(lblHeaderPaso3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        panelPaso1.add(lblHeaderPaso3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jLabel10.setText("<html> <ul> <li>Convertimos cada caracter del mensaje a su valor binario.<br><br></li> </ul> </html>");
-        jPanel6.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 330, 40));
+        panelPaso1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 330, 40));
 
         jButton1.setText("Siguiente");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -118,28 +145,28 @@ public class MD5Panel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 350, -1, -1));
+        panelPaso1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 350, -1, -1));
 
         jLabel2.setText("Supongamos que queremos encriptar el mensaje \"TOP SECRET MESSAGE\"");
-        jPanel6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+        panelPaso1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
         jLabel3.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.highlight"));
         jLabel3.setText("<html><div style=\"background-color: white;\">01010100 01001111 01010000 00100000 01010011 01000101 <br>01000011 01010010 01000101 01010100 00100000 01001101 <br>01000101 01010011 01010011 01000001 01000111 01000101 <br>10000000 00000000 00000000 00000000 00000000 00000000 <br>00000000 00000000 00000000 00000000 00000000 00000000<br> 00000000 00000000 00000000 00000000 00000000 00000000 <br>00000000 00000000 00000000 00000000 00000000 00000000 <br>00000000 00000000 00000000 00000000 00000000 00000000 <br>00000000 00000000 00000000 00000000 00000000 00000000 <br>00000000 00000000 00000000 00000000 00000000 00000000<br> 00000000 00000000 00000000 </html>");
-        jPanel6.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 430, 170));
+        panelPaso1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 430, 170));
 
         jLabel35.setText("<html> <ul> <li>Se rellena el mensaje transformado con 0's y 1's de tal manera que sea 448 mod 512 bits de longitud.<br></li> <br><li> Necesitaremos \"448 - LongitudMensaje\" bits. <br>En este caso: 448 - 144 = 304 bits</li><br><li> Completamos la primer posición con el valor 1 y las restantes las completamos con ceros. </li> <br> </ul> </html> ");
-        jPanel6.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 380, 130));
+        panelPaso1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 380, 130));
 
         jLabel4.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.highlight"));
         jLabel4.setText("<html><div style=\"background-color: white;\">01010100 01001111 01010000 00100000 01010011 01000101 <br>01000011 01010010 01000101 01010100 00100000 01001101 <br>01000101 01010011 01010011 01000001 01000111 01000101 </html></html>");
-        jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 410, 90));
+        panelPaso1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 410, 90));
 
-        jTabbedPane1.addTab("Paso 1 de 5", jPanel6);
+        jTabbedPane1.addTab("Paso 1 de 5", panelPaso1);
 
         jLabel32.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel32.setText("Paso 2: Longitud del mensaje");
 
-        jLabel34.setText("<html> <ul> <li>Al final se agrega un valor de 64 bits que representa la longitud original del mensaje. <br><br></li> </ul> </html>");
+        jLabel34.setText("<html> <ul> <li>Un entero de 64 bits que represente la longitud 'b' del mensaje (longitud antes de añadir los bits) se concatena al resultado del paso anterior. </li> <br><li>Si 'b' es mayor que 2^64, entonces sólo se usarán los 64 bits de menor peso de 'b'</li><br><li>El mensaje resultante (después de rellenar con los bits y con 'b') tiene una longitud que es un múltiplo exacto de 512 bits.</li><br><li>A su vez, la longitud del mensaje es múltiplo de 16 palabras (32 bits por palabra)</li></ul> </html>");
 
         jButton2.setText("Siguiente");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -148,42 +175,53 @@ public class MD5Panel extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel32)
+        jLabel6.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.highlight"));
+        jLabel6.setText("<html><div style=\"background-color: white;\">01010100 01001111 01010000 00100000 01010011 01000101 <br>01000011 01010010 01000101 01010100 00100000 01001101 <br>01000101 01010011 01010011 01000001 01000111 01000101 <br>10000000 00000000 00000000 00000000 00000000 00000000 <br>00000000 00000000 00000000 00000000 00000000 00000000<br> 00000000 00000000 00000000 00000000 00000000 00000000 <br>00000000 00000000 00000000 00000000 00000000 00000000 <br>00000000 00000000 00000000 00000000 00000000 00000000 <br>00000000 00000000 00000000 00000000 00000000 00000000 <br>00000000 00000000 00000000 00000000 00000000 00000000<br> 00000000 00000000 00000000 10010000</html>");
+
+        javax.swing.GroupLayout panelPaso2Layout = new javax.swing.GroupLayout(panelPaso2);
+        panelPaso2.setLayout(panelPaso2Layout);
+        panelPaso2Layout.setHorizontalGroup(
+            panelPaso2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPaso2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(112, 112, 112))
+            .addGroup(panelPaso2Layout.createSequentialGroup()
+                .addGroup(panelPaso2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPaso2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelPaso2Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel32)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(406, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(280, 280, 280))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(147, 147, 147))))
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        panelPaso2Layout.setVerticalGroup(
+            panelPaso2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPaso2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel32)
-                .addGap(25, 25, 25)
-                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(25, 25, 25))
+                .addGroup(panelPaso2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPaso2Layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2)
+                        .addContainerGap())
+                    .addGroup(panelPaso2Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(83, Short.MAX_VALUE))))
         );
 
-        jTabbedPane1.addTab("Paso 2 de 5", jPanel7);
+        jTabbedPane1.addTab("Paso 2 de 5", panelPaso2);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel14.setText("Paso 3: Inicialización del búffer");
 
-        jLabel28.setText("<html>Se utiliza un buffer de 128 bits (4 registros) para mantener el resultado intermedio y final de la función hash. <br>Estos se inicializan con los siguientes valores:<br> A = 67452301    ;   B = EFCDAB89   ;   C = 98BADCFE  ; D = 10325476b <br>Se pasa el mensaje en bloques de 512 bits a través de la función de compresión</html>");
+        jLabel28.setText("<html>Se utiliza un registro de 128 bits (4 registros) que permite almacenar y mantener los resultados intermedios y final de la función hash. <br>El registro se divide en cuatro secciones de 32 bits cada una, las cuales corresponden a las variables A, B, C, y D que son inicializadas con los valores hexadecimales:<ul><li>A = 67452301</li><li>B = EFCDAB89</li><li>C = 98BADCFE</li><li>D = 10325476</li></ul></html>");
 
         jButton4.setText("Siguiente");
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -192,39 +230,47 @@ public class MD5Panel extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
-                .addContainerGap(54, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+        jLabel8.setText("En este paso se da inicio al proceso de reducción");
+
+        jLabel17.setText("<html>El mensaje se procesa en bloques de 512 bits a la vez a través de 16 bloques de 32 bits cada uno, para lo cual las cuatro variables de concatenación se copian en variables distintas: <br>a=A; b=B; c=C; d=D</html>");
+
+        javax.swing.GroupLayout panelPaso3Layout = new javax.swing.GroupLayout(panelPaso3);
+        panelPaso3.setLayout(panelPaso3Layout);
+        panelPaso3Layout.setHorizontalGroup(
+            panelPaso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPaso3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton4)
-                .addGap(285, 285, 285))
+                .addGap(84, 84, 84))
+            .addGroup(panelPaso3Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(panelPaso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 765, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        panelPaso3Layout.setVerticalGroup(
+            panelPaso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPaso3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel14)
-                .addGap(35, 35, 35)
-                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton4)
-                .addGap(24, 24, 24))
+                .addGap(22, 22, 22))
         );
 
-        jTabbedPane1.addTab("Paso 3 de 5", jPanel4);
+        jTabbedPane1.addTab("Paso 3 de 5", panelPaso3);
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel26.setText("Paso 4: Procesamiento del mensaje");
-
-        jLabel27.setText("<html>Después de que todos los bloques de 512 bits se han procesado se produce un message digest de 128 bits, <br>que es una función de todos los bits de su mensaje. </html>");
 
         jButton5.setText("Siguiente");
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -233,54 +279,106 @@ public class MD5Panel extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton5)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel26)))
-                .addContainerGap(111, Short.MAX_VALUE))
+        jLabel11.setIcon(new javax.swing.ImageIcon("/media/linuxSto/home/estefi/NetBeansProjects/tptaller2/res/funcionCompresionMd5.png")); // NOI18N
+
+        jLabel16.setText("<html> <ul> <li>Cada ronda utiliza operaciones distintas durante 16 iteraciones</li><li>Cada operación realiza una función no lineal sobre tres de las variables a, b, c y d, y el resultado es sumado a la cuarta variable que no fue elegida, un sub-bloque del texto y una constante</li><li>A ese resultado se le aplica una rotación circular a la izquierda un número variable de bits y se suma el resultado a una de las variables a, b, c o d</li><li> Finalmente el resultado reemplaza a una de las variables a, b, c o d.</li><li>La salida de la cuarta ronda se suma a la entrada de la primera en una operación modular 2^32</li></ul> </html>");
+
+        jLabel19.setText("La base del algoritmo es una función de compresión que consta de cuatro rondas de estructura similar");
+
+        javax.swing.GroupLayout panelPaso4Layout = new javax.swing.GroupLayout(panelPaso4);
+        panelPaso4.setLayout(panelPaso4Layout);
+        panelPaso4Layout.setHorizontalGroup(
+            panelPaso4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPaso4Layout.createSequentialGroup()
+                .addGroup(panelPaso4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPaso4Layout.createSequentialGroup()
+                        .addGroup(panelPaso4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelPaso4Layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(jLabel27))
+                            .addGroup(panelPaso4Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel11)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelPaso4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPaso4Layout.createSequentialGroup()
+                                .addComponent(jButton5)
+                                .addGap(63, 63, 63))))
+                    .addGroup(panelPaso4Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel26))
+                    .addGroup(panelPaso4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel19)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        panelPaso4Layout.setVerticalGroup(
+            panelPaso4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPaso4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel26)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel27)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 249, Short.MAX_VALUE)
-                .addComponent(jButton5)
-                .addGap(42, 42, 42))
+                .addGroup(panelPaso4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPaso4Layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(panelPaso4Layout.createSequentialGroup()
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton5)))
+                .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Paso 4 de 5", jPanel1);
+        jTabbedPane1.addTab("Paso 4 de 5", panelPaso4);
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel25.setText("Paso 5: Hash o resumen del mensaje");
+        jLabel25.setText("Paso 5: Salida: message digest o resumen del mensaje");
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel25)
-                .addContainerGap(436, Short.MAX_VALUE))
+        jLabel29.setText("<html>Al final de todos los ciclos, a, b, c y d son sumados a A, B, C y D respectivamente y el algoritmo continúa con el siguiente bloque de datos. Y después de que todos los bloques de 512 bits (cada uno) han sido procesados se obtiene la salida final, esto es, la concatenación de A, B, C y D que produce un bloque de 128 bits, llamado message digest o resumen del mensaje, que es una función de todos los bits de su mensaje. </html>");
+
+        jLabel13.setText("<html><div style=\"background-color: white;\"><b>b492968132cf0247ae0da7daf1e27967</b></html>");
+
+        jLabel18.setText("Para el ejemplo: \"TOP SECRET MESSAGE\", obtenemos el siguiente resumen:");
+
+        javax.swing.GroupLayout panelPaso5Layout = new javax.swing.GroupLayout(panelPaso5);
+        panelPaso5.setLayout(panelPaso5Layout);
+        panelPaso5Layout.setHorizontalGroup(
+            panelPaso5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPaso5Layout.createSequentialGroup()
+                .addGroup(panelPaso5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPaso5Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(panelPaso5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 781, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelPaso5Layout.createSequentialGroup()
+                        .addGap(274, 274, 274)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelPaso5Layout.createSequentialGroup()
+                        .addGap(179, 179, 179)
+                        .addComponent(jLabel18)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        panelPaso5Layout.setVerticalGroup(
+            panelPaso5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPaso5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel25)
-                .addContainerGap(356, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(jLabel18)
+                .addGap(42, 42, 42)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(140, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Paso 5 de 5", jPanel5);
+        jTabbedPane1.addTab("Paso 5 de 5", panelPaso5);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("MD5");
@@ -326,15 +424,15 @@ public class MD5Panel extends javax.swing.JPanel {
         jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_jButton1MousePressed
 
-    private void jButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MousePressed
-        jTabbedPane1.setEnabledAt(3, true);
-        jTabbedPane1.setSelectedIndex(3);
-    }//GEN-LAST:event_jButton2MousePressed
-
     private void jButton4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MousePressed
         jTabbedPane1.setEnabledAt(4, true);
         jTabbedPane1.setSelectedIndex(4);
     }//GEN-LAST:event_jButton4MousePressed
+
+    private void jButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MousePressed
+        jTabbedPane1.setEnabledAt(3, true);
+        jTabbedPane1.setSelectedIndex(3);
+    }//GEN-LAST:event_jButton2MousePressed
 
     private void jButton5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MousePressed
         jTabbedPane1.setEnabledAt(5, true);
@@ -350,28 +448,37 @@ public class MD5Panel extends javax.swing.JPanel {
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblHeaderPaso3;
+    private javax.swing.JPanel panelPaso1;
+    private javax.swing.JPanel panelPaso2;
+    private javax.swing.JPanel panelPaso3;
+    private javax.swing.JPanel panelPaso4;
+    private javax.swing.JPanel panelPaso5;
     // End of variables declaration//GEN-END:variables
 }
