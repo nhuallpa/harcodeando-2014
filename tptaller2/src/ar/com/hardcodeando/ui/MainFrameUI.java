@@ -8,6 +8,15 @@ package ar.com.hardcodeando.ui;
 import java.awt.BorderLayout;
 import javax.swing.JComponent;
 
+import java.awt.Dimension;
+
+import javax.swing.BoxLayout;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.BevelBorder;
+
 /**
  *
  * @author Nestor
@@ -19,6 +28,16 @@ public class MainFrameUI extends javax.swing.JFrame {
      */
     public MainFrameUI() {
         initComponents();
+        JPanel statusPanel = new JPanel();
+        statusPanel.setBorder(new BevelBorder(BevelBorder.LOWERED));
+        this.add(statusPanel, BorderLayout.SOUTH);
+        statusPanel.setPreferredSize(new Dimension(this.getWidth(), 16));
+        statusPanel.setLayout(new BoxLayout(statusPanel, BoxLayout.X_AXIS));
+        JLabel statusLabel = new JLabel("status");
+        statusLabel.setHorizontalAlignment(SwingConstants.LEFT);
+        statusPanel.add(statusLabel);
+        
+        this.setSize(new Dimension(1024, 700));
     }
    
    
@@ -35,7 +54,6 @@ public class MainFrameUI extends javax.swing.JFrame {
         menu1 = new java.awt.Menu();
         menu2 = new java.awt.Menu();
         jLayeredPane1 = new javax.swing.JLayeredPane();
-        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
@@ -68,25 +86,9 @@ public class MainFrameUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(860, 540));
 
-        jLabel1.setText("Para comenzar, seleccione un algoritmo del menú");
-
-        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
-        jLayeredPane1.setLayout(jLayeredPane1Layout);
-        jLayeredPane1Layout.setHorizontalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addGap(122, 122, 122)
-                .addComponent(jLabel1)
-                .addContainerGap(643, Short.MAX_VALUE))
-        );
-        jLayeredPane1Layout.setVerticalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addComponent(jLabel1)
-                .addContainerGap(400, Short.MAX_VALUE))
-        );
-        jLayeredPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setMinimumSize(new java.awt.Dimension(800, 600));
+        jLayeredPane1.setLayout(new java.awt.BorderLayout());
+        getContentPane().add(jLayeredPane1, java.awt.BorderLayout.CENTER);
 
         jMenu3.setText("Algoritmos");
 
@@ -207,21 +209,6 @@ public class MainFrameUI extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -263,11 +250,11 @@ public class MainFrameUI extends javax.swing.JFrame {
         }
         
         this.currentComponent=md5panel;
-        this.setLayout(new BorderLayout());
+        //this.setLayout(new BorderLayout());
         this.add(this.currentComponent, BorderLayout.CENTER);
         this.pack();
         this.setVisible(true);
-        jLabel1.setVisible(false);
+        //jLabel1.setVisible(false);
     }//GEN-LAST:event_jMenuItem12MousePressed
 
     private void menu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu1ActionPerformed
@@ -286,13 +273,13 @@ public class MainFrameUI extends javax.swing.JFrame {
         if(this.currentComponent!=null){
             this.remove(this.currentComponent);
         }
-        this.setLayout(new BorderLayout());
+        //this.setLayout(new BorderLayout());
         this.currentComponent=hpanel;
         
         this.add(this.currentComponent, BorderLayout.CENTER);        
         this.pack();
         this.setVisible(true);
-        jLabel1.setVisible(false);
+        //jLabel1.setVisible(false);
     }//GEN-LAST:event_jMenuItem4MousePressed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
@@ -310,13 +297,13 @@ public class MainFrameUI extends javax.swing.JFrame {
         if(this.currentComponent!=null){
             this.remove(this.currentComponent);
         }
-        this.setLayout(new BorderLayout());
+        //this.setLayout(new BorderLayout());
         this.currentComponent=dpanel;
         
         this.add(this.currentComponent, BorderLayout.CENTER);        
         this.pack();
         this.setVisible(true);
-        jLabel1.setVisible(false);
+        //jLabel1.setVisible(false);
     }//GEN-LAST:event_jMenuItem8MousePressed
 
 
@@ -364,7 +351,6 @@ public class MainFrameUI extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
