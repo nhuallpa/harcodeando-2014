@@ -165,6 +165,11 @@ public class MainFrameUI extends javax.swing.JFrame {
         jMenu6.setText("RSA");
 
         jMenuItem10.setText("Aprender");
+        jMenuItem10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenuItem10MousePressed(evt);
+            }
+        });
         jMenu6.add(jMenuItem10);
 
         jMenuItem11.setText("Autoevaluar");
@@ -306,6 +311,19 @@ public class MainFrameUI extends javax.swing.JFrame {
         //jLabel1.setVisible(false);
     }//GEN-LAST:event_jMenuItem8MousePressed
 
+    private void jMenuItem10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem10MousePressed
+        if(this.rpanel == null){
+            this.rpanel = new RSAPanel();
+        }
+        if(this.currentComponent!=null){
+            this.remove(this.currentComponent);
+        }
+        this.currentComponent = rpanel;
+        this.add(this.currentComponent, BorderLayout.CENTER);        
+        this.pack();
+        this.setVisible(true);
+    }//GEN-LAST:event_jMenuItem10MousePressed
+
 
     
     /**
@@ -347,6 +365,7 @@ public class MainFrameUI extends javax.swing.JFrame {
     private HillPanel hpanel=null;
     private MD5Panel md5panel=null;
     private DesPanel dpanel=null;
+    private RSAPanel rpanel = null;
     private JComponent currentComponent=null;
     
     
