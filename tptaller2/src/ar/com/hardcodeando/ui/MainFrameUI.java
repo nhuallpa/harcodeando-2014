@@ -54,6 +54,7 @@ public class MainFrameUI extends javax.swing.JFrame {
         menu1 = new java.awt.Menu();
         menu2 = new java.awt.Menu();
         jLayeredPane1 = new javax.swing.JLayeredPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
@@ -88,6 +89,8 @@ public class MainFrameUI extends javax.swing.JFrame {
 
         jLayeredPane1.setMinimumSize(new java.awt.Dimension(800, 600));
         jLayeredPane1.setLayout(new java.awt.BorderLayout());
+        jLayeredPane1.add(jScrollPane1, java.awt.BorderLayout.LINE_END);
+
         getContentPane().add(jLayeredPane1, java.awt.BorderLayout.CENTER);
 
         jMenu3.setText("Algoritmos");
@@ -388,6 +391,7 @@ public class MainFrameUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JScrollPane jScrollPane1;
     private java.awt.Menu menu1;
     private java.awt.Menu menu2;
     private java.awt.MenuBar menuBar1;
