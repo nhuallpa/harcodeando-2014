@@ -21,14 +21,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="381" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" pref="915" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jTabbedPane1" pref="924" max="32767" attributes="0"/>
+                  <Component id="jLabel1" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -39,8 +37,8 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" pref="738" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="420" max="-2" attributes="0"/>
+              <Component id="jTabbedPane1" pref="937" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -99,7 +97,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="150" max="32767" attributes="0"/>
+                      <EmptySpace pref="217" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -176,7 +174,7 @@
                               <Component id="jButton3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="99" max="32767" attributes="0"/>
+                      <EmptySpace pref="287" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -268,7 +266,7 @@
                           </Group>
                           <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="99" max="32767" attributes="0"/>
+                      <EmptySpace pref="287" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -349,10 +347,11 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButton5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="59" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -414,7 +413,7 @@
                       <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jButton6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="283" max="32767" attributes="0"/>
+                      <EmptySpace pref="406" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -506,7 +505,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButton7" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="170" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -521,7 +520,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel20">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;body&gt;Los siguientes pasos se repetir&amp;aacute;n sistem&amp;aacute;ticamente para cada uno de los 16 pasos del algoritmo:&lt;ul&gt;&lt;li&gt;Expandir R(i-1) de 32 a 48 bits de acuerdo con la tabla que se muestra debajo&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;body&gt;Los siguientes pasos se repetir&amp;aacute;n sistem&amp;aacute;ticamente para cada uno de los 16 rondas del algoritmo:&lt;ul&gt;&lt;li&gt;Expandir R(i-1) de 32 a 48 bits de acuerdo con la tabla que se muestra debajo&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel21">
@@ -579,13 +578,11 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel27" pref="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="218" max="-2" attributes="0"/>
-                              <Component id="jLabel27" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="285" pref="288" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="278" max="32767" attributes="0"/>
                               <Component id="jButton8" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -605,7 +602,7 @@
                               <Component id="jButton8" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="99" max="32767" attributes="0"/>
+                      <EmptySpace pref="287" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -648,15 +645,47 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="916" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel13" pref="892" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="710" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="203" max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel13">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;body&gt;Partiendo de los bloques iniciales:&lt;br&gt; &lt;b&gt;L0 = 1100 1100 0000 0000 1100 1100 1111 1111&lt;/b&gt; y &lt;b&gt;R0 = 1111 0000 1010 1010 1111 0000 1010 1010&lt;/b&gt;&lt;br&gt;&lt;br&gt; Aplico la expansi&amp;oacute;n E al bloque R0, obteniendo:&lt;br&gt; &lt;b&gt;E(R0) = 011110 100001 010101 010101 011110 100001 010101 010101&lt;/b&gt;&lt;br&gt;&lt;br&gt; Al resultado de dicha expansi&amp;oacute;n, le aplico un OR-exclusivo con la clave K(i) obtenida anteriormente, en este caso:&lt;br&gt; &lt;b&gt;K(1) = 000110 110000 001011 101111 111111 000111 000001 110010&lt;/b&gt;&lt;br&gt; Quedando finalmente: &lt;br&gt; &lt;b&gt;K1 (+) E(R0) = 011000 010001 011110 111010 100001 100110 010100 100111&lt;/b&gt;&lt;br&gt;&lt;br&gt; Ahora debo separar esos bits en 8 bloques de 6 bits cada uno, quedando para este caso:&lt;br&gt; &lt;b&gt;B1 = 011000 - B2 = 010001 - B3 = 011110 - B4 = 111010  - B5 = 100001 - B6 = 100110 - B7 = 010100 y B8 = 100111&lt;/b&gt;&lt;br&gt;&lt;br&gt; A cada uno de estos bloques debo aplicarles una de las S-Cajas descritas anteriormente, para ello: tomar los bits 1&#xba; y 6&#xba; de B(j) y formar un n&amp;uacute;mero de 2 bits que llamaremos m. Este valor nos indicar&amp;aacute; la fila en la tabla de sustituci&amp;oacute;n correspondiente S(j). Obs&amp;eacute;rvese que m=0 representa la 1&#xaa; fila y m=3 la &#xfa;ltima.&lt;br&gt; En nuestro caso, para B1, &lt;b&gt;m = 0&lt;/b&gt;&lt;br&gt; Con los bits 2&#xba; a 5&#xba; de B(j) formar otro n&amp;uacute;mero, n, de cuatro bits que indicar&amp;aacute; la columna de S(j) en la que buscar el valor de sustituci&amp;oacute;n. En esta ocasi&amp;oacute;n n=0 representa la 1&#xaa; columna y n=15 la &amp;uacute;ltima columna.&lt;br&gt; En nuestro caso, para B1, &lt;b&gt;n = 12&lt;/b&gt;&lt;br&gt; Por ende, utilizando S1, el bloque B1 se reemplazara con el valor hayado en la coordenada 0,12 o sea el valor 5. Dicho valor debe ser escrito en 4 bits, o sea, el nuevo &lt;b&gt;B1 = 0101&lt;/b&gt;&lt;br&gt;&lt;br&gt; Siguiendo con el resto de los bloques, obtenemos:&lt;br&gt; &lt;b&gt;S1(B1)S2(B2)S3(B3)S4(B4)S5(B5)S6(B6)S7(B7)S8(B8) = 0101 1100 1000 0010 1011 0101 1001 0111&lt;/b&gt;&lt;br&gt;&lt;br&gt; A este resultado le aplico la permutaci&amp;oacute;n P y obtengo &lt;b&gt;0010 0011 0100 1010 1010 1001 1011 1011&lt;/b&gt;&lt;br&gt;&lt;br&gt; Luego, realizo un &amp;uacute;ltimo OR-exclusivo con el valor L0 inicial (que no fue modificado), obteniendo:&lt;br&gt; = 1100 1100 0000 0000 1100 1100 1111 1111&lt;br&gt; + 0010 0011 0100 1010 1010 1001 1011 1011&lt;br&gt; &lt;b&gt;= 1110 1111 0100 1010 0110 0101 0100 0100&lt;/b&gt;&lt;br&gt;&lt;br&gt; Este valor obtenido, es el nuevo R1, mientras que el R0 original pasa a ser el L1. Con dichos bloques, se inicia la siguiente ronda que repetir&amp;aacute; los mismos pasos. &lt;/body&gt;&lt;/html&gt;"/>
+                <Property name="verticalAlignment" type="int" value="1"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Siguiente"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Constraints>
@@ -670,50 +699,27 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jTextField1" max="32767" attributes="0"/>
-                              <Component id="jTextField3" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jLabel2" alignment="0" pref="263" max="32767" attributes="0"/>
+                          <Component id="jLabel2" pref="892" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="jButton9" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="523" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextField2" min="-2" pref="229" max="-2" attributes="0"/>
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="409" max="32767" attributes="0"/>
+                      <Component id="jButton9" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="203" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -721,45 +727,201 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ingrese el texto a cifrar (hexa)"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;body&gt;Partiendo de los bloques iniciales:&lt;br&gt; &lt;b&gt;L1 = 1100 1100 0000 0000 1100 1100 1111 1111&lt;/b&gt; y &lt;b&gt;R1 = 1111 0000 1010 1010 1111 0000 1010 1010&lt;/b&gt;&lt;br&gt;&lt;br&gt; Aplico la expansi&amp;oacute;n E al bloque R1, obteniendo:&lt;br&gt; &lt;b&gt;E(R1) = 011110 100001 010101 010101 011110 100001 010101 010101&lt;/b&gt;&lt;br&gt;&lt;br&gt; Al resultado de dicha expansi&amp;oacute;n, le aplico un OR-exclusivo con la clave K(i) obtenida anteriormente, en este caso:&lt;br&gt; &lt;b&gt;K(2) = 000110 110000 001011 101111 111111 000111 000001 110010&lt;/b&gt;&lt;br&gt; Quedando finalmente: &lt;br&gt; &lt;b&gt;K2 (+) E(R1) = 011000 010001 011110 111010 100001 100110 010100 100111&lt;/b&gt;&lt;br&gt;&lt;br&gt; Ahora debo separar esos bits en 8 bloques de 6 bits cada uno, quedando para este caso:&lt;br&gt; &lt;b&gt;B1 = 011000 - B2 = 010001 - B3 = 011110 - B4 = 111010  - B5 = 100001 - B6 = 100110 - B7 = 010100 y B8 = 100111&lt;/b&gt;&lt;br&gt;&lt;br&gt; A cada uno de estos bloques debo aplicarles una de las S-Cajas descritas anteriormente, para ello: tomar los bits 1&#xba; y 6&#xba; de B(j) y formar un n&amp;uacute;mero de 2 bits que llamaremos m. Este valor nos indicar&amp;aacute; la fila en la tabla de sustituci&amp;oacute;n correspondiente S(j). Obs&amp;eacute;rvese que m=0 representa la 1&#xaa; fila y m=3 la &#xfa;ltima.&lt;br&gt; En nuestro caso, para B1, &lt;b&gt;m = 0&lt;/b&gt;&lt;br&gt; Con los bits 2&#xba; a 5&#xba; de B(j) formar otro n&amp;uacute;mero, n, de cuatro bits que indicar&amp;aacute; la columna de S(j) en la que buscar el valor de sustituci&amp;oacute;n. En esta ocasi&amp;oacute;n n=0 representa la 1&#xaa; columna y n=15 la &amp;uacute;ltima columna.&lt;br&gt; En nuestro caso, para B1, &lt;b&gt;n = 12&lt;/b&gt;&lt;br&gt; Por ende, utilizando S1, el bloque B1 se reemplazara con el valor hayado en la coordenada 0,12 o sea el valor 5. Dicho valor debe ser escrito en 4 bits, o sea, el nuevo &lt;b&gt;B1 = 0101&lt;/b&gt;&lt;br&gt;&lt;br&gt; Siguiendo con el resto de los bloques, obtenemos:&lt;br&gt; &lt;b&gt;S1(B1)S2(B2)S3(B3)S4(B4)S5(B5)S6(B6)S7(B7)S8(B8) = 0101 1100 1000 0010 1011 0101 1001 0111&lt;/b&gt;&lt;br&gt;&lt;br&gt; A este resultado le aplico la permutaci&amp;oacute;n P y obtengo &lt;b&gt;0010 0011 0100 1010 1010 1001 1011 1011&lt;/b&gt;&lt;br&gt;&lt;br&gt; Luego, realizo un &amp;uacute;ltimo OR-exclusivo con el valor L1 inicial (que no fue modificado), obteniendo:&lt;br&gt; = 1100 1100 0000 0000 1100 1100 1111 1111&lt;br&gt; + 0010 0011 0100 1010 1010 1001 1011 1011&lt;br&gt; &lt;b&gt;= 1110 1111 0100 1010 0110 0101 0100 0100&lt;/b&gt;&lt;br&gt;&lt;br&gt; Este valor obtenido, es el nuevo R2, mientras que el R1 original pasa a ser el L2. Con dichos bloques, se inicia la siguiente ronda que repetir&amp;aacute; los mismos pasos. &lt;/body&gt;&lt;/html&gt;"/>
+                <Property name="verticalAlignment" type="int" value="1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JButton" name="jButton9">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ingrese la clave (hexa)"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField3">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField3ActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cifrar"/>
+                <Property name="text" type="java.lang.String" value="Siguiente"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseClicked"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton9ActionPerformed"/>
               </Events>
             </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel10">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Ronda 3">
+                <Property name="tabTitle" type="java.lang.String" value="Ronda 3"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel3" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="839" max="32767" attributes="0"/>
+                      <Component id="jButton10" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton10" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="203" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Resultado (hexa):"/>
-                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;body&gt;Partiendo de los bloques iniciales:&lt;br&gt; &lt;b&gt;L2 = 1100 1100 0000 0000 1100 1100 1111 1111&lt;/b&gt; y &lt;b&gt;R2 = 1111 0000 1010 1010 1111 0000 1010 1010&lt;/b&gt;&lt;br&gt;&lt;br&gt; Aplico la expansi&amp;oacute;n E al bloque R2, obteniendo:&lt;br&gt; &lt;b&gt;E(R2) = 011110 100001 010101 010101 011110 100001 010101 010101&lt;/b&gt;&lt;br&gt;&lt;br&gt; Al resultado de dicha expansi&amp;oacute;n, le aplico un OR-exclusivo con la clave K(i) obtenida anteriormente, en este caso:&lt;br&gt; &lt;b&gt;K(3) = 000110 110000 001011 101111 111111 000111 000001 110010&lt;/b&gt;&lt;br&gt; Quedando finalmente: &lt;br&gt; &lt;b&gt;K3 (+) E(R2) = 011000 010001 011110 111010 100001 100110 010100 100111&lt;/b&gt;&lt;br&gt;&lt;br&gt; Ahora debo separar esos bits en 8 bloques de 6 bits cada uno, quedando para este caso:&lt;br&gt; &lt;b&gt;B1 = 011000 - B2 = 010001 - B3 = 011110 - B4 = 111010  - B5 = 100001 - B6 = 100110 - B7 = 010100 y B8 = 100111&lt;/b&gt;&lt;br&gt;&lt;br&gt; A cada uno de estos bloques debo aplicarles una de las S-Cajas descritas anteriormente, para ello: tomar los bits 1&#xba; y 6&#xba; de B(j) y formar un n&amp;uacute;mero de 2 bits que llamaremos m. Este valor nos indicar&amp;aacute; la fila en la tabla de sustituci&amp;oacute;n correspondiente S(j). Obs&amp;eacute;rvese que m=0 representa la 1&#xaa; fila y m=3 la &#xfa;ltima.&lt;br&gt; En nuestro caso, para B1, &lt;b&gt;m = 0&lt;/b&gt;&lt;br&gt; Con los bits 2&#xba; a 5&#xba; de B(j) formar otro n&amp;uacute;mero, n, de cuatro bits que indicar&amp;aacute; la columna de S(j) en la que buscar el valor de sustituci&amp;oacute;n. En esta ocasi&amp;oacute;n n=0 representa la 1&#xaa; columna y n=15 la &amp;uacute;ltima columna.&lt;br&gt; En nuestro caso, para B1, &lt;b&gt;n = 12&lt;/b&gt;&lt;br&gt; Por ende, utilizando S1, el bloque B1 se reemplazara con el valor hayado en la coordenada 0,12 o sea el valor 5. Dicho valor debe ser escrito en 4 bits, o sea, el nuevo &lt;b&gt;B1 = 0101&lt;/b&gt;&lt;br&gt;&lt;br&gt; Siguiendo con el resto de los bloques, obtenemos:&lt;br&gt; &lt;b&gt;S1(B1)S2(B2)S3(B3)S4(B4)S5(B5)S6(B6)S7(B7)S8(B8) = 0101 1100 1000 0010 1011 0101 1001 0111&lt;/b&gt;&lt;br&gt;&lt;br&gt; A este resultado le aplico la permutaci&amp;oacute;n P y obtengo &lt;b&gt;0010 0011 0100 1010 1010 1001 1011 1011&lt;/b&gt;&lt;br&gt;&lt;br&gt; Luego, realizo un &amp;uacute;ltimo OR-exclusivo con el valor L2 inicial (que no fue modificado), obteniendo:&lt;br&gt; = 1100 1100 0000 0000 1100 1100 1111 1111&lt;br&gt; + 0010 0011 0100 1010 1010 1001 1011 1011&lt;br&gt; &lt;b&gt;= 1110 1111 0100 1010 0110 0101 0100 0100&lt;/b&gt;&lt;br&gt;&lt;br&gt; Este valor obtenido, es el nuevo R3, mientras que el R2 original pasa a ser el L3. Con dichos bloques, se inicia la siguiente ronda que repetir&amp;aacute; los mismos pasos. &lt;/body&gt;&lt;/html&gt;"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField2">
+            <Component class="javax.swing.JButton" name="jButton10">
               <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="text" type="java.lang.String" value="Siguiente"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton10ActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel11">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Ronda 16">
+                <Property name="tabTitle" type="java.lang.String" value="Ronda 16"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel4" pref="892" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="jButton11" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton11" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="203" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel4">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;body&gt;Partiendo de los bloques iniciales:&lt;br&gt; &lt;b&gt;L15 = 1100 1100 0000 0000 1100 1100 1111 1111&lt;/b&gt; y &lt;b&gt;R15 = 1111 0000 1010 1010 1111 0000 1010 1010&lt;/b&gt;&lt;br&gt;&lt;br&gt; Aplico la expansi&amp;oacute;n E al bloque R15, obteniendo:&lt;br&gt; &lt;b&gt;E(R15) = 011110 100001 010101 010101 011110 100001 010101 010101&lt;/b&gt;&lt;br&gt;&lt;br&gt; Al resultado de dicha expansi&amp;oacute;n, le aplico un OR-exclusivo con la clave K(i) obtenida anteriormente, en este caso:&lt;br&gt; &lt;b&gt;K(16) = 000110 110000 001011 101111 111111 000111 000001 110010&lt;/b&gt;&lt;br&gt; Quedando finalmente: &lt;br&gt; &lt;b&gt;K16 (+) E(R15) = 011000 010001 011110 111010 100001 100110 010100 100111&lt;/b&gt;&lt;br&gt;&lt;br&gt; Ahora debo separar esos bits en 8 bloques de 6 bits cada uno, quedando para este caso:&lt;br&gt; &lt;b&gt;B1 = 011000 - B2 = 010001 - B3 = 011110 - B4 = 111010  - B5 = 100001 - B6 = 100110 - B7 = 010100 y B8 = 100111&lt;/b&gt;&lt;br&gt;&lt;br&gt; A cada uno de estos bloques debo aplicarles una de las S-Cajas descritas anteriormente, para ello: tomar los bits 1&#xba; y 6&#xba; de B(j) y formar un n&amp;uacute;mero de 2 bits que llamaremos m. Este valor nos indicar&amp;aacute; la fila en la tabla de sustituci&amp;oacute;n correspondiente S(j). Obs&amp;eacute;rvese que m=0 representa la 1&#xaa; fila y m=3 la &#xfa;ltima.&lt;br&gt; En nuestro caso, para B1, &lt;b&gt;m = 0&lt;/b&gt;&lt;br&gt; Con los bits 2&#xba; a 5&#xba; de B(j) formar otro n&amp;uacute;mero, n, de cuatro bits que indicar&amp;aacute; la columna de S(j) en la que buscar el valor de sustituci&amp;oacute;n. En esta ocasi&amp;oacute;n n=0 representa la 1&#xaa; columna y n=15 la &amp;uacute;ltima columna.&lt;br&gt; En nuestro caso, para B1, &lt;b&gt;n = 12&lt;/b&gt;&lt;br&gt; Por ende, utilizando S1, el bloque B1 se reemplazara con el valor hayado en la coordenada 0,12 o sea el valor 5. Dicho valor debe ser escrito en 4 bits, o sea, el nuevo &lt;b&gt;B1 = 0101&lt;/b&gt;&lt;br&gt;&lt;br&gt; Siguiendo con el resto de los bloques, obtenemos:&lt;br&gt; &lt;b&gt;S1(B1)S2(B2)S3(B3)S4(B4)S5(B5)S6(B6)S7(B7)S8(B8) = 0101 1100 1000 0010 1011 0101 1001 0111&lt;/b&gt;&lt;br&gt;&lt;br&gt; A este resultado le aplico la permutaci&amp;oacute;n P y obtengo &lt;b&gt;0010 0011 0100 1010 1010 1001 1011 1011&lt;/b&gt;&lt;br&gt;&lt;br&gt; Luego, realizo un &amp;uacute;ltimo OR-exclusivo con el valor L15 inicial (que no fue modificado), obteniendo:&lt;br&gt; = 1100 1100 0000 0000 1100 1100 1111 1111&lt;br&gt; + 0010 0011 0100 1010 1010 1001 1011 1011&lt;br&gt; &lt;b&gt;= 1110 1111 0100 1010 0110 0101 0100 0100&lt;/b&gt;&lt;br&gt;&lt;br&gt; Este valor obtenido, es el nuevo R16, mientras que el R15 original pasa a ser el L16. Con dichos bloques, se inicia la siguiente ronda que repetir&amp;aacute; los mismos pasos. &lt;/body&gt;&lt;/html&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton11">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Siguiente"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton11ActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel12">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Final">
+                <Property name="tabTitle" type="java.lang.String" value="Final"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel33" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jLabel32" alignment="1" pref="0" max="32767" attributes="0"/>
+                          <Component id="jLabel31" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jLabel30" alignment="1" pref="892" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="jButton12" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jButton12" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="296" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel30">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;body&gt;Finalmente llegamos al &amp;uacute;ltimo paso del algoritmo&lt;br&gt; Teniendo como bloques finales:&lt;br&gt; &lt;b&gt;L16 = 0100 0011 0100 0010 0011 0010 0011 0100&lt;/b&gt; y &lt;b&gt;R16 = 0000 1010 0100 1100 1101 1001 1001 0101&lt;/b&gt;&lt;br&gt;&lt;br&gt;los concatenamos de manera invertida, o sea R16+L16, quedando:&lt;br&gt; &lt;b&gt;R16+L16 = 00001010 01001100 11011001 10010101 01000011 01000010 00110010 00110100&lt;/b&gt;&lt;br&gt;&lt;br&gt; A este nuevo bloque de 64 bits se le aplica la permutaci&amp;oacute;n inversa:&lt;br&gt; &lt;/body&gt;&lt;/html&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel31">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/resources/des/pinversa.png"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel32">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;body&gt;Obteni&amp;eacute;ndose finalmente: &lt;b&gt;C = 10000101 11101000 00010011 01010100 00001111 00001010 10110100 00000101&lt;/b&gt; el cual se traduce en hexadecimal como &lt;b&gt;85E813540F0AB405&lt;/b&gt;&lt;br&gt;Ese finalmente es el mensaje cifrado.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/body&gt;&lt;/html&gt; "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel33">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;body&gt;En resumen, utilizando el algoritmo DES:&lt;br&gt;&lt;br&gt; Mensaje original: &lt;b&gt;0123456789ABCDEF&lt;/b&gt;&lt;br&gt; Clave: &lt;b&gt;133457799BBCDFF1&lt;/b&gt;&lt;br&gt; Mensaje cifrado: &lt;b&gt;85E813540F0AB405&lt;/b&gt;&lt;/body&gt;&lt;/html&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton12">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Volver a empezar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton12ActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -771,6 +933,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ubuntu" size="18" style="1"/>
         </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="DES"/>
       </Properties>
     </Component>
