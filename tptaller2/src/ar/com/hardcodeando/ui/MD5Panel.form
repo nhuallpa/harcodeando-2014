@@ -88,16 +88,6 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Sirve para aplicaciones de firma digital donde un archivo de gran tama&#xf1;o que debe ser &quot;comprimido&quot; de manera segura"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="60" width="760" height="20"/>
-                </Constraint>
-              </Constraints>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -113,32 +103,22 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel12">
               <Properties>
-                <Property name="text" type="java.lang.String" value="El algoritmo MD5 produce una huella digital de 128 bits (firma) de un conjunto de datos de longitud arbitraria."/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;MD5 procesa mensajes de cualquier longitud (longitud variable) y procesa bloques uniformes de 512 bits a la vez, hasta concluir con el mensaje total a fin de entregar a la salida un bloque &quot;resumen&quot; de 128 bits (longitud fija). El procesamiento consta de cinco pasos:&lt;/html&gt;"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="40" width="750" height="-1"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel9">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="antes de ser cifrado con una clave privada (secreta) en virtud de un sistema de cifrado de clave p&#xfa;blica como RSA."/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="80" width="740" height="20"/>
+                  <AbsoluteConstraints x="20" y="70" width="780" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel15">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;Para el aprendizaje de este algoritmo dividimos su explicaci&#xf3;n en 5 pasos.&lt;br&gt;&lt;br&gt; &lt;strong&gt;Paso 1&lt;/strong&gt;: Adici&#xf3;n de bits&lt;br&gt;&lt;br&gt; &lt;strong&gt;Paso 2&lt;/strong&gt;: Longitud del mensaje&lt;br&gt;&lt;br&gt; &lt;strong&gt;Paso 3&lt;/strong&gt;: Inicializaci&#xf3;n del buffer&lt;br&gt;&lt;br&gt; &lt;strong&gt;Paso 4&lt;/strong&gt;: Procesamiento del mensaje en bloques de 16 palabras&lt;br&gt;&lt;br&gt;&lt;strong&gt;Paso 5&lt;/strong&gt;: Hash de salida obtenido&lt;br&gt;&lt;br&gt;&lt;/html&gt;"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;strong&gt;Paso 1&lt;/strong&gt;: Adici&#xf3;n de bits&lt;br&gt;&lt;br&gt; &lt;strong&gt;Paso 2&lt;/strong&gt;: Longitud del mensaje&lt;br&gt;&lt;br&gt; &lt;strong&gt;Paso 3&lt;/strong&gt;: Inicializaci&#xf3;n del buffer&lt;br&gt;&lt;br&gt; &lt;strong&gt;Paso 4&lt;/strong&gt;: Procesamiento del mensaje en bloques de 16 palabras&lt;br&gt;&lt;br&gt;&lt;strong&gt;Paso 5&lt;/strong&gt;: Hash de salida obtenido&lt;br&gt;&lt;br&gt;&lt;/html&gt;"/>
                 <Property name="doubleBuffered" type="boolean" value="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="50" y="130" width="770" height="190"/>
+                  <AbsoluteConstraints x="30" y="130" width="420" height="190"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -172,11 +152,11 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;ul&gt; &lt;li&gt;Convertimos cada caracter del mensaje a su valor binario representado en el ascii.&lt;br&gt;&lt;br&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/html&gt;"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;ul&gt; &lt;li&gt;Convertimos cada caracter del mensaje a su valor binario.&lt;br&gt;En el ejemplo tenemos 144 bits.&lt;br&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/html&gt;"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="440" y="110" width="330" height="40"/>
+                  <AbsoluteConstraints x="440" y="110" width="370" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -219,7 +199,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel35">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;ul&gt; &lt;li&gt;Se rellena el mensaje transformado con 0&apos;s y 1&apos;s de tal manera que sea 448 mod 512 bits de longitud. Se agrega un 1 y todos los que siguen ceros&lt;br&gt;&lt;/li&gt; &lt;br&gt;&lt;li&gt; Necesitaremos &quot;448 - LongitudMensaje&quot; bits. &lt;br&gt;En este caso: 448 - 144 = 304 bits&lt;/li&gt;&lt;br&gt;&lt;li&gt; Completamos la primer posici&#xf3;n con el valor 1 y las restantes las completamos con ceros. &lt;/li&gt; &lt;br&gt; &lt;/ul&gt; &lt;/html&gt; "/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;ul&gt; &lt;li&gt;Se rellena el mensaje convertido a binario con 0&apos;s y 1&apos;s de tal manera que sea 448 mod 512 bits de longitud.&lt;br&gt;&lt;/li&gt; &lt;br&gt;&lt;li&gt; Necesitaremos &quot;448 - LongitudMensaje&quot; bits. &lt;br&gt;En el ejemplo: 448 - 144 = 304 bits&lt;/li&gt;&lt;br&gt;&lt;li&gt; Completamos la primer posici&#xf3;n con el valor 1 y las restantes las completamos con ceros. &lt;/li&gt; &lt;br&gt; &lt;/ul&gt; &lt;/html&gt; "/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

@@ -53,10 +53,8 @@ public class MD5Panel extends javax.swing.JPanel {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         IntroMD5 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         panelPaso1 = new javax.swing.JPanel();
         lblHeaderPaso3 = new javax.swing.JLabel();
@@ -117,22 +115,16 @@ public class MD5Panel extends javax.swing.JPanel {
         });
         IntroMD5.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 350, -1, -1));
 
-        jLabel5.setText("Sirve para aplicaciones de firma digital donde un archivo de gran tamaño que debe ser \"comprimido\" de manera segura");
-        IntroMD5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 760, 20));
-
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("Introducción");
         IntroMD5.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        jLabel12.setText("El algoritmo MD5 produce una huella digital de 128 bits (firma) de un conjunto de datos de longitud arbitraria.");
-        IntroMD5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 750, -1));
+        jLabel12.setText("<html>MD5 procesa mensajes de cualquier longitud (longitud variable) y procesa bloques uniformes de 512 bits a la vez, hasta concluir con el mensaje total a fin de entregar a la salida un bloque \"resumen\" de 128 bits (longitud fija). El procesamiento consta de cinco pasos:</html>");
+        IntroMD5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 780, -1));
 
-        jLabel9.setText("antes de ser cifrado con una clave privada (secreta) en virtud de un sistema de cifrado de clave pública como RSA.");
-        IntroMD5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 740, 20));
-
-        jLabel15.setText("<html>Para el aprendizaje de este algoritmo dividimos su explicación en 5 pasos.<br><br> <strong>Paso 1</strong>: Adición de bits<br><br> <strong>Paso 2</strong>: Longitud del mensaje<br><br> <strong>Paso 3</strong>: Inicialización del buffer<br><br> <strong>Paso 4</strong>: Procesamiento del mensaje en bloques de 16 palabras<br><br><strong>Paso 5</strong>: Hash de salida obtenido<br><br></html>");
+        jLabel15.setText("<html><strong>Paso 1</strong>: Adición de bits<br><br> <strong>Paso 2</strong>: Longitud del mensaje<br><br> <strong>Paso 3</strong>: Inicialización del buffer<br><br> <strong>Paso 4</strong>: Procesamiento del mensaje en bloques de 16 palabras<br><br><strong>Paso 5</strong>: Hash de salida obtenido<br><br></html>");
         jLabel15.setDoubleBuffered(true);
-        IntroMD5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 770, 190));
+        IntroMD5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 420, 190));
 
         jTabbedPane1.addTab("Introducción", IntroMD5);
 
@@ -142,8 +134,8 @@ public class MD5Panel extends javax.swing.JPanel {
         lblHeaderPaso3.setText("Paso 1: Adición de bits");
         panelPaso1.add(lblHeaderPaso3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        jLabel10.setText("<html> <ul> <li>Convertimos cada caracter del mensaje a su valor binario representado en el ascii.<br><br></li> </ul> </html>");
-        panelPaso1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 330, 40));
+        jLabel10.setText("<html> <ul> <li>Convertimos cada caracter del mensaje a su valor binario.<br>En el ejemplo tenemos 144 bits.<br></li> </ul> </html>");
+        panelPaso1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 370, 40));
 
         jButton1.setText("Siguiente");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -165,7 +157,7 @@ public class MD5Panel extends javax.swing.JPanel {
         jLabel3.setText("<html><div style=\"background-color: white;\">01010100 01001111 01010000 00100000 01010011 01000101 <br>01000011 01010010 01000101 01010100 00100000 01001101 <br>01000101 01010011 01010011 01000001 01000111 01000101 <br>10000000 00000000 00000000 00000000 00000000 00000000 <br>00000000 00000000 00000000 00000000 00000000 00000000<br> 00000000 00000000 00000000 00000000 00000000 00000000 <br>00000000 00000000 00000000 00000000 00000000 00000000 <br>00000000 00000000 00000000 00000000 00000000 00000000 <br>00000000 00000000 00000000 00000000 00000000 00000000 <br>00000000 00000000 00000000 00000000 00000000 00000000<br> 00000000 00000000 00000000 </html>");
         panelPaso1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 430, 170));
 
-        jLabel35.setText("<html> <ul> <li>Se rellena el mensaje transformado con 0's y 1's de tal manera que sea 448 mod 512 bits de longitud. Se agrega un 1 y todos los que siguen ceros<br></li> <br><li> Necesitaremos \"448 - LongitudMensaje\" bits. <br>En este caso: 448 - 144 = 304 bits</li><br><li> Completamos la primer posición con el valor 1 y las restantes las completamos con ceros. </li> <br> </ul> </html> ");
+        jLabel35.setText("<html> <ul> <li>Se rellena el mensaje convertido a binario con 0's y 1's de tal manera que sea 448 mod 512 bits de longitud.<br></li> <br><li> Necesitaremos \"448 - LongitudMensaje\" bits. <br>En el ejemplo: 448 - 144 = 304 bits</li><br><li> Completamos la primer posición con el valor 1 y las restantes las completamos con ceros. </li> <br> </ul> </html> ");
         panelPaso1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 380, 150));
 
         jLabel4.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.highlight"));
@@ -523,11 +515,9 @@ public class MD5Panel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblHeaderPaso3;
