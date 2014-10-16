@@ -382,12 +382,13 @@
                     <Property name="text" type="java.lang.String" value="Aleatorio"/>
                   </Properties>
                   <Events>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botPrimosAleatorioMousePressed"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botPrimosAleatorioActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel2">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="&lt;html&gt;Como primera medida tenemos que hallar los dos n&#xfa;meros primos para luego calcular el m&#xf3;dulo. &lt;br&gt;&lt;br&gt;Por lo general deben ser n&#xfa;meros muy grandes del orden de los 100 d&#xed;gitos para que sea muy dificil romper el criptosistema.&lt;br&gt;&lt;br&gt; Para fines did&#xe1;ticos usaremos n&#xfa;meros primos chicos. &lt;/html&gt;"/>
+                    <Property name="text" type="java.lang.String" value="&lt;html&gt;Como primera medida tenemos que hallar los dos n&#xfa;meros primos para luego calcular el m&#xf3;dulo. &lt;br&gt;&lt;br&gt;Por lo general deben ser n&#xfa;meros muy grandes del orden de los 100 d&#xed;gitos para que sea muy dificil romper el criptosistema.&lt;br&gt;&lt;br&gt; Para fines did&#xe1;ticos usaremos n&#xfa;meros primos chicos, tomando como valor m&#xe1;ximo el n&#xfa;mero 31. &lt;/html&gt;"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel3">
@@ -442,6 +443,7 @@
                 <Component class="javax.swing.JButton" name="botContinuarPaso1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Continuar"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botContinuarPaso1MousePressed"/>
