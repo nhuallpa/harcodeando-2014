@@ -258,11 +258,8 @@ public class MainFrameUI extends javax.swing.JFrame {
         }
         
         this.currentComponent=md5panel;
-        //this.setLayout(new BorderLayout());
         this.add(this.currentComponent, BorderLayout.CENTER);
-        this.pack();
         this.setVisible(true);
-        //jLabel1.setVisible(false);
     }//GEN-LAST:event_jMenuItem12MousePressed
 
     private void menu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu1ActionPerformed
@@ -284,8 +281,7 @@ public class MainFrameUI extends javax.swing.JFrame {
         //this.setLayout(new BorderLayout());
         this.currentComponent=hpanel;
         
-        this.add(this.currentComponent, BorderLayout.CENTER);        
-        this.pack();
+        this.add(this.currentComponent, BorderLayout.CENTER);
         this.setVisible(true);
         //jLabel1.setVisible(false);
     }//GEN-LAST:event_jMenuItem4MousePressed
@@ -308,8 +304,7 @@ public class MainFrameUI extends javax.swing.JFrame {
         //this.setLayout(new BorderLayout());
         this.currentComponent=dpanel;
         
-        this.add(this.currentComponent, BorderLayout.CENTER);        
-        this.pack();
+        this.add(this.currentComponent, BorderLayout.CENTER);
         this.setVisible(true);
         //jLabel1.setVisible(false);
     }//GEN-LAST:event_jMenuItem8MousePressed
@@ -322,8 +317,7 @@ public class MainFrameUI extends javax.swing.JFrame {
             this.remove(this.currentComponent);
         }
         this.currentComponent = rpanel;
-        this.add(this.currentComponent, BorderLayout.CENTER);        
-        this.pack();
+        this.add(this.currentComponent, BorderLayout.CENTER);
         this.setVisible(true);
     }//GEN-LAST:event_jMenuItem10MousePressed
 
