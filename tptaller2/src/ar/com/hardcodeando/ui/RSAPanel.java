@@ -45,6 +45,17 @@ public class RSAPanel extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     
+    private void LimpiarCalcularPaso1(){
+        this.textP.setText("");
+        this.textQ.setText("");
+        this.textModulo.setText("");
+        this.RSATabbedPanel.setEnabledAt(3, false);
+        this.RSATabbedPanel.setEnabledAt(4, false);
+        this.RSATabbedPanel.setEnabledAt(5, false);
+        this.RSATabbedPanel.setEnabledAt(6, false);
+        this.botContinuarPaso1.setEnabled(false);
+    }
+    
     private boolean esNumero(String cadena){
     try {
         Integer.parseInt(cadena);
@@ -52,6 +63,8 @@ public class RSAPanel extends javax.swing.JPanel {
     }catch (NumberFormatException nfe){
         return false;
     }
+    
+
 }
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -1132,7 +1145,7 @@ public class RSAPanel extends javax.swing.JPanel {
             this.textBloqueDesencriptar.setEnabled(true);
             this.textASCIIdesencriptar.setEnabled(true);
             this.botdesencriptarBloque.setEnabled(true);
-            this.botTerminarDesencriptar.setEnabled(true);
+            this.botTerminarDesencriptar.setEnabled(true);            
             
     }//GEN-LAST:event_botDesencriptarBloqueBloqueMousePressed
 
@@ -1190,18 +1203,14 @@ public class RSAPanel extends javax.swing.JPanel {
         if(p.isEmpty() || q.isEmpty() )
         {
             JOptionPane.showMessageDialog(null, "Ingrese números primos p y q para calcular el módulo");
-            this.textP.setText("");
-            this.textQ.setText("");
-            this.textModulo.setText("");
+            this.LimpiarCalcularPaso1();
         }
         else
         {
             if (!this.esNumero(p) || !this.esNumero(q))
             {
                 JOptionPane.showMessageDialog(null, "Debe ingresar valores numéricos");
-                this.textP.setText("");
-                this.textQ.setText("");
-                this.textModulo.setText("");
+                this.LimpiarCalcularPaso1();
             }
             else
             {
@@ -1209,23 +1218,17 @@ public class RSAPanel extends javax.swing.JPanel {
                 long qu = Long.parseLong(q);
                 if(!this.rsa_aprender.SetP(pe)){
                     JOptionPane.showMessageDialog(null, p + " no es un número primo");
-                    this.textP.setText("");
-                    this.textQ.setText("");
-                    this.textModulo.setText("");
+                    this.LimpiarCalcularPaso1();
                 }
                 else{
                     if(!this.rsa_aprender.SetQ(qu)){
                         JOptionPane.showMessageDialog(null, q + " no es un número primo");
-                        this.textP.setText("");
-                        this.textQ.setText("");
-                        this.textModulo.setText("");
+                        this.LimpiarCalcularPaso1();
                     }
                     else{
                         if(pe > max_primo || qu > max_primo){
                             JOptionPane.showMessageDialog(null, "Para fines didácticos, los números primos deben ser menores o iguales a " + max_primo);
-                            this.textP.setText("");
-                            this.textQ.setText(""); 
-                            this.textModulo.setText("");
+                            this.LimpiarCalcularPaso1();
                         }
                         else{
                             this.rsa_aprender.GenerarModulo();                            
@@ -1261,6 +1264,9 @@ public class RSAPanel extends javax.swing.JPanel {
         this.textModulo.setText("");
         this.botContinuarPaso1.setEnabled(false);
         this.RSATabbedPanel.setEnabledAt(this.RSATabbedPanel.getSelectedIndex()+1, false);
+        this.RSATabbedPanel.setEnabledAt(this.RSATabbedPanel.getSelectedIndex()+2, false);
+        this.RSATabbedPanel.setEnabledAt(this.RSATabbedPanel.getSelectedIndex()+3, false);
+        this.RSATabbedPanel.setEnabledAt(this.RSATabbedPanel.getSelectedIndex()+4, false);
         
     }//GEN-LAST:event_botPrimosAleatorioMousePressed
 
