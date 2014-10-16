@@ -1,5 +1,6 @@
 package ar.com.hardcodeando.algorithm;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 
 /**
@@ -160,7 +161,50 @@ public class Des {
     };
     
     
-    private static final long subkeys[] = new long[16];
+    private static long subkeys[] = new long[16];
+    private static long subkeysC[] = new long[17];
+    private static long subkeysD[] = new long[17];
+    private static long subkeysPc1 = 0;
+    
+    private static int rondasR[] = new int[17];
+    private static int rondasL[] = new int[17];
+    private static long rondasPc1 = 0;
+    private static long rondasFP = 0;
+    
+    private static String msjCifrado;
+    
+    
+    
+    
+    
+    public long[] getSubkeys() {
+        return subkeys;
+    }
+    public long[] getSubkeysC() {
+        return subkeysC;
+    }
+    public long[] getSubkeysD() {
+        return subkeysD;
+    }
+    public long getSubkeysPc1() {
+        return subkeysPc1;
+    }
+    public int[] getRondasR() {
+        return rondasR;
+    }
+    public int[] getRondasL() {
+        return rondasL;
+    }
+    public long getRondasPc1() {
+        return rondasPc1;
+    }
+    public long getRondasFP() {
+        return rondasFP;
+    }
+    public String getMsjCifrado() {
+        return msjCifrado;
+    }
+    
     
     //////////////////////////////////////////////////////////////////////
     //
@@ -226,7 +270,7 @@ public class Des {
      * Metodo para pasar de un long a un array de byte en el offset 
      * especificado. 
      */
-    private static void getBytesFromLong(byte[] ba, int offset, long l) {
+    public static void getBytesFromLong(byte[] ba, int offset, long l) {
         for (int i=7; i>=0; i--) {
             if ((offset+i) < ba.length) {
                 ba[offset+i] = (byte) (l & 0xFF);
@@ -270,11 +314,16 @@ public class Des {
         
         // perform the PC1 permutation
         key = PC1(key);
+        subkeysPc1 = key;
         
         // split into 28-bit left and right (c and d) pairs.
         int c = (int) (key>>28);
         int d = (int) (key&0x0FFFFFFF);
         
+        subkeysC[0] = c;
+        subkeysD[0] = d;
+
+            
         // for each of the 16 needed subkeys, perform a bit
         // rotation on each 28-bit keystuff half, then join
         // the halves together and permute to generate the
@@ -291,6 +340,9 @@ public class Des {
                 d = ((d<<2) & 0x0FFFFFFF) | (d>>26);
             }
             
+            subkeysC[i+1] = c;
+            subkeysD[i+1] = d;
+
             // join the two keystuff halves together.
             long cd = (c&0xFFFFFFFFL)<<28 | (d&0xFFFFFFFFL);
             
@@ -309,10 +361,13 @@ public class Des {
 
         // perform the initial permutation
         long ip = IP(m);
+        rondasPc1 = ip;
         
-        // split the 32-bit value into 16-bit left and right halves.
         int l = (int) (ip>>32);
         int r = (int) (ip&0xFFFFFFFFL);
+        
+        rondasL[0] = l;
+        rondasR[0] = r;
         
         // perform 16 rounds
         for (int i=0; i<16; i++) {
@@ -322,6 +377,8 @@ public class Des {
             // the Feistel function is applied to the old left half
             // and the resulting value is stored in the right half.
             r = previous_l ^ feistel(r, subkeys[i]);
+            rondasL[i+1] = l;
+            rondasR[i+1] = r;
         }
         
         // reverse the two 32-bit segments (left to right; right to left)
@@ -329,7 +386,7 @@ public class Des {
         
         // apply the final permutation
         long fp = FP(rl);
-        
+        rondasFP = fp;
         // return the ciphertext
         return fp;
     }
@@ -355,7 +412,7 @@ public class Des {
      * el texto cifrado. Si el mensaje no es multiplo de 8 bytes se completa
      * con 0's. Modo ECB.
      */
-    public static byte[] encrypt(byte[] message, byte[] key) {
+    public byte[] encrypt(byte[] message, byte[] key) {
         byte[] ciphertext = new byte[message.length];
 
         // encrypt each 8-byte (64-bit) block of the message.
@@ -363,6 +420,7 @@ public class Des {
             encryptBlock(message, i, ciphertext, i, key);
         }
         
+        msjCifrado = hex(ciphertext);
         return ciphertext;
     }
   
@@ -386,7 +444,7 @@ public class Des {
             return 0;
         }
     }
-    public static byte[] parseBytes(String s) {
+    public byte[] parseBytes(String s) {
         s = s.replace(" ", "");
         byte[] ba = new byte[s.length()/2];
         if (s.length()%2 > 0) { s = s+'0'; }
@@ -399,7 +457,7 @@ public class Des {
         }
         return ba;
     }
-    public static String hex(byte[] bytes) {
+    public String hex(byte[] bytes) {
         StringBuilder sb = new StringBuilder();
         for (int i=0; i<bytes.length; i++) {
             sb.append(String.format("%02X ",bytes[i]));
@@ -408,22 +466,55 @@ public class Des {
     }
 
     
-    
-    private static int testCount = 0;
-    public static boolean test(byte[] message, byte[] expected, byte[] key) {
-        System.out.println("Test #"+(++testCount)+":");
+    public String hexToBinary(String s, int cantidadBits) {
+        String resultado = new BigInteger(s, 16).toString(2);
         
-        System.out.println("\tmessage:  "+hex(message));
-        System.out.println("\tkey:      "+hex(key));
-        System.out.println("\texpected: "+hex(expected));
-        byte[] received = encrypt(message, key);
-        System.out.println("\treceived: "+hex(received));
+        return this.formatBinary(resultado, cantidadBits);
+    }
+
+    /**
+     * Formatea un string con numeros binarios completando con 0's y separando cada 4 bits.
+     */
+    public String formatBinary(String s, int cantidadBits) {
+       
+        int longHexa = s.length();
+        int dif = cantidadBits - longHexa;
+
+        // Chequeo la cantidad de 0s que le faltan y completo a izquierda
+        if (dif > 0) {
+
+            for (int i=0;i<dif;i++){
+                    s = "0" + s;
+            }        
+        }
+        
+        // Agrego espacios cada 4 bits
+        int tamNuevo = s.length();
+        String resultado = new String();
+        resultado = "";
+        for (int j=0;j<tamNuevo;j+=4) {
+            resultado += s.substring(j, j+4);
+            if (j+4 < tamNuevo) {
+                resultado += " ";
+            }
+        }
+        return resultado;
+    }
+
+    
+    public boolean test(byte[] message, byte[] expected, byte[] key) {
+        
+        System.out.println("\tmessage:  "+this.hex(message));
+        System.out.println("\tkey:      "+this.hex(key));
+        System.out.println("\texpected: "+this.hex(expected));
+        byte[] received = this.encrypt(message, key);
+        System.out.println("\treceived: "+this.hex(received));
         boolean result = Arrays.equals(expected, received);
         System.out.println("\tverdict: "+(result?"PASS":"FAIL"));
         
         System.out.println("Las 16 subclaves son: ");
         for (int i=0; i<16; i++) {
-            System.out.println("Subclave " + i + ": " + (String.format("%02X ",subkeys[i])).toUpperCase() );
+            System.out.println("Subclave " + i + ": " + (String.format("%02X ",this.subkeys[i])).toUpperCase() );
         }
         
         
@@ -437,10 +528,12 @@ public class Des {
         // is invaluable for debugging the internals of your
         // DES calculations:
         //     http://orlingrabbe.com/des.htm
-        test(
-            parseBytes("0123456789ABCDEF"),
-            parseBytes("c30987c30cbb1bab"),
-            parseBytes("6D7970617373656F")
+        
+        Des des = new Des();
+        des.test(
+            des.parseBytes("0123456789ABCDEF"),
+            des.parseBytes("85E813540F0AB405"),
+            des.parseBytes("133457799BBCDFF1")
         );
         
     }
