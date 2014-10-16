@@ -19,6 +19,9 @@ public class RSA {
     private long d;
     private long e;
     private int max_primo;
+    private long intervalo_d_inf;
+    private long intervalo_d_sup;
+    private long p1q1;
     
     public RSA(){
         this.p = 0;
@@ -26,6 +29,9 @@ public class RSA {
         this.n = 0;
         this.d = 0;
         this.e = 0;
+        this.intervalo_d_inf = 0;
+        this.intervalo_d_sup = 0;
+        this.p1q1 = 0;
         this.max_primo = 31;
     }
     /**
@@ -47,6 +53,32 @@ public class RSA {
         }
         return ret;        
     }
+    /**
+     * Algoritmo de euclides para calcular maximo comun divisor
+     * @param n1 parametro1
+     * @param n2 parametro2
+     * @return maximo comun divisor entre n1 y n2
+     */
+    private long MCD(long n1, long n2){
+        long a = n1, b = n2, aux;
+        if(a > b){
+            aux = a;
+            b = a;
+            a = aux;
+        }
+        boolean flag = false;                
+        while(!flag){
+            aux = b%a;
+            if(aux != 0){
+                b = a;
+                a = aux;
+            }
+            else flag = true;
+        }
+        return a;
+    }
+       
+    
     
     /**
      * Crea los numeros primos p y q que luego se usaran para generar
@@ -98,6 +130,29 @@ public class RSA {
         return this.max_primo;
     }
     
+    public long GetIntervaloInfD(){
+        return this.intervalo_d_inf;
+    }
+    
+    public long GetIntervaloSupD(){
+        return this.intervalo_d_sup;
+    }
+    
+    public long GetP1Q1(){
+        return this.p1q1;
+    }
+    
+    public long GetD(){
+        return this.d;     
+    }
+    
+    public long GetE(){
+        return this.e;
+    }
+    
+    public long GetModulo(){
+        return this.n;
+    }
     
     
     
@@ -112,6 +167,9 @@ public class RSA {
         boolean ret = false;
         if(this.p != 0 && this.q != 0){
             this.n = this.p * this.q;
+            this.intervalo_d_inf = (this.p > this.q)? p + 1:q + 1;
+            this.intervalo_d_sup = this.n - 1;
+            this.p1q1 = (this.p -1)*(this.q-1);
             ret = true;
         }
         return ret;
@@ -126,7 +184,11 @@ public class RSA {
      *  Junto con el modulo forman la clave privada
      */
     public void GenerarExponentePrivado(){
-    
+        this.d = this.intervalo_d_inf;
+        while(this.MCD(this.d, this.p1q1)!= 1)
+        {
+            this.d++;
+        }    
     }
     
     /**
