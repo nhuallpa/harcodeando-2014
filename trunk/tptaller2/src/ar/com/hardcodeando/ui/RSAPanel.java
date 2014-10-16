@@ -6,7 +6,11 @@
 
 
 package ar.com.hardcodeando.ui;
+import ar.com.hardcodeando.algorithm.RSA;
+import java.util.Random;
 import javax.swing.*;
+
+
 /**
  *
  * @author Gabo
@@ -17,9 +21,12 @@ public class RSAPanel extends javax.swing.JPanel {
     /**
      * Creates new form RSAPanel
      */
+ 
     public RSAPanel() {
+        
         initComponents();        
         
+        this.rsa_aprender = new RSA();
         
         this.RSATabbedPanel.setEnabledAt(2, false);
         this.RSATabbedPanel.setEnabledAt(3, false);
@@ -40,13 +47,16 @@ public class RSAPanel extends javax.swing.JPanel {
     private boolean EsPrimo(long numero)
     {
         boolean ret = false;
-        int i = 1, j = 0;
-        while(j <= 2 && i < numero + 1)
+        if(numero != 0)
         {
-            if(numero % i == 0) j++;                
-            i++;
+            int i = 1, j = 0;
+            while(j <= 2 && i < numero + 1)
+            {
+                if(numero % i == 0) j++;                
+                i++;
+            }
+            if(j <= 2) ret = true;
         }
-        if(j <= 2) ret = true;
         return ret;
     }
     
@@ -54,9 +64,9 @@ public class RSAPanel extends javax.swing.JPanel {
     try {
         Integer.parseInt(cadena);
         return true;
-    } catch (NumberFormatException nfe){
+    }catch (NumberFormatException nfe){
         return false;
- }
+    }
 }
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -268,13 +278,18 @@ public class RSAPanel extends javax.swing.JPanel {
         panelPaso1.setEnabled(false);
 
         botPrimosAleatorio.setText("Aleatorio");
+        botPrimosAleatorio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botPrimosAleatorioMousePressed(evt);
+            }
+        });
         botPrimosAleatorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botPrimosAleatorioActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("<html>Como primera medida tenemos que hallar los dos números primos para luego calcular el módulo. <br><br>Por lo general deben ser números muy grandes del orden de los 100 dígitos para que sea muy dificil romper el criptosistema.<br><br> Para fines didáticos usaremos números primos chicos. </html>");
+        jLabel2.setText("<html>Como primera medida tenemos que hallar los dos números primos para luego calcular el módulo. <br><br>Por lo general deben ser números muy grandes del orden de los 100 dígitos para que sea muy dificil romper el criptosistema.<br><br> Para fines didáticos usaremos números primos chicos, tomando como valor máximo el número 31. </html>");
 
         jLabel3.setText("p");
 
@@ -312,6 +327,7 @@ public class RSAPanel extends javax.swing.JPanel {
         jLabel21.setText("Paso 1: Hallar el módulo");
 
         botContinuarPaso1.setText("Continuar");
+        botContinuarPaso1.setEnabled(false);
         botContinuarPaso1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 botContinuarPaso1MousePressed(evt);
@@ -1173,11 +1189,13 @@ public class RSAPanel extends javax.swing.JPanel {
     private void botCalcularModuloMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botCalcularModuloMousePressed
         String p = this.textP.getText();
         String q = this.textQ.getText();
+        int max_primo = this.rsa_aprender.GetMaxPrimo();
         if(p.isEmpty() || q.isEmpty() )
         {
             JOptionPane.showMessageDialog(null, "Ingrese números primos p y q para calcular el módulo");
             this.textP.setText("");
             this.textQ.setText("");
+            this.textModulo.setText("");
         }
         else
         {
@@ -1186,26 +1204,37 @@ public class RSAPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Debe ingresar valores numéricos");
                 this.textP.setText("");
                 this.textQ.setText("");
+                this.textModulo.setText("");
             }
             else
             {
                 long pe = Long.parseLong(p);
                 long qu = Long.parseLong(q);
-                if(!this.EsPrimo(pe)){
+                if(!this.rsa_aprender.SetP(pe)){
                     JOptionPane.showMessageDialog(null, p + " no es un número primo");
                     this.textP.setText("");
                     this.textQ.setText("");
+                    this.textModulo.setText("");
                 }
                 else{
-                    if(!this.EsPrimo(qu)){
+                    if(!this.rsa_aprender.SetQ(qu)){
                         JOptionPane.showMessageDialog(null, q + " no es un número primo");
                         this.textP.setText("");
-                        this.textQ.setText(""); 
+                        this.textQ.setText("");
+                        this.textModulo.setText("");
                     }
                     else{
-                        long modulo = pe * qu;
-                        this.textModulo.setText(Long.toString(modulo));
-                        //ACA AGREGO EL VALOR DEL MODULO A LA CLASE RSA
+                        if(pe > max_primo || qu > max_primo){
+                            JOptionPane.showMessageDialog(null, "Para fines didácticos, los números primos deben ser menores o iguales a " + max_primo);
+                            this.textP.setText("");
+                            this.textQ.setText(""); 
+                            this.textModulo.setText("");
+                        }
+                        else{
+                            this.rsa_aprender.GenerarModulo();                            
+                            this.textModulo.setText(Long.toString(this.rsa_aprender.ObtenerModulo()));
+                            this.botContinuarPaso1.setEnabled(true);
+                        }
                     }
                 }                               
             }
@@ -1228,7 +1257,15 @@ public class RSAPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_botPrimosAleatorioActionPerformed
 
+    private void botPrimosAleatorioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botPrimosAleatorioMousePressed
+        this.rsa_aprender.GenerarPrimos();
+        this.textP.setText(Long.toString(this.rsa_aprender.GetP()));
+        this.textQ.setText(Long.toString(this.rsa_aprender.GetQ()));
+        this.textModulo.setText("");
+        this.botContinuarPaso1.setEnabled(false);
+    }//GEN-LAST:event_botPrimosAleatorioMousePressed
 
+    private RSA rsa_aprender;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel IntroRSAPanel;
     private javax.swing.JTabbedPane RSATabbedPanel;
