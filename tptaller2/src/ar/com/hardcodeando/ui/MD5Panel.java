@@ -88,11 +88,44 @@ public class MD5Panel extends javax.swing.JPanel {
         jLabel23 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         canvas1 = new java.awt.Canvas();
-        jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        jLabel59 = new javax.swing.JLabel();
+        jLabel60 = new javax.swing.JLabel();
+        jLabel61 = new javax.swing.JLabel();
+        jLabel62 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         panelPaso5 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
@@ -100,11 +133,13 @@ public class MD5Panel extends javax.swing.JPanel {
         jLabel18 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(846, 519));
+        setPreferredSize(new java.awt.Dimension(899, 1000));
 
         jTabbedPane1.setFocusable(false);
         jTabbedPane1.setPreferredSize(new java.awt.Dimension(846, 519));
 
+        IntroMD5.setMinimumSize(new java.awt.Dimension(0, 0));
+        IntroMD5.setPreferredSize(new java.awt.Dimension(80, 379));
         IntroMD5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton3.setText("Comenzar");
@@ -113,7 +148,7 @@ public class MD5Panel extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        IntroMD5.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 350, -1, -1));
+        IntroMD5.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 360, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("Introducción");
@@ -124,7 +159,7 @@ public class MD5Panel extends javax.swing.JPanel {
 
         jLabel15.setText("<html><strong>Paso 1</strong>: Adición de bits<br><br> <strong>Paso 2</strong>: Longitud del mensaje<br><br> <strong>Paso 3</strong>: Inicialización del buffer<br><br> <strong>Paso 4</strong>: Procesamiento del mensaje en bloques de 16 palabras<br><br><strong>Paso 5</strong>: Hash de salida obtenido<br><br></html>");
         jLabel15.setDoubleBuffered(true);
-        IntroMD5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 420, 190));
+        IntroMD5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 420, 190));
 
         jTabbedPane1.addTab("Introducción", IntroMD5);
 
@@ -148,7 +183,7 @@ public class MD5Panel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        panelPaso1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 350, -1, -1));
+        panelPaso1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, -1, -1));
 
         jLabel2.setText("Supongamos que queremos encriptar el mensaje \"TOP SECRET MESSAGE\"");
         panelPaso1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
@@ -169,7 +204,7 @@ public class MD5Panel extends javax.swing.JPanel {
         jLabel32.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel32.setText("Paso 2: Longitud del mensaje");
 
-        jLabel34.setText("<html> <ul> <li>Un entero de 64 bits que represente la longitud 'b' del mensaje (longitud antes de añadir los bits) se concatena al resultado del paso anterior. </li> <br><li>Si 'b' es mayor que 2^64, entonces sólo se usarán los 64 bits de menor peso de 'b'</li><br><li>El mensaje resultante (después de rellenar con los bits y con 'b') tiene una longitud que es un múltiplo exacto de 512 bits.</li><br><li>A su vez, la longitud del mensaje es múltiplo de 16 palabras (32 bits por palabra)</li></ul> </html>");
+        jLabel34.setText("<html> <ul> <li>Se concatena al resultado del paso anterior, un entero de 64 bits que represente la longitud 'b' del mensaje (longitud antes de añadir los bits). </li> <br><li>Si 'b' es mayor que 2^64, entonces sólo se usarán los 64 bits de menor peso de 'b'</li><br><li>El mensaje resultante (después de rellenar con los bits y con 'b') tiene una longitud que es un múltiplo exacto de 512 bits.</li><br><li>A su vez, la longitud del mensaje es múltiplo de 16 palabras (32 bits por palabra)</li></ul> </html>");
 
         jButton2.setText("Siguiente");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -185,10 +220,6 @@ public class MD5Panel extends javax.swing.JPanel {
         panelPaso2.setLayout(panelPaso2Layout);
         panelPaso2Layout.setHorizontalGroup(
             panelPaso2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPaso2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(112, 112, 112))
             .addGroup(panelPaso2Layout.createSequentialGroup()
                 .addGroup(panelPaso2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelPaso2Layout.createSequentialGroup()
@@ -199,7 +230,11 @@ public class MD5Panel extends javax.swing.JPanel {
                     .addGroup(panelPaso2Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jLabel32)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPaso2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(250, 250, 250))
         );
         panelPaso2Layout.setVerticalGroup(
             panelPaso2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,14 +244,13 @@ public class MD5Panel extends javax.swing.JPanel {
                 .addGroup(panelPaso2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelPaso2Layout.createSequentialGroup()
                         .addGap(55, 55, 55)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)
-                        .addContainerGap())
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelPaso2Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(83, Short.MAX_VALUE))))
+                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(44, 44, 44)
+                .addComponent(jButton2)
+                .addContainerGap(322, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Paso 2 de 5", panelPaso2);
@@ -241,18 +275,17 @@ public class MD5Panel extends javax.swing.JPanel {
         panelPaso3.setLayout(panelPaso3Layout);
         panelPaso3Layout.setHorizontalGroup(
             panelPaso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPaso3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(84, 84, 84))
             .addGroup(panelPaso3Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(panelPaso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 765, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
-                .addContainerGap(39, Short.MAX_VALUE))
+                    .addComponent(jLabel14)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPaso3Layout.createSequentialGroup()
+                        .addComponent(jButton4)
+                        .addGap(153, 153, 153)))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         panelPaso3Layout.setVerticalGroup(
             panelPaso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,9 +298,9 @@ public class MD5Panel extends javax.swing.JPanel {
                 .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
                 .addComponent(jButton4)
-                .addGap(22, 22, 22))
+                .addContainerGap(300, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Paso 3 de 5", panelPaso3);
@@ -285,62 +318,82 @@ public class MD5Panel extends javax.swing.JPanel {
                 jButton5MousePressed(evt);
             }
         });
-        panelPaso4.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 369, -1, -1));
+        panelPaso4.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, -1, -1));
         panelPaso4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 74, -1, -1));
 
-        jLabel16.setText("<html> <ul> <li>Cada ronda utiliza operaciones distintas durante 16 iteraciones</li><li>Cada operación realiza una función no lineal sobre tres de las variables a, b, c y d, y el resultado es sumado a la cuarta variable que no fue elegida, un sub-bloque del texto y una constante</li><li>A ese resultado se le aplica una rotación circular a la izquierda un número variable de bits y se suma el resultado a una de las variables a, b, c o d</li><li> Finalmente el resultado reemplaza a una de las variables a, b, c o d.</li><li>La salida de la cuarta ronda se suma a la entrada de la primera en una operación modular 2^32</li></ul> </html>");
-        panelPaso4.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 316, -1));
+        jLabel16.setText("<html> <ul> <li>Cada ronda utiliza operaciones distintas durante 16 iteraciones</li><br><li>Cada operación realiza una función no lineal sobre tres de las variables a, b, c y d, y el resultado es sumado a la cuarta variable que no fue elegida, un sub-bloque del texto y una constante</li><br><li>A ese resultado se le aplica una rotación circular a la izquierda un número variable de bits y se suma el resultado a una de las variables a, b, c o d</li><br><li> Finalmente el resultado reemplaza a una de las variables a, b, c o d.</li><br><li>La salida de la cuarta ronda se suma a la entrada de la primera en una operación modular 2^32</li></ul> </html>");
+        panelPaso4.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 316, -1));
 
         jLabel19.setText("La base del algoritmo es una función de compresión que consta de cuatro rondas de estructura similar");
         panelPaso4.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 43, -1, -1));
 
         jLabel20.setText("C");
-        panelPaso4.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 10, -1));
+        panelPaso4.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 30, 20));
 
         jLabel21.setText("A");
-        panelPaso4.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 10, -1));
+        panelPaso4.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 30, 20));
 
         jLabel22.setText("D");
-        panelPaso4.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, 10, -1));
+        panelPaso4.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, 30, 20));
 
         jLabel23.setText("B");
-        panelPaso4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 10, -1));
+        panelPaso4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 30, 20));
 
-        jButton6.setText("Ronda 4");
+        jButton6.setText("<html>Ronda 4<br> Iteración: 0 </html>");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton6MousePressed(evt);
+            }
+        });
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
-        panelPaso4.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 120, -1, 70));
+        panelPaso4.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 380, 110, 70));
         panelPaso4.add(canvas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, -1, 50));
 
-        jButton7.setText("Ronda 1");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+        jButton8.setText("<html>Ronda 2<br> Iteración: 0 </html>");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton8MousePressed(evt);
             }
         });
-        panelPaso4.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, -1, 70));
-
-        jButton8.setText("Ronda 2");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
             }
         });
-        panelPaso4.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, -1, 70));
+        panelPaso4.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 110, 70));
 
-        jButton9.setText("Ronda 3");
+        jButton7.setText("<html>Ronda 1<br> Iteración: 0 </html>");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton7MousePressed(evt);
+            }
+        });
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        panelPaso4.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 110, 70));
+
+        jButton9.setText("<html>Ronda 3<br> Iteración: 0 </html>");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton9MousePressed(evt);
+            }
+        });
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
             }
         });
-        panelPaso4.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, -1, 70));
+        panelPaso4.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, 110, 70));
 
         jLabel24.setText("Resumen 128 bits");
-        panelPaso4.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 260, -1, -1));
+        panelPaso4.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 490, -1, -1));
 
         jTextField1.setEditable(false);
         jTextField1.setText("b492968132cf0247ae0da7daf1e27967");
@@ -349,7 +402,106 @@ public class MD5Panel extends javax.swing.JPanel {
                 jTextField1ActionPerformed(evt);
             }
         });
-        panelPaso4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, 200, -1));
+        panelPaso4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 520, 260, 30));
+
+        jLabel9.setText("valorB:");
+        panelPaso4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 160, -1, -1));
+
+        jLabel31.setText(" ");
+        panelPaso4.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 140, 100, -1));
+
+        jLabel33.setText("valorC:");
+        panelPaso4.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, -1, -1));
+
+        jLabel36.setText(" ");
+        panelPaso4.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 160, 100, -1));
+
+        jLabel37.setText("valorD:");
+        panelPaso4.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 120, -1, -1));
+
+        jLabel38.setText(" ");
+        panelPaso4.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 120, 100, -1));
+
+        jLabel39.setText("valorA:");
+        panelPaso4.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 100, -1, -1));
+
+        jLabel40.setText(" ");
+        panelPaso4.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 100, 100, -1));
+
+        jLabel41.setText(" ");
+        panelPaso4.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 210, 90, -1));
+
+        jLabel42.setText("valorD:");
+        panelPaso4.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 210, -1, -1));
+
+        jLabel43.setText("valorC:");
+        panelPaso4.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 230, -1, -1));
+
+        jLabel44.setText(" ");
+        panelPaso4.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 230, 110, -1));
+
+        jLabel45.setText(" ");
+        panelPaso4.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 250, 100, -1));
+
+        jLabel30.setText("valorB:");
+        panelPaso4.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 250, -1, -1));
+
+        jLabel46.setText("valorA:");
+        panelPaso4.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 190, -1, -1));
+
+        jLabel47.setText(" ");
+        panelPaso4.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 190, 100, -1));
+
+        jLabel48.setText(" ");
+        panelPaso4.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 300, 90, 20));
+
+        jLabel49.setText("valorD:");
+        panelPaso4.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 310, -1, 10));
+
+        jLabel50.setText("valorC:");
+        panelPaso4.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 320, -1, 20));
+
+        jLabel51.setText(" ");
+        panelPaso4.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 320, 90, 20));
+
+        jLabel52.setText(" ");
+        panelPaso4.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 340, 100, 20));
+
+        jLabel53.setText("valorB:");
+        panelPaso4.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 340, -1, 20));
+
+        jLabel54.setText("valorA:");
+        panelPaso4.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 290, -1, -1));
+
+        jLabel55.setText(" ");
+        panelPaso4.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 290, 110, -1));
+
+        jLabel56.setText(" ");
+        panelPaso4.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 400, 90, -1));
+
+        jLabel57.setText("valorA:");
+        panelPaso4.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 380, -1, -1));
+
+        jLabel58.setText("valorD:");
+        panelPaso4.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 400, -1, -1));
+
+        jLabel59.setText(" ");
+        panelPaso4.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 420, 110, -1));
+
+        jLabel60.setText(" ");
+        panelPaso4.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 440, 110, -1));
+
+        jLabel61.setText("valorC:");
+        panelPaso4.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 420, -1, -1));
+
+        jLabel62.setText("valorB:");
+        panelPaso4.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 440, -1, -1));
+
+        jLabel63.setText(" ");
+        panelPaso4.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 380, 110, -1));
+
+        jLabel5.setText("<html>Suma final:  <br>A = A + AA: 2174128820 <br> B = B + BB: 1191366450  <br>C = C + CC: 3668381102  <br>D = D + DD: 1736041201 </html>");
+        panelPaso4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 480, -1, -1));
 
         jTabbedPane1.addTab("Paso 4 de 5", panelPaso4);
 
@@ -379,7 +531,7 @@ public class MD5Panel extends javax.swing.JPanel {
                     .addGroup(panelPaso5Layout.createSequentialGroup()
                         .addGap(179, 179, 179)
                         .addComponent(jLabel18)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         panelPaso5Layout.setVerticalGroup(
             panelPaso5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -392,7 +544,7 @@ public class MD5Panel extends javax.swing.JPanel {
                 .addComponent(jLabel18)
                 .addGap(42, 42, 42)
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(452, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Paso 5 de 5", panelPaso5);
@@ -405,23 +557,22 @@ public class MD5Panel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(404, 404, 404)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(404, 404, 404)
+                .addComponent(jLabel1)
+                .addContainerGap(450, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 743, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("");
@@ -443,6 +594,10 @@ public class MD5Panel extends javax.swing.JPanel {
 
     private void jButton4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MousePressed
         jTabbedPane1.setEnabledAt(4, true);
+        System.out.println("contenido button 6" + jButton6);
+        jButton8.setEnabled(false);
+        jButton9.setEnabled(false);
+        jButton6.setEnabled(false);
         jTabbedPane1.setSelectedIndex(4);
     }//GEN-LAST:event_jButton4MousePressed
 
@@ -475,6 +630,175 @@ public class MD5Panel extends javax.swing.JPanel {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+    int iteracionRonda1 = 0;
+    private void jButton7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MousePressed
+        iteracionRonda1= iteracionRonda1+1;
+        if (iteracionRonda1 <= 16){
+            //40, 38, 31, 36
+            //FF A 3444019588FF D 2134451223FF C 3666793369FF B 1323523468
+	    //FF A 3188680747FF D 174913919FF C 387750940FF B 3394906774
+            //FF A 2965858986FF D 2076421242FF C 3233496168FF B 275536900
+            //FF A 302546760FF D 2309706729FF C 1229996778FF B 1286442275
+            switch (iteracionRonda1){
+                case 1: jLabel40.setText( "3444019588");
+                       break;
+                case 2: jLabel38.setText( "2134451223");
+                       break;
+                case 3: jLabel31.setText( "3666793369");
+                       break;
+                case 4: jLabel36.setText( "1323523468");
+                       break;
+		case 5: jLabel40.setText( "3188680747");
+                       break;
+                case 6: jLabel38.setText( "174913919");
+                       break;
+                case 7: jLabel31.setText( "387750940");
+                       break;
+                case 8: jLabel36.setText( "3394906774");
+                       break;
+                case 9: jLabel40.setText( "2965858986");
+                       break;
+                case 10: jLabel38.setText( "2076421242");
+                       break;
+                case 11: jLabel31.setText( "3233496168");
+                       break;
+                case 12: jLabel36.setText( "275536900");
+                       break;
+                case 13: jLabel40.setText( "302546760");
+                       break;
+                case 14: jLabel38.setText( "2309706729");
+                       break;
+                case 15: jLabel31.setText( "1229996778");
+                       break;
+                case 16: jLabel36.setText( "1286442275");  
+                       break;
+            }
+            jButton7.setText("<html>Ronda 1 <br> Iteración: "+iteracionRonda1+"</html>");
+        }
+        if (iteracionRonda1 == 16){
+            jButton8.setEnabled(true);
+        }
+    }//GEN-LAST:event_jButton7MousePressed
+    int iteracionRonda2 = 0;
+    private void jButton8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MousePressed
+        iteracionRonda2= iteracionRonda2+1;        
+        if (iteracionRonda2 <= 16){
+		//GG A 3104502071 D 3971189222 C 2454709562 B 1937939522
+		//GG A 3030407682 D 2760724930 C 739022246 B 491033572
+		//GG A 1847348608 D 2397052618 C 3828142829 B 2648787868
+		//GG A 998339036 D 2657302529 C 3789863552 B 3965831517
+            switch (iteracionRonda2){
+                case 1: jLabel47.setText( "3104502071");
+                       break;
+                case 2: jLabel41.setText( "3971189222");
+                       break;
+                case 3: jLabel44.setText( "2454709562");
+                       break;
+                case 4: jLabel45.setText( "1937939522");
+                       break;
+		case 5: jLabel47.setText( "3030407682");
+                       break;
+                case 6: jLabel41.setText( "2760724930");
+                       break;
+                case 7: jLabel44.setText( "739022246");
+                       break;
+                case 8: jLabel45.setText( "491033572");
+                       break;
+                case 9: jLabel47.setText( "1847348608");
+                       break;
+                case 10: jLabel41.setText( "2397052618");
+                       break;                    
+                case 11: jLabel44.setText( "3828142829");
+                       break;
+                case 12: jLabel45.setText( "2648787868");
+                       break;
+                case 13: jLabel47.setText( "998339036");
+                       break;
+                case 14: jLabel41.setText( "2657302529");
+                       break;
+                case 15: jLabel44.setText( "3789863552");
+                       break;
+                case 16: jLabel45.setText( "3965831517");
+                       break;
+               
+            }
+            jButton8.setText("<html>Ronda 2 <br> Iteración: "+iteracionRonda2+"</html>");
+        }
+        if (iteracionRonda2 == 16){
+            jButton9.setEnabled(true);
+        }
+    }//GEN-LAST:event_jButton8MousePressed
+    int iteracionRonda3 = 0;
+    private void jButton9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MousePressed
+        /*Ronda 3 
+ A 3800119561 D 2924210607 C 3823753692 B 2645987041
+ A 926482955 D 3252137003 C 131396136 B 3028011643
+ A 3645710104 D 866336981 C 1061928322 B 655561318
+ A 418445971 D 1383236460 C 4169551851 B 2331754980
+                */
+        
+        iteracionRonda3 = iteracionRonda3 + 1;
+        if (iteracionRonda3 <= 16){
+            switch (iteracionRonda3){
+                case 1: jLabel55.setText( "3800119561");
+                       break;
+                case 2: jLabel48.setText( "2924210607");
+                       break;
+                case 3: jLabel51.setText( "3823753692");
+                       break;
+                case 4: jLabel52.setText( "2645987041");
+                       break;
+		case 5: jLabel55.setText( "926482955");
+                       break;
+                case 6: jLabel48.setText( "3252137003");   break;
+                case 7: jLabel51.setText( "131396136");   break;
+                case 8: jLabel52.setText( "3028011643");   break;
+                case 9: jLabel55.setText( "3645710104");   break;
+                case 10: jLabel48.setText( "866336981");   break;
+                case 11: jLabel51.setText( "1061928322");   break;
+                case 12: jLabel52.setText( "655561318");   break;
+                case 13: jLabel55.setText( "418445971");   break;
+                case 14: jLabel48.setText( "1383236460");   break;
+                case 15: jLabel51.setText( "4169551851");   break;
+                case 16: jLabel52.setText( "2331754980");   break;
+            }
+            jButton9.setText("<html>Ronda 3 <br> Iteración: "+iteracionRonda3+"</html>");
+        }
+        if (iteracionRonda3 == 16){
+            jButton6.setEnabled(true);
+        }        
+    }//GEN-LAST:event_jButton9MousePressed
+    int iteracionRonda4 = 0;
+    private void jButton6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MousePressed
+            iteracionRonda4= iteracionRonda4+1;
+            /*Ronda 4 
+ A 3288552389 D 987244369 C 725112653 B 1957260756
+ A 1916763285 D 2913053387 C 918925123 B 164727269
+ A 3396137080 D 3264741937 C 2128940413 B 2842146450
+ A 441544627 D 1464307323 C 1105998000 B 1463100329*/
+        if (iteracionRonda4 <= 16){
+            switch (iteracionRonda4){
+                case 1: jLabel63.setText( "3288552389");   break;
+                case 2: jLabel56.setText( "987244369");   break;
+                case 3: jLabel59.setText( "725112653");   break;
+                case 4: jLabel60.setText( "1957260756");   break;
+		case 5: jLabel63.setText( "1916763285");   break;
+                case 6: jLabel56.setText( "2913053387");   break;
+                case 7: jLabel59.setText( "918925123");   break;
+                case 8: jLabel60.setText( "164727269");   break;
+                case 9: jLabel63.setText( "3396137080");   break;
+                case 10: jLabel56.setText( "3264741937");   break;
+                case 11: jLabel59.setText( "2128940413");   break;
+                case 12: jLabel60.setText( "2842146450");   break;
+                case 13: jLabel63.setText( "441544627");   break;
+                case 14: jLabel56.setText( "1464307323");   break;
+                case 15: jLabel59.setText( "1105998000");   break;
+                case 16: jLabel60.setText( "1463100329");   break;
+               
+            }
+            jButton6.setText("<html>Ronda 4 <br> Iteración: "+iteracionRonda4+"</html>");
+        }
+    }//GEN-LAST:event_jButton6MousePressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel IntroMD5;
@@ -511,13 +835,46 @@ public class MD5Panel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblHeaderPaso3;
