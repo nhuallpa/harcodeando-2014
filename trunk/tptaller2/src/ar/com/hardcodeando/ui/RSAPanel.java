@@ -54,6 +54,8 @@ public class RSAPanel extends javax.swing.JPanel {
         this.RSATabbedPanel.setEnabledAt(5, false);
         this.RSATabbedPanel.setEnabledAt(6, false);
         this.botContinuarPaso1.setEnabled(false);
+        this.botContinuarPaso2.setEnabled(false);
+        this.botContinuarPaso3.setEnabled(false);
         this.text_d.setText("");
         this.text_claveprivada.setText("");
         this.text_e_paso3.setText("");
@@ -1305,7 +1307,10 @@ public class RSAPanel extends javax.swing.JPanel {
         this.text_d.setText("");
         this.text_claveprivada.setText("");
         this.text_e_paso3.setText("");
-        this.text_clavepublica.setText("");        
+        this.text_clavepublica.setText("");
+        this.botContinuarPaso1.setEnabled(false);
+        this.botContinuarPaso2.setEnabled(false);
+        this.botContinuarPaso3.setEnabled(false);
     }//GEN-LAST:event_botPrimosAleatorioMousePressed
 
     private void text_d_paso3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_d_paso3ActionPerformed

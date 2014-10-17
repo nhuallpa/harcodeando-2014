@@ -41,7 +41,7 @@ public class RSA {
      */    
     private boolean EsNumeroPrimo(long numero){
         boolean ret = false;
-        if(numero != 0)
+        if(numero > 1)
         {
             int i = 1, j = 0;
             while(j <= 2 && i < numero + 1)
