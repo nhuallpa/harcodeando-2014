@@ -63,6 +63,7 @@
                     <Property name="text" type="java.lang.String" value="Aprender"/>
                   </Properties>
                   <Events>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuItem6MousePressed"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem6ActionPerformed"/>
                   </Events>
                 </MenuItem>
