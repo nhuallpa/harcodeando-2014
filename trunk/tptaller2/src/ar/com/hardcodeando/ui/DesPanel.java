@@ -517,7 +517,6 @@ public class DesPanel extends javax.swing.JPanel {
 
         jPanel8.setPreferredSize(new java.awt.Dimension(1024, 1024));
 
-        jLabel13.setText("<html><body>Partiendo de los bloques iniciales:<br> <b>L0 = 1100 1100 0000 0000 1100 1100 1111 1111</b> y <b>R0 = 1111 0000 1010 1010 1111 0000 1010 1010</b><br><br> Aplico la expansi&oacute;n E al bloque R0, obteniendo:<br> <b>E(R0) = 011110 100001 010101 010101 011110 100001 010101 010101</b><br><br> Al resultado de dicha expansi&oacute;n, le aplico un OR-exclusivo con la clave K(i) obtenida anteriormente, en este caso:<br> <b>K(1) = 000110 110000 001011 101111 111111 000111 000001 110010</b><br> Quedando finalmente: <br> <b>K1 (+) E(R0) = 011000 010001 011110 111010 100001 100110 010100 100111</b><br><br> Ahora debo separar esos bits en 8 bloques de 6 bits cada uno, quedando para este caso:<br> <b>B1 = 011000 - B2 = 010001 - B3 = 011110 - B4 = 111010  - B5 = 100001 - B6 = 100110 - B7 = 010100 y B8 = 100111</b><br><br> A cada uno de estos bloques debo aplicarles una de las S-Cajas descritas anteriormente, para ello: tomar los bits 1º y 6º de B(j) y formar un n&uacute;mero de 2 bits que llamaremos m. Este valor nos indicar&aacute; la fila en la tabla de sustituci&oacute;n correspondiente S(j). Obs&eacute;rvese que m=0 representa la 1ª fila y m=3 la última.<br> En nuestro caso, para B1, <b>m = 0</b><br> Con los bits 2º a 5º de B(j) formar otro n&uacute;mero, n, de cuatro bits que indicar&aacute; la columna de S(j) en la que buscar el valor de sustituci&oacute;n. En esta ocasi&oacute;n n=0 representa la 1ª columna y n=15 la &uacute;ltima columna.<br> En nuestro caso, para B1, <b>n = 12</b><br> Por ende, utilizando S1, el bloque B1 se reemplazara con el valor hayado en la coordenada 0,12 o sea el valor 5. Dicho valor debe ser escrito en 4 bits, o sea, el nuevo <b>B1 = 0101</b><br><br> Siguiendo con el resto de los bloques, obtenemos:<br> <b>S1(B1)S2(B2)S3(B3)S4(B4)S5(B5)S6(B6)S7(B7)S8(B8) = 0101 1100 1000 0010 1011 0101 1001 0111</b><br><br> A este resultado le aplico la permutaci&oacute;n P y obtengo <b>0010 0011 0100 1010 1010 1001 1011 1011</b><br><br> Luego, realizo un &uacute;ltimo OR-exclusivo con el valor L0 inicial (que no fue modificado), obteniendo:<br> = 1100 1100 0000 0000 1100 1100 1111 1111<br> + 0010 0011 0100 1010 1010 1001 1011 1011<br> <b>= 1110 1111 0100 1010 0110 0101 0100 0100</b><br><br> Este valor obtenido, es el nuevo R1, mientras que el R0 original pasa a ser el L1. Con dichos bloques, se inicia la siguiente ronda que repetir&aacute; los mismos pasos. </body></html>");
         jLabel13.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         jButton1.setText("Siguiente");
@@ -544,17 +543,16 @@ public class DesPanel extends javax.swing.JPanel {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
-                .addContainerGap(227, Short.MAX_VALUE))
+                .addContainerGap(875, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Ronda 1", jPanel8);
 
         jPanel2.setPreferredSize(new java.awt.Dimension(1024, 1024));
 
-        jLabel2.setText("<html><body>Partiendo de los bloques iniciales:<br> <b>L1 = 1100 1100 0000 0000 1100 1100 1111 1111</b> y <b>R1 = 1111 0000 1010 1010 1111 0000 1010 1010</b><br><br> Aplico la expansi&oacute;n E al bloque R1, obteniendo:<br> <b>E(R1) = 011110 100001 010101 010101 011110 100001 010101 010101</b><br><br> Al resultado de dicha expansi&oacute;n, le aplico un OR-exclusivo con la clave K(i) obtenida anteriormente, en este caso:<br> <b>K(2) = 000110 110000 001011 101111 111111 000111 000001 110010</b><br> Quedando finalmente: <br> <b>K2 (+) E(R1) = 011000 010001 011110 111010 100001 100110 010100 100111</b><br><br> Ahora debo separar esos bits en 8 bloques de 6 bits cada uno, quedando para este caso:<br> <b>B1 = 011000 - B2 = 010001 - B3 = 011110 - B4 = 111010  - B5 = 100001 - B6 = 100110 - B7 = 010100 y B8 = 100111</b><br><br> A cada uno de estos bloques debo aplicarles una de las S-Cajas descritas anteriormente, para ello: tomar los bits 1º y 6º de B(j) y formar un n&uacute;mero de 2 bits que llamaremos m. Este valor nos indicar&aacute; la fila en la tabla de sustituci&oacute;n correspondiente S(j). Obs&eacute;rvese que m=0 representa la 1ª fila y m=3 la última.<br> En nuestro caso, para B1, <b>m = 0</b><br> Con los bits 2º a 5º de B(j) formar otro n&uacute;mero, n, de cuatro bits que indicar&aacute; la columna de S(j) en la que buscar el valor de sustituci&oacute;n. En esta ocasi&oacute;n n=0 representa la 1ª columna y n=15 la &uacute;ltima columna.<br> En nuestro caso, para B1, <b>n = 12</b><br> Por ende, utilizando S1, el bloque B1 se reemplazara con el valor hayado en la coordenada 0,12 o sea el valor 5. Dicho valor debe ser escrito en 4 bits, o sea, el nuevo <b>B1 = 0101</b><br><br> Siguiendo con el resto de los bloques, obtenemos:<br> <b>S1(B1)S2(B2)S3(B3)S4(B4)S5(B5)S6(B6)S7(B7)S8(B8) = 0101 1100 1000 0010 1011 0101 1001 0111</b><br><br> A este resultado le aplico la permutaci&oacute;n P y obtengo <b>0010 0011 0100 1010 1010 1001 1011 1011</b><br><br> Luego, realizo un &uacute;ltimo OR-exclusivo con el valor L1 inicial (que no fue modificado), obteniendo:<br> = 1100 1100 0000 0000 1100 1100 1111 1111<br> + 0010 0011 0100 1010 1010 1001 1011 1011<br> <b>= 1110 1111 0100 1010 0110 0101 0100 0100</b><br><br> Este valor obtenido, es el nuevo R2, mientras que el R1 original pasa a ser el L2. Con dichos bloques, se inicia la siguiente ronda que repetir&aacute; los mismos pasos. </body></html>");
         jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         jButton9.setText("Siguiente");
@@ -581,17 +579,15 @@ public class DesPanel extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton9)
-                .addContainerGap(317, Short.MAX_VALUE))
+                .addContainerGap(875, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Ronda 2", jPanel2);
 
         jPanel10.setPreferredSize(new java.awt.Dimension(1024, 1024));
-
-        jLabel3.setText("<html><body>Partiendo de los bloques iniciales:<br> <b>L2 = 1100 1100 0000 0000 1100 1100 1111 1111</b> y <b>R2 = 1111 0000 1010 1010 1111 0000 1010 1010</b><br><br> Aplico la expansi&oacute;n E al bloque R2, obteniendo:<br> <b>E(R2) = 011110 100001 010101 010101 011110 100001 010101 010101</b><br><br> Al resultado de dicha expansi&oacute;n, le aplico un OR-exclusivo con la clave K(i) obtenida anteriormente, en este caso:<br> <b>K(3) = 000110 110000 001011 101111 111111 000111 000001 110010</b><br> Quedando finalmente: <br> <b>K3 (+) E(R2) = 011000 010001 011110 111010 100001 100110 010100 100111</b><br><br> Ahora debo separar esos bits en 8 bloques de 6 bits cada uno, quedando para este caso:<br> <b>B1 = 011000 - B2 = 010001 - B3 = 011110 - B4 = 111010  - B5 = 100001 - B6 = 100110 - B7 = 010100 y B8 = 100111</b><br><br> A cada uno de estos bloques debo aplicarles una de las S-Cajas descritas anteriormente, para ello: tomar los bits 1º y 6º de B(j) y formar un n&uacute;mero de 2 bits que llamaremos m. Este valor nos indicar&aacute; la fila en la tabla de sustituci&oacute;n correspondiente S(j). Obs&eacute;rvese que m=0 representa la 1ª fila y m=3 la última.<br> En nuestro caso, para B1, <b>m = 0</b><br> Con los bits 2º a 5º de B(j) formar otro n&uacute;mero, n, de cuatro bits que indicar&aacute; la columna de S(j) en la que buscar el valor de sustituci&oacute;n. En esta ocasi&oacute;n n=0 representa la 1ª columna y n=15 la &uacute;ltima columna.<br> En nuestro caso, para B1, <b>n = 12</b><br> Por ende, utilizando S1, el bloque B1 se reemplazara con el valor hayado en la coordenada 0,12 o sea el valor 5. Dicho valor debe ser escrito en 4 bits, o sea, el nuevo <b>B1 = 0101</b><br><br> Siguiendo con el resto de los bloques, obtenemos:<br> <b>S1(B1)S2(B2)S3(B3)S4(B4)S5(B5)S6(B6)S7(B7)S8(B8) = 0101 1100 1000 0010 1011 0101 1001 0111</b><br><br> A este resultado le aplico la permutaci&oacute;n P y obtengo <b>0010 0011 0100 1010 1010 1001 1011 1011</b><br><br> Luego, realizo un &uacute;ltimo OR-exclusivo con el valor L2 inicial (que no fue modificado), obteniendo:<br> = 1100 1100 0000 0000 1100 1100 1111 1111<br> + 0010 0011 0100 1010 1010 1001 1011 1011<br> <b>= 1110 1111 0100 1010 0110 0101 0100 0100</b><br><br> Este valor obtenido, es el nuevo R3, mientras que el R2 original pasa a ser el L3. Con dichos bloques, se inicia la siguiente ronda que repetir&aacute; los mismos pasos. </body></html>");
 
         jButton10.setText("Siguiente");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -606,7 +602,7 @@ public class DesPanel extends javax.swing.JPanel {
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                 .addGap(0, 915, Short.MAX_VALUE)
@@ -616,17 +612,15 @@ public class DesPanel extends javax.swing.JPanel {
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton10)
-                .addContainerGap(317, Short.MAX_VALUE))
+                .addContainerGap(875, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Ronda 3", jPanel10);
 
         jPanel11.setPreferredSize(new java.awt.Dimension(1024, 1024));
-
-        jLabel4.setText("<html><body>Partiendo de los bloques iniciales:<br> <b>L15 = 1100 1100 0000 0000 1100 1100 1111 1111</b> y <b>R15 = 1111 0000 1010 1010 1111 0000 1010 1010</b><br><br> Aplico la expansi&oacute;n E al bloque R15, obteniendo:<br> <b>E(R15) = 011110 100001 010101 010101 011110 100001 010101 010101</b><br><br> Al resultado de dicha expansi&oacute;n, le aplico un OR-exclusivo con la clave K(i) obtenida anteriormente, en este caso:<br> <b>K(16) = 000110 110000 001011 101111 111111 000111 000001 110010</b><br> Quedando finalmente: <br> <b>K16 (+) E(R15) = 011000 010001 011110 111010 100001 100110 010100 100111</b><br><br> Ahora debo separar esos bits en 8 bloques de 6 bits cada uno, quedando para este caso:<br> <b>B1 = 011000 - B2 = 010001 - B3 = 011110 - B4 = 111010  - B5 = 100001 - B6 = 100110 - B7 = 010100 y B8 = 100111</b><br><br> A cada uno de estos bloques debo aplicarles una de las S-Cajas descritas anteriormente, para ello: tomar los bits 1º y 6º de B(j) y formar un n&uacute;mero de 2 bits que llamaremos m. Este valor nos indicar&aacute; la fila en la tabla de sustituci&oacute;n correspondiente S(j). Obs&eacute;rvese que m=0 representa la 1ª fila y m=3 la última.<br> En nuestro caso, para B1, <b>m = 0</b><br> Con los bits 2º a 5º de B(j) formar otro n&uacute;mero, n, de cuatro bits que indicar&aacute; la columna de S(j) en la que buscar el valor de sustituci&oacute;n. En esta ocasi&oacute;n n=0 representa la 1ª columna y n=15 la &uacute;ltima columna.<br> En nuestro caso, para B1, <b>n = 12</b><br> Por ende, utilizando S1, el bloque B1 se reemplazara con el valor hayado en la coordenada 0,12 o sea el valor 5. Dicho valor debe ser escrito en 4 bits, o sea, el nuevo <b>B1 = 0101</b><br><br> Siguiendo con el resto de los bloques, obtenemos:<br> <b>S1(B1)S2(B2)S3(B3)S4(B4)S5(B5)S6(B6)S7(B7)S8(B8) = 0101 1100 1000 0010 1011 0101 1001 0111</b><br><br> A este resultado le aplico la permutaci&oacute;n P y obtengo <b>0010 0011 0100 1010 1010 1001 1011 1011</b><br><br> Luego, realizo un &uacute;ltimo OR-exclusivo con el valor L15 inicial (que no fue modificado), obteniendo:<br> = 1100 1100 0000 0000 1100 1100 1111 1111<br> + 0010 0011 0100 1010 1010 1001 1011 1011<br> <b>= 1110 1111 0100 1010 0110 0101 0100 0100</b><br><br> Este valor obtenido, es el nuevo R16, mientras que el R15 original pasa a ser el L16. Con dichos bloques, se inicia la siguiente ronda que repetir&aacute; los mismos pasos. </body></html>");
 
         jButton11.setText("Siguiente");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -652,10 +646,10 @@ public class DesPanel extends javax.swing.JPanel {
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton11)
-                .addContainerGap(317, Short.MAX_VALUE))
+                .addContainerGap(875, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Ronda 16", jPanel11);
@@ -825,6 +819,10 @@ public class DesPanel extends javax.swing.JPanel {
         String rondaFinal1Label = crearLabelRondaFinal1();
         String rondaFinal2Label = crearLabelRondaFinal2();
         String rondaFinal3Label = crearLabelRondaFinal3();
+        String ronda1Label = crearLabelRondaI(1);
+        String ronda2Label = crearLabelRondaI(2);
+        String ronda3Label = crearLabelRondaI(3);
+        String ronda16Label = crearLabelRondaI(16);
         
         
         jLabel11.setText(subclavesLabel);
@@ -835,6 +833,10 @@ public class DesPanel extends javax.swing.JPanel {
         jLabel32.setText(rondaFinal2Label);
         jLabel33.setText(rondaFinal3Label);
         
+        jLabel13.setText( ronda1Label );
+        jLabel2.setText( ronda2Label );
+        jLabel3.setText( ronda3Label );
+        jLabel4.setText( ronda16Label );
     }//GEN-LAST:event_jButton13ActionPerformed
 
 
@@ -938,6 +940,65 @@ public class DesPanel extends javax.swing.JPanel {
         return label;
     }
 
+        private String crearLabelRondaI(int i) {
+            int[] rondasL = des.getRondasL();
+            int[] rondasR = des.getRondasR();
+            long[] rondasE = des.getRondasE();
+            long[] subclaves = des.getSubkeys();
+            long[] xorFeistel = des.getRondasXorFeistel();
+            int[] permFeistel = des.getRondasPermFeistel();
+            int j = i-1;
+            
+            String label = "<html><body>Partiendo de los bloques iniciales:<br> ";
+            label += "<b>L"+j+" = " + des.formatBinary(Long.toBinaryString(rondasL[j]&0xFFFFFFFFL), 32) + "</b> y ";
+            label += "<b>R"+j+" = " + des.formatBinary(Long.toBinaryString(rondasR[j]&0xFFFFFFFFL), 32) + "</b><br><br>";
+            label += "Aplico la expansi&oacute;n E al bloque R"+j+", obteniendo:<br>";
+            label += "<b>E(R"+j+") = " + des.formatBinary(Long.toBinaryString(rondasE[j]), 48) + "</b><br><br>";
+            label += "Al resultado de dicha expansi&oacute;n, le aplico un OR-exclusivo con la clave K(i) ";
+            label += "obtenida anteriormente, en este caso:<br>";
+            label += "<b>K("+i+") = " + des.formatBinary(Long.toBinaryString(subclaves[j]),48) + "</b><br> ";
+            label += "Quedando finalmente: <br> <b>K"+i+" (+) E(R"+j+") = " + des.formatBinary(Long.toBinaryString(xorFeistel[j]),48) + "</b>";
+            label += "<br>";
+            label += "A este resultado le aplico la permutaci&oacute;n P y obtengo ";
+            label += "<b>" + des.formatBinary(Long.toBinaryString(permFeistel[j]),32) +" </b><br><br>";
+            label += "Luego, realizo un &uacute;ltimo OR-exclusivo con el valor L"+j+" inicial (que no fue modificado), ";
+            label += "obteniendo:<br> = <b>" + des.formatBinary(Long.toBinaryString(permFeistel[j]),32) + "</b><br> ";
+            label += "+ <b>" + des.formatBinary(Long.toBinaryString(rondasL[j]&0xFFFFFFFFL), 32) + "</b>"; 
+            label += "<br> <b>= " + des.formatBinary(Long.toBinaryString(rondasR[i]&0xFFFFFFFFL), 32) + "</b><br><br>";
+            label += "Este valor obtenido, es el nuevo R"+i+", mientras que el R"+j+" original pasa a ser el L"+i+".<br>";
+            if (i<16){
+                label += "Con dichos bloques, se inicia la siguiente ronda que repetir&aacute; los mismos pasos. </body></html>";    
+            } else {
+                label += "Con esta ronda concluyen las 16 rondas principales del algoritmo, dejando lugar a un paso final</body></html>";
+            }
+            
+            
+             
+            
+            
+            /*
+            
+    <br><br> Ahora debo separar esos bits en 8 bloques de 6 bits cada uno, quedando para este caso:<br> 
+    <b>B1 = 011000 - B2 = 010001 - B3 = 011110 - B4 = 111010  - B5 = 100001 - B6 = 100110 - 
+    B7 = 010100 y B8 = 100111</b><br><br> A cada uno de estos bloques debo aplicarles una de las 
+    S-Cajas descritas anteriormente, para ello: tomar los bits 1º y 6º de B(j) y formar un 
+    n&uacute;mero de 2 bits que llamaremos m. Este valor nos indicar&aacute; la fila en la tabla de 
+    sustituci&oacute;n correspondiente S(j). Obs&eacute;rvese que m=0 representa la 1ª fila y m=3 la 
+    última.<br> En nuestro caso, para B1, <b>m = 0</b><br> Con los bits 2º a 5º de B(j) formar otro 
+    n&uacute;mero, n, de cuatro bits que indicar&aacute; la columna de S(j) en la que buscar el valor de 
+    sustituci&oacute;n. En esta ocasi&oacute;n n=0 representa la 1ª columna y n=15 la &uacute;ltima columna.<br> 
+    En nuestro caso, para B1, <b>n = 12</b><br> Por ende, utilizando S1, el bloque B1 se reemplazara con el 
+    valor hayado en la coordenada 0,12 o sea el valor 5. Dicho valor debe ser escrito en 4 bits, o sea, el 
+    nuevo <b>B1 = 0101</b><br><br> Siguiendo con el resto de los bloques, obtenemos:<br> 
+    <b>S1(B1)S2(B2)S3(B3)S4(B4)S5(B5)S6(B6)S7(B7)S8(B8) = 0101 1100 1000 0010 1011 0101 1001 0111</b><br><br> 
+            
+            */
+            
+            
+            return label;
+        }
+
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
