@@ -9,7 +9,7 @@ package ar.com.hardcodeando.algorithm;
  *
  * @author Nestor
  */
-class BadFormedKeyException extends Exception {
+public class BadFormedKeyException extends Exception {
 
     public BadFormedKeyException() {
     }
