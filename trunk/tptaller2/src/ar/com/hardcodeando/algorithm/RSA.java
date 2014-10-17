@@ -78,6 +78,17 @@ public class RSA {
         return a;
     }
        
+    private long InversoMultiplicativo(long valor, long modulo){
+        long inv = 1;
+        boolean flag = false;
+        
+        while(!flag && inv <= modulo){
+            if((valor*inv)%modulo == 1) flag = true;
+            inv++;
+        }
+        if(flag) return inv;
+        else return 0;
+    }
     
     
     /**
@@ -196,6 +207,8 @@ public class RSA {
      * Junto con el modulo forman la clave publica
      */
     public void GenerarExponentePublico(){
+        //Hallar el inverso modular de d mod (p-1)(q-1)--> de = 1 mod (p-1)(q-1)
+        this.e = this.InversoMultiplicativo(this.d, this.p1q1);
         
     }
     

@@ -54,6 +54,10 @@ public class RSAPanel extends javax.swing.JPanel {
         this.RSATabbedPanel.setEnabledAt(5, false);
         this.RSATabbedPanel.setEnabledAt(6, false);
         this.botContinuarPaso1.setEnabled(false);
+        this.text_d.setText("");
+        this.text_claveprivada.setText("");
+        this.text_e_paso3.setText("");
+        this.text_clavepublica.setText("");
     }
     
     private boolean esNumero(String cadena){
@@ -125,9 +129,11 @@ public class RSAPanel extends javax.swing.JPanel {
         jLabel17 = new javax.swing.JLabel();
         text_e_paso3 = new javax.swing.JTextField();
         botHallar_e = new javax.swing.JButton();
-        text_claveprivada1 = new javax.swing.JTextField();
+        text_clavepublica = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         botContinuarPaso3 = new javax.swing.JButton();
+        textp1q1paso3 = new javax.swing.JTextField();
+        jLabel34 = new javax.swing.JLabel();
         panelPaso4 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
@@ -527,7 +533,7 @@ public class RSAPanel extends javax.swing.JPanel {
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel23.setText("Paso 3: Hallar componente e.");
 
-        jLabel12.setText("<html>Lo que hay que hacer luego de hallar la clave privada, es hallar un valor entero <strong>e</strong> que será junto con el módulo encontrado en el paso 1 la <strong>clave pública</strong> y servirá para encriptar los mensajes.<br><br>Este valor debe estar dentro del rango <strong>1 &le; e &le; (p-1)&times;(q-1)</strong><br><br>Por lo tanto aplicaremos la siguiente ecuación, en donde despejaremos el valor de <strong>e</strong>:<br><br><strong>e &times; d = 1 mod [(p-1) &times; (q-1)]</strong></html>");
+        jLabel12.setText("<html>Lo que hay que hacer luego de hallar la clave privada, es hallar un valor entero <strong>e</strong> que será junto con el módulo encontrado en el paso 1 la <strong>clave pública</strong> y servirá para encriptar los mensajes.<br><br>Este valor debe estar dentro del rango <strong>1 &le; e &le; (p-1)&times;(q-1)</strong><br><br>Por lo tanto aplicaremos la siguiente ecuación, en donde buscaremos el valor de <strong>e</strong>:<br><br><strong>e &times; d = 1 mod [(p-1) &times; (q-1)]</strong> &rarr; <strong>e</strong> es el multiplicador modular inverso de <strong>d mod[(p-1) &times; (q-1)]</strong></html>");
 
         text_q_paso3.setEditable(false);
         text_q_paso3.addActionListener(new java.awt.event.ActionListener() {
@@ -564,17 +570,27 @@ public class RSAPanel extends javax.swing.JPanel {
         });
 
         botHallar_e.setText("Hallar e");
+        botHallar_e.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botHallar_eMousePressed(evt);
+            }
+        });
 
-        text_claveprivada1.setEditable(false);
+        text_clavepublica.setEditable(false);
 
         jLabel24.setText("Clave Pública");
 
         botContinuarPaso3.setText("Continuar");
+        botContinuarPaso3.setEnabled(false);
         botContinuarPaso3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 botContinuarPaso3MousePressed(evt);
             }
         });
+
+        textp1q1paso3.setEditable(false);
+
+        jLabel34.setText("<html>(p-1)&times;(q-1)</html>");
 
         javax.swing.GroupLayout panelPaso3Layout = new javax.swing.GroupLayout(panelPaso3);
         panelPaso3.setLayout(panelPaso3Layout);
@@ -588,32 +604,42 @@ public class RSAPanel extends javax.swing.JPanel {
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel23)))
                     .addGroup(panelPaso3Layout.createSequentialGroup()
-                        .addGap(199, 199, 199)
                         .addGroup(panelPaso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelPaso3Layout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(text_p_paso3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel16))
-                            .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(10, 10, 10)
-                        .addGroup(panelPaso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(botContinuarPaso3)
-                            .addGroup(panelPaso3Layout.createSequentialGroup()
+                                .addGap(232, 232, 232)
                                 .addGroup(panelPaso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(panelPaso3Layout.createSequentialGroup()
-                                        .addGroup(panelPaso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(text_e_paso3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(text_q_paso3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel17)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(panelPaso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(botHallar_e, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(text_d_paso3)))
-                                    .addComponent(text_claveprivada1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(4, 4, 4)))))
+                                        .addComponent(text_d_paso3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelPaso3Layout.createSequentialGroup()
+                                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(textp1q1paso3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(89, 89, 89))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPaso3Layout.createSequentialGroup()
+                                .addGap(225, 225, 225)
+                                .addGroup(panelPaso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPaso3Layout.createSequentialGroup()
+                                        .addComponent(jLabel24)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(text_clavepublica, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(6, 6, 6))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPaso3Layout.createSequentialGroup()
+                                        .addGroup(panelPaso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(text_e_paso3, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(panelPaso3Layout.createSequentialGroup()
+                                                .addComponent(jLabel13)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(text_p_paso3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jLabel16)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(text_q_paso3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))))
+                        .addGroup(panelPaso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(botHallar_e, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botContinuarPaso3))))
                 .addContainerGap(612, Short.MAX_VALUE))
         );
         panelPaso3Layout.setVerticalGroup(
@@ -623,25 +649,30 @@ public class RSAPanel extends javax.swing.JPanel {
                 .addComponent(jLabel23)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
+                .addGap(33, 33, 33)
+                .addGroup(panelPaso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(text_p_paso3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(text_q_paso3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel13))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelPaso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(text_d_paso3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(text_q_paso3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel16)
-                    .addComponent(text_p_paso3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
-                .addGap(13, 13, 13)
+                    .addComponent(jLabel17))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelPaso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textp1q1paso3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelPaso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botHallar_e)
                     .addComponent(text_e_paso3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelPaso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(text_claveprivada1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel24))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botContinuarPaso3)
-                .addContainerGap(385, Short.MAX_VALUE))
+                    .addComponent(text_clavepublica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel24)
+                    .addComponent(botContinuarPaso3))
+                .addContainerGap(392, Short.MAX_VALUE))
         );
 
         RSATabbedPanel.addTab("Paso 3", panelPaso3);
@@ -1172,6 +1203,10 @@ public class RSAPanel extends javax.swing.JPanel {
     private void botContinuarPaso2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botContinuarPaso2MousePressed
         this.RSATabbedPanel.setEnabledAt(this.RSATabbedPanel.getSelectedIndex()+1, true);
         this.RSATabbedPanel.setSelectedIndex(this.RSATabbedPanel.getSelectedIndex()+1);
+        this.text_p_paso3.setText(Long.toString(this.rsa_aprender.GetP()));
+        this.text_q_paso3.setText(Long.toString(this.rsa_aprender.GetQ()));
+        this.text_d_paso3.setText(Long.toString(this.rsa_aprender.GetD()));
+        this.textp1q1paso3.setText(Long.toString(this.rsa_aprender.GetP1Q1()));
     }//GEN-LAST:event_botContinuarPaso2MousePressed
 
     private void textIntervalo_dActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIntervalo_dActionPerformed
@@ -1267,7 +1302,10 @@ public class RSAPanel extends javax.swing.JPanel {
         this.RSATabbedPanel.setEnabledAt(this.RSATabbedPanel.getSelectedIndex()+2, false);
         this.RSATabbedPanel.setEnabledAt(this.RSATabbedPanel.getSelectedIndex()+3, false);
         this.RSATabbedPanel.setEnabledAt(this.RSATabbedPanel.getSelectedIndex()+4, false);
-        
+        this.text_d.setText("");
+        this.text_claveprivada.setText("");
+        this.text_e_paso3.setText("");
+        this.text_clavepublica.setText("");        
     }//GEN-LAST:event_botPrimosAleatorioMousePressed
 
     private void text_d_paso3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_d_paso3ActionPerformed
@@ -1281,6 +1319,14 @@ public class RSAPanel extends javax.swing.JPanel {
                 Long.toString(this.rsa_aprender.GetD()) + ")");
         this.botContinuarPaso2.setEnabled(true);
     }//GEN-LAST:event_botHallar_dMousePressed
+
+    private void botHallar_eMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botHallar_eMousePressed
+        this.rsa_aprender.GenerarExponentePublico();
+        this.text_e_paso3.setText(Long.toString(this.rsa_aprender.GetE()));
+        this.text_clavepublica.setText("(" + Long.toString(this.rsa_aprender.GetModulo()) + 
+                "," + Long.toString(this.rsa_aprender.GetE()) + ")");
+        this.botContinuarPaso3.setEnabled(true);
+    }//GEN-LAST:event_botHallar_eMousePressed
 
     private RSA rsa_aprender;
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1333,6 +1379,7 @@ public class RSAPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1372,7 +1419,7 @@ public class RSAPanel extends javax.swing.JPanel {
     private javax.swing.JTextField textP;
     private javax.swing.JTextField textQ;
     private javax.swing.JTextField text_claveprivada;
-    private javax.swing.JTextField text_claveprivada1;
+    private javax.swing.JTextField text_clavepublica;
     private javax.swing.JTextField text_d;
     private javax.swing.JTextField text_d_paso3;
     private javax.swing.JTextField text_e_paso3;
@@ -1380,6 +1427,7 @@ public class RSAPanel extends javax.swing.JPanel {
     private javax.swing.JTextField text_p_paso3;
     private javax.swing.JTextField text_q_paso2;
     private javax.swing.JTextField text_q_paso3;
+    private javax.swing.JTextField textp1q1paso3;
     private javax.swing.JTextField textpq;
     // End of variables declaration//GEN-END:variables
 }
