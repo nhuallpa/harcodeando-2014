@@ -533,7 +533,31 @@ public class Des {
         }
         return s;
     }
+    
+    
+    public static boolean validarMensaje(String mensaje){
+        
+        boolean validar = false;
+        int largo = mensaje.length();
+        if (largo <= 16) {
+            validar = mensaje.toUpperCase().matches("^[0-9A-F]+$");
+        }
 
+        return validar;
+    }
+
+    public static boolean validarClave(String clave){
+        
+        boolean validar = false;
+        int largo = clave.length();
+        if (largo <= 16) {
+            validar = clave.toUpperCase().matches("^[0-9A-F]+$");
+        }
+
+        return validar;
+    }
+
+    
     
     public boolean test(byte[] message, byte[] expected, byte[] key) {
         
