@@ -128,6 +128,11 @@ public class MainFrameUI extends javax.swing.JFrame {
         jMenu7.setText("NLFSR");
 
         jMenuItem6.setText("Aprender");
+        jMenuItem6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenuItem6MousePressed(evt);
+            }
+        });
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);
@@ -321,6 +326,19 @@ public class MainFrameUI extends javax.swing.JFrame {
         this.setVisible(true);
     }//GEN-LAST:event_jMenuItem10MousePressed
 
+    private void jMenuItem6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem6MousePressed
+        
+        if(this.npanel == null){
+            this.npanel = new NLFSRPanel();
+        }
+        if(this.currentComponent!=null){
+            this.remove(this.currentComponent);
+        }
+        this.currentComponent = npanel;
+        this.add(this.currentComponent, BorderLayout.CENTER);
+        this.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6MousePressed
+
 
     
     /**
@@ -363,6 +381,7 @@ public class MainFrameUI extends javax.swing.JFrame {
     private MD5Panel md5panel=null;
     private DesPanel dpanel=null;
     private RSAPanel rpanel = null;
+    private NLFSRPanel npanel = null;
     private JComponent currentComponent=null;
     
     
