@@ -662,39 +662,53 @@
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="199" pref="199" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="text_p_paso3" min="-2" pref="63" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jLabel24" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="botContinuarPaso3" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="232" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="1" attributes="0">
                                               <Group type="102" alignment="1" attributes="0">
-                                                  <Group type="103" groupAlignment="1" attributes="0">
-                                                      <Component id="text_e_paso3" min="-2" pref="63" max="-2" attributes="0"/>
-                                                      <Component id="text_q_paso3" alignment="1" min="-2" pref="63" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="botHallar_e" max="32767" attributes="0"/>
-                                                      <Component id="text_d_paso3" max="32767" attributes="0"/>
-                                                  </Group>
+                                                  <Component id="text_d_paso3" min="-2" pref="63" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="text_claveprivada1" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="textp1q1paso3" min="-2" pref="63" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
-                                          <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                                       </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace min="-2" pref="225" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="text_clavepublica" min="-2" pref="146" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Group type="103" groupAlignment="1" attributes="0">
+                                                      <Component id="text_e_paso3" min="-2" pref="146" max="-2" attributes="0"/>
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="text_p_paso3" min="-2" pref="63" max="-2" attributes="0"/>
+                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="text_q_paso3" min="-2" pref="63" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="botHallar_e" min="-2" pref="79" max="-2" attributes="0"/>
+                                      <Component id="botContinuarPaso3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -709,28 +723,35 @@
                           <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="text_d_paso3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="text_q_paso3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="text_p_paso3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="text_q_paso3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="text_d_paso3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel34" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="textp1q1paso3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="botHallar_e" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="text_e_paso3" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="text_claveprivada1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="text_clavepublica" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="botContinuarPaso3" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="botContinuarPaso3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="385" max="32767" attributes="0"/>
+                          <EmptySpace pref="392" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -746,7 +767,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel12">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="&lt;html&gt;Lo que hay que hacer luego de hallar la clave privada, es hallar un valor entero &lt;strong&gt;e&lt;/strong&gt; que ser&#xe1; junto con el m&#xf3;dulo encontrado en el paso 1 la &lt;strong&gt;clave p&#xfa;blica&lt;/strong&gt; y servir&#xe1; para encriptar los mensajes.&lt;br&gt;&lt;br&gt;Este valor debe estar dentro del rango &lt;strong&gt;1 &amp;le; e &amp;le; (p-1)&amp;times;(q-1)&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Por lo tanto aplicaremos la siguiente ecuaci&#xf3;n, en donde despejaremos el valor de &lt;strong&gt;e&lt;/strong&gt;:&lt;br&gt;&lt;br&gt;&lt;strong&gt;e &amp;times; d = 1 mod [(p-1) &amp;times; (q-1)]&lt;/strong&gt;&lt;/html&gt;"/>
+                    <Property name="text" type="java.lang.String" value="&lt;html&gt;Lo que hay que hacer luego de hallar la clave privada, es hallar un valor entero &lt;strong&gt;e&lt;/strong&gt; que ser&#xe1; junto con el m&#xf3;dulo encontrado en el paso 1 la &lt;strong&gt;clave p&#xfa;blica&lt;/strong&gt; y servir&#xe1; para encriptar los mensajes.&lt;br&gt;&lt;br&gt;Este valor debe estar dentro del rango &lt;strong&gt;1 &amp;le; e &amp;le; (p-1)&amp;times;(q-1)&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Por lo tanto aplicaremos la siguiente ecuaci&#xf3;n, en donde buscaremos el valor de &lt;strong&gt;e&lt;/strong&gt;:&lt;br&gt;&lt;br&gt;&lt;strong&gt;e &amp;times; d = 1 mod [(p-1) &amp;times; (q-1)]&lt;/strong&gt; &amp;rarr; &lt;strong&gt;e&lt;/strong&gt; es el multiplicador modular inverso de &lt;strong&gt;d mod[(p-1) &amp;times; (q-1)]&lt;/strong&gt;&lt;/html&gt;"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="text_q_paso3">
@@ -800,8 +821,11 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Hallar e"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botHallar_eMousePressed"/>
+                  </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="text_claveprivada1">
+                <Component class="javax.swing.JTextField" name="text_clavepublica">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
                   </Properties>
@@ -814,10 +838,21 @@
                 <Component class="javax.swing.JButton" name="botContinuarPaso3">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Continuar"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botContinuarPaso3MousePressed"/>
                   </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="textp1q1paso3">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel34">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&lt;html&gt;(p-1)&amp;times;(q-1)&lt;/html&gt;"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
