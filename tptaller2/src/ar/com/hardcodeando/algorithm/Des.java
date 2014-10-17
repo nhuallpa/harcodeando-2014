@@ -168,6 +168,11 @@ public class Des {
     
     private static int rondasR[] = new int[17];
     private static int rondasL[] = new int[17];
+    private static long rondasE[] = new long[16];
+    private static long rondasXorFeistel[] = new long[16];
+    private static int rondasPermFeistel[] = new int[16];
+    
+    
     private static long rondasPc1 = 0;
     private static long rondasFP = 0;
     
@@ -194,6 +199,15 @@ public class Des {
     }
     public int[] getRondasL() {
         return rondasL;
+    }
+    public long[] getRondasE() {
+        return rondasE;
+    }    
+    public long[] getRondasXorFeistel() {
+        return rondasXorFeistel;
+    }
+    public int[] getRondasPermFeistel() {
+        return rondasPermFeistel;
     }
     public long getRondasPc1() {
         return rondasPc1;
@@ -290,21 +304,26 @@ public class Des {
     /**
      * Funcion de Feistel.
      */
-    private static int feistel(int r, /* 48 bits */ long subkey) {
+    private static int feistel(int r, /* 48 bits */ long subkey, int i) {
         // 1. expansion
         long e = E(r);
+        rondasE[i] = e;
         // 2. key mixing
         long x = e ^ subkey;
+        
+        rondasXorFeistel[i] = x;
         // 3. substitution
         int dst = 0;
-        for (int i=0; i<8; i++) {
+        for (int j=0; j<8; j++) {
             dst>>>=4;
-            int s = S(8-i, (byte)(x&0x3F));
+            int s = S(8-j, (byte)(x&0x3F));
             dst |= s << 28;
             x>>=6;
         }
         // 4. permutation
-        return P(dst);
+        int perm = P(dst);
+        rondasPermFeistel[i] = perm;
+        return perm;
     }
     
     /**
@@ -376,7 +395,7 @@ public class Des {
             l = r;
             // the Feistel function is applied to the old left half
             // and the resulting value is stored in the right half.
-            r = previous_l ^ feistel(r, subkeys[i]);
+            r = previous_l ^ feistel(r, subkeys[i], i);
             rondasL[i+1] = l;
             rondasR[i+1] = r;
         }
