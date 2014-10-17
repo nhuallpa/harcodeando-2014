@@ -60,6 +60,27 @@ public class HillEncryptTest {
     }
     
     @Test
+    public void encryptOkMatriz() {
+        HillCipher hill = new HillCipher(2);
+        
+      
+        String msgEncriptado;
+        
+        int clave[][] = new int[2][2];
+        clave[0][0] = 3;
+        clave[0][1] = 2;
+        clave[1][0] = 5;
+        clave[1][1] = 7;
+        try {
+            msgEncriptado = hill.encrypt("TOP SECRET MESSAGE", clave);
+            assertEquals("HLDTQIHJDXWQCMAG", msgEncriptado.toUpperCase());
+        } catch (BadFormedKeyException ex) {
+            Logger.getLogger(HillEncryptTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    @Test
     public void encryptOK2() {
         HillCipher hill = new HillCipher(2);
         

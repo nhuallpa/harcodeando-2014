@@ -61,6 +61,24 @@ public class HillDecodingTest {
     }
     
     @Test
+    public void decodingTopsecretMatriz() {
+        HillCipher hill = new HillCipher(2);
+        int clave[][] = new int[2][2];
+        clave[0][0] = 3;
+        clave[0][1] = 2;
+        clave[1][0] = 5;
+        clave[1][1] = 7;
+        int claveInv[][] = null;
+        try {
+            claveInv = hill.calculateKeyInv(clave);
+            String msgDecoding = hill.decoding("HLDTQIHJDXWQCMAG", claveInv);
+            assertEquals("TOPSECRETMESSAGE", msgDecoding.toUpperCase());
+        } catch (BadFormedKeyException ex) {
+            Logger.getLogger(HillDecodingTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @Test
     public void decodingHola() {
         HillCipher hill = new HillCipher(2);
         

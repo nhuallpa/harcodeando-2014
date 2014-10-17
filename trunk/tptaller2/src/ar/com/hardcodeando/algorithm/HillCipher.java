@@ -22,21 +22,37 @@ public class HillCipher {
     }
     
     public String encrypt(String mensaje, String key) throws BadFormedKeyException {
-        if (!this.check(key)) {
+        return compute(mensaje, key);
+    }
+    
+    public String decoding(String secretMessage, String invertedKey) throws BadFormedKeyException {
+        return compute(secretMessage, invertedKey);
+    }
+    
+    public String compute(String mensaje, String someKey) throws BadFormedKeyException{
+        if (!this.check(someKey)) {
             throw new BadFormedKeyException();
         }
         mensaje = mensaje.toLowerCase().trim();
         mensaje = mensaje.replaceAll(" ", "");
         return divide(mensaje, len);
     }
+
+    public String encrypt(String mensaje, int keyMatriz[][]) throws BadFormedKeyException {
+        return compute(mensaje, keyMatriz);
+    }
     
-    public String decoding(String secretMessage, String invertedKey) throws BadFormedKeyException {
-        if (!this.check(invertedKey)) {
+    public String decoding(String mensaje, int keyMatriz[][]) throws BadFormedKeyException {
+        return compute(mensaje, keyMatriz);
+    }
+    
+    public String compute(String mensaje, int keyMatriz[][]) throws BadFormedKeyException{
+        if (!this.checkMatriz(keyMatriz)) {
             throw new BadFormedKeyException();
         }
-        secretMessage = secretMessage.toLowerCase().trim();
-        secretMessage = secretMessage.replaceAll(" ", "");
-        return divide(secretMessage, len);
+        mensaje = mensaje.toLowerCase().trim();
+        mensaje = mensaje.replaceAll(" ", "");
+        return divide(mensaje, len);
     }
     
     public String divide(String temp, int s)
@@ -160,8 +176,29 @@ public class HillCipher {
         }
     }
     
+     public boolean checkMatriz(int keyMatriz[][])
+    {
+        keymatrix = keyMatriz;
+        int d=determinant(keymatrix,len);
+        d=d%26;
+        if(d==0)
+        {
+            System.out.println("Invalid key!!! Key is not invertible because determinant=0...");
+            return false;
+        }
+        else if(d%2==0||d%13==0)
+        {
+            System.out.println("Invalid key!!! Key is not invertible because determinant has common factor with 26...");
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
     
-    public String cofact(int num[][],int f)
+    
+    public int[][] cofact(int num[][],int f)
     {
         int b[][],fac[][];
         b=new int[f][f];
@@ -196,7 +233,7 @@ public class HillCipher {
         }
         return trans(fac,f);
     }
-    private String trans(int fac[][],int r)
+    private int[][] trans(int fac[][],int r)
     {
         int i,j;
         int b[][],inv[][];
@@ -226,7 +263,7 @@ public class HillCipher {
             }
         }
         
-        return matrixtoinvkey(inv,r);
+        return inv;
     }
     public int mi(int d)
     {
@@ -262,6 +299,12 @@ public class HillCipher {
 
     public String calculateKeyInv(String key) throws BadFormedKeyException {
         if (!this.check(key)) {
+            throw new BadFormedKeyException();
+        }
+        return matrixtoinvkey(cofact(keymatrix, len), len);
+    }
+    public int[][] calculateKeyInv(int key[][]) throws BadFormedKeyException {
+        if (!this.checkMatriz(key)) {
             throw new BadFormedKeyException();
         }
         return cofact(keymatrix, len);

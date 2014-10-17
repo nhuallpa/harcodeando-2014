@@ -5,6 +5,8 @@
  */
 package ar.com.hardcodeando.ui;
 
+import ar.com.hardcodeando.algorithm.BadFormedKeyException;
+import ar.com.hardcodeando.algorithm.HillCipher;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -79,6 +81,7 @@ public class HillPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         hillPaso1Panel = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         lblHeaderPaso1 = new javax.swing.JLabel();
@@ -90,20 +93,19 @@ public class HillPanel extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        textMensaje = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        textResultPaso2 = new javax.swing.JTextField();
         hillPaso3Panel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        textSecreto = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        textMensajeDescubierto = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Hill Cipher");
@@ -125,13 +127,16 @@ public class HillPanel extends javax.swing.JPanel {
 
         jLabel3.setText("<html>Para encriptar o desencriptar, el algoritmo asigna <br> valores numericos al alfabeto. <br><br> Para el aprendizaje de este algoritmos por tres pasos.<br><br> <strong>Paso 1</strong>: Se explicara el procedimiento y las condiciones <br> necesarias para armar una clave.<br><br> <strong>Paso 2</strong>: Se utilizara la clave obtenida para encriptar <br>un mensaje de ejemplo.<br><br> <strong>Paso 3</strong>: Se calculara otra clave para desencriptar <br> un mensaje un mesaje secreto<br><br> </html>");
         jLabel3.setDoubleBuffered(true);
-        IntroHillPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 330, 230));
+        IntroHillPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 330, 230));
         jLabel3.getAccessibleContext().setAccessibleName("");
         jLabel3.getAccessibleContext().setAccessibleDescription("");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Introducción");
         IntroHillPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        jLabel17.setText("<html>Nota: Se normalizaran todos los textos a MAYUSCULA<br> y se quitaran los espacios</html>");
+        IntroHillPanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, -1, 40));
 
         jTabbedPane1.addTab("Introducción", IntroHillPanel);
 
@@ -180,9 +185,9 @@ public class HillPanel extends javax.swing.JPanel {
         jLabel14.setText("Introdusca un mensaje a encriptar:");
         hillPaso2Panel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, -1, -1));
 
-        jTextField1.setText("Mensaje a encriptar");
-        jTextField1.setToolTipText("");
-        hillPaso2Panel.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 360, 220, -1));
+        textMensaje.setText("Mensaje a encriptar");
+        textMensaje.setToolTipText("");
+        hillPaso2Panel.add(textMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 360, 220, -1));
 
         jButton5.setText("Encriptar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -195,12 +200,13 @@ public class HillPanel extends javax.swing.JPanel {
         jLabel13.setText("Mensaje encriptado:");
         hillPaso2Panel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, -1, -1));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        textResultPaso2.setEditable(false);
+        textResultPaso2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                textResultPaso2ActionPerformed(evt);
             }
         });
-        hillPaso2Panel.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, 220, -1));
+        hillPaso2Panel.add(textResultPaso2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, 220, -1));
 
         jTabbedPane1.addTab("Paso 2 de 3", hillPaso2Panel);
 
@@ -219,19 +225,24 @@ public class HillPanel extends javax.swing.JPanel {
         jLabel15.setText("Indrodusca un mensaje a desencriptar:");
         hillPaso3Panel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 310, -1, -1));
 
-        jTextField3.setText("mensaje encriptado");
-        hillPaso3Panel.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 260, -1));
+        textSecreto.setText("mensaje encriptado");
+        textSecreto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSecretoActionPerformed(evt);
+            }
+        });
+        hillPaso3Panel.add(textSecreto, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 260, -1));
 
         jLabel16.setText("Mensaje desencriptado:");
         hillPaso3Panel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, -1, -1));
 
-        jTextField4.setText("mensaje");
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        textMensajeDescubierto.setText("mensaje");
+        textMensajeDescubierto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                textMensajeDescubiertoActionPerformed(evt);
             }
         });
-        hillPaso3Panel.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 390, 260, -1));
+        hillPaso3Panel.add(textMensajeDescubierto, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 390, 260, -1));
 
         jButton6.setText("Desencriptar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -243,13 +254,6 @@ public class HillPanel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Paso 3 de 3", hillPaso3Panel);
 
-        jButton4.setText("Cerrar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -259,8 +263,7 @@ public class HillPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(398, 398, 398)
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 840, Short.MAX_VALUE)))
@@ -270,9 +273,7 @@ public class HillPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton4))
+                .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -294,25 +295,55 @@ public class HillPanel extends javax.swing.JPanel {
         jTabbedPane1.setSelectedIndex(3);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        HillCipher hill = new HillCipher(2);
+        
+        String msgAEncriptar = textMensaje.getText();
+        String msgEncriptado;
+        
+        int clave[][] = new int[2][2];
+        clave[0][0] = 3;
+        clave[0][1] = 2;
+        clave[1][0] = 5;
+        clave[1][1] = 7;
+        try {
+            if (!msgAEncriptar.equals("")) {
+                msgEncriptado = hill.encrypt(msgAEncriptar, clave);
+                textResultPaso2.setText(msgEncriptado.toUpperCase());
+            }
+        } catch (BadFormedKeyException ex) {
+            Logger.getLogger(HillPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void textResultPaso2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textResultPaso2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_textResultPaso2ActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void textMensajeDescubiertoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMensajeDescubiertoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_textMensajeDescubiertoActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+         HillCipher hill = new HillCipher(2);
+        int clave[][] = new int[2][2];
+        clave[0][0] = 3;
+        clave[0][1] = 2;
+        clave[1][0] = 5;
+        clave[1][1] = 7;
+        int claveInv[][] = null;
+        try {
+            claveInv = hill.calculateKeyInv(clave);
+            String msgDecoding = hill.decoding(textSecreto.getText(), claveInv);
+            textMensajeDescubierto.setText(msgDecoding.toUpperCase());
+        } catch (BadFormedKeyException ex) {
+            Logger.getLogger(HillPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void textSecretoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSecretoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textSecretoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -323,7 +354,6 @@ public class HillPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
@@ -334,6 +364,7 @@ public class HillPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -343,10 +374,10 @@ public class HillPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel lblHeaderPaso1;
+    private javax.swing.JTextField textMensaje;
+    private javax.swing.JTextField textMensajeDescubierto;
+    private javax.swing.JTextField textResultPaso2;
+    private javax.swing.JTextField textSecreto;
     // End of variables declaration//GEN-END:variables
 }
