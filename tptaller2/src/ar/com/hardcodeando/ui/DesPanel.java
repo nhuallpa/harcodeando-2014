@@ -58,6 +58,8 @@ public class DesPanel extends javax.swing.JPanel {
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -152,6 +154,10 @@ public class DesPanel extends javax.swing.JPanel {
 
         jLabel36.setText("Mensaje cifrado:");
 
+        jLabel37.setForeground(new java.awt.Color(228, 27, 27));
+
+        jLabel38.setForeground(new java.awt.Color(228, 27, 27));
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -179,10 +185,13 @@ public class DesPanel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                .addGap(339, 339, 339)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton13, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))))))
+                                .addComponent(jLabel38)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel37)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton13)))))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -206,9 +215,13 @@ public class DesPanel extends javax.swing.JPanel {
                             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel36))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton13)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton13)
+                            .addComponent(jLabel37))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton2)
+                            .addComponent(jLabel38))))
                 .addContainerGap(266, Short.MAX_VALUE))
         );
 
@@ -832,37 +845,52 @@ public class DesPanel extends javax.swing.JPanel {
         String clave = jTextField1.getText();
         String mensaje = jTextField2.getText();
         
-        byte[] received = des.encrypt(des.parseBytes(mensaje), des.parseBytes(clave));
         
-        jTextField3.setText(des.hex(received));
-        
-        String subclavesLabel = crearLabelSubclaves();
-        String rondaInicial1Label = crearLabelRondaInicial1();
-        String rondaInicial2Label = crearLabelRondaInicial2();
+        // Validacion
+        if (Des.validarMensaje(mensaje)) {
+            jLabel37.setText("");
+            if (Des.validarClave(clave)) {
+                jLabel38.setText("");
+                byte[] received = des.encrypt(des.parseBytes(mensaje), des.parseBytes(clave));
 
-        String rondaFinal1Label = crearLabelRondaFinal1();
-        String rondaFinal2Label = crearLabelRondaFinal2();
-        String rondaFinal3Label = crearLabelRondaFinal3();
-        String ronda1Label = crearLabelRondaI(1);
-        String ronda2Label = crearLabelRondaI(2);
-        String ronda3Label = crearLabelRondaI(3);
-        String ronda16Label = crearLabelRondaI(16);
-        
-        
-        jLabel11.setText(subclavesLabel);
-        jLabel24.setText(rondaInicial1Label);
-        jLabel29.setText(rondaInicial2Label);
+                jTextField3.setText(des.hex(received));
 
-        jLabel30.setText(rondaFinal1Label);
-        jLabel32.setText(rondaFinal2Label);
-        jLabel33.setText(rondaFinal3Label);
-        
-        jLabel13.setText( ronda1Label );
-        jLabel2.setText( ronda2Label );
-        jLabel3.setText( ronda3Label );
-        jLabel4.setText( ronda16Label );
-        
-        jButton2.setEnabled(true);
+                String subclavesLabel = crearLabelSubclaves();
+                String rondaInicial1Label = crearLabelRondaInicial1();
+                String rondaInicial2Label = crearLabelRondaInicial2();
+
+                String rondaFinal1Label = crearLabelRondaFinal1();
+                String rondaFinal2Label = crearLabelRondaFinal2();
+                String rondaFinal3Label = crearLabelRondaFinal3();
+                String ronda1Label = crearLabelRondaI(1);
+                String ronda2Label = crearLabelRondaI(2);
+                String ronda3Label = crearLabelRondaI(3);
+                String ronda16Label = crearLabelRondaI(16);
+
+
+                jLabel11.setText(subclavesLabel);
+                jLabel24.setText(rondaInicial1Label);
+                jLabel29.setText(rondaInicial2Label);
+
+                jLabel30.setText(rondaFinal1Label);
+                jLabel32.setText(rondaFinal2Label);
+                jLabel33.setText(rondaFinal3Label);
+
+                jLabel13.setText( ronda1Label );
+                jLabel2.setText( ronda2Label );
+                jLabel3.setText( ronda3Label );
+                jLabel4.setText( ronda16Label );
+                
+                jButton2.setEnabled(true);
+            
+            } else {
+                jLabel38.setText("La clave debe ser hexadecimal hasta 64 bits");
+            }
+        } else {
+            jLabel37.setText("El mensaje debe ser hexadecimal hasta 64 bits");
+            jLabel38.setText("");
+        }
+                
     }//GEN-LAST:event_jButton13ActionPerformed
 
 
@@ -947,7 +975,7 @@ public class DesPanel extends javax.swing.JPanel {
 
         String label = "<html><body>Obteni&eacute;ndose finalmente: ";
         label += "<b>C = " + des.formatBinary(Long.toBinaryString(fp), 64, 4) + "</b><br>";
-        label += "el cual se traduce en hexadecimal como <b>" + Long.toHexString(fp) + "</b><br>";
+        label += "el cual se traduce en hexadecimal como <b>" + Long.toHexString(fp).toUpperCase() + "</b><br>";
         label += "Ese finalmente es el mensaje cifrado.<br><br><br></body></html>";
         
         return label;
@@ -1009,9 +1037,6 @@ public class DesPanel extends javax.swing.JPanel {
             label += "n&uacute;mero de 2 bits que llamaremos <b>m</b>. Este valor nos indicar&aacute; la fila en la tabla de ";          
             label += "sustituci&oacute;n correspondiente S(j). Obs&eacute;rvese que m=0 representa la 1ª fila y m=3 la última.<br> ";
             
-            //
-            
-            //int foo = Integer.parseInt("1001", 2);
             String stringM = bes[0].substring(0, 1) + bes[0].substring(5, 5);
             int m = Integer.parseInt(stringM, 2);
             
@@ -1023,7 +1048,7 @@ public class DesPanel extends javax.swing.JPanel {
             int n = Integer.parseInt(stringN, 2);
             
             byte[][] s = des.getRondasS();
-            byte valor = valor = s[0][16*m + n];
+            byte valor = s[0][16*m + n];
             
             //
             label += "En nuestro caso, para B1, <b>n = " + n + "</b><br> Por ende, utilizando S1, el bloque B1 se reemplazara con el";
@@ -1093,6 +1118,8 @@ public class DesPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
