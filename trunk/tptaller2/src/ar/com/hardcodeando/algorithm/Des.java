@@ -175,10 +175,9 @@ public class Des {
     
     private static long rondasPc1 = 0;
     private static long rondasFP = 0;
+    private static long rondasPostSBox[] = new long[16];
     
     private static String msjCifrado;
-    
-    
     
     
     
@@ -215,8 +214,14 @@ public class Des {
     public long getRondasFP() {
         return rondasFP;
     }
+    public long[] getRondasPostSBox() {
+        return rondasPostSBox;
+    }    
     public String getMsjCifrado() {
         return msjCifrado;
+    }
+    public byte[][] getRondasS() {
+        return S;
     }
     
     
@@ -317,9 +322,12 @@ public class Des {
         for (int j=0; j<8; j++) {
             dst>>>=4;
             int s = S(8-j, (byte)(x&0x3F));
+          
             dst |= s << 28;
             x>>=6;
         }
+        
+        rondasPostSBox[i] = dst;
         // 4. permutation
         int perm = P(dst);
         rondasPermFeistel[i] = perm;
@@ -488,14 +496,31 @@ public class Des {
     public String hexToBinary(String s, int cantidadBits) {
         String resultado = new BigInteger(s, 16).toString(2);
         
-        return this.formatBinary(resultado, cantidadBits);
+        return this.formatBinary(resultado, cantidadBits, 4);
     }
 
     /**
      * Formatea un string con numeros binarios completando con 0's y separando cada 4 bits.
      */
-    public String formatBinary(String s, int cantidadBits) {
+    public String formatBinary(String s, int cantidadBits, int separacion) {
        
+        s = completarBinario(s, cantidadBits);
+        
+        // Agrego espacios cada 4 bits
+        int tamNuevo = s.length();
+        String resultado = new String();
+        resultado = "";
+        for (int j=0;j<tamNuevo;j+=separacion) {
+            resultado += s.substring(j, j+separacion);
+            if (j+separacion < tamNuevo) {
+                resultado += " ";
+            }
+        }
+        return resultado;
+    }
+    
+    
+    public String completarBinario(String s, int cantidadBits){
         int longHexa = s.length();
         int dif = cantidadBits - longHexa;
 
@@ -506,18 +531,7 @@ public class Des {
                     s = "0" + s;
             }        
         }
-        
-        // Agrego espacios cada 4 bits
-        int tamNuevo = s.length();
-        String resultado = new String();
-        resultado = "";
-        for (int j=0;j<tamNuevo;j+=4) {
-            resultado += s.substring(j, j+4);
-            if (j+4 < tamNuevo) {
-                resultado += " ";
-            }
-        }
-        return resultado;
+        return s;
     }
 
     

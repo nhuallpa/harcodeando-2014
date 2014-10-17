@@ -71,30 +71,39 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Component id="jTextField3" alignment="1" min="-2" pref="216" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="128" pref="128" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jTextField1" max="32767" attributes="0"/>
-                                              <Component id="jTextField2" pref="216" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Component id="jLabel6" pref="416" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="225" max="-2" attributes="0"/>
-                              <Component id="jButton13" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel36" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jTextField3" min="-2" pref="216" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel35" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jTextField1" min="-2" pref="216" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel34" min="-2" pref="113" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jTextField2" min="-2" pref="216" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="-2" pref="339" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jButton13" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jButton2" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -106,24 +115,31 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                              <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel35" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel36" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButton13" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="220" max="32767" attributes="0"/>
+                      <EmptySpace pref="266" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -138,12 +154,13 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;body&gt;Se trata de un sistema de cifrado sim&#xe9;trico por bloques de 64 bits. &lt;br&gt;Las partes principales del algoritmo son las siguientes:&lt;br&gt;&lt;ul&gt;&lt;li&gt;C&amp;aacute;lculo de subclaves &lt;/li&gt;&lt;li&gt;Fraccionamiento del texto en bloques de 64 bits (8 bytes)&lt;/li&gt;&lt;li&gt;Permutaci&#xf3;n inicial de los bloques&lt;/li&gt;&lt;li&gt;Partici&#xf3;n de los bloques en dos partes: izquierda y derecha, denominadas L y R respectivamente&lt;/li&gt;&lt;li&gt;Fases de permutaci&#xf3;n y de sustituci&#xf3;n repetidas 16 veces (denominadas rondas)&lt;/li&gt;&lt;li&gt;Reconexi&#xf3;n de las partes izquierda y derecha, seguida de la permutaci&#xf3;n inicial inversa.&lt;/li&gt;&lt;/ul&gt; En el siguiente ejemplo, dividiremos el algoritmo en las siguientes etapas: &lt;ul&gt;&lt;li&gt;C&amp;aacute;lculo de subclaves &lt;/li&gt;&lt;li&gt;Permutaci&amp;oacute;n inicial&lt;/li&gt;&lt;li&gt;Rondas&lt;/li&gt;&lt;li&gt;Permutaci&amp;oacute;n final&lt;/li&gt;&lt;/ul&gt;Para el siguiente ejemplo, utilizaremos:&lt;br&gt;&lt;br&gt;Mensaje: &lt;b&gt;0123456789ABCDEF&lt;/b&gt; &lt;br&gt;Clave: &lt;b&gt;133457799BBCDFF1&lt;/b&gt;&lt;br&gt;&lt;br&gt;ambos hexadecimales de 64 bits. &lt;br&gt;En caso de ser menor de 64 bits, se completa con 0 al final. &lt;br&gt;En caso de que el mensaje sea mayor a 64, se divide en bloques de 64 bits y se opera con cada uno por separado (modo ECB)&lt;/body&gt;&lt;/html&gt;"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;body&gt;Se trata de un sistema de cifrado sim&#xe9;trico por bloques de 64 bits. &lt;br&gt;Las partes principales del algoritmo son las siguientes:&lt;br&gt;&lt;ul&gt;&lt;li&gt;C&amp;aacute;lculo de subclaves &lt;/li&gt;&lt;li&gt;Fraccionamiento del texto en bloques de 64 bits (8 bytes)&lt;/li&gt;&lt;li&gt;Permutaci&#xf3;n inicial de los bloques&lt;/li&gt;&lt;li&gt;Partici&#xf3;n de los bloques en dos partes: izquierda y derecha, denominadas L y R respectivamente&lt;/li&gt;&lt;li&gt;Fases de permutaci&#xf3;n y de sustituci&#xf3;n repetidas 16 veces (denominadas rondas)&lt;/li&gt;&lt;li&gt;Reconexi&#xf3;n de las partes izquierda y derecha, seguida de la permutaci&#xf3;n inicial inversa.&lt;/li&gt;&lt;/ul&gt; En el siguiente ejemplo, dividiremos el algoritmo en las siguientes etapas: &lt;ul&gt;&lt;li&gt;C&amp;aacute;lculo de subclaves &lt;/li&gt;&lt;li&gt;Permutaci&amp;oacute;n inicial&lt;/li&gt;&lt;li&gt;Rondas&lt;/li&gt;&lt;li&gt;Permutaci&amp;oacute;n final&lt;/li&gt;&lt;/ul&gt;Para el siguiente ejemplo, utilizaremos mensaje y clave de 64 bits:&lt;br&gt;&lt;br&gt;&lt;/body&gt;&lt;/html&gt;"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="jButton2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Siguiente"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
@@ -171,6 +188,21 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton13ActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel34">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mensaje:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel35">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Clave:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel36">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mensaje cifrado:"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
