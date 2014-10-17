@@ -55,6 +55,9 @@ public class DesPanel extends javax.swing.JPanel {
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jButton13 = new javax.swing.JButton();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -117,9 +120,10 @@ public class DesPanel extends javax.swing.JPanel {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/des/general.png"))); // NOI18N
 
-        jLabel6.setText("<html><body>Se trata de un sistema de cifrado simétrico por bloques de 64 bits. <br>Las partes principales del algoritmo son las siguientes:<br><ul><li>C&aacute;lculo de subclaves </li><li>Fraccionamiento del texto en bloques de 64 bits (8 bytes)</li><li>Permutación inicial de los bloques</li><li>Partición de los bloques en dos partes: izquierda y derecha, denominadas L y R respectivamente</li><li>Fases de permutación y de sustitución repetidas 16 veces (denominadas rondas)</li><li>Reconexión de las partes izquierda y derecha, seguida de la permutación inicial inversa.</li></ul> En el siguiente ejemplo, dividiremos el algoritmo en las siguientes etapas: <ul><li>C&aacute;lculo de subclaves </li><li>Permutaci&oacute;n inicial</li><li>Rondas</li><li>Permutaci&oacute;n final</li></ul>Para el siguiente ejemplo, utilizaremos:<br><br>Mensaje: <b>0123456789ABCDEF</b> <br>Clave: <b>133457799BBCDFF1</b><br><br>ambos hexadecimales de 64 bits. <br>En caso de ser menor de 64 bits, se completa con 0 al final. <br>En caso de que el mensaje sea mayor a 64, se divide en bloques de 64 bits y se opera con cada uno por separado (modo ECB)</body></html>");
+        jLabel6.setText("<html><body>Se trata de un sistema de cifrado simétrico por bloques de 64 bits. <br>Las partes principales del algoritmo son las siguientes:<br><ul><li>C&aacute;lculo de subclaves </li><li>Fraccionamiento del texto en bloques de 64 bits (8 bytes)</li><li>Permutación inicial de los bloques</li><li>Partición de los bloques en dos partes: izquierda y derecha, denominadas L y R respectivamente</li><li>Fases de permutación y de sustitución repetidas 16 veces (denominadas rondas)</li><li>Reconexión de las partes izquierda y derecha, seguida de la permutación inicial inversa.</li></ul> En el siguiente ejemplo, dividiremos el algoritmo en las siguientes etapas: <ul><li>C&aacute;lculo de subclaves </li><li>Permutaci&oacute;n inicial</li><li>Rondas</li><li>Permutaci&oacute;n final</li></ul>Para el siguiente ejemplo, utilizaremos mensaje y clave de 64 bits:<br><br></body></html>");
 
         jButton2.setText("Siguiente");
+        jButton2.setEnabled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -142,30 +146,43 @@ public class DesPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel34.setText("Mensaje:");
+
+        jLabel35.setText("Clave:");
+
+        jLabel36.setText("Mensaje cifrado:");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                    .addGap(128, 128, 128)
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jTextField1)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)))))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(225, 225, 225)
-                        .addComponent(jButton13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel36)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel35)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addGap(339, 339, 339)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton13, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))))))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -173,21 +190,26 @@ public class DesPanel extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton13))
+                    .addComponent(jLabel5)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel34))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel35))
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel36))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2)))
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addContainerGap(266, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Introducción", jPanel4);
@@ -797,6 +819,8 @@ public class DesPanel extends javax.swing.JPanel {
         jTabbedPane1.setEnabledAt(10, false);
         jTabbedPane1.setEnabledAt(11, false);
         
+        jButton2.setEnabled(false);
+        
         jTabbedPane1.setSelectedIndex(0);
     }//GEN-LAST:event_jButton12ActionPerformed
 
@@ -837,6 +861,8 @@ public class DesPanel extends javax.swing.JPanel {
         jLabel2.setText( ronda2Label );
         jLabel3.setText( ronda3Label );
         jLabel4.setText( ronda16Label );
+        
+        jButton2.setEnabled(true);
     }//GEN-LAST:event_jButton13ActionPerformed
 
 
@@ -851,18 +877,18 @@ public class DesPanel extends javax.swing.JPanel {
         label += ", la pasamos a binario, obteniendo:<br>";
         label += "<b>" + des.hexToBinary(clave, 64) + "</b><br><br>";
         label += "Aplicamos la Permutaci&oacute;n 1, surgiendo los siguientes 56 bits: <br>";
-        label += "<b>K+ = " + des.formatBinary(Long.toBinaryString(des.getSubkeysPc1()), 56) + "</b><br>";
-        label += "siendo <b>C0 = " + des.formatBinary(Long.toBinaryString(subclavesC[0]), 28) + "</b> y ";
-        label += "<b>D0 = " + des.formatBinary(Long.toBinaryString(subclavesD[0]), 28) + "</b><br><br>";
+        label += "<b>K+ = " + des.formatBinary(Long.toBinaryString(des.getSubkeysPc1()), 56, 4) + "</b><br>";
+        label += "siendo <b>C0 = " + des.formatBinary(Long.toBinaryString(subclavesC[0]), 28, 4) + "</b> y ";
+        label += "<b>D0 = " + des.formatBinary(Long.toBinaryString(subclavesD[0]), 28, 4) + "</b><br><br>";
         label += "Utilizando la tabla de rotaciones, obtenemos los siguientes <b>Ci</b> y <b>Di</b>:<br><br>";
         for (int i= 1;i<17;i++) {
-            label += "<b>C" + i + " = " + des.formatBinary(Long.toBinaryString(subclavesC[i]), 28) + "</b> - ";
-            label += "<b>D" + i + " = " + des.formatBinary(Long.toBinaryString(subclavesD[i]), 28) + "</b><br>";
+            label += "<b>C" + i + " = " + des.formatBinary(Long.toBinaryString(subclavesC[i]), 28, 4) + "</b> - ";
+            label += "<b>D" + i + " = " + des.formatBinary(Long.toBinaryString(subclavesD[i]), 28, 4) + "</b><br>";
         }
         label += "<br>Finalmente, concatenando cada <b>Ci</b> con <b>Di</b> y aplicando la Permutaci&oacute;n 2, ";
         label += "obtenemos las 16 subclaves <b>Ki</b>:<br><br>";
         for (int i= 1;i<=16;i++) {
-            label += "<b>K" + i + " = " + des.formatBinary(Long.toBinaryString(subclaves[i-1]), 48) + "</b><br>";
+            label += "<b>K" + i + " = " + des.formatBinary(Long.toBinaryString(subclaves[i-1]), 48, 4) + "</b><br>";
         }
         label += "</body></html>";
         
@@ -887,11 +913,11 @@ public class DesPanel extends javax.swing.JPanel {
         long rondasPc1 = des.getRondasPc1();
         
         String label = "<html><body>Resultando de dicha permutaci&oacute;n: <br>";
-        label += "<b>" + des.formatBinary(Long.toBinaryString(rondasPc1), 64) + "</b><br><br>";
+        label += "<b>" + des.formatBinary(Long.toBinaryString(rondasPc1), 64, 4) + "</b><br><br>";
         label += "Al resultado, se lo divide en dos mitades de 32 bits cada una. ";
         label += "L(0) el bloque que contiene los 32 bits de mayor peso y R(0) el resto. Siendo: <br>";
-        label += "<b>L0 = " + des.formatBinary(Long.toBinaryString(rondasL[0]&0xFFFFFFFFL), 32) + "</b><br>";
-        label += "<b>R0 = " + des.formatBinary(Long.toBinaryString(rondasR[0]&0xFFFFFFFFL), 32) + "</b><br><br>";
+        label += "<b>L0 = " + des.formatBinary(Long.toBinaryString(rondasL[0]&0xFFFFFFFFL), 32, 4) + "</b><br>";
+        label += "<b>R0 = " + des.formatBinary(Long.toBinaryString(rondasR[0]&0xFFFFFFFFL), 32, 4) + "</b><br><br>";
         label += "Luego se inician las 16 rondas del algoritmo. En el siguiente apartado se ilustra el comportamiento ";
         label += "de cada una de ellas.</body></html> ";
 
@@ -907,10 +933,10 @@ public class DesPanel extends javax.swing.JPanel {
         
         String label = "<html><body>Finalmente llegamos al &uacute;ltimo paso del algoritmo<br>";
         label += "Teniendo como bloques finales:<br>";
-        label += "<b>L16 = " + des.formatBinary(Long.toBinaryString(rondasL[16]&0xFFFFFFFFL), 32) + "</b><br> ";
-        label += "<b>R16 = " + des.formatBinary(Long.toBinaryString(rondasR[16]&0xFFFFFFFFL), 32) + "</b><br><br>";
+        label += "<b>L16 = " + des.formatBinary(Long.toBinaryString(rondasL[16]&0xFFFFFFFFL), 32, 4) + "</b><br> ";
+        label += "<b>R16 = " + des.formatBinary(Long.toBinaryString(rondasR[16]&0xFFFFFFFFL), 32, 4) + "</b><br><br>";
         label += "los concatenamos de manera invertida, o sea R16+L16, quedando:<br>";
-        label += "<b>R16+L16 = " + des.formatBinary(Long.toBinaryString(rl), 64) + "</b>";
+        label += "<b>R16+L16 = " + des.formatBinary(Long.toBinaryString(rl), 64, 4) + "</b>";
         label += "<br><br> A este nuevo bloque de 64 bits se le aplica la permutaci&oacute;n inversa:<br> </body></html>";
         
         return label;
@@ -920,7 +946,7 @@ public class DesPanel extends javax.swing.JPanel {
         long fp = des.getRondasFP();
 
         String label = "<html><body>Obteni&eacute;ndose finalmente: ";
-        label += "<b>C = " + des.formatBinary(Long.toBinaryString(fp), 64) + "</b><br>";
+        label += "<b>C = " + des.formatBinary(Long.toBinaryString(fp), 64, 4) + "</b><br>";
         label += "el cual se traduce en hexadecimal como <b>" + Long.toHexString(fp) + "</b><br>";
         label += "Ese finalmente es el mensaje cifrado.<br><br><br></body></html>";
         
@@ -947,53 +973,76 @@ public class DesPanel extends javax.swing.JPanel {
             long[] subclaves = des.getSubkeys();
             long[] xorFeistel = des.getRondasXorFeistel();
             int[] permFeistel = des.getRondasPermFeistel();
+            long[] postSBox = des.getRondasPostSBox();
+            String[] bes = new String[16];
             int j = i-1;
             
             String label = "<html><body>Partiendo de los bloques iniciales:<br> ";
-            label += "<b>L"+j+" = " + des.formatBinary(Long.toBinaryString(rondasL[j]&0xFFFFFFFFL), 32) + "</b> y ";
-            label += "<b>R"+j+" = " + des.formatBinary(Long.toBinaryString(rondasR[j]&0xFFFFFFFFL), 32) + "</b><br><br>";
+            label += "<b>L"+j+" = " + des.formatBinary(Long.toBinaryString(rondasL[j]&0xFFFFFFFFL), 32, 4) + "</b> y ";
+            label += "<b>R"+j+" = " + des.formatBinary(Long.toBinaryString(rondasR[j]&0xFFFFFFFFL), 32, 4) + "</b><br><br>";
             label += "Aplico la expansi&oacute;n E al bloque R"+j+", obteniendo:<br>";
-            label += "<b>E(R"+j+") = " + des.formatBinary(Long.toBinaryString(rondasE[j]), 48) + "</b><br><br>";
+            label += "<b>E(R"+j+") = " + des.formatBinary(Long.toBinaryString(rondasE[j]), 48, 4) + "</b><br><br>";
             label += "Al resultado de dicha expansi&oacute;n, le aplico un OR-exclusivo con la clave K(i) ";
             label += "obtenida anteriormente, en este caso:<br>";
-            label += "<b>K("+i+") = " + des.formatBinary(Long.toBinaryString(subclaves[j]),48) + "</b><br> ";
-            label += "Quedando finalmente: <br> <b>K"+i+" (+) E(R"+j+") = " + des.formatBinary(Long.toBinaryString(xorFeistel[j]),48) + "</b>";
-            label += "<br>";
+            label += "<b>K("+i+") = " + des.formatBinary(Long.toBinaryString(subclaves[j]),48, 4) + "</b><br> ";
+            
+            String postXor = Long.toBinaryString(xorFeistel[j]);
+            label += "Quedando finalmente: <br> <b>K"+i+" (+) E(R"+j+") = " + des.formatBinary(postXor,48, 4) + "</b><br><br>";
+            label += "Ahora debo separar esos bits en 8 bloques de 6 bits cada uno, quedando para este caso:<br> ";
+            label += "<b>";
+            
+            postXor = des.completarBinario(postXor, 48);
+            for (int k=0;k<6;k++){
+                int b = k+1;
+                int pos = k*6;
+                bes[k] = postXor.substring(pos, pos+6);
+                label += "B" + b + " = " + bes[k];
+                if (k < 5){
+                    label +=  " - ";
+                }
+            }
+            
+            label += "</b><br><br>";
+            label += "A cada uno de estos bloques debo aplicarles una de las";
+            
+            label += "S-Cajas descritas anteriormente, para ello: tomar los bits 1º y 6º de B(j) y formar un ";
+            label += "n&uacute;mero de 2 bits que llamaremos <b>m</b>. Este valor nos indicar&aacute; la fila en la tabla de ";          
+            label += "sustituci&oacute;n correspondiente S(j). Obs&eacute;rvese que m=0 representa la 1ª fila y m=3 la última.<br> ";
+            
+            //
+            
+            //int foo = Integer.parseInt("1001", 2);
+            String stringM = bes[0].substring(0, 1) + bes[0].substring(5, 5);
+            int m = Integer.parseInt(stringM, 2);
+            
+            label += "En nuestro caso, para B1, <b>m = " + m + "</b><br> Con los bits 2º a 5º de B(j) formar otro ";
+            label += "n&uacute;mero, n, de cuatro bits que indicar&aacute; la columna de S(j) en la que buscar el valor de ";
+            label += "sustituci&oacute;n. En esta ocasi&oacute;n n=0 representa la 1ª columna y n=15 la &uacute;ltima columna.<br> ";
+
+            String stringN = bes[0].substring(1, 5);
+            int n = Integer.parseInt(stringN, 2);
+            
+            byte[][] s = des.getRondasS();
+            byte valor = valor = s[0][16*m + n];
+            
+            //
+            label += "En nuestro caso, para B1, <b>n = " + n + "</b><br> Por ende, utilizando S1, el bloque B1 se reemplazara con el";
+            label += "valor hayado en la coordenada <b>(" + m + "," + n + ")</b> o sea el valor " + valor + ". Dicho valor debe ser escrito en 4 bits, o sea, el ";
+            label += "nuevo <b>B1 = " + des.completarBinario(Integer.toBinaryString(valor),4) + "</b><br><br> Siguiendo con el resto de los bloques, obtenemos:<br> ";
+            
+            label += "<b>S1(B1)S2(B2)S3(B3)S4(B4)S5(B5)S6(B6)S7(B7)S8(B8) = " + des.formatBinary(Long.toBinaryString(postSBox[j]&0xFFFFFFFFL), 32, 4) + "</b><br><br> ";         
             label += "A este resultado le aplico la permutaci&oacute;n P y obtengo ";
-            label += "<b>" + des.formatBinary(Long.toBinaryString(permFeistel[j]),32) +" </b><br><br>";
+            label += "<b>" + des.formatBinary(Long.toBinaryString(permFeistel[j]&0xFFFFFFFFL),32, 4) +" </b><br><br>";
             label += "Luego, realizo un &uacute;ltimo OR-exclusivo con el valor L"+j+" inicial (que no fue modificado), ";
-            label += "obteniendo:<br> = <b>" + des.formatBinary(Long.toBinaryString(permFeistel[j]),32) + "</b><br> ";
-            label += "+ <b>" + des.formatBinary(Long.toBinaryString(rondasL[j]&0xFFFFFFFFL), 32) + "</b>"; 
-            label += "<br> <b>= " + des.formatBinary(Long.toBinaryString(rondasR[i]&0xFFFFFFFFL), 32) + "</b><br><br>";
+            label += "obteniendo:<br> = <b>" + des.formatBinary(Long.toBinaryString(permFeistel[j]&0xFFFFFFFFL),32, 4) + "</b><br> ";
+            label += "+ <b>" + des.formatBinary(Long.toBinaryString(rondasL[j]&0xFFFFFFFFL), 32, 4) + "</b>"; 
+            label += "<br> <b>= " + des.formatBinary(Long.toBinaryString(rondasR[i]&0xFFFFFFFFL), 32, 4) + "</b><br><br>";
             label += "Este valor obtenido, es el nuevo R"+i+", mientras que el R"+j+" original pasa a ser el L"+i+".<br>";
             if (i<16){
-                label += "Con dichos bloques, se inicia la siguiente ronda que repetir&aacute; los mismos pasos. </body></html>";    
+                label += "Con dichos bloques, se inicia la siguiente ronda que repetir&aacute; los mismos pasos. </body></html>";
             } else {
                 label += "Con esta ronda concluyen las 16 rondas principales del algoritmo, dejando lugar a un paso final</body></html>";
             }
-            
-            
-             
-            
-            
-            /*
-            
-    <br><br> Ahora debo separar esos bits en 8 bloques de 6 bits cada uno, quedando para este caso:<br> 
-    <b>B1 = 011000 - B2 = 010001 - B3 = 011110 - B4 = 111010  - B5 = 100001 - B6 = 100110 - 
-    B7 = 010100 y B8 = 100111</b><br><br> A cada uno de estos bloques debo aplicarles una de las 
-    S-Cajas descritas anteriormente, para ello: tomar los bits 1º y 6º de B(j) y formar un 
-    n&uacute;mero de 2 bits que llamaremos m. Este valor nos indicar&aacute; la fila en la tabla de 
-    sustituci&oacute;n correspondiente S(j). Obs&eacute;rvese que m=0 representa la 1ª fila y m=3 la 
-    última.<br> En nuestro caso, para B1, <b>m = 0</b><br> Con los bits 2º a 5º de B(j) formar otro 
-    n&uacute;mero, n, de cuatro bits que indicar&aacute; la columna de S(j) en la que buscar el valor de 
-    sustituci&oacute;n. En esta ocasi&oacute;n n=0 representa la 1ª columna y n=15 la &uacute;ltima columna.<br> 
-    En nuestro caso, para B1, <b>n = 12</b><br> Por ende, utilizando S1, el bloque B1 se reemplazara con el 
-    valor hayado en la coordenada 0,12 o sea el valor 5. Dicho valor debe ser escrito en 4 bits, o sea, el 
-    nuevo <b>B1 = 0101</b><br><br> Siguiendo con el resto de los bloques, obtenemos:<br> 
-    <b>S1(B1)S2(B2)S3(B3)S4(B4)S5(B5)S6(B6)S7(B7)S8(B8) = 0101 1100 1000 0010 1011 0101 1001 0111</b><br><br> 
-            
-            */
-            
             
             return label;
         }
@@ -1041,6 +1090,9 @@ public class DesPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
