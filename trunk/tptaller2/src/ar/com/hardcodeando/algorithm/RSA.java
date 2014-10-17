@@ -23,6 +23,7 @@ public class RSA {
     private long intervalo_d_sup;
     private long p1q1;
     
+    
     public RSA(){
         this.p = 0;
         this.q = 0;
@@ -69,9 +70,38 @@ public class RSA {
         }
         return numMayor;
     }
+    
+    private static long[] EuclidesExtendido(long a, long b)
+    /*  This function will perform the Extended Euclidean algorithm
+        to find the GCD of a and b.  We assume here that a and b
+        are non-negative (and not both zero).  This function also
+        will return numbers j and k such that 
+               d = j*a + k*b
+        where d is the GCD of a and b.
+    */
+    { 
+        long[] ans = new long[3];
+        long q;
+
+        if (b == 0)  {  /*  If b = 0, then we're done...  */
+            ans[0] = a;
+            ans[1] = 1;
+            ans[2] = 0;
+        }
+        else
+            {     /*  Otherwise, make a recursive function call  */ 
+               q = a/b;
+               ans = EuclidesExtendido (b, a % b);
+               long temp = ans[1] - ans[2]*q;
+               ans[1] = ans[2];
+               ans[2] = temp;
+            }
+
+        return ans;
+    }
        
     private long InversoMultiplicativo(long valor, long modulo){
-        long inv = 1;
+        /*long inv = 1;
         boolean flag = false;
         
         while(!flag && inv <= modulo){
@@ -79,7 +109,20 @@ public class RSA {
             inv++;
         }
         if(flag) return inv;
-        else return 0;
+        else return 0;*/
+        long inv = 0;
+        long resp[] = new long[3];
+        resp = EuclidesExtendido(valor, modulo);
+        if(resp[0] > 1) return inv;
+        else{
+            if(resp[1] < 0){
+                inv = resp[1] + modulo;                
+            }
+            else{
+                inv = resp[1];
+            }
+            return inv;
+        }            
     }
     
     
