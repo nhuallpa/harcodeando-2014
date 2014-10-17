@@ -882,23 +882,23 @@
                                               </Group>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="textMensCifrado" min="-2" pref="319" max="-2" attributes="0"/>
-                                              <Component id="spinTamBloque" min="-2" pref="41" max="-2" attributes="0"/>
-                                              <Component id="textMensajeEncriptar" min="-2" pref="319" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="botEncriptarBloques" max="32767" attributes="0"/>
-                                              <Component id="botEncriptarTodo" max="32767" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="textMensCifrado" min="-2" pref="319" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="botEncriptarTodo" max="32767" attributes="0"/>
+                                              </Group>
+                                              <Component id="spinTamBloque" min="-2" pref="41" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="textMensajeEncriptar" min="-2" pref="319" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="botEncriptarBloques" min="-2" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="panEncriptarBloques" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      </Group>
+                                      <Component id="panEncriptarBloques" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" pref="222" max="32767" attributes="0"/>
                                   <Component id="botContinuarEncriptar" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
