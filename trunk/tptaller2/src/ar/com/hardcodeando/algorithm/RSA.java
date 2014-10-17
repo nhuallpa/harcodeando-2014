@@ -60,22 +60,14 @@ public class RSA {
      * @return maximo comun divisor entre n1 y n2
      */
     private long MCD(long n1, long n2){
-        long a = n1, b = n2, aux;
-        if(a > b){
-            aux = a;
-            b = a;
-            a = aux;
+        long numMayor = Math.max(n1, n2);
+        long numMenor = Math.min(n1, n2);
+        while(numMenor != 0){
+            long resto = numMayor%numMenor;
+            numMayor = numMenor;
+            numMenor = resto;
         }
-        boolean flag = false;                
-        while(!flag){
-            aux = b%a;
-            if(aux != 0){
-                b = a;
-                a = aux;
-            }
-            else flag = true;
-        }
-        return a;
+        return numMayor;
     }
        
     private long InversoMultiplicativo(long valor, long modulo){
