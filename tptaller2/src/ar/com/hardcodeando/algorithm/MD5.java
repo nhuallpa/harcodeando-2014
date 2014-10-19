@@ -31,10 +31,10 @@ class MD5 {
 			0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 			0, 0, 0, 0, 0, 0 };
 
-	private char bytBuffer[] = new char[64];
-	private long lngState[] = new long[4];
+	private char bytBuffer[] = new char[64];  // Mantiene el texto de entrada
+	private long lngState[] = new long[4];    // Mantiene las palabras A B C D
 	private long lngByteCount = 0;
-	private static int pasos = 1;
+	private static int pasos = 16;
 	
 	MD5() {
 		this.init();
@@ -58,12 +58,17 @@ class MD5 {
          * el resultado a una de las variables a, b, c o d. 
          * Finalmente el resultado reemplaza a una de las variables a, b, c o d. 
 	 * La salida de la cuarta ronda se suma a la entrada de la primera.
+         * 
+         * @param lngState Contiene las palabras A B C D 
+         * @param bytBlock Bloque de 512 bytes a procesar
 	 * */
 	private static void transform(long lngState[], char bytBlock[]) {
+                // nos copiamos las variables A B C D
 		long lngA = lngState[0];
 		long lngB = lngState[1];
 		long lngC = lngState[2];
 		long lngD = lngState[3];
+                
 		long x[] = new long[16];
 	
 		x = decode(bytBlock);
@@ -245,7 +250,7 @@ class MD5 {
 		return (lngA);
 	}
 
-	private void update(char bytInput[], long lngLen) {
+	public void update(char bytInput[], long lngLen) {
 		int index = (int) (this.lngByteCount % 64);
 		int i = 0;
 		this.lngByteCount += lngLen;
@@ -255,9 +260,9 @@ class MD5 {
 			for (int j = 0; j < partLen; ++j) {
 				this.bytBuffer[j + index] = bytInput[j];
 			}
-			transform(this.lngState, this.bytBuffer);
+			transform(this.lngState, this.bytBuffer);  // procesamos los primeros 512 bits (64 bytes)
 
-			for (i = partLen; i + 63 < lngLen; i += 64) {
+			for (i = partLen; i + 63 < lngLen; i += 64) { // Recorremos el resto, cada 512 bits (64 bytes)
 				for (int j = 0; j < 64; ++j) {
 					this.bytBuffer[j] = bytInput[j + i];
 				}
@@ -298,7 +303,7 @@ class MD5 {
 
 	}
 
-	private StringBuffer toHexString() {
+	public StringBuffer toHexString() {
 		long myByte = 0;
 		StringBuffer mystring = new StringBuffer();
 		for (int j = 0; j < 4; ++j) {
