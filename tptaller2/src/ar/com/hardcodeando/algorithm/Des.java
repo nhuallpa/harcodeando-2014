@@ -178,7 +178,7 @@ public class Des {
     private static long rondasPostSBox[] = new long[16];
     
     private static String msjCifrado;
-    
+    private static String msjDescifrado;
     
     
     public long[] getSubkeys() {
@@ -220,6 +220,9 @@ public class Des {
     public String getMsjCifrado() {
         return msjCifrado;
     }
+    public String getMsjDescifrado() {
+        return msjDescifrado;
+    }      
     public byte[][] getRondasS() {
         return S;
     }
@@ -382,10 +385,7 @@ public class Des {
     /**
      * Encripta un bloque de 64 bits.
      */
-    public static long encryptBlock(long m, /* 64 bits */ long key) {
-        // generate the 16 subkeys
-        createSubkeys(key);
-
+    public static long encryptBlock(long m) {
         // perform the initial permutation
         long ip = IP(m);
         rondasPc1 = ip;
@@ -418,15 +418,72 @@ public class Des {
         return fp;
     }
     
+    
+    /**
+     * Encripta un bloque de 64 bits.
+     */
+    public static long deencryptBlock(long m) {
+        // perform the initial permutation
+        long ip = IP(m);
+        rondasPc1 = ip;
+        
+        int l = (int) (ip>>32);
+        int r = (int) (ip&0xFFFFFFFFL);
+        
+        rondasL[0] = l;
+        rondasR[0] = r;
+        
+        // perform 16 rounds
+        for (int i=0; i<16; i++) {
+            int previous_l = l;
+            // the right half becomes the new left half.
+            l = r;
+            // the Feistel function is applied to the old left half
+            // and the resulting value is stored in the right half.
+            r = previous_l ^ feistel(r, subkeys[15-i], i);
+            rondasL[i+1] = l;
+            rondasR[i+1] = r;
+        }
+        
+        // reverse the two 32-bit segments (left to right; right to left)
+        long rl = (r&0xFFFFFFFFL)<<32 | (l&0xFFFFFFFFL);
+        
+        // apply the final permutation
+        long fp = FP(rl);
+        rondasFP = fp;
+        // return the ciphertext
+        return fp;
+    }    
+    
+    
     /**
      * Wrapper que permite pasar array de byte por parametro en lugar de long.
      */
     public static void encryptBlock(byte[] message, int messageOffset, byte[] ciphertext, int ciphertextOffset, byte[] key ) {
         long m = getLongFromBytes(message, messageOffset);
         long k = getLongFromBytes(key, 0);
-        long c = encryptBlock(m, k);
+
+        // generate the 16 subkeys
+        createSubkeys(k);
+
+        long c = encryptBlock(m);
         getBytesFromLong(ciphertext, ciphertextOffset, c);
     }
+
+    /**
+     * Wrapper que permite pasar array de byte por parametro en lugar de long.
+     */
+    public static void deencryptBlock(byte[] message, int messageOffset, byte[] ciphertext, int ciphertextOffset, byte[] key ) {
+        long m = getLongFromBytes(message, messageOffset);
+        long k = getLongFromBytes(key, 0);
+
+        // generate the 16 subkeys
+        createSubkeys(k);
+
+        long c = deencryptBlock(m);
+        getBytesFromLong(ciphertext, ciphertextOffset, c);
+    }
+    
     
     //////////////////////////////////////////////////////////////////////
     //
@@ -447,10 +504,29 @@ public class Des {
             encryptBlock(message, i, ciphertext, i, key);
         }
         
-        msjCifrado = hex(ciphertext);
+        msjCifrado = hex(ciphertext).replace(" ","");
         return ciphertext;
     }
-  
+
+    
+    /**
+     * Desencripta el mensaje suministrado con la clave provista y retorna
+     * el texto descifrado. Si el mensaje no es multiplo de 8 bytes se completa
+     * con 0's. Modo ECB.
+     */
+    public byte[] deencrypt(byte[] message, byte[] key) {
+        byte[] ciphertext = new byte[message.length];
+
+        // encrypt each 8-byte (64-bit) block of the message.
+        for (int i=0; i<message.length; i+=8) {
+            deencryptBlock(message, i, ciphertext, i, key);
+        }
+        
+        msjDescifrado = hex(ciphertext).replace(" ","");
+        return ciphertext;
+    }
+    
+    
     //////////////////////////////////////////////////////////////////////
     //
     // Test methods
