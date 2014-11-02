@@ -5,6 +5,7 @@
  */
 package ar.com.hardcodeando.ui;
 
+import ar.com.hardcodeando.algorithm.MD5;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -64,6 +65,9 @@ public class MD5Panel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        textMensaje = new javax.swing.JTextField();
+        jLabel66 = new javax.swing.JLabel();
+        jButton10 = new javax.swing.JButton();
         panelPaso2 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
@@ -134,6 +138,7 @@ public class MD5Panel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(899, 1000));
+        setLayout(null);
 
         jTabbedPane1.setFocusable(false);
         jTabbedPane1.setPreferredSize(new java.awt.Dimension(846, 519));
@@ -157,7 +162,7 @@ public class MD5Panel extends javax.swing.JPanel {
         jLabel12.setText("<html>MD5 procesa mensajes de cualquier longitud (longitud variable) y procesa bloques uniformes de 512 bits a la vez, hasta concluir con el mensaje total a fin de entregar a la salida un bloque \"resumen\" de 128 bits (longitud fija). El procesamiento consta de cinco pasos:</html>");
         IntroMD5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 780, -1));
 
-        jLabel15.setText("<html><strong>Paso 1</strong>: Adición de bits<br><br> <strong>Paso 2</strong>: Longitud del mensaje<br><br> <strong>Paso 3</strong>: Inicialización del buffer<br><br> <strong>Paso 4</strong>: Procesamiento del mensaje en bloques de 16 palabras<br><br><strong>Paso 5</strong>: Hash de salida obtenido<br><br></html>");
+        jLabel15.setText("<html><strong>Paso 1</strong>: Adición de bits<br><br> <strong>Paso 2</strong>: Adición de longitud del mensaje<br><br> <strong>Paso 3</strong>: Inicialización del buffer<br><br> <strong>Paso 4</strong>: Procesamiento del mensaje en bloques de 16 palabras<br><br><strong>Paso 5</strong>: Hash de salida obtenido<br><br></html>");
         jLabel15.setDoubleBuffered(true);
         IntroMD5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 420, 190));
 
@@ -170,7 +175,7 @@ public class MD5Panel extends javax.swing.JPanel {
         panelPaso1.add(lblHeaderPaso3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jLabel10.setText("<html> <ul> <li>Convertimos cada caracter del mensaje a su valor binario.<br>En el ejemplo tenemos 144 bits.<br></li> </ul> </html>");
-        panelPaso1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 390, 50));
+        panelPaso1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, 390, 50));
 
         jButton1.setText("Siguiente");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -183,26 +188,48 @@ public class MD5Panel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        panelPaso1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, -1, -1));
+        panelPaso1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 480, -1, -1));
 
         jLabel2.setText("Supongamos que queremos encriptar el mensaje \"TOP SECRET MESSAGE\"");
         panelPaso1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
         jLabel3.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.highlight"));
         jLabel3.setText("<html><div style=\"background-color: white;\">01010100 01001111 01010000 00100000 01010011 01000101 <br>01000011 01010010 01000101 01010100 00100000 01001101 <br>01000101 01010011 01010011 01000001 01000111 01000101 <br>10000000 00000000 00000000 00000000 00000000 00000000 <br>00000000 00000000 00000000 00000000 00000000 00000000<br> 00000000 00000000 00000000 00000000 00000000 00000000 <br>00000000 00000000 00000000 00000000 00000000 00000000 <br>00000000 00000000 00000000 00000000 00000000 00000000 <br>00000000 00000000 00000000 00000000 00000000 00000000 <br>00000000 00000000 00000000 00000000 00000000 00000000<br> 00000000 00000000 00000000 </html>");
-        panelPaso1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 430, 170));
+        panelPaso1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 430, 170));
 
         jLabel35.setText("<html> <ul> <li>Se rellena el mensaje convertido a binario con 0's y 1's de tal manera que sea 448 mod 512 bits de longitud.<br></li> <br><li> Necesitaremos \"448 - LongitudMensaje\" bits. <br>En el ejemplo: 448 - 144 = 304 bits</li><br><li> Completamos la primer posición con el valor 1 y las restantes las completamos con ceros. </li> <br> </ul> </html> ");
-        panelPaso1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 380, 150));
+        panelPaso1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, 380, 150));
 
         jLabel4.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.highlight"));
         jLabel4.setText("<html><div style=\"background-color: white;\">01010100 01001111 01010000 00100000 01010011 01000101 <br>01000011 01010010 01000101 01010100 00100000 01001101 <br>01000101 01010011 01010011 01000001 01000111 01000101 </html></html>");
-        panelPaso1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 410, 90));
+        jLabel4.setMaximumSize(new java.awt.Dimension(450, 70));
+        jLabel4.setPreferredSize(new java.awt.Dimension(450, 70));
+        panelPaso1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 450, 70));
+
+        textMensaje.setText("Mensaje a encriptar");
+        textMensaje.setToolTipText("");
+        textMensaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textMensajeActionPerformed(evt);
+            }
+        });
+        panelPaso1.add(textMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 220, -1));
+
+        jLabel66.setText("Introduzca un mensaje a encriptar:");
+        panelPaso1.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+
+        jButton10.setText("Encriptar");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+        panelPaso1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, -1, -1));
 
         jTabbedPane1.addTab("Paso 1 de 5", panelPaso1);
 
         jLabel32.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel32.setText("Paso 2: Longitud del mensaje");
+        jLabel32.setText("Paso 2: Adición de longitud del mensaje");
 
         jLabel34.setText("<html> <ul> <li>Se concatena al resultado del paso anterior, un entero de 64 bits que represente la longitud 'b' del mensaje (longitud antes de añadir los bits). </li> <br><li>Si 'b' es mayor que 2^64, entonces sólo se usarán los 64 bits de menor peso de 'b'</li><br><li>El mensaje resultante (después de rellenar con los bits y con 'b') tiene una longitud que es un múltiplo exacto de 512 bits.</li><br><li>A su vez, la longitud del mensaje es múltiplo de 16 palabras (32 bits por palabra)</li></ul> </html>");
 
@@ -230,7 +257,7 @@ public class MD5Panel extends javax.swing.JPanel {
                     .addGroup(panelPaso2Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jLabel32)))
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPaso2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton2)
@@ -286,7 +313,7 @@ public class MD5Panel extends javax.swing.JPanel {
                     .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 788, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 765, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         panelPaso3Layout.setVerticalGroup(
             panelPaso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -529,7 +556,7 @@ public class MD5Panel extends javax.swing.JPanel {
                         .addGroup(panelPaso5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 694, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 694, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(195, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         panelPaso5Layout.setVerticalGroup(
             panelPaso5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -551,31 +578,13 @@ public class MD5Panel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Paso 5 de 5", panelPaso5);
 
+        add(jTabbedPane1);
+        jTabbedPane1.setBounds(12, 46, 875, 743);
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("MD5");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(404, 404, 404)
-                .addComponent(jLabel1)
-                .addContainerGap(589, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 743, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        add(jLabel1);
+        jLabel1.setBounds(404, 12, 46, 22);
 
         getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
@@ -812,10 +821,37 @@ II A 1a516fb3 D 57478e7b C 41ec30b0 B 573523a9*/
         jTabbedPane1.setSelectedIndex(4);
     }//GEN-LAST:event_jButton4MousePressed
 
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        MD5 md5 = new MD5();
+
+        String msgAEncriptar = textMensaje.getText();
+        String msgBinario;
+
+        int clave[][] = new int[2][2];
+        clave[0][0] = 3;
+        clave[0][1] = 2;
+        clave[1][0] = 5;
+        clave[1][1] = 7;
+        try {
+            if (!msgAEncriptar.equals("")) {
+                msgBinario = md5.textoEnBinario(msgAEncriptar);
+                jLabel4.setText("<html><div style=\"background-color: white;\">"+msgBinario+"</html>");
+                jLabel4.setBounds(WIDTH, WIDTH, WIDTH, WIDTH);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(MD5Panel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void textMensajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMensajeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textMensajeActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel IntroMD5;
     private java.awt.Canvas canvas1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -886,6 +922,7 @@ II A 1a516fb3 D 57478e7b C 41ec30b0 B 573523a9*/
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -895,5 +932,7 @@ II A 1a516fb3 D 57478e7b C 41ec30b0 B 573523a9*/
     private javax.swing.JPanel panelPaso3;
     private javax.swing.JPanel panelPaso4;
     private javax.swing.JPanel panelPaso5;
+    private javax.swing.JTextField textMensaje;
     // End of variables declaration//GEN-END:variables
+
 }
