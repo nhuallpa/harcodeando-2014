@@ -10,120 +10,90 @@ package ar.com.hardcodeando.algorithm;
  * @author connie
  */
 public class NLFSR {
-    
-    int niter;
+ 
+    int longitud;
     int Sem[];
 
     String SemS;
     String Func;
-    String Resultf;
+    String Resultado;
     
-    public NLFSR(String Niter, String Funcion, String Semilla){
+    int length;
+    int maxKeyLength;
+    int seed[];
+    String Seed;
+    NLFSRFunction Function;
+    String Key;
+    
+    public NLFSR(NLFSRFunction function, String seed){
         
-        int result, primero, salida;
-        this.Resultf = new String();
-        Ini(Niter, Funcion, Semilla);
-
-        for (int i=0; i<this.niter; i++){
-
-            result= reconocerPatrones();
-            primero= this.Sem[0];
-            salida = 0; //Utilidades.Xor(result, primero);
-            desplazar(salida);
-            
-            this.Resultf = this.Resultf.concat(String.valueOf(primero));
-            ajustar();
-        }
-        
+    	this.length = seed.length();
+    	this.maxKeyLength = ((int) Math.pow(2, this.length)) -1;
+    	this.Function = function;
+    	this.Seed = seed;
+    	this.Key = new String();
     }
     
-    private void Ini(String Niter, String Funcion, String Semilla){
-
-        Character c;
-        int i;
-
-        this.Func = Funcion;
-        this.SemS = Semilla;
-
-        this.niter = Integer.parseInt(Niter);
-
-        this.Sem = new int[Semilla.length()];
-        for (i=0;i<Semilla.length();i++){
-            c = Semilla.charAt(i);
-            this.Sem[i]= Integer.parseInt(c.toString());
-        }
+    public void Execute(){
+    	
+    	initSeed();
+    	
+    	//Calculo clave
+    	int newBit;
+    	String tempKey = new String();
+    	for(int i = 0; i < this.maxKeyLength; i++){
+    		//Agregar bit n-1 a clave
+    		tempKey = tempKey.concat(String.valueOf(this.seed[this.length - 1]));
+    		//Calcular funcion
+    		newBit = this.Function.getResult(seed);
+        	//Desplazar 1 bit a derecha usando bit calculado como s0    		
+    		shiftSeed(newBit);		
+    	}
+    	
+    	//Busco patron
+    	String tempkey2 = new String();
+    	String pattern = new String();
+    	for(int i = 2; i < this.maxKeyLength; i++)
+    	{
+    		pattern = tempKey.substring(0, i);
+    		int times = Math.round(this.maxKeyLength / pattern.length()) + 1;
+    		tempkey2 = repeatPattern(pattern, times);
+    		if(tempKey.equals(tempkey2.substring(0, this.maxKeyLength))) //patron encontrado
+    			break;
+    	}
+    	
+    	this.Key = pattern;    	
     }
     
-    private int reconocerPatrones(){
-
-        int i=0, pos, ini, j=0, and[], resultado;
-        Character c, inv;
-
-        String FuncTras = new String();
-        String Atras = new String();
-
-        for (i=0;i<Func.length();i++){
-
-            if (Func.charAt(i) != '+' && Func.charAt(i) != '\'' ) {
-                pos = Posicion(Func.charAt(i));
-                c = this.SemS.charAt(pos);
-                FuncTras = FuncTras.concat(c.toString());
-            }
-            else if (Func.charAt(i) == '+')
-                FuncTras = FuncTras.concat(" ");
-            else if (Func.charAt(i) == '\''){
-                c = FuncTras.charAt(FuncTras.length()-1);
-                if (c == '1') inv = '0';
-                else inv = '1';
-                Atras = FuncTras.substring(0, FuncTras.length()-1);
-                Atras = Atras.concat(inv.toString());
-                FuncTras = Atras;
-            }
-        }
-
-        String Aux[] = FuncTras.split(" ");
-
-        and = new int[Aux.length];
-        for (i=0;i<Aux.length;i++){
-            c= Aux[i].charAt(0);
-            ini = Integer.parseInt(c.toString());
-            for (j=1;j<Aux[i].length();j++){
-                c = Aux[i].charAt(j);
-                ini = 0; //Utilidades.And(ini,Integer.parseInt(c.toString()));
-                and[i] = ini;
-            }
-        }
-
-        resultado = and[0];
-        for (i=1;i<and.length;i++){
-            resultado = 0; //Utilidades.Or(resultado,and[i]);
-        }
-
-        return resultado;
+    private String repeatPattern(String pattern, int times){
+    	if(times <= 0)
+    		return "";
+    	else
+    		return pattern + repeatPattern(pattern, times - 1);
     }
     
-    private int Posicion(char c){
-        if (c == 'a') return(0);
-        else 
-            return((int)c - 97);
-    }
-
-    public String Salida(){
-        return (this.Resultf);
+    private void shiftSeed(int s0){
+    	int newSeed[] = new int[this.length];
+    	for(int i = 0; i < this.length; i++){
+    		if(i == 0)
+    			newSeed[i] = s0;
+    		else
+    			newSeed[i] = this.seed[i-1];
+    	}
+    	this.seed = newSeed;
     }
     
-    private void desplazar(int Salida){
-        int i=0;
-        for (i=0;i<this.Sem.length-1;i++)
-            this.Sem[i] = this.Sem[i+1];
-
-            this.Sem[Sem.length-1] = Salida;
+    private void initSeed(){
+    	
+    	Character bit;
+    	this.seed = new int[Seed.length()];
+    	for(int i = 0; i < Seed.length(); i++){
+    		bit = Seed.charAt(i);
+    		this.seed[i] = Integer.parseInt(bit.toString()); 
+    	}
     }
-
-    private void ajustar(){
-        this.SemS = new String();
-        for (int i=0; i<this.Sem.length;i++){
-            this.SemS = this.SemS.concat(String.valueOf(Sem[i]));
-        }
+    
+    public String getKey(){
+    	return this.Key;
     }
 }
