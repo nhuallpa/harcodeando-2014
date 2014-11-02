@@ -7,7 +7,7 @@ package ar.com.hardcodeando.algorithm;
 
 import java.io.*;
 
-class MD5 {
+public class MD5 {
 	/*Desplazamientos antes de cada ronda*/
 	private static long S11 = 7L;
 	private static long S12 = 12L;
@@ -36,7 +36,7 @@ class MD5 {
 	private long lngByteCount = 0;
 	private static int pasos = 16;
 	
-	MD5() {
+	public MD5() {
 		this.init();
 	}
 
@@ -291,13 +291,14 @@ class MD5 {
 		bytBits[5] = (char) ((bits >>> 40) & 0xffL);
 		bytBits[6] = (char) ((bits >>> 48) & 0xffL);
 		bytBits[7] = (char) ((bits >>> 56) & 0xffL);
-
-		index = (int) this.lngByteCount % 64;
+        
+        index = (int) this.lngByteCount % 64;
 		if (index < 56) {
 			padLen = 56 - index;
 		} else {
 			padLen = 120 - index;
 		}
+		
 		update(pad, padLen);
 		update(bytBits, 8);
 
@@ -334,6 +335,23 @@ class MD5 {
 		this.lngState[3] = 0x10325476L; //D
 	}
 
+	public static String textoEnBinario(String textoIngresado) {
+		String textoBinario = "";
+		String charABinario = "";
+		for (int i = 0; i < textoIngresado.length(); i++) {
+			int x = textoIngresado.charAt(i);
+			charABinario = Integer.toBinaryString(x);
+			for (int j = 0; j < 8-charABinario.length(); j++) {
+				textoBinario+="0";
+			}                        
+			textoBinario += charABinario + " ";
+                        if ((i % 6) == 5){
+                            textoBinario+="<br>";
+                        }
+		}
+		return textoBinario;
+	}
+	
  	public static void main(String args[]) throws IOException {
 
 		char chrTestData[] = new char[64];
@@ -343,11 +361,12 @@ class MD5 {
 		System.out.println("Ingresar cantidad de pasos (1, 4, 16)");
 		pasos = Integer.valueOf(br.readLine());
 		System.out.println("Ingresar String");
-		String strTestData = br.readLine();
-		chrTestData = strTestData.toCharArray();
+		String textoIngresado = br.readLine();
+		System.out.println("binario:" + textoEnBinario(textoIngresado));		
+		chrTestData = textoIngresado.toCharArray();
 		md5Test.update(chrTestData, chrTestData.length);
 		md5Test.md5final();
-		System.out.println("MD5 (" + strTestData + ") = " + md5Test.toHexString());
+		System.out.println("MD5 (" + textoIngresado + ") = " + md5Test.toHexString());
 
 	}
 }
