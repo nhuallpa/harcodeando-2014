@@ -351,7 +351,52 @@ public class MD5 {
 		}
 		return textoBinario;
 	}
+        
+        public static String textoPadeado(String textoIngresado, int textoSize){
+            String textoPadeado = "";
+            String textoBinario = "";
+            String charABinario = "";
+            for (int i = 0; i < textoIngresado.length(); i++) {
+                int x = textoIngresado.charAt(i);
+                charABinario = Integer.toBinaryString(x);
+                for (int j = 0; j < 8-charABinario.length(); j++) {
+                    textoBinario+="0";
+                }                        
+                textoBinario += charABinario + " ";
+                if ((i % 6) == 5){
+                   textoBinario+="<br>";
+                }
+            }
+            textoPadeado = textoBinario + "<br>" + "1";
+            int maxPadeo = 448 -(textoSize*8);
+            for (int i = 1; i < maxPadeo; i++) {
+                if ((i % 8) == 0){
+                    textoPadeado += " ";
+                }
+                if ((i % 48) == 0){
+                    textoPadeado += "<br>";
+                }
+                textoPadeado += "0";
+            }
+            return textoPadeado;
+        }
 	
+        public String textoAProcesar(String msgAEncriptar, int length) {
+            String textoAProcesar = textoPadeado(msgAEncriptar, length) + "<br>";
+            String charABinario = Integer.toBinaryString(length*8);
+            int maxPadeo = 64 - charABinario.length();
+            for (int i = 0; i < maxPadeo; i++) {
+                if ((i % 8) == 0){
+                    textoAProcesar += " ";
+                }
+                if ((i % 48) == 0){
+                    textoAProcesar += "<br>";
+                }
+                textoAProcesar += "0";
+            }
+            textoAProcesar += charABinario;
+            return textoAProcesar;
+        }
  	public static void main(String args[]) throws IOException {
 
 		char chrTestData[] = new char[64];
@@ -362,11 +407,13 @@ public class MD5 {
 		pasos = Integer.valueOf(br.readLine());
 		System.out.println("Ingresar String");
 		String textoIngresado = br.readLine();
-		System.out.println("binario:" + textoEnBinario(textoIngresado));		
+		System.out.println("binario:" + textoEnBinario(textoIngresado));
+                System.out.println("padeado:" + textoPadeado(textoIngresado, textoIngresado.length()));                
 		chrTestData = textoIngresado.toCharArray();
 		md5Test.update(chrTestData, chrTestData.length);
 		md5Test.md5final();
 		System.out.println("MD5 (" + textoIngresado + ") = " + md5Test.toHexString());
 
 	}
+
 }
