@@ -78,7 +78,6 @@ public class RSAPanel extends javax.swing.JPanel {
 
         jDialog1 = new javax.swing.JDialog();
         jDialog2 = new javax.swing.JDialog();
-        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         RSATabbedPanel = new javax.swing.JTabbedPane();
@@ -86,6 +85,7 @@ public class RSAPanel extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
+        jLabel35 = new javax.swing.JLabel();
         panelCalculosIniciales = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -198,17 +198,6 @@ public class RSAPanel extends javax.swing.JPanel {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("RSA");
 
@@ -226,6 +215,9 @@ public class RSAPanel extends javax.swing.JPanel {
         jLabel15.setText("<html>RSA es un criptosistema asimétrico que sirve tanto para encriptar mensajes como para autenticación de documentos o transacciones (Firmas Digitales).<br><br> Fue creado en 1977 por Ron Rivest, Adi Shamir y Leonard Adelman. Sus apellidos son las siglas del nombre del algoritmo. <br><br> Este criptosistema basa su seguridad en que no existe una manera rápida y sencilla de factorizar cantidades que son producto de 2 números primos grandes <br><br> Un usuario del sistema RSA crea y publica el producto de 2 grandes números, junto con un valor auxiliar, como su clave pública <br><br> Los <strong>factores primos</strong> deben mantenerse en secreto. Cualquier persona puede utilizar la clave pública para cifrar un mensaje, pero si la misma es \tlo suficientemente grande solo alguien con el conocimiento de los factores primos es factible de descifrar el mensaje <br><br> </html>");
         IntroRSAPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 780, 200));
         IntroRSAPanel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 182, 840, 0));
+
+        jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/rsa/RSA.png"))); // NOI18N
+        IntroRSAPanel.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, -1, -1));
 
         RSATabbedPanel.addTab("Introducción", IntroRSAPanel);
 
@@ -1085,26 +1077,16 @@ public class RSAPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1546, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(106, 106, 106)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(677, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 14, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 14, Short.MAX_VALUE)))
+                .addGap(0, 14, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 14, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1385,13 +1367,13 @@ public class RSAPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel labelBloque;

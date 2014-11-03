@@ -101,15 +101,6 @@ public class RSA {
     }
        
     private long InversoMultiplicativo(long valor, long modulo){
-        /*long inv = 1;
-        boolean flag = false;
-        
-        while(!flag && inv <= modulo){
-            if((valor*inv)%modulo == 1) flag = true;
-            inv++;
-        }
-        if(flag) return inv;
-        else return 0;*/
         long inv = 0;
         long resp[] = new long[3];
         resp = EuclidesExtendido(valor, modulo);
