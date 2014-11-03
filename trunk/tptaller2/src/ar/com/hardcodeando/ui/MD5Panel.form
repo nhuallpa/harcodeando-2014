@@ -139,7 +139,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;ul&gt; &lt;li&gt;Convertimos cada caracter del mensaje a su valor binario.&lt;br&gt;En el ejemplo tenemos 144 bits.&lt;br&gt;&lt;/li&gt; &lt;/ul&gt; &lt;/html&gt;"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;ul&gt; &lt;li&gt;Convertimos cada caracter del mensaje a su valor binario.&lt;/li&gt; &lt;/ul&gt; &lt;/html&gt;"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -157,17 +157,17 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="580" y="480" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="620" y="520" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Supongamos que queremos encriptar el mensaje &quot;TOP SECRET MESSAGE&quot;"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt; A modo de ejemplo, supongamos que queremos encriptar un mensaje menor a 512 caracteres. Si el mensaje fuera m&#xe1;s largo, el algoritmo parte el mensaje en bloques de 512 y trabaja por bloques&lt;/html&gt;"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="20" y="40" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="20" y="40" width="770" height="40"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -176,21 +176,11 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" id="Button.highlight" palette="3" red="ff" type="palette"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;div style=&quot;background-color: white;&quot;&gt;01010100 01001111 01010000 00100000 01010011 01000101 &lt;br&gt;01000011 01010010 01000101 01010100 00100000 01001101 &lt;br&gt;01000101 01010011 01010011 01000001 01000111 01000101 &lt;br&gt;10000000 00000000 00000000 00000000 00000000 00000000 &lt;br&gt;00000000 00000000 00000000 00000000 00000000 00000000&lt;br&gt; 00000000 00000000 00000000 00000000 00000000 00000000 &lt;br&gt;00000000 00000000 00000000 00000000 00000000 00000000 &lt;br&gt;00000000 00000000 00000000 00000000 00000000 00000000 &lt;br&gt;00000000 00000000 00000000 00000000 00000000 00000000 &lt;br&gt;00000000 00000000 00000000 00000000 00000000 00000000&lt;br&gt; 00000000 00000000 00000000 &lt;/html&gt;"/>
+                <Property name="verticalAlignment" type="int" value="1"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="30" y="250" width="430" height="170"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel35">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;ul&gt; &lt;li&gt;Se rellena el mensaje convertido a binario con 0&apos;s y 1&apos;s de tal manera que sea 448 mod 512 bits de longitud.&lt;br&gt;&lt;/li&gt; &lt;br&gt;&lt;li&gt; Necesitaremos &quot;448 - LongitudMensaje&quot; bits. &lt;br&gt;En el ejemplo: 448 - 144 = 304 bits&lt;/li&gt;&lt;br&gt;&lt;li&gt; Completamos la primer posici&#xf3;n con el valor 1 y las restantes las completamos con ceros. &lt;/li&gt; &lt;br&gt; &lt;/ul&gt; &lt;/html&gt; "/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="450" y="260" width="380" height="150"/>
+                  <AbsoluteConstraints x="20" y="320" width="440" height="280"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -199,7 +189,6 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" id="Button.highlight" palette="3" red="ff" type="palette"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;div style=&quot;background-color: white;&quot;&gt;01010100 01001111 01010000 00100000 01010011 01000101 &lt;br&gt;01000011 01010010 01000101 01010100 00100000 01001101 &lt;br&gt;01000101 01010011 01010011 01000001 01000111 01000101 &lt;/html&gt;&lt;/html&gt;"/>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[450, 70]"/>
                 </Property>
@@ -215,7 +204,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="textMensaje">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Mensaje a encriptar"/>
+                <Property name="text" type="java.lang.String" value="TOP SECRET MESSAGE"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
               <Events>
@@ -223,7 +212,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="30" y="100" width="220" height="-1"/>
+                  <AbsoluteConstraints x="20" y="110" width="220" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -233,20 +222,43 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="30" y="80" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="20" y="90" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JButton" name="jButton10">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Encriptar"/>
+                <Property name="text" type="java.lang.String" value="Texto a Binario"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton10ActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="310" y="100" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="310" y="110" width="-1" height="-1"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton11">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Adicionar bits"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton11ActionPerformed"/>
+              </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="320" y="280" width="-1" height="-1"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel67">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;ul&gt; &lt;li&gt;Se rellena el mensaje binario con 0&apos;s y 1&apos;s de tal manera que sea 448 mod 512 bits de longitud.&lt;br&gt;&lt;/li&gt;&lt;br&gt;&lt;li&gt; Necesitaremos &quot;448 - LongitudMensaje&quot; bits para completar los 448.&lt;/li&gt;&lt;br&gt;&lt;li&gt; Completamos la primer posici&#xf3;n con el valor 1 y las restantes las completamos con ceros. &lt;/li&gt; &lt;/ul&gt;&lt;/html&gt;"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="440" y="340" width="400" height="140"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -261,52 +273,8 @@
             </Constraint>
           </Constraints>
 
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel6" min="-2" pref="430" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel34" min="-2" pref="376" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                              <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="39" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                              <Component id="jLabel6" min="-2" pref="170" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                              <Component id="jLabel34" min="-2" pref="244" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="322" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+            <Property name="useNullLayout" type="boolean" value="true"/>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel32">
@@ -316,11 +284,21 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Paso 2: Adici&#xf3;n de longitud del mensaje"/>
               </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="21" y="12" width="-1" height="-1"/>
+                </Constraint>
+              </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel34">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;ul&gt; &lt;li&gt;Se concatena al resultado del paso anterior, un entero de 64 bits que represente la longitud &apos;b&apos; del mensaje (longitud antes de a&#xf1;adir los bits). &lt;/li&gt; &lt;br&gt;&lt;li&gt;Si &apos;b&apos; es mayor que 2^64, entonces s&#xf3;lo se usar&#xe1;n los 64 bits de menor peso de &apos;b&apos;&lt;/li&gt;&lt;br&gt;&lt;li&gt;El mensaje resultante (despu&#xe9;s de rellenar con los bits y con &apos;b&apos;) tiene una longitud que es un m&#xfa;ltiplo exacto de 512 bits.&lt;/li&gt;&lt;br&gt;&lt;li&gt;A su vez, la longitud del mensaje es m&#xfa;ltiplo de 16 palabras (32 bits por palabra)&lt;/li&gt;&lt;/ul&gt; &lt;/html&gt;"/>
               </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="460" y="100" width="376" height="244"/>
+                </Constraint>
+              </Constraints>
             </Component>
             <Component class="javax.swing.JButton" name="jButton2">
               <Properties>
@@ -329,14 +307,36 @@
               <Events>
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton2MousePressed"/>
               </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="600" y="390" width="-1" height="-1"/>
+                </Constraint>
+              </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" id="Button.highlight" palette="3" red="ff" type="palette"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;div style=&quot;background-color: white;&quot;&gt;01010100 01001111 01010000 00100000 01010011 01000101 &lt;br&gt;01000011 01010010 01000101 01010100 00100000 01001101 &lt;br&gt;01000101 01010011 01010011 01000001 01000111 01000101 &lt;br&gt;10000000 00000000 00000000 00000000 00000000 00000000 &lt;br&gt;00000000 00000000 00000000 00000000 00000000 00000000&lt;br&gt; 00000000 00000000 00000000 00000000 00000000 00000000 &lt;br&gt;00000000 00000000 00000000 00000000 00000000 00000000 &lt;br&gt;00000000 00000000 00000000 00000000 00000000 00000000 &lt;br&gt;00000000 00000000 00000000 00000000 00000000 00000000 &lt;br&gt;00000000 00000000 00000000 00000000 00000000 00000000&lt;br&gt; 00000000 00000000 00000000 10010000&lt;/html&gt;"/>
               </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="30" y="117" width="430" height="250"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton12">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Adici&#xf3;n Longitud"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton12ActionPerformed"/>
+              </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="334" y="76" width="140" height="-1"/>
+                </Constraint>
+              </Constraints>
             </Component>
           </SubComponents>
         </Container>
