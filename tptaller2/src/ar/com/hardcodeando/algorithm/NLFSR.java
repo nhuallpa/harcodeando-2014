@@ -36,7 +36,7 @@ public class NLFSR {
     
     public void Execute(){
     	
-    	initSeed();
+    	this.seed = getSeedArray(this.Seed);
     	
     	//Calculo clave
     	int newBit;
@@ -47,7 +47,7 @@ public class NLFSR {
     		//Calcular funcion
     		newBit = this.Function.getResult(seed);
         	//Desplazar 1 bit a derecha usando bit calculado como s0    		
-    		shiftSeed(newBit);		
+    		this.seed = shiftSeed(this.seed, newBit);
     	}
     	
     	//Busco patron
@@ -72,28 +72,29 @@ public class NLFSR {
     		return pattern + repeatPattern(pattern, times - 1);
     }
     
-    private void shiftSeed(int s0){
-    	int newSeed[] = new int[this.length];
-    	for(int i = 0; i < this.length; i++){
+    public String getKey(){
+    	return this.Key;
+    }
+    
+    public int[] getSeedArray(String seed){
+        Character bit;
+        int seedArray[];
+    	seedArray = new int[seed.length()];
+    	for(int i = 0; i < seed.length(); i++){
+    		bit = seed.charAt(i);
+    		seedArray[i] = Integer.parseInt(bit.toString()); 
+    	}
+        return seedArray;
+    }
+    
+    public int[] shiftSeed(int oldSeed[], int s0){
+        int newSeed[] = new int[oldSeed.length];
+        for(int i = 0; i < oldSeed.length; i++){
     		if(i == 0)
     			newSeed[i] = s0;
     		else
-    			newSeed[i] = this.seed[i-1];
+    			newSeed[i] = oldSeed[i-1];
     	}
-    	this.seed = newSeed;
-    }
-    
-    private void initSeed(){
-    	
-    	Character bit;
-    	this.seed = new int[Seed.length()];
-    	for(int i = 0; i < Seed.length(); i++){
-    		bit = Seed.charAt(i);
-    		this.seed[i] = Integer.parseInt(bit.toString()); 
-    	}
-    }
-    
-    public String getKey(){
-    	return this.Key;
+        return newSeed;
     }
 }

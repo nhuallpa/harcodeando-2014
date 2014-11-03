@@ -9,15 +9,81 @@
  * @author connie
  */
 package ar.com.hardcodeando.ui;
-import ar.com.hardcodeando.algorithm.RSA;
-import java.util.Random;
-import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import ar.com.hardcodeando.algorithm.*;
+import java.util.ArrayList;
+import javax.swing.JComboBox;
+import ar.com.hardcodeando.ui.utils.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Map;
+import javax.swing.table.DefaultTableModel;
 
 public class NLFSRPanel extends javax.swing.JPanel {
  
+    private String seed;
+    
+    private int seedArray[];
+    
+    private NLFSRFunction function;
+    
+    private NLFSR nlfsr;
+    
+    private int it;
+    
+    private int maxIt;
+    
+    private String answer = "Como podemos observar, ya podemos definir la clave, que en este caso tiene período igual a %d y queda definida como %s, es decir %d";
+    
     public NLFSRPanel() {
         
         initComponents();
+        
+        NLFSRTabbedPanel.setEnabledAt(1, false);
+        NLFSRTabbedPanel.setEnabledAt(2, false);
+        NLFSRTabbedPanel.setEnabledAt(3, false);
+        NLFSRTabbedPanel.setEnabledAt(4, false);
+        NLFSRTabbedPanel.setEnabledAt(5, false);
+        
+        jTextField1.getDocument().addDocumentListener(new DocumentListener() {
+
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                changeSeed();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                changeSeed();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                changeSeed();
+            }
+            
+            public void changeSeed(){
+                String seed = jTextField1.getText();
+                try{
+                    int number = Integer.parseInt(seed);
+                    if(number <= 0 || number >= 16){
+                        jLabel23.setText("Número inválido");
+                        jLabel20.setText("");
+                    }
+                    else{
+                        jLabel23.setText("");
+                        jLabel20.setText(Integer.toBinaryString(number));  
+                    }
+                    
+
+                }catch(Exception e){
+                    jLabel23.setText("Número inválido");
+                    jLabel20.setText("");
+                }
+            }
+            
+        });
     }
 
     /**
@@ -43,25 +109,41 @@ public class NLFSRPanel extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
+        jButton7 = new javax.swing.JButton();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 6), new java.awt.Dimension(0, 6), new java.awt.Dimension(32767, 6));
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton6 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jButton8 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        jButton9 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
@@ -99,7 +181,7 @@ public class NLFSRPanel extends javax.swing.JPanel {
 
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("<html>NLFSR es un algoritmo que permite generar números pseudo-aleatorios los cuales son muy útiles en criptografía ya que son usados como base para generar secuencias cifrantes. Éstas pueden usarse como clave para cifrados de bloques (simétricos y asimétricos), flujo de clave para cifrados de flujo, claves de sesión, autenticación Challenge-response, entre otros. <br><br> Un n-stage NLFSR consiste en un registro de n bits r = r<sub>0</sub>...r<sub>n-1</sub> y una función f(r<sub>0</sub>,...,r<sub>n-1</sub>) cualquiera. Para obtener la secuencia cifrante se procede de la siguiente manera: <br> 1) Usar el bit r<sub>n-1</sub> como clave <br> 2) Calcular x usando la funcion: x = f(r<sub>0</sub>,...,r<sub>n-1</sub>) <br> 3) Desplazar r un bit a la derecha, descartando el bit r<sub>n-1</sub>, entonces x pasa a ser r<sub>0</sub> obteniendose el nuevo registro r. <br><br>  Se repiten los pasos hasta que se define el período de la secuencia. Como máximo se podrá tener un período de 2^n-1<br><br> </html>");
-        IntroNLFSRPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 780, 210));
+        IntroNLFSRPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 780, 220));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel14.setText("Introducción");
@@ -112,20 +194,16 @@ public class NLFSRPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        IntroNLFSRPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 460, -1, -1));
+        IntroNLFSRPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 380, -1, -1));
 
         NLFSRTabbedPanel.addTab("Introducción", IntroNLFSRPanel);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel3.setText("Paso 1: Definir registro inicial y función");
+        jLabel3.setText("Paso 1: Definir semilla");
 
-        jLabel2.setText("r = 1100");
+        jLabel2.setText("semilla:");
 
-        jLabel4.setText("Y tambien decidimos usar la siguiente función:");
-
-        jLabel5.setText("Supongamos que partimos de un registro de 4 bits como el siguiente:");
-
-        jLabel6.setText("<html>f(r<sub>0</sub>,r<sub>1</sub>,r<sub>2</sub>,r<sub>3</sub>) = (r<sub>0</sub> & r<sub>2</sub>) | r<sub>3</sub></html>");
+        jLabel5.setText("Definimos un número a usar como semilla (a fines prácticos vamos a seleccionar un número que se exprese en hasta 4 bits, es decir menor a 16):");
 
         jButton2.setText("Siguiente");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -134,24 +212,50 @@ public class NLFSRPanel extends javax.swing.JPanel {
             }
         });
 
+        jTextField1.setText("12");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setText("La semilla expresada como un registro de bits queda:");
+
+        jLabel20.setText("1100");
+
+        jLabel21.setText("r:");
+
+        jLabel23.setForeground(new java.awt.Color(255, 0, 51));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(460, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel19)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(298, 298, 298)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel23))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(337, 337, 337)
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel20)))
+                .addContainerGap(122, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addGap(78, 78, 78))
+                .addGap(70, 70, 70))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,31 +264,126 @@ public class NLFSRPanel extends javax.swing.JPanel {
                 .addComponent(jLabel3)
                 .addGap(7, 7, 7)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(226, 226, 226)
-                .addComponent(jButton2)
-                .addContainerGap(324, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel23))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel19)
+                        .addGap(17, 17, 17)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel21))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 330, Short.MAX_VALUE)
+                        .addComponent(jButton2)
+                        .addGap(301, 301, 301))))
         );
 
         NLFSRTabbedPanel.addTab("Paso 1", jPanel3);
+
+        jPanel6.setEnabled(false);
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel22.setText("Paso 2: Definir función");
+
+        jLabel4.setText("Ahora seleccionamos una función lógica acorde a la cantidad de bits:");
+
+        jLabel6.setText("<html>f(r<sub>0</sub>,r<sub>1</sub>,r<sub>2</sub>,r<sub>3</sub>) = </html>");
+
+        jButton7.setText("Siguiente");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(326, 326, 326)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel22)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(241, 241, 241)
+                                .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(246, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton7)
+                .addGap(61, 61, 61))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel22)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4)
+                    .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(296, 296, 296)
+                .addComponent(jButton7)
+                .addContainerGap(297, Short.MAX_VALUE))
+        );
+
+        NLFSRTabbedPanel.addTab("Paso 2", jPanel6);
+
+        jPanel1.setEnabled(false);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("Paso 2: Definimos el primer bit clave y calculamos x");
 
         jLabel8.setText("El bit clave es el de la posicion n-1, que en nuestro caso es 0. Calculamos x usando la función definida en el Paso 1:");
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel16.setText("<html><table border=1><tr><td>r</td><td>k</td><td>x</td></tr><tr><td>1100</td><td>0</td><td>(1 & 0) | 0 = 0</td></tr></table></html>");
-
         jButton5.setText("Siguiente");
+        jButton5.setEnabled(false);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "registro", "bit clave", "x"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        jButton6.setText("Calcular x");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
             }
         });
 
@@ -195,14 +394,20 @@ public class NLFSRPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(263, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8))
+                        .addContainerGap(263, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addComponent(jButton6)
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton5)
-                .addGap(84, 84, 84))
+                .addGap(58, 58, 58))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,26 +417,53 @@ public class NLFSRPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 320, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6))
+                .addGap(245, 245, 245)
                 .addComponent(jButton5)
-                .addGap(212, 212, 212))
+                .addContainerGap(303, Short.MAX_VALUE))
         );
 
-        NLFSRTabbedPanel.addTab("Paso 2", jPanel1);
+        NLFSRTabbedPanel.addTab("Paso 3", jPanel1);
+
+        jPanel4.setEnabled(false);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel11.setText("Paso 3: Obtenemos el nuevo registro");
 
         jLabel12.setText("Desplazamos el registro original r un bit a la derecha, ubicando como el nuevo r0 al x calculado anteriormente:");
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel9.setText("<html><table border=1><tr><td>r</td><td>k</td><td>x</td><td>nuevo r</td></tr><tr><td>1100</td><td>0</td><td>(1 & 0) | 0 = 0</td><td>0110</td></tr></table></html>");
-
         jButton3.setText("Siguiente");
+        jButton3.setEnabled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
+            }
+        });
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "registro", "clave", "x", "nuevo registro"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTable2);
+
+        jButton8.setLabel("Calcular nuevo r");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
             }
         });
 
@@ -244,12 +476,15 @@ public class NLFSRPanel extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
                     .addComponent(jLabel12)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(289, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(jButton8)))
+                .addContainerGap(221, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton3)
-                .addGap(94, 94, 94))
+                .addGap(53, 53, 53))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,24 +493,50 @@ public class NLFSRPanel extends javax.swing.JPanel {
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel12)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 326, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton8))
+                .addGap(238, 238, 238)
                 .addComponent(jButton3)
-                .addGap(227, 227, 227))
+                .addContainerGap(299, Short.MAX_VALUE))
         );
 
-        NLFSRTabbedPanel.addTab("Paso 3", jPanel4);
+        NLFSRTabbedPanel.addTab("Paso 4", jPanel4);
+
+        jPanel5.setEnabled(false);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setText("Paso 4: Repetir los pasos para definir el período");
 
-        jLabel13.setText("Usando el nuevo r, se vuelven la repetir los pasos 2 y 3  sucesivamente hasta que el período de la clave queda definido:");
+        jLabel13.setText("Usando el nuevo r, se vuelven la repetir los pasos 3 y 4  sucesivamente hasta que el período de la clave queda definido. Como máximo se realizan 2^N -1 iteraciones:");
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel17.setText("<html> <table border=1> <tr><td>r</td><td>k</td><td>x</td><td>nuevo r</td></tr> <tr><td>1100</td><td>0</td><td>(1 & 0) | 0 = 0</td><td>0110</td></tr> <tr><td>0110</td><td>0</td><td>(0 & 1) | 0 = 0</td><td>0011</td></tr> <tr><td>0011</td><td>1</td><td>(0 & 1) | 1 = 1</td><td>1001</td></tr> <tr><td>1001</td><td>1</td><td>(1 & 0) | 1 = 1</td><td>1100</td></tr> <tr><td>1100</td><td>0</td><td>(1 & 0) | 0 = 0</td><td>0110</td></tr> <tr><td>0110</td><td>0</td><td>(0 & 1) | 0 = 0</td><td>0011</td></tr> <tr><td>0011</td><td>1</td><td>(0 & 1) | 1 = 1</td><td>1001</td></tr> </table></html>");
+        jLabel18.setText("Solucion");
 
-        jLabel18.setText("En este caso la clave tiene período igual a 4 (0011)");
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "registro", "clave", "x", "nuevo registro"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(jTable3);
+
+        jButton9.setText("Iterar");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -286,25 +547,30 @@ public class NLFSRPanel extends javax.swing.JPanel {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
                     .addComponent(jLabel13)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addComponent(jButton9))
                     .addComponent(jLabel18))
-                .addContainerGap(239, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton9)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel18)
-                .addContainerGap(376, Short.MAX_VALUE))
+                .addContainerGap(253, Short.MAX_VALUE))
         );
 
-        NLFSRTabbedPanel.addTab("Paso 4", jPanel5);
+        NLFSRTabbedPanel.addTab("Paso 5", jPanel5);
 
         jButton4.setText("Cerrar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -363,34 +629,133 @@ public class NLFSRPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.NLFSRTabbedPanel.setEnabledAt(5,true);
+        this.NLFSRTabbedPanel.setSelectedIndex(5);
+        
+        DefaultTableModel model1 = (DefaultTableModel) jTable2.getModel();
+        DefaultTableModel model2 = (DefaultTableModel) jTable3.getModel();
+        model2.addRow(new Object[]{ model1.getValueAt(0, 0), model1.getValueAt(0, 1), model1.getValueAt(0, 2), model1.getValueAt(0, 3) });
+        
+        it = 0;
+        jLabel18.setVisible(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        this.NLFSRTabbedPanel.setEnabledAt(4,true);
+        this.NLFSRTabbedPanel.setSelectedIndex(4);
+        
+        DefaultTableModel model1 = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel model2 = (DefaultTableModel) jTable2.getModel();
+        model2.addRow(new Object[]{ model1.getValueAt(0, 0), model1.getValueAt(0, 1), model1.getValueAt(0, 2), "" });
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.NLFSRTabbedPanel.setEnabledAt(1,true);
         this.NLFSRTabbedPanel.setSelectedIndex(1);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        this.NLFSRTabbedPanel.setEnabledAt(4,true);
-        this.NLFSRTabbedPanel.setSelectedIndex(4);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        
+        nlfsr = new NLFSR(function, seed);
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        seedArray = nlfsr.getSeedArray(seed);
+        model.setValueAt(function.getResult(seedArray), 0, 2);
+        jButton5.setEnabled(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        this.NLFSRTabbedPanel.setEnabledAt(3,true);
+        this.NLFSRTabbedPanel.setSelectedIndex(3);
+        
+        Map<Integer,NLFSRFunction> functions = NLFSRFunction.getFunctions();
+        ComboItem item = (ComboItem)jComboBox1.getSelectedItem();
+        function = functions.get(Integer.parseInt(item.getKey()));
+        
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.addRow(new Object []{ seed, seed.charAt(seed.length() - 1), "" });
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.NLFSRTabbedPanel.setEnabledAt(2,true);
         this.NLFSRTabbedPanel.setSelectedIndex(2);
+        this.seed = jLabel20.getText();
+        int length = seed.length();
+        String function = new String();
+        function = "<html>f(";
+        for(int i = 0; i < length; i++){
+            function = function + (i > 0 ? "," : "") + "r<sub>" + i + "</sub>";
+        }
+        function = function + ") = </html>";
+        jLabel6.setText(function);
+
+        Map<Integer,NLFSRFunction> functions = NLFSRFunction.getFunctions();
+        jComboBox1.removeAllItems();
+        for (int i = 0; i < functions.size(); i++) {
+            if(length >= functions.get(i).getMin()){
+                jComboBox1.addItem(new ComboItem(Integer.toString(i),functions.get(i).getDescription()));
+            }
+        }
+        if(jComboBox1.getItemCount() > 0)
+        jComboBox1.setSelectedIndex(0);
+        
+        maxIt = (int) Math.pow(2, length) - 1;
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        this.NLFSRTabbedPanel.setEnabledAt(3,true);
-        this.NLFSRTabbedPanel.setSelectedIndex(3);
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        
+        DefaultTableModel model2 = (DefaultTableModel) jTable2.getModel();
+        int newSeed[] = nlfsr.shiftSeed(seedArray, Integer.parseInt(model2.getValueAt(0, 2).toString()));
+        String newR = new String();
+        for (int s : newSeed) {
+            newR = newR.concat(Integer.toString(s));
+        }
+        model2.setValueAt(newR, 0, 3);
+        jButton3.setEnabled(true);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        it++;
+        
+        DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
+        String currentSeed = model.getValueAt(it-1, 3).toString();
+        int currentSeedArray[] = nlfsr.getSeedArray(currentSeed);
+        int s0 = function.getResult(currentSeedArray);
+        currentSeedArray = nlfsr.shiftSeed(currentSeedArray, s0);
+        String newR = new String();
+        for (int s : currentSeedArray) {
+            newR = newR.concat(Integer.toString(s));
+        }
+        model.addRow(new Object[]{ currentSeed, currentSeed.charAt(currentSeed.length() - 1), s0, newR });
+        
+        if(it == maxIt){
+            nlfsr.Execute();
+            String text = String.format(answer, nlfsr.getKey().length(), nlfsr.getKey(), Integer.parseInt(nlfsr.getKey(), 2) );
+            jLabel18.setText(text);
+            jLabel18.setVisible(true);
+            jButton9.setEnabled(false);
+        }
+        
+    }//GEN-LAST:event_jButton9ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel IntroNLFSRPanel;
     private javax.swing.JTabbedPane NLFSRTabbedPanel;
+    private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JLabel jLabel1;
@@ -400,22 +765,32 @@ public class NLFSRPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
