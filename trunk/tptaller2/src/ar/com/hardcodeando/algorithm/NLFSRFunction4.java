@@ -12,6 +12,7 @@ package ar.com.hardcodeando.algorithm;
 public class NLFSRFunction4 extends NLFSRFunction{
     
     public NLFSRFunction4(){
+        this.min = 4;
         this.description = "(r0 & r2) | r3";
     }
     
