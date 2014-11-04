@@ -7,6 +7,7 @@
 package ar.com.hardcodeando.algorithm;
 
 
+import java.math.BigInteger;
 import java.util.Random;
 /**
  *
@@ -22,6 +23,8 @@ public class RSA {
     private long intervalo_d_inf;
     private long intervalo_d_sup;
     private long p1q1;
+    private String mens_enciptado;
+    private String rep_numerica;
     
     
     public RSA(){
@@ -34,6 +37,8 @@ public class RSA {
         this.intervalo_d_sup = 0;
         this.p1q1 = 0;
         this.max_primo = 31;
+        this.mens_enciptado = "";
+        this.rep_numerica = "";
     }
     /**
      * verifica si un numero es primo o no
@@ -191,6 +196,15 @@ public class RSA {
         return this.n;
     }
     
+    public String GetMensajeEncriptado(){
+        return this.mens_enciptado;
+    }
+    
+    public String GetRepresentacionNumerica(){
+        return this.rep_numerica;
+    }
+            
+    
     
     
     /**
@@ -238,11 +252,46 @@ public class RSA {
         
     }
     
-    public void Encriptar(String mensaje){
-        
+    private void GenerarRepresentacionNumerica(String mensaje){
+        String aux = "";
+        for(int i = 0;i < mensaje.length();i++){
+            char c = mensaje.charAt(i);
+            long ascii = c;
+            if(ascii < 100) aux += "0";
+            aux += Long.toString(ascii);
+        }
+        this.rep_numerica = aux;
     }
     
-    public void Desencriptar(String mensaje){
+    public void Encriptar(String mensaje, int tam_bloque){
+        this.rep_numerica = "";
+        this.mens_enciptado = "";
+        this.GenerarRepresentacionNumerica(mensaje);
+        int offset = 3*tam_bloque;
+        int pos = 0;
+        while(pos < this.rep_numerica.length()){
+            String aux;
+            if(pos + offset < this.rep_numerica.length())
+                aux = this.rep_numerica.substring(pos, pos + offset);
+            else
+                aux = this.rep_numerica.substring(pos);
+            long cifrado = Long.parseLong(aux);
+            BigInteger potencia = new BigInteger(Long.toString(cifrado));
+            BigInteger exponente = new BigInteger(Long.toString(this.e));
+            BigInteger modulo = new BigInteger(Long.toString(this.n));
+            potencia = potencia.modPow(exponente, modulo);
+            
+            cifrado = potencia.longValue();
+            String sub_bloque = Long.toString(cifrado);
+            while(sub_bloque.length() < offset){
+                sub_bloque = "0" + sub_bloque;
+            }
+            this.mens_enciptado += sub_bloque;
+            pos += offset;
+        }                   
+    }
+   
+    public void Desencriptar(String mensaje, int tam_bloque){
         
     }
     
