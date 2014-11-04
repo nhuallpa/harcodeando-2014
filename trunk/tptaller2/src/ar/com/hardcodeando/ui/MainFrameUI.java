@@ -226,7 +226,17 @@ public class MainFrameUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
+        if(this.hEvaluarPanel==null){
+            this.hEvaluarPanel = new HillEvaluarPanel();       
+        }
+        if(this.currentComponent!=null){
+            this.remove(this.currentComponent);
+        }
+        //this.setLayout(new BorderLayout());
+        this.currentComponent=hEvaluarPanel;
+        
+        this.add(this.currentComponent, BorderLayout.CENTER);
+        this.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -378,6 +388,7 @@ public class MainFrameUI extends javax.swing.JFrame {
     }
 
     private HillPanel hpanel=null;
+    private HillEvaluarPanel hEvaluarPanel=null;
     private MD5Panel md5panel=null;
     private DesPanel dpanel=null;
     private RSAPanel rpanel = null;
