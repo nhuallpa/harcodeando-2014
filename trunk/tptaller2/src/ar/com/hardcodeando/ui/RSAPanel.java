@@ -7,7 +7,6 @@
 
 package ar.com.hardcodeando.ui;
 import ar.com.hardcodeando.algorithm.RSA;
-import java.util.Random;
 import javax.swing.*;
 
 
@@ -21,7 +20,8 @@ public class RSAPanel extends javax.swing.JPanel {
     /**
      * Creates new form RSAPanel
      */
- 
+    private final short max_lenght_encriptar = 20;
+    
     public RSAPanel() {
         
         initComponents();        
@@ -72,7 +72,49 @@ public class RSAPanel extends javax.swing.JPanel {
     
 
 }
+    private void ApagarTabs(){
+        this.RSATabbedPanel.setEnabledAt(this.RSATabbedPanel.getSelectedIndex()+1, false);
+        this.RSATabbedPanel.setEnabledAt(this.RSATabbedPanel.getSelectedIndex()+2, false);
+        this.RSATabbedPanel.setEnabledAt(this.RSATabbedPanel.getSelectedIndex()+3, false);
+        this.RSATabbedPanel.setEnabledAt(this.RSATabbedPanel.getSelectedIndex()+4, false);                
+    }
     
+    private void ApagarPaso1(){
+        this.textModulo.setText("");
+        this.botContinuarPaso1.setEnabled(false);   
+        this.botContinuarPaso1.setEnabled(false);
+    }
+    
+    private void ApagarPaso2(){
+        this.text_d.setText("");
+        this.text_claveprivada.setText(""); 
+        this.botContinuarPaso2.setEnabled(false);
+    }
+    
+    private void ApagarPaso3(){
+        this.text_e_paso3.setText("");
+        this.text_clavepublica.setText("");
+        this.botContinuarPaso3.setEnabled(false);
+    }
+
+    private void ApagarEncriptado(){
+        this.textRepNum.setText("");
+        this.textMensCifrado.setText("");
+        this.textMensajeEncriptar.setText("TOP SECRET MESSAGE");
+        this.spinTamBloque.setValue(1);
+        
+        this.labelBloque.setEnabled(false);
+        this.labelRepNum.setEnabled(false);        
+        this.botEncriptarBloque.setEnabled(false);
+        this.botTerminarEncriptar.setEnabled(false);
+        this.textBloqueEncriptar.setEnabled(false);
+        this.textASCIIencriptar.setEnabled(false);
+        this.panEncriptarBloques.setEnabled(false);
+        
+        this.botContinuarEncriptar.setEnabled(false);
+    }
+    
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -155,13 +197,14 @@ public class RSAPanel extends javax.swing.JPanel {
         botContinuarEncriptar = new javax.swing.JButton();
         labelTamBloq = new javax.swing.JLabel();
         spinTamBloque = new javax.swing.JSpinner();
+        jLabel36 = new javax.swing.JLabel();
+        textRepNum = new javax.swing.JTextField();
         panelPaso5 = new javax.swing.JPanel();
         panelPaso6 = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        textMensajeDesencriptar = new javax.swing.JTextField();
+        textRepNumDesenc = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
-        botDesencriptarBloqueBloque = new javax.swing.JButton();
         panEncriptarBloques1 = new javax.swing.JPanel();
         labelBloqueDes = new javax.swing.JLabel();
         textBloqueDesencriptar = new javax.swing.JTextField();
@@ -171,8 +214,11 @@ public class RSAPanel extends javax.swing.JPanel {
         botTerminarDesencriptar = new javax.swing.JButton();
         textMensOriginalDesencriptar = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
-        labelTamBloqDes = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        textMensajeCifradoDes = new javax.swing.JTextField();
         spinTamBloqueDes = new javax.swing.JSpinner();
+        botDesencriptarBloqueBloque = new javax.swing.JButton();
+        labelTamBloqDes = new javax.swing.JLabel();
         botDesencriptarTodo = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
@@ -254,7 +300,7 @@ public class RSAPanel extends javax.swing.JPanel {
                         .addComponent(botComenzar))
                     .addComponent(jLabel18)
                     .addComponent(jLabel5))
-                .addContainerGap(677, Short.MAX_VALUE))
+                .addContainerGap(776, Short.MAX_VALUE))
         );
         panelCalculosInicialesLayout.setVerticalGroup(
             panelCalculosInicialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -373,7 +419,7 @@ public class RSAPanel extends javax.swing.JPanel {
                                 .addGap(108, 108, 108)
                                 .addComponent(botContinuarPaso1)))
                         .addGap(156, 156, 156)))
-                .addContainerGap(941, Short.MAX_VALUE))
+                .addContainerGap(1040, Short.MAX_VALUE))
         );
         panelPaso1Layout.setVerticalGroup(
             panelPaso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -489,7 +535,7 @@ public class RSAPanel extends javax.swing.JPanel {
                         .addGroup(panelPaso2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel22))))
-                .addContainerGap(708, Short.MAX_VALUE))
+                .addContainerGap(807, Short.MAX_VALUE))
         );
         panelPaso2Layout.setVerticalGroup(
             panelPaso2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -634,7 +680,7 @@ public class RSAPanel extends javax.swing.JPanel {
                         .addGroup(panelPaso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(botHallar_e, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(botContinuarPaso3))))
-                .addContainerGap(612, Short.MAX_VALUE))
+                .addContainerGap(711, Short.MAX_VALUE))
         );
         panelPaso3Layout.setVerticalGroup(
             panelPaso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -674,7 +720,7 @@ public class RSAPanel extends javax.swing.JPanel {
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel25.setText("Paso 4: Encriptar.");
 
-        jLabel27.setText("<html>Para encriptar mensajes, primero definiremos una asociación numérica para cada caracter.<br><br>En nuestro caso, utilizaremos el código ASCII, por ejemplo <strong>A = 65 , a = 97, etc.</strong><br><br>Podemos codificar caracter por caracter, aplicando su código numérico, o tomar bloques de mayor cantidad de caracteres y codificar de a grupos.<br><br>Cada grupo de caracteres se encripta  con la siguiente fórmula: <strong>C = M<sup>e</sup>mod n</strong> donde M es el valor del grupo de caracteres, C el valor encriptado,<br> e y n los componentes de la clave pública.</html>");
+        jLabel27.setText("<html>Para encriptar mensajes, primero definiremos una asociación numérica para cada caracter.<br><br>En nuestro caso, utilizaremos el código ASCII, por ejemplo <strong>A = 065 , a = 097, etc.</strong> (Notar que como ASCII tiene 255 códigos,  cada caracter <br> estará representado por 3 dígitos, tanto del mensaje original como del mensaje encriptado).<br><br>Podemos codificar caracter por caracter, aplicando su código numérico, o tomar bloques de mayor cantidad de caracteres y codificar de a grupos. <br>Limitaremos por cuestiones didácticas el tamaño máximo de bloque a 4 y el mensaje a encriptar a 20 caracteres.<br><br>Cada grupo de caracteres se encripta  con la siguiente fórmula: <strong>C = M<sup>e</sup>mod n</strong> donde M es el valor del grupo de caracteres, C el valor encriptado,<br> e y n los componentes de la clave pública.</html>");
 
         textMensajeEncriptar.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         textMensajeEncriptar.setText("TOP SECRET MESSAGE");
@@ -687,6 +733,11 @@ public class RSAPanel extends javax.swing.JPanel {
         jLabel28.setText("Mensaje Original:");
 
         botEncriptarTodo.setText("Encriptar Todo");
+        botEncriptarTodo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botEncriptarTodoMousePressed(evt);
+            }
+        });
 
         botEncriptarBloques.setText("Encriptar Bloque a Bloque");
         botEncriptarBloques.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -770,6 +821,7 @@ public class RSAPanel extends javax.swing.JPanel {
         jLabel29.setText("Mensaje Cifrado:");
 
         botContinuarEncriptar.setText("Continuar");
+        botContinuarEncriptar.setEnabled(false);
         botContinuarEncriptar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 botContinuarEncriptarMousePressed(evt);
@@ -778,6 +830,12 @@ public class RSAPanel extends javax.swing.JPanel {
 
         labelTamBloq.setText("Tamaño bloque:");
 
+        spinTamBloque.setModel(new javax.swing.SpinnerNumberModel(1, 1, 4, 1));
+
+        jLabel36.setText("<html>Representación<br>numérica</html>");
+
+        textRepNum.setEditable(false);
+
         javax.swing.GroupLayout panelPaso4Layout = new javax.swing.GroupLayout(panelPaso4);
         panelPaso4.setLayout(panelPaso4Layout);
         panelPaso4Layout.setHorizontalGroup(
@@ -785,36 +843,34 @@ public class RSAPanel extends javax.swing.JPanel {
             .addGroup(panelPaso4Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(panelPaso4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelPaso4Layout.createSequentialGroup()
                         .addGroup(panelPaso4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelPaso4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel28)
+                                .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labelTamBloq, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel29, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelPaso4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(panelPaso4Layout.createSequentialGroup()
-                                .addGroup(panelPaso4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel28)
-                                    .addGroup(panelPaso4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel29)
-                                        .addComponent(labelTamBloq)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panelPaso4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(panelPaso4Layout.createSequentialGroup()
-                                        .addComponent(textMensCifrado, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(botEncriptarTodo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(spinTamBloque, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(panelPaso4Layout.createSequentialGroup()
-                                        .addComponent(textMensajeEncriptar, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(botEncriptarBloques))))
-                            .addComponent(panEncriptarBloques, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 222, Short.MAX_VALUE)
-                        .addComponent(botContinuarEncriptar))
+                                .addComponent(spinTamBloque, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(botContinuarEncriptar))
+                            .addComponent(textMensCifrado)
+                            .addComponent(textRepNum)
+                            .addGroup(panelPaso4Layout.createSequentialGroup()
+                                .addComponent(textMensajeEncriptar, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botEncriptarBloques, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(botEncriptarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(panelPaso4Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
                         .addGroup(panelPaso4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelPaso4Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(jLabel25))
-                            .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 179, Short.MAX_VALUE)))
-                .addContainerGap(652, Short.MAX_VALUE))
+                            .addComponent(jLabel25)
+                            .addComponent(panEncriptarBloques, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(840, Short.MAX_VALUE))
         );
         panelPaso4Layout.setVerticalGroup(
             panelPaso4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -823,28 +879,30 @@ public class RSAPanel extends javax.swing.JPanel {
                 .addComponent(jLabel25)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(35, 35, 35)
                 .addGroup(panelPaso4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textMensajeEncriptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel28)
-                    .addComponent(botEncriptarBloques))
-                .addGap(1, 1, 1)
+                    .addComponent(botEncriptarBloques)
+                    .addComponent(botEncriptarTodo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelPaso4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelPaso4Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(textRepNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelPaso4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botEncriptarTodo)
                     .addComponent(textMensCifrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel29))
-                .addGroup(panelPaso4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelPaso4Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(botContinuarEncriptar))
-                    .addGroup(panelPaso4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelPaso4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelTamBloq)
-                            .addComponent(spinTamBloque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panEncriptarBloques, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(331, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelPaso4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(spinTamBloque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelTamBloq)
+                    .addComponent(botContinuarEncriptar))
+                .addGap(18, 18, 18)
+                .addComponent(panEncriptarBloques, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(252, 252, 252))
         );
 
         RSATabbedPanel.addTab("Paso 4", panelPaso4);
@@ -854,27 +912,15 @@ public class RSAPanel extends javax.swing.JPanel {
 
         jLabel31.setText("<html>Una vez que el receptor recibe un mensaje encriptado, procede a desencriptarlo a través de su clave privada. <br><br>La fórmula para efectuar el proceso es: <strong>M = C<sup>d</sup>mod n</strong> donde C es el valor numérico de los caracteres encriptados, M el valor numérico del mensaje original que se acaba de desencriptar,<br>(los valores numéricos son los códigos ASCII para nuestros ejemplos), d y n los componentes de la clave privada.</html>");
 
-        textMensajeDesencriptar.setEditable(false);
-        textMensajeDesencriptar.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        textMensajeDesencriptar.addActionListener(new java.awt.event.ActionListener() {
+        textRepNumDesenc.setEditable(false);
+        textRepNumDesenc.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        textRepNumDesenc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textMensajeDesencriptarActionPerformed(evt);
+                textRepNumDesencActionPerformed(evt);
             }
         });
 
         jLabel32.setText("Mensaje Cifrado:");
-
-        botDesencriptarBloqueBloque.setText("Desencriptar Bloque a Bloque");
-        botDesencriptarBloqueBloque.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                botDesencriptarBloqueBloqueMousePressed(evt);
-            }
-        });
-        botDesencriptarBloqueBloque.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botDesencriptarBloqueBloqueActionPerformed(evt);
-            }
-        });
 
         panEncriptarBloques1.setEnabled(false);
 
@@ -923,7 +969,7 @@ public class RSAPanel extends javax.swing.JPanel {
         panEncriptarBloques1Layout.setVerticalGroup(
             panEncriptarBloques1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panEncriptarBloques1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(41, 41, 41)
                 .addGroup(panEncriptarBloques1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelBloqueDes)
                     .addComponent(textBloqueDesencriptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -945,9 +991,31 @@ public class RSAPanel extends javax.swing.JPanel {
 
         jLabel33.setText("Mensaje Original:");
 
-        labelTamBloqDes.setText("Tamaño bloque:");
+        jLabel37.setText("<html>Representación<br>numérica</html>");
+
+        textMensajeCifradoDes.setEditable(false);
+        textMensajeCifradoDes.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        textMensajeCifradoDes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textMensajeCifradoDesActionPerformed(evt);
+            }
+        });
 
         spinTamBloqueDes.setEnabled(false);
+
+        botDesencriptarBloqueBloque.setText("Desencriptar Bloque a Bloque");
+        botDesencriptarBloqueBloque.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botDesencriptarBloqueBloqueMousePressed(evt);
+            }
+        });
+        botDesencriptarBloqueBloque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botDesencriptarBloqueBloqueActionPerformed(evt);
+            }
+        });
+
+        labelTamBloqDes.setText("Tamaño bloque:");
 
         botDesencriptarTodo.setText("Desencriptar Todo");
         botDesencriptarTodo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -966,31 +1034,32 @@ public class RSAPanel extends javax.swing.JPanel {
         panelPaso6Layout.setHorizontalGroup(
             panelPaso6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPaso6Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(panelPaso6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel30)
+                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelPaso6Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(textRepNumDesenc, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelPaso6Layout.createSequentialGroup()
+                        .addComponent(jLabel32)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textMensajeCifradoDes, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelPaso6Layout.createSequentialGroup()
+                        .addGroup(panelPaso6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel33)
+                            .addComponent(labelTamBloqDes))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelPaso6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel30)
-                            .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panelPaso6Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(labelTamBloqDes)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(spinTamBloqueDes, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelPaso6Layout.createSequentialGroup()
-                                .addComponent(jLabel33)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panelPaso6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textMensajeDesencriptar, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textMensOriginalDesencriptar, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(3, 3, 3)
-                                .addGroup(panelPaso6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(botDesencriptarBloqueBloque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(botDesencriptarTodo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(panEncriptarBloques1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelPaso6Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabel32)))
+                                .addComponent(spinTamBloqueDes, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(botDesencriptarBloqueBloque)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(botDesencriptarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(textMensOriginalDesencriptar, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(panEncriptarBloques1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(485, Short.MAX_VALUE))
         );
         panelPaso6Layout.setVerticalGroup(
@@ -1000,23 +1069,27 @@ public class RSAPanel extends javax.swing.JPanel {
                 .addComponent(jLabel30)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(15, 15, 15)
                 .addGroup(panelPaso6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textMensajeDesencriptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel32)
-                    .addComponent(botDesencriptarBloqueBloque))
-                .addGap(1, 1, 1)
+                    .addComponent(textMensajeCifradoDes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(panelPaso6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textMensOriginalDesencriptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textRepNumDesenc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
+                .addGroup(panelPaso6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
-                    .addComponent(botDesencriptarTodo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(textMensOriginalDesencriptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelPaso6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(spinTamBloqueDes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelTamBloqDes))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(botDesencriptarBloqueBloque)
+                    .addComponent(labelTamBloqDes)
+                    .addComponent(botDesencriptarTodo))
+                .addGap(30, 30, 30)
                 .addComponent(panEncriptarBloques1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(383, Short.MAX_VALUE))
+                .addContainerGap(298, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelPaso5Layout = new javax.swing.GroupLayout(panelPaso5);
@@ -1026,7 +1099,7 @@ public class RSAPanel extends javax.swing.JPanel {
             .addGroup(panelPaso5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelPaso6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(251, Short.MAX_VALUE))
         );
         panelPaso5Layout.setVerticalGroup(
             panelPaso5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1055,10 +1128,7 @@ public class RSAPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1164, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(RSATabbedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1557, Short.MAX_VALUE)
-                .addGap(89, 89, 89))
+            .addComponent(RSATabbedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1656, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1067,9 +1137,9 @@ public class RSAPanel extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(RSATabbedPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -1116,47 +1186,13 @@ public class RSAPanel extends javax.swing.JPanel {
         this.RSATabbedPanel.setSelectedIndex(this.RSATabbedPanel.getSelectedIndex()+1);
     }//GEN-LAST:event_botContinuarPaso3MousePressed
 
-    private void textMensajeEncriptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMensajeEncriptarActionPerformed
+    private void textRepNumDesencActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textRepNumDesencActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textMensajeEncriptarActionPerformed
-
-    private void botEncriptarBloqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botEncriptarBloqueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botEncriptarBloqueActionPerformed
-
-    private void botEncriptarBloquesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botEncriptarBloquesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botEncriptarBloquesActionPerformed
-
-    private void botEncriptarBloquesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botEncriptarBloquesMousePressed
-        this.labelBloque.setEnabled(true);
-        this.labelRepNum.setEnabled(true);
-        this.labelTamBloq.setEnabled(true);
-        this.botEncriptarBloque.setEnabled(true);
-        this.botTerminarEncriptar.setEnabled(true);      
-        this.textBloqueEncriptar.setEnabled(true);
-        this.textASCIIencriptar.setEnabled(true);
-        this.panEncriptarBloques.setEnabled(true);
-    }//GEN-LAST:event_botEncriptarBloquesMousePressed
-
-    private void textMensCifradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMensCifradoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textMensCifradoActionPerformed
-
-    private void botContinuarEncriptarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botContinuarEncriptarMousePressed
-        this.RSATabbedPanel.setEnabledAt(this.RSATabbedPanel.getSelectedIndex()+1, true);
-        this.RSATabbedPanel.setSelectedIndex(this.RSATabbedPanel.getSelectedIndex()+1);
-        this.spinTamBloqueDes.setValue(this.spinTamBloque.getValue());
-    }//GEN-LAST:event_botContinuarEncriptarMousePressed
-
-    private void textMensajeDesencriptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMensajeDesencriptarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textMensajeDesencriptarActionPerformed
+    }//GEN-LAST:event_textRepNumDesencActionPerformed
 
     private void botDesencriptarBloqueBloqueMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botDesencriptarBloqueBloqueMousePressed
             this.labelBloqueDes.setEnabled(true);
-            this.labelRepNumdes.setEnabled(true);
-            this.labelTamBloqDes.setEnabled(true);
+            this.labelRepNumdes.setEnabled(true);            
             this.textBloqueDesencriptar.setEnabled(true);
             this.textASCIIdesencriptar.setEnabled(true);
             this.botdesencriptarBloque.setEnabled(true);
@@ -1280,19 +1316,12 @@ public class RSAPanel extends javax.swing.JPanel {
         this.rsa_aprender.GenerarPrimos();
         this.textP.setText(Long.toString(this.rsa_aprender.GetP()));
         this.textQ.setText(Long.toString(this.rsa_aprender.GetQ()));
-        this.textModulo.setText("");
-        this.botContinuarPaso1.setEnabled(false);
-        this.RSATabbedPanel.setEnabledAt(this.RSATabbedPanel.getSelectedIndex()+1, false);
-        this.RSATabbedPanel.setEnabledAt(this.RSATabbedPanel.getSelectedIndex()+2, false);
-        this.RSATabbedPanel.setEnabledAt(this.RSATabbedPanel.getSelectedIndex()+3, false);
-        this.RSATabbedPanel.setEnabledAt(this.RSATabbedPanel.getSelectedIndex()+4, false);
-        this.text_d.setText("");
-        this.text_claveprivada.setText("");
-        this.text_e_paso3.setText("");
-        this.text_clavepublica.setText("");
-        this.botContinuarPaso1.setEnabled(false);
-        this.botContinuarPaso2.setEnabled(false);
-        this.botContinuarPaso3.setEnabled(false);
+        
+        this.ApagarTabs();
+        this.ApagarPaso1();
+        this.ApagarPaso2();
+        this.ApagarPaso3();
+        this.ApagarEncriptado();  
     }//GEN-LAST:event_botPrimosAleatorioMousePressed
 
     private void text_d_paso3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_d_paso3ActionPerformed
@@ -1314,6 +1343,60 @@ public class RSAPanel extends javax.swing.JPanel {
                 "," + Long.toString(this.rsa_aprender.GetE()) + ")");
         this.botContinuarPaso3.setEnabled(true);
     }//GEN-LAST:event_botHallar_eMousePressed
+
+    private void botContinuarEncriptarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botContinuarEncriptarMousePressed
+        this.RSATabbedPanel.setEnabledAt(this.RSATabbedPanel.getSelectedIndex()+1, true);
+        this.RSATabbedPanel.setSelectedIndex(this.RSATabbedPanel.getSelectedIndex()+1);
+        this.spinTamBloqueDes.setValue(this.spinTamBloque.getValue());
+        this.textMensajeCifradoDes.setText(this.rsa_aprender.GetMensajeEncriptado());
+    }//GEN-LAST:event_botContinuarEncriptarMousePressed
+
+    private void textMensCifradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMensCifradoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textMensCifradoActionPerformed
+
+    private void botEncriptarBloqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botEncriptarBloqueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botEncriptarBloqueActionPerformed
+
+    private void botEncriptarBloquesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botEncriptarBloquesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botEncriptarBloquesActionPerformed
+
+    private void botEncriptarBloquesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botEncriptarBloquesMousePressed
+        this.labelBloque.setEnabled(true);
+        this.labelRepNum.setEnabled(true);        
+        this.botEncriptarBloque.setEnabled(true);
+        this.botTerminarEncriptar.setEnabled(true);
+        this.textBloqueEncriptar.setEnabled(true);
+        this.textASCIIencriptar.setEnabled(true);
+        this.panEncriptarBloques.setEnabled(true);
+    }//GEN-LAST:event_botEncriptarBloquesMousePressed
+
+    private void botEncriptarTodoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botEncriptarTodoMousePressed
+        String mensaje = this.textMensajeEncriptar.getText();
+        if(mensaje.length() > this.max_lenght_encriptar){
+            JOptionPane.showMessageDialog(null, "Por cuestiones didácticas ingrese mensaje mas cortos, "
+                    + "hasta " + this.max_lenght_encriptar + " caracteres.");
+            this.textMensajeEncriptar.setText("TOP SECRET MESSAGE");
+            this.textRepNum.setText("");
+            this.textMensCifrado.setText("");
+        }
+        else{
+            this.rsa_aprender.Encriptar(mensaje, (int)this.spinTamBloque.getValue());
+            this.textMensCifrado.setText(this.rsa_aprender.GetMensajeEncriptado());
+            this.textRepNum.setText(this.rsa_aprender.GetRepresentacionNumerica());
+            this.botContinuarEncriptar.setEnabled(true);
+        }
+    }//GEN-LAST:event_botEncriptarTodoMousePressed
+
+    private void textMensajeEncriptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMensajeEncriptarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textMensajeEncriptarActionPerformed
+
+    private void textMensajeCifradoDesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMensajeCifradoDesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textMensajeCifradoDesActionPerformed
 
     private RSA rsa_aprender;
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1368,6 +1451,8 @@ public class RSAPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1400,11 +1485,13 @@ public class RSAPanel extends javax.swing.JPanel {
     private javax.swing.JTextField textIntervalo_d;
     private javax.swing.JTextField textMensCifrado;
     private javax.swing.JTextField textMensOriginalDesencriptar;
-    private javax.swing.JTextField textMensajeDesencriptar;
+    private javax.swing.JTextField textMensajeCifradoDes;
     private javax.swing.JTextField textMensajeEncriptar;
     private javax.swing.JTextField textModulo;
     private javax.swing.JTextField textP;
     private javax.swing.JTextField textQ;
+    private javax.swing.JTextField textRepNum;
+    private javax.swing.JTextField textRepNumDesenc;
     private javax.swing.JTextField text_claveprivada;
     private javax.swing.JTextField text_clavepublica;
     private javax.swing.JTextField text_d;
