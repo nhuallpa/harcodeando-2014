@@ -262,10 +262,24 @@ public class RSA {
         }
         this.rep_numerica = aux;
     }
+    /**
+     * Convierte un mensaje a su representacion ASCII
+     * @param mensaje mensaje a transformar en representacion ASCII
+     * @return represetacion ASCII
+     */
+    public String Codificar(String mensaje){
+        String res = "";
+        
+        for(int i = 0; i < mensaje.length(); i++){
+            char c = mensaje.charAt(i);
+            long ascii = c;
+            if(ascii < 100) res += "0";
+            res += Long.toString(ascii);
+        }
+        return res;
+    }
     
-    public void Encriptar(String mensaje, int tam_bloque){
-        this.rep_numerica = "";
-        this.mens_enciptado = "";
+    private void Encriptar(String mensaje, int tam_bloque){
         this.GenerarRepresentacionNumerica(mensaje);
         int offset = 3*tam_bloque;
         int pos = 0;
@@ -288,7 +302,25 @@ public class RSA {
             }
             this.mens_enciptado += sub_bloque;
             pos += offset;
-        }                   
+        }                           
+    }
+    
+    /**
+     * Reinicia el mensaje encriptado para un nuevo calculo
+     */
+    public void Reiniciar(){
+        this.rep_numerica = "";
+        this.mens_enciptado = "";
+    }
+    
+    public void EncriptarBloque(String mensaje, int tam_bloque){
+        this.Encriptar(mensaje, tam_bloque);
+    }
+    
+    public void EncriptarTodo(String mensaje, int tam_bloque){
+        this.rep_numerica = "";
+        this.mens_enciptado = "";
+        this.Encriptar(mensaje, tam_bloque);        
     }
    
     public void Desencriptar(String mensaje, int tam_bloque){
