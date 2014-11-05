@@ -9,6 +9,7 @@ package ar.com.hardcodeando.algorithm;
 
 import java.math.BigInteger;
 import java.util.Random;
+import static org.eclipse.persistence.platform.database.oracle.plsql.OraclePLSQLTypes.Int;
 /**
  *
  * @author Gabo
@@ -17,9 +18,11 @@ public class RSA {
     private long p;
     private long q;
     private long n;
+    private int long_bloque;
     private long d;
     private long e;
-    private int max_primo;
+    private final int max_primo;
+    private final int min_primo;
     private long intervalo_d_inf;
     private long intervalo_d_sup;
     private long p1q1;
@@ -33,12 +36,26 @@ public class RSA {
         this.n = 0;
         this.d = 0;
         this.e = 0;
+        this.long_bloque = 0;               
         this.intervalo_d_inf = 0;
         this.intervalo_d_sup = 0;
         this.p1q1 = 0;
-        this.max_primo = 31;
+        this.max_primo = 811;
+        this.min_primo = 601;
         this.mens_enciptado = "";
         this.rep_numerica = "";
+    }
+    /**
+     * Para saber con cuantos digitos se va a representar 1 caracter
+     */
+    private void CalcularTamañoBloque(){
+        if(this.n != 0){
+            long aux = this.n;
+            while(aux != 0){
+                aux /= 10;
+                this.long_bloque++;
+            }
+        }
     }
     /**
      * verifica si un numero es primo o no
@@ -127,12 +144,16 @@ public class RSA {
      * las claves publica y privada
      */
     public void GenerarPrimos(){
-        Random rnd = new Random();        
+        Random rnd = new Random();
         this.p = rnd.nextInt(max_primo);
+        while(this.p < this.min_primo)
+                this.p = rnd.nextInt(max_primo);        
         while(!this.EsNumeroPrimo(this.p)){
             this.p++;
         }
         this.q = rnd.nextInt(max_primo);
+        while(this.q < this.min_primo)
+            this.q = rnd.nextInt(max_primo);
         while(!this.EsNumeroPrimo(this.q)){
             this.q++;
         }        
@@ -221,6 +242,7 @@ public class RSA {
             this.intervalo_d_inf = (this.p > this.q)? p + 1:q + 1;
             this.intervalo_d_sup = this.n - 1;
             this.p1q1 = (this.p -1)*(this.q-1);
+            this.CalcularTamañoBloque();
             ret = true;
         }
         return ret;
@@ -279,9 +301,9 @@ public class RSA {
         return res;
     }
     
-    private void Encriptar(String mensaje, int tam_bloque){
-        this.GenerarRepresentacionNumerica(mensaje);
-        int offset = 3*tam_bloque;
+    private void Encriptar(String mensaje, int cant_bloques){
+        this.GenerarRepresentacionNumerica(mensaje);        
+        int offset = 3*cant_bloques;
         int pos = 0;
         while(pos < this.rep_numerica.length()){
             String aux;
@@ -297,7 +319,7 @@ public class RSA {
             
             cifrado = potencia.longValue();
             String sub_bloque = Long.toString(cifrado);
-            while(sub_bloque.length() < offset){
+            while(sub_bloque.length() < this.long_bloque){
                 sub_bloque = "0" + sub_bloque;
             }
             this.mens_enciptado += sub_bloque;
@@ -322,9 +344,51 @@ public class RSA {
         this.mens_enciptado = "";
         this.Encriptar(mensaje, tam_bloque);        
     }
+    
+    /**
+     * Convierte una cadena con digitos ascii en su cadena equivalente
+     * @param ascii cadena de digitos ascii representando caracteres
+     * @return cadena transformada en su equivalente
+     */
+    private String DecodificarAscii(String ascii){
+        int pos = 0;
+        int offset = 3;
+        String res = "";
+        while(pos < ascii.length()){
+            String aux = ascii.substring(pos, pos + offset);
+            long cifrado = Long.parseLong(aux);
+            char c = (char) cifrado;
+            res += c;
+            pos += offset; 
+        }
+        return res;
+    }
    
-    public void Desencriptar(String mensaje, int tam_bloque){
-        
+    public String DesencriptarTodo(String mensaje, int tam_bloque){
+        int offset = this.long_bloque;
+        int pos = 0;
+        String ascii = "";
+        while(pos < mensaje.length()){
+            String aux;
+            if(pos + offset < mensaje.length())
+                aux = mensaje.substring(pos, pos + offset);
+            else
+                aux = mensaje.substring(pos);
+            long cifrado = Long.parseLong(aux);
+            BigInteger base = new BigInteger(Long.toString(cifrado));
+            BigInteger exponente = new BigInteger(Long.toString(this.d));
+            BigInteger modulo = new BigInteger(Long.toString(this.n));
+            base = base.modPow(exponente, modulo);            
+            cifrado = base.longValue();
+            
+            String sub_bloque = Long.toString(cifrado);
+            while(sub_bloque.length() < this.long_bloque && sub_bloque.length() != 3){                
+                sub_bloque = "0" + sub_bloque;
+            }
+            ascii += sub_bloque;
+            pos += offset;
+        }                
+        return this.DecodificarAscii(ascii);
     }
     
 
