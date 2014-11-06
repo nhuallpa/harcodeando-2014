@@ -709,11 +709,9 @@
             <Component class="javax.swing.JButton" name="buttonRonda1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;Ronda 1&lt;br&gt; Iteraci&#xf3;n: 0 &lt;/html&gt;"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonRonda1MousePressed"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRonda1ActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -724,11 +722,9 @@
             <Component class="javax.swing.JButton" name="buttonRonda2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;Ronda 2&lt;br&gt; Iteraci&#xf3;n: 0 &lt;/html&gt;"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonRonda2MousePressed"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRonda2ActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -739,11 +735,9 @@
             <Component class="javax.swing.JButton" name="buttonRonda3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;Ronda 3&lt;br&gt; Iteraci&#xf3;n: 0 &lt;/html&gt;"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonRonda3MousePressed"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRonda3ActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -754,11 +748,9 @@
             <Component class="javax.swing.JButton" name="buttonRonda4">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;Ronda 4&lt;br&gt; Iteraci&#xf3;n: 0 &lt;/html&gt;"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonRonda4MousePressed"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRonda4ActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
