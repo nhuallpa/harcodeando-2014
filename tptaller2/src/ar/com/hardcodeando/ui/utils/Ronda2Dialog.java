@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ar.com.hardcodeando.ui;
+package ar.com.hardcodeando.ui.utils;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
