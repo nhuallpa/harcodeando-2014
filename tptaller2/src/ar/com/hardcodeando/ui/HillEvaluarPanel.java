@@ -7,15 +7,11 @@ package ar.com.hardcodeando.ui;
 
 import ar.com.hardcodeando.algorithm.BadFormedKeyException;
 import ar.com.hardcodeando.algorithm.HillCipher;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+import ar.com.hardcodeando.ui.utils.MyIntFilter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.text.PlainDocument;
 
 
 /**
@@ -34,7 +30,14 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         jTabbedPane1.setEnabledAt(1, false);
         jTabbedPane1.setEnabledAt(2, false);
         jTabbedPane1.setEnabledAt(3, false);
-            
+        PlainDocument doc = (PlainDocument)jTextField1.getDocument();
+        doc.setDocumentFilter(new MyIntFilter());
+        doc = (PlainDocument)jTextField2.getDocument();
+        doc.setDocumentFilter(new MyIntFilter());
+        doc = (PlainDocument)jTextField3.getDocument();
+        doc.setDocumentFilter(new MyIntFilter());
+        doc = (PlainDocument)jTextField4.getDocument();
+        doc.setDocumentFilter(new MyIntFilter());
             
     }
 
@@ -85,21 +88,25 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        textMensaje = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
-        textResultPaso2 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jButton8 = new javax.swing.JButton();
         hillPaso3Panel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        textSecreto = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        textMensajeDescubierto = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
+        jButton9 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Hill Cipher");
@@ -213,22 +220,30 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         hillPaso1Panel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 90, 400, 190));
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField1.setText("0");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
         hillPaso1Panel.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 40, 30));
 
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField2.setText("0");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
             }
         });
-        hillPaso1Panel.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 40, 30));
+        hillPaso1Panel.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 40, 30));
 
         jTextField3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField3.setText("0");
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
@@ -237,17 +252,23 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         hillPaso1Panel.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 40, 30));
 
         jTextField4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField4.setText("0");
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
             }
         });
-        hillPaso1Panel.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 40, 30));
+        hillPaso1Panel.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 40, 30));
 
         jLabel3.setText("Matriz de encriptación 2x2");
         hillPaso1Panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, -1, 20));
 
         jButton7.setText("Validar");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
         hillPaso1Panel.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(523, 470, 80, -1));
 
         jTabbedPane1.addTab("Paso 1 de 3", hillPaso1Panel);
@@ -266,18 +287,11 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         jLabel8.setText("Paso 2: Vamos a encriptar");
         hillPaso2Panel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        jLabel9.setText("En esta parte, usted podra ingresar el texto que desee, pero luego tendra que introducir el texto encriptar para ser validado");
-        hillPaso2Panel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
-
-        jLabel10.setText("<html> <ul> <li>Separamos el texto en bloques de n=2 (ignorando espacios)<br><br></li> <li>Detarminarmos el valor numerico de cada letra y los alineamos como vectores columnas.<br><br></li> <li>Multiplicamos cada uno de estos vectores por la matriz de encriptacion y <br>tomamos modulo 26 del resultado.<br><br></li> <li>Convertimos cada unos de los vectores obtenidos en vectores alfabeticos <br>y los combinamos para formar el texto cifrado.<br><br></li> </ul> </html>");
-        hillPaso2Panel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 340, 260));
+        jLabel9.setText("En esta parte, usted podra ingresar el texto que desee, pero luego tendra que introducir el texto encriptado utilizando la clave ingresada anteriormente");
+        hillPaso2Panel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         jLabel14.setText("Introduzca un mensaje a encriptar:");
-        hillPaso2Panel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
-
-        textMensaje.setText("Mensaje a encriptar");
-        textMensaje.setToolTipText("");
-        hillPaso2Panel.add(textMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 220, -1));
+        hillPaso2Panel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
 
         jButton5.setText("Validar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -285,17 +299,30 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
                 jButton5ActionPerformed(evt);
             }
         });
-        hillPaso2Panel.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(535, 470, 90, -1));
+        hillPaso2Panel.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 470, 90, -1));
 
         jLabel13.setText("Introduzca el mensaje encriptado:");
-        hillPaso2Panel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, -1, -1));
+        hillPaso2Panel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
 
-        textResultPaso2.addActionListener(new java.awt.event.ActionListener() {
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        hillPaso2Panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 380, -1));
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
+
+        hillPaso2Panel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, 380, -1));
+
+        jButton8.setLabel("Mostrar");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textResultPaso2ActionPerformed(evt);
+                jButton8ActionPerformed(evt);
             }
         });
-        hillPaso2Panel.add(textResultPaso2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 220, -1));
+        hillPaso2Panel.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 100, -1));
 
         jTabbedPane1.addTab("Paso 2 de 3", hillPaso2Panel);
 
@@ -306,32 +333,13 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         hillPaso3Panel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jLabel11.setText("En este paso usted prodra validar manualmente el deenciptado");
-        hillPaso3Panel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
-
-        jLabel12.setText("<html> <ul> <li>Como el algoritmos utiliza  aritmetica de modulo, tenemos que hallar la <br>matriz inversa de la clave en modulo 26<br><br></li> <li>Separamos el texto en bloques de n=2 <br><br></li> <li>Determinarmos el valor numerico de cada letra y los alineamos <br>como vectores columnas.<br><br></li> <li>Multiplicamos cada uno de estos vectores por la matriz inversa hallada y <br>tomamos modulo 26 del resultado.<br><br></li> <li>Convertimos cada unos de los vectores obtenidos en vectores alfabeticos <br>y los combinamos para formar el texto original.<br><br></li> </ul> </html>");
-        hillPaso3Panel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, -1, -1));
+        hillPaso3Panel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         jLabel15.setText("Introduzca un mensaje a desencriptar:");
-        hillPaso3Panel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
+        hillPaso3Panel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
 
-        textSecreto.setText("mensaje encriptado");
-        textSecreto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textSecretoActionPerformed(evt);
-            }
-        });
-        hillPaso3Panel.add(textSecreto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 230, -1));
-
-        jLabel16.setText("Introdusca el mensaje desencriptado");
-        hillPaso3Panel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
-
-        textMensajeDescubierto.setText("mensaje");
-        textMensajeDescubierto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textMensajeDescubiertoActionPerformed(evt);
-            }
-        });
-        hillPaso3Panel.add(textMensajeDescubierto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 230, -1));
+        jLabel16.setText("Introduzca el mensaje oculto");
+        hillPaso3Panel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
 
         jButton6.setText("Validar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -339,7 +347,27 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
                 jButton6ActionPerformed(evt);
             }
         });
-        hillPaso3Panel.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 430, 90, -1));
+        hillPaso3Panel.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 470, 90, -1));
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jScrollPane3.setViewportView(jTextArea3);
+
+        hillPaso3Panel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 380, -1));
+
+        jTextArea4.setColumns(20);
+        jTextArea4.setRows(5);
+        jScrollPane4.setViewportView(jTextArea4);
+
+        hillPaso3Panel.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, 380, -1));
+
+        jButton9.setText("Mostrar");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        hillPaso3Panel.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 100, -1));
 
         jTabbedPane1.addTab("Paso 3 de 3", hillPaso3Panel);
 
@@ -384,53 +412,46 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         HillCipher hill = new HillCipher(2);
-        
-        String msgAEncriptar = textMensaje.getText();
+        String message = jTextArea1.getText();
+        String messageCode = jTextArea2.getText();
+      
         String msgEncriptado;
         
-        int clave[][] = new int[2][2];
-        clave[0][0] = 3;
-        clave[0][1] = 2;
-        clave[1][0] = 5;
-        clave[1][1] = 7;
+        int clave[][] = getKeyEntered();
         try {
-            if (!msgAEncriptar.equals("")) {
-                msgEncriptado = hill.encrypt(msgAEncriptar, clave);
-                textResultPaso2.setText(msgEncriptado.toUpperCase());
+            msgEncriptado = hill.encrypt(message, clave);
+            msgEncriptado = msgEncriptado.toUpperCase();
+            if (msgEncriptado.equals(messageCode.trim().toUpperCase())){
+                JOptionPane.showMessageDialog(hillPaso2Panel, "Correcto!", TOOL_TIP_TEXT_KEY, WIDTH);
+            } else {
+                JOptionPane.showMessageDialog(hillPaso2Panel, "Incorrecto", TOOL_TIP_TEXT_KEY, WIDTH);
             }
         } catch (BadFormedKeyException ex) {
-            Logger.getLogger(HillEvaluarPanel.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(hillPaso2Panel, "La clave es invalida!", "Hill", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void textResultPaso2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textResultPaso2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textResultPaso2ActionPerformed
-
-    private void textMensajeDescubiertoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMensajeDescubiertoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textMensajeDescubiertoActionPerformed
-
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-         HillCipher hill = new HillCipher(2);
-        int clave[][] = new int[2][2];
-        clave[0][0] = 3;
-        clave[0][1] = 2;
-        clave[1][0] = 5;
-        clave[1][1] = 7;
-        int claveInv[][] = null;
+        HillCipher hill = new HillCipher(2);
+        String message = jTextArea3.getText();
+        String messageCode = jTextArea4.getText();
+      
+        String msgHidden;
+        
+        int clave[][] = getKeyEntered();
         try {
-            claveInv = hill.calculateKeyInv(clave);
-            String msgDecoding = hill.decoding(textSecreto.getText(), claveInv);
-            textMensajeDescubierto.setText(msgDecoding.toUpperCase());
+            int claveInv[][] = hill.calculateKeyInv(clave);
+            msgHidden = hill.decoding(message, claveInv);
+            msgHidden = msgHidden.toUpperCase();
+            if (msgHidden.equals(messageCode.trim().toUpperCase())){
+                JOptionPane.showMessageDialog(hillPaso3Panel, "Correcto!", TOOL_TIP_TEXT_KEY, WIDTH);
+            } else {
+                JOptionPane.showMessageDialog(hillPaso3Panel, "Incorrecto", TOOL_TIP_TEXT_KEY, WIDTH);
+            }
         } catch (BadFormedKeyException ex) {
-            Logger.getLogger(HillEvaluarPanel.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(hillPaso3Panel, "La clave es invalida!", "Hill", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void textSecretoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSecretoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textSecretoActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
@@ -460,6 +481,66 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+ 
+    }//GEN-LAST:event_jTextField1KeyTyped
+
+    public int[][] getKeyEntered() {
+        int a=0;int b=0;int c=0;int d=0;
+        a = Integer.parseInt(jTextField1.getText());
+        b = Integer.parseInt(jTextField2.getText());
+        c = Integer.parseInt(jTextField3.getText());
+        d = Integer.parseInt(jTextField4.getText());
+        int clave[][] = new int[2][2];
+        clave[0][0] = a;
+        clave[0][1] = b;
+        clave[1][0] = c;
+        clave[1][1] = d;
+        return clave;
+    }
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        HillCipher hillCipher = new HillCipher(2);
+        int clave[][] = getKeyEntered();
+
+        if (hillCipher.checkMatriz(clave)) {
+            JOptionPane.showMessageDialog(hillPaso1Panel, "La clave es valida", TOOL_TIP_TEXT_KEY, WIDTH);
+        } else {
+            JOptionPane.showMessageDialog(hillPaso1Panel, "La clave es invalida!", "Hill", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        HillCipher hill = new HillCipher(2);
+        String message = jTextArea1.getText();
+      
+        String msgEncriptado;
+        
+        int clave[][] = getKeyEntered();
+        try {
+            msgEncriptado = hill.encrypt(message, clave);
+            jTextArea2.setText(msgEncriptado.toUpperCase());
+        } catch (BadFormedKeyException ex) {
+            JOptionPane.showMessageDialog(hillPaso2Panel, "La clave es invalida!", "Hill", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+         HillCipher hill = new HillCipher(2);
+        String message = jTextArea3.getText();
+     
+        String msgHidden;
+        
+        int clave[][] = getKeyEntered();
+        try {
+            int claveInv[][] = hill.calculateKeyInv(clave);
+            msgHidden = hill.decoding(message, claveInv);
+            jTextArea4.setText(msgHidden.toUpperCase());
+        } catch (BadFormedKeyException ex) {
+            JOptionPane.showMessageDialog(hillPaso3Panel, "La clave es invalida!", "Hill", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton9ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel IntroHillPanel;
@@ -476,10 +557,10 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -504,16 +585,20 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
     private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JRadioButton jRadioButton9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lblHeaderPaso1;
-    private javax.swing.JTextField textMensaje;
-    private javax.swing.JTextField textMensajeDescubierto;
-    private javax.swing.JTextField textResultPaso2;
-    private javax.swing.JTextField textSecreto;
     // End of variables declaration//GEN-END:variables
 }
