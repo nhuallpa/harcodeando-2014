@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="grupoPreg1">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="grupoPreg2">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="grupoPreg3">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="grupoPreg4">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="grupoPreg5">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="grupoPreg6">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="grupoPreg7">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="grupoPreg8">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="grupoPreg9">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="grupoPreg10">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[860, 679]"/>
@@ -21,10 +43,15 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="327" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="357" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+              <Component id="RSAEvaluarPanel" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -33,7 +60,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="646" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="RSAEvaluarPanel" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -47,5 +76,646 @@
         <Property name="text" type="java.lang.String" value="RSA - Modo Evaluar"/>
       </Properties>
     </Component>
+    <Container class="javax.swing.JTabbedPane" name="RSAEvaluarPanel">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="panelPreguntas">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Preguntas">
+                <Property name="tabTitle" type="java.lang.String" value="Preguntas"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jPanel2" max="32767" attributes="0"/>
+                          <Component id="panelBotonesPreguntas" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jPanel1" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="panelBotonesPreguntas" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="73" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="panelBotonesPreguntas">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder/>
+                  </Border>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="botContinuarPreguntas" min="-2" pref="83" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="botCorregirPreguntas" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="botReintentarPreguntas" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="botResolverPreguntas" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace pref="25" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="botCorregirPreguntas" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="botResolverPreguntas" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="botReintentarPreguntas" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                          <Component id="botContinuarPreguntas" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JButton" name="botCorregirPreguntas">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Corregir"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botCorregirPreguntasMousePressed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="botResolverPreguntas">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Resolver"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botResolverPreguntasMousePressed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="botContinuarPreguntas">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Continuar"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="botReintentarPreguntas">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Reintentar"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botReintentarPreguntasMousePressed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanel1">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                    <EtchetBorder>
+                      <Color PropertyName="highlight" blue="66" green="0" red="66" type="rgb"/>
+                    </EtchetBorder>
+                  </Border>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jRadioButton1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="rbotCorrecto1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                          <Component id="rbotCorrecto2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jRadioButton4" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jRadioButton6" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jRadioButton7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rbotCorrecto3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButton9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rbotCorrecto4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButton5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButton8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButton3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButton10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rbotCorrecto5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="0" pref="13" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="rbotCorrecto1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jRadioButton4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="rbotCorrecto2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jRadioButton6" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jRadioButton7" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="rbotCorrecto3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jRadioButton9" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="rbotCorrecto4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jRadioButton5" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jRadioButton8" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jRadioButton10" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="rbotCorrecto5" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Aleatorio"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Lineal"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="rbotCorrecto1">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Exponencial"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel2">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="&lt;html&gt;1 - El problema de la factorizaci&#xf3;n entera requiere un tiempo de c&#xf3;mputo, en funci&#xf3;n&lt;br&gt; del tama&#xf1;o de la entrada, de tipo:&lt;/html&gt;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel3">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="2 - Si una clave RSA usa p = 7, q = 11 y  d = 7, calcuando mentalmente, el valor de e es:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="jRadioButton4">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg2"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="13"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton4ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="rbotCorrecto2">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg2"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="43"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="jRadioButton6">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg2"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="63"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel4">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="3 - Si tenemos p = 3, q = 5, d= 3, e = 3, entonces la clave p&#xfa;blica es:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="jRadioButton7">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg3"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="(15, 5)"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="rbotCorrecto3">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg3"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="(15, 3)"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="jRadioButton9">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg3"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="(3, 3)"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel5">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="&lt;html&gt;4 - Si con el valor n = 46031, producto de dos primos, ciframos el valor 48065, &#xbf;qu&#xe9; valor&lt;br&gt; real estamos cifrando?&lt;/html&gt;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="rbotCorrecto4">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg4"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="2034"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="jRadioButton5">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg4"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="-2034"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="jRadioButton8">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg4"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="48065"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel6">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="5 - Si se desea realizar la firma sobre un n&#xfa;mero con RSA, deber&#xe1; usarse:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="jRadioButton3">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg5"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="La clave p&#xfa;blica del receptor"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="jRadioButton10">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg5"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="La clave p&#xfa;blica del emisor"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="rbotCorrecto5">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg5"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="La clave privada del emisor"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanel2">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                    <EtchetBorder>
+                      <Color PropertyName="highlight" blue="66" green="0" red="66" type="rgb"/>
+                    </EtchetBorder>
+                  </Border>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel10" alignment="0" min="-2" pref="355" max="-2" attributes="0"/>
+                              <Component id="jLabel13" alignment="0" min="-2" pref="377" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="23" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel7" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                                          <Component id="jRadioButton11" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                          <Component id="rbotCorrecto6" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                                          <Component id="jRadioButton13" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                          <Component id="rbotCorrecto7" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                                          <Component id="rbotCorrecto8" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                          <Component id="jRadioButton14" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                                          <Component id="jRadioButton12" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="rbotCorrecto9" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
+                                          <Component id="rbotCorrecto10" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="jRadioButton15" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jRadioButton11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rbotCorrecto6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="rbotCorrecto7" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton13" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="rbotCorrecto8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton14" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="rbotCorrecto9" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButton12" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jRadioButton15" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rbotCorrecto10" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="54" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel7">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="&lt;html&gt;Considerando  n = 2773,  e = 17, d = 157. &lt;br&gt; Responder Verdadero o Falso. &lt;/html&gt;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel9">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="1 - Solo se pueden cifrar n&#xfa;meros en RSA, por lo tanto no se puede encriptar texto. "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="jRadioButton11">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg6"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Verdadero"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="rbotCorrecto6">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg6"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Falso"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel10">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="&lt;html&gt;2- La cuenta para cifrar un valor M es: C = M&lt;sup&gt;157&lt;/sup&gt;mod2773.&lt;/html&gt;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="jRadioButton13">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg7"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Verdadero"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="rbotCorrecto7">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg7"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Falso"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel11">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="3- El resultado de encriptar el caracter &apos;K&apos; usando c&#xf3;digo ASCII es 1982."/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="rbotCorrecto8">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg8"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Verdadero"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="jRadioButton14">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg8"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Falso"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel12">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="4 - El resultado de desencriptar el valor 505 es el caracter &apos;h&apos;."/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="jRadioButton12">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg9"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Verdadero"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="rbotCorrecto9">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg9"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Falso"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel13">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="5 - Si elegimos p = 17 y q = 23, entonces podemos elegir d = 77."/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="rbotCorrecto10">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg10"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Verdadero"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="jRadioButton15">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="grupoPreg10"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Falso"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>

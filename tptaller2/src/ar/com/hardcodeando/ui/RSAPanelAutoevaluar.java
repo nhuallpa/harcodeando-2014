@@ -5,6 +5,9 @@
  */
 package ar.com.hardcodeando.ui;
 
+import java.awt.Color;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Gabo
@@ -17,6 +20,33 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     public RSAPanelAutoevaluar() {
         initComponents();
     }
+    
+    private void ResetearPreguntas(){
+        this.rbotCorrecto1.setForeground(Color.black);
+        this.rbotCorrecto2.setForeground(Color.black);
+        this.rbotCorrecto3.setForeground(Color.black);
+        this.rbotCorrecto4.setForeground(Color.black);
+        this.rbotCorrecto5.setForeground(Color.black);
+        this.rbotCorrecto6.setForeground(Color.black);
+        this.rbotCorrecto7.setForeground(Color.black);
+        this.rbotCorrecto8.setForeground(Color.black);
+        this.rbotCorrecto9.setForeground(Color.black);
+        this.rbotCorrecto10.setForeground(Color.black);
+        this.grupoPreg1.clearSelection();
+        this.grupoPreg2.clearSelection();
+        this.grupoPreg3.clearSelection();
+        this.grupoPreg4.clearSelection();
+        this.grupoPreg5.clearSelection();
+        this.grupoPreg6.clearSelection();
+        this.grupoPreg7.clearSelection();
+        this.grupoPreg8.clearSelection();
+        this.grupoPreg9.clearSelection();
+        this.grupoPreg10.clearSelection();
+        this.botContinuarPreguntas.setEnabled(false);
+        this.botCorregirPreguntas.setEnabled(true);
+        this.botReintentarPreguntas.setEnabled(false);
+        this.botResolverPreguntas.setEnabled(true);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,12 +57,436 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grupoPreg1 = new javax.swing.ButtonGroup();
+        grupoPreg2 = new javax.swing.ButtonGroup();
+        grupoPreg3 = new javax.swing.ButtonGroup();
+        grupoPreg4 = new javax.swing.ButtonGroup();
+        grupoPreg5 = new javax.swing.ButtonGroup();
+        grupoPreg6 = new javax.swing.ButtonGroup();
+        grupoPreg7 = new javax.swing.ButtonGroup();
+        grupoPreg8 = new javax.swing.ButtonGroup();
+        grupoPreg9 = new javax.swing.ButtonGroup();
+        grupoPreg10 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
+        RSAEvaluarPanel = new javax.swing.JTabbedPane();
+        panelPreguntas = new javax.swing.JPanel();
+        panelBotonesPreguntas = new javax.swing.JPanel();
+        botCorregirPreguntas = new javax.swing.JButton();
+        botResolverPreguntas = new javax.swing.JButton();
+        botContinuarPreguntas = new javax.swing.JButton();
+        botReintentarPreguntas = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        rbotCorrecto1 = new javax.swing.JRadioButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        rbotCorrecto2 = new javax.swing.JRadioButton();
+        jRadioButton6 = new javax.swing.JRadioButton();
+        jLabel4 = new javax.swing.JLabel();
+        jRadioButton7 = new javax.swing.JRadioButton();
+        rbotCorrecto3 = new javax.swing.JRadioButton();
+        jRadioButton9 = new javax.swing.JRadioButton();
+        jLabel5 = new javax.swing.JLabel();
+        rbotCorrecto4 = new javax.swing.JRadioButton();
+        jRadioButton5 = new javax.swing.JRadioButton();
+        jRadioButton8 = new javax.swing.JRadioButton();
+        jLabel6 = new javax.swing.JLabel();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton10 = new javax.swing.JRadioButton();
+        rbotCorrecto5 = new javax.swing.JRadioButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jRadioButton11 = new javax.swing.JRadioButton();
+        rbotCorrecto6 = new javax.swing.JRadioButton();
+        jLabel10 = new javax.swing.JLabel();
+        jRadioButton13 = new javax.swing.JRadioButton();
+        rbotCorrecto7 = new javax.swing.JRadioButton();
+        jLabel11 = new javax.swing.JLabel();
+        rbotCorrecto8 = new javax.swing.JRadioButton();
+        jRadioButton14 = new javax.swing.JRadioButton();
+        jLabel12 = new javax.swing.JLabel();
+        jRadioButton12 = new javax.swing.JRadioButton();
+        rbotCorrecto9 = new javax.swing.JRadioButton();
+        jLabel13 = new javax.swing.JLabel();
+        rbotCorrecto10 = new javax.swing.JRadioButton();
+        jRadioButton15 = new javax.swing.JRadioButton();
 
         setPreferredSize(new java.awt.Dimension(860, 679));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("RSA - Modo Evaluar");
+
+        panelBotonesPreguntas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        botCorregirPreguntas.setText("Corregir");
+        botCorregirPreguntas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botCorregirPreguntasMousePressed(evt);
+            }
+        });
+
+        botResolverPreguntas.setText("Resolver");
+        botResolverPreguntas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botResolverPreguntasMousePressed(evt);
+            }
+        });
+
+        botContinuarPreguntas.setText("Continuar");
+        botContinuarPreguntas.setEnabled(false);
+
+        botReintentarPreguntas.setText("Reintentar");
+        botReintentarPreguntas.setEnabled(false);
+        botReintentarPreguntas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botReintentarPreguntasMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelBotonesPreguntasLayout = new javax.swing.GroupLayout(panelBotonesPreguntas);
+        panelBotonesPreguntas.setLayout(panelBotonesPreguntasLayout);
+        panelBotonesPreguntasLayout.setHorizontalGroup(
+            panelBotonesPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBotonesPreguntasLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelBotonesPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botContinuarPreguntas, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelBotonesPreguntasLayout.createSequentialGroup()
+                        .addComponent(botCorregirPreguntas)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botReintentarPreguntas)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botResolverPreguntas)
+                .addGap(103, 103, 103))
+        );
+        panelBotonesPreguntasLayout.setVerticalGroup(
+            panelBotonesPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBotonesPreguntasLayout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addGroup(panelBotonesPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botCorregirPreguntas)
+                    .addComponent(botResolverPreguntas)
+                    .addComponent(botReintentarPreguntas))
+                .addGap(3, 3, 3)
+                .addComponent(botContinuarPreguntas)
+                .addContainerGap())
+        );
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(102, 0, 102), null));
+
+        grupoPreg1.add(jRadioButton1);
+        jRadioButton1.setText("Aleatorio");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        grupoPreg1.add(jRadioButton2);
+        jRadioButton2.setText("Lineal");
+
+        grupoPreg1.add(rbotCorrecto1);
+        rbotCorrecto1.setText("Exponencial");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel2.setText("<html>1 - El problema de la factorización entera requiere un tiempo de cómputo, en función<br> del tamaño de la entrada, de tipo:</html>");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel3.setText("2 - Si una clave RSA usa p = 7, q = 11 y  d = 7, calcuando mentalmente, el valor de e es:");
+
+        grupoPreg2.add(jRadioButton4);
+        jRadioButton4.setText("13");
+        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton4ActionPerformed(evt);
+            }
+        });
+
+        grupoPreg2.add(rbotCorrecto2);
+        rbotCorrecto2.setText("43");
+
+        grupoPreg2.add(jRadioButton6);
+        jRadioButton6.setText("63");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel4.setText("3 - Si tenemos p = 3, q = 5, d= 3, e = 3, entonces la clave pública es:");
+
+        grupoPreg3.add(jRadioButton7);
+        jRadioButton7.setText("(15, 5)");
+
+        grupoPreg3.add(rbotCorrecto3);
+        rbotCorrecto3.setText("(15, 3)");
+
+        grupoPreg3.add(jRadioButton9);
+        jRadioButton9.setText("(3, 3)");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel5.setText("<html>4 - Si con el valor n = 46031, producto de dos primos, ciframos el valor 48065, ¿qué valor<br> real estamos cifrando?</html>");
+
+        grupoPreg4.add(rbotCorrecto4);
+        rbotCorrecto4.setText("2034");
+
+        grupoPreg4.add(jRadioButton5);
+        jRadioButton5.setText("-2034");
+
+        grupoPreg4.add(jRadioButton8);
+        jRadioButton8.setText("48065");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel6.setText("5 - Si se desea realizar la firma sobre un número con RSA, deberá usarse:");
+
+        grupoPreg5.add(jRadioButton3);
+        jRadioButton3.setText("La clave pública del receptor");
+
+        grupoPreg5.add(jRadioButton10);
+        jRadioButton10.setText("La clave pública del emisor");
+
+        grupoPreg5.add(rbotCorrecto5);
+        rbotCorrecto5.setText("La clave privada del emisor");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton2)
+                    .addComponent(rbotCorrecto1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(rbotCorrecto2)
+                                .addComponent(jRadioButton4)
+                                .addComponent(jRadioButton6))
+                            .addComponent(jRadioButton7)
+                            .addComponent(rbotCorrecto3)
+                            .addComponent(jRadioButton9)
+                            .addComponent(rbotCorrecto4)
+                            .addComponent(jRadioButton5)
+                            .addComponent(jRadioButton8)
+                            .addComponent(jRadioButton3)
+                            .addComponent(jRadioButton10)
+                            .addComponent(rbotCorrecto5)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(0, 13, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rbotCorrecto1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jRadioButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rbotCorrecto2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rbotCorrecto3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rbotCorrecto4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rbotCorrecto5))
+        );
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(102, 0, 102), null));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel7.setText("<html>Considerando  n = 2773,  e = 17, d = 157. <br> Responder Verdadero o Falso. </html>");
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel9.setText("1 - Solo se pueden cifrar números en RSA, por lo tanto no se puede encriptar texto. ");
+
+        grupoPreg6.add(jRadioButton11);
+        jRadioButton11.setText("Verdadero");
+
+        grupoPreg6.add(rbotCorrecto6);
+        rbotCorrecto6.setText("Falso");
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel10.setText("<html>2- La cuenta para cifrar un valor M es: C = M<sup>157</sup>mod2773.</html>");
+
+        grupoPreg7.add(jRadioButton13);
+        jRadioButton13.setText("Verdadero");
+
+        grupoPreg7.add(rbotCorrecto7);
+        rbotCorrecto7.setText("Falso");
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel11.setText("3- El resultado de encriptar el caracter 'K' usando código ASCII es 1982.");
+
+        grupoPreg8.add(rbotCorrecto8);
+        rbotCorrecto8.setText("Verdadero");
+
+        grupoPreg8.add(jRadioButton14);
+        jRadioButton14.setText("Falso");
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel12.setText("4 - El resultado de desencriptar el valor 505 es el caracter 'h'.");
+
+        grupoPreg9.add(jRadioButton12);
+        jRadioButton12.setText("Verdadero");
+
+        grupoPreg9.add(rbotCorrecto9);
+        rbotCorrecto9.setText("Falso");
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel13.setText("5 - Si elegimos p = 17 y q = 23, entonces podemos elegir d = 77.");
+
+        grupoPreg10.add(rbotCorrecto10);
+        rbotCorrecto10.setText("Verdadero");
+
+        grupoPreg10.add(jRadioButton15);
+        jRadioButton15.setText("Falso");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 23, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(123, 123, 123)
+                                .addComponent(jRadioButton11)
+                                .addGap(32, 32, 32)
+                                .addComponent(rbotCorrecto6))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(124, 124, 124)
+                                .addComponent(jRadioButton13)
+                                .addGap(32, 32, 32)
+                                .addComponent(rbotCorrecto7))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(124, 124, 124)
+                                .addComponent(rbotCorrecto8)
+                                .addGap(29, 29, 29)
+                                .addComponent(jRadioButton14))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(123, 123, 123)
+                                .addComponent(jRadioButton12)
+                                .addGap(30, 30, 30)
+                                .addComponent(rbotCorrecto9))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(122, 122, 122)
+                                .addComponent(rbotCorrecto10)
+                                .addGap(30, 30, 30)
+                                .addComponent(jRadioButton15)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel9)
+                .addGap(6, 6, 6)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton11)
+                    .addComponent(rbotCorrecto6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rbotCorrecto7)
+                    .addComponent(jRadioButton13))
+                .addGap(23, 23, 23)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbotCorrecto8)
+                    .addComponent(jRadioButton14))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rbotCorrecto9)
+                    .addComponent(jRadioButton12))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton15)
+                    .addComponent(rbotCorrecto10))
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout panelPreguntasLayout = new javax.swing.GroupLayout(panelPreguntas);
+        panelPreguntas.setLayout(panelPreguntasLayout);
+        panelPreguntasLayout.setHorizontalGroup(
+            panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPreguntasLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelBotonesPreguntas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        panelPreguntasLayout.setVerticalGroup(
+            panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPreguntasLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelPreguntasLayout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(panelBotonesPreguntas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(73, Short.MAX_VALUE))
+        );
+
+        RSAEvaluarPanel.addTab("Preguntas", panelPreguntas);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -41,19 +495,171 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(327, 327, 327)
                 .addComponent(jLabel1)
-                .addContainerGap(357, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(RSAEvaluarPanel)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(646, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(RSAEvaluarPanel)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton4ActionPerformed
+
+    private void botResolverPreguntasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botResolverPreguntasMousePressed
+        this.rbotCorrecto1.setForeground(Color.green);
+        this.rbotCorrecto2.setForeground(Color.green);
+        this.rbotCorrecto3.setForeground(Color.green);
+        this.rbotCorrecto4.setForeground(Color.green);
+        this.rbotCorrecto5.setForeground(Color.green);
+        this.rbotCorrecto6.setForeground(Color.green);
+        this.rbotCorrecto7.setForeground(Color.green);
+        this.rbotCorrecto8.setForeground(Color.green);
+        this.rbotCorrecto9.setForeground(Color.green);
+        this.rbotCorrecto10.setForeground(Color.green);
+        this.botContinuarPreguntas.setEnabled(true);
+        this.botCorregirPreguntas.setEnabled(false);
+        this.botResolverPreguntas.setEnabled(false);
+        this.botReintentarPreguntas.setEnabled(true);
+    }//GEN-LAST:event_botResolverPreguntasMousePressed
+
+    private void botCorregirPreguntasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botCorregirPreguntasMousePressed
+        short correctas = 0;
+        if(this.rbotCorrecto1.isSelected()){
+            correctas++;
+            this.rbotCorrecto1.setForeground(Color.green);
+        }
+        else this.rbotCorrecto1.setForeground(Color.red);
+        if(this.rbotCorrecto2.isSelected()){
+            correctas++;
+            this.rbotCorrecto2.setForeground(Color.green);
+        }
+        else this.rbotCorrecto2.setForeground(Color.red);
+        if(this.rbotCorrecto3.isSelected()){
+            correctas++;
+            this.rbotCorrecto3.setForeground(Color.green);
+        }
+        else this.rbotCorrecto3.setForeground(Color.red);
+        if(this.rbotCorrecto4.isSelected()){
+            correctas++;
+            this.rbotCorrecto4.setForeground(Color.green);
+        }
+        else this.rbotCorrecto4.setForeground(Color.red);
+        if(this.rbotCorrecto5.isSelected()){
+            correctas++;
+            this.rbotCorrecto5.setForeground(Color.green);
+        }
+        else this.rbotCorrecto5.setForeground(Color.red);
+        if(this.rbotCorrecto6.isSelected()){
+            correctas++;
+            this.rbotCorrecto6.setForeground(Color.green);
+        }
+        else this.rbotCorrecto6.setForeground(Color.red);
+        if(this.rbotCorrecto7.isSelected()){
+            correctas++;
+            this.rbotCorrecto7.setForeground(Color.green);
+        }
+        else this.rbotCorrecto7.setForeground(Color.red);
+        if(this.rbotCorrecto8.isSelected()){
+            correctas++;
+            this.rbotCorrecto8.setForeground(Color.green);
+        }
+        else this.rbotCorrecto8.setForeground(Color.red);
+        if(this.rbotCorrecto9.isSelected()){
+            correctas++;
+            this.rbotCorrecto9.setForeground(Color.green);
+        }
+        else this.rbotCorrecto9.setForeground(Color.red);
+        if(this.rbotCorrecto10.isSelected()){
+            correctas++;
+            this.rbotCorrecto10.setForeground(Color.green);
+        }
+        else this.rbotCorrecto10.setForeground(Color.red);
+        
+        JOptionPane.showMessageDialog(null, "Correctas: " + correctas + "/10");
+        
+        this.botCorregirPreguntas.setEnabled(false);
+        this.botReintentarPreguntas.setEnabled(true);
+        this.botContinuarPreguntas.setEnabled(true);
+    }//GEN-LAST:event_botCorregirPreguntasMousePressed
+
+    private void botReintentarPreguntasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botReintentarPreguntasMousePressed
+        this.botReintentarPreguntas.setEnabled(false);
+        this.botCorregirPreguntas.setEnabled(true);
+        this.ResetearPreguntas();
+    }//GEN-LAST:event_botReintentarPreguntasMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTabbedPane RSAEvaluarPanel;
+    private javax.swing.JButton botContinuarPreguntas;
+    private javax.swing.JButton botCorregirPreguntas;
+    private javax.swing.JButton botReintentarPreguntas;
+    private javax.swing.JButton botResolverPreguntas;
+    private javax.swing.ButtonGroup grupoPreg1;
+    private javax.swing.ButtonGroup grupoPreg10;
+    private javax.swing.ButtonGroup grupoPreg2;
+    private javax.swing.ButtonGroup grupoPreg3;
+    private javax.swing.ButtonGroup grupoPreg4;
+    private javax.swing.ButtonGroup grupoPreg5;
+    private javax.swing.ButtonGroup grupoPreg6;
+    private javax.swing.ButtonGroup grupoPreg7;
+    private javax.swing.ButtonGroup grupoPreg8;
+    private javax.swing.ButtonGroup grupoPreg9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton10;
+    private javax.swing.JRadioButton jRadioButton11;
+    private javax.swing.JRadioButton jRadioButton12;
+    private javax.swing.JRadioButton jRadioButton13;
+    private javax.swing.JRadioButton jRadioButton14;
+    private javax.swing.JRadioButton jRadioButton15;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JRadioButton jRadioButton6;
+    private javax.swing.JRadioButton jRadioButton7;
+    private javax.swing.JRadioButton jRadioButton8;
+    private javax.swing.JRadioButton jRadioButton9;
+    private javax.swing.JPanel panelBotonesPreguntas;
+    private javax.swing.JPanel panelPreguntas;
+    private javax.swing.JRadioButton rbotCorrecto1;
+    private javax.swing.JRadioButton rbotCorrecto10;
+    private javax.swing.JRadioButton rbotCorrecto2;
+    private javax.swing.JRadioButton rbotCorrecto3;
+    private javax.swing.JRadioButton rbotCorrecto4;
+    private javax.swing.JRadioButton rbotCorrecto5;
+    private javax.swing.JRadioButton rbotCorrecto6;
+    private javax.swing.JRadioButton rbotCorrecto7;
+    private javax.swing.JRadioButton rbotCorrecto8;
+    private javax.swing.JRadioButton rbotCorrecto9;
     // End of variables declaration//GEN-END:variables
 }
