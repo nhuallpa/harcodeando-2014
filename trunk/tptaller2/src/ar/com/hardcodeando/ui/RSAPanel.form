@@ -865,7 +865,7 @@
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Group type="102" attributes="0">
                                                           <Component id="spinTamBloque" min="-2" pref="68" max="-2" attributes="0"/>
-                                                          <EmptySpace max="32767" attributes="0"/>
+                                                          <EmptySpace pref="582" max="32767" attributes="0"/>
                                                           <Component id="botNuevoMsg" min="-2" max="-2" attributes="0"/>
                                                       </Group>
                                                       <Group type="102" alignment="0" attributes="0">
@@ -874,7 +874,7 @@
                                                           <Component id="botEncriptarBloques" min="-2" pref="193" max="-2" attributes="0"/>
                                                           <EmptySpace max="-2" attributes="0"/>
                                                           <Component id="botEncriptarTodo" min="-2" pref="169" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="31" max="32767" attributes="0"/>
+                                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                                   <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -891,7 +891,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="700" max="32767" attributes="0"/>
+                          <EmptySpace pref="679" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1199,16 +1199,6 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel30" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel31" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="panDesencriptarBloques" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="labelTamBloqDes" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="spinTamBloqueDes" min="-2" pref="82" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="botDesencriptarBloqueBloque" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="botDesencriptarTodo" min="-2" pref="173" max="-2" attributes="0"/>
-                                  </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel32" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -1219,6 +1209,19 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="textMensOriginalDesencriptar" min="-2" pref="325" max="-2" attributes="0"/>
                                   </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="labelTamBloqDes" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="spinTamBloqueDes" min="-2" pref="82" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="botDesencriptarBloqueBloque" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="botReintentarDes" min="-2" pref="173" max="-2" attributes="0"/>
+                                          <Component id="botDesencriptarTodo" min="-2" pref="173" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="panDesencriptarBloques" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="457" max="32767" attributes="0"/>
                           </Group>
@@ -1248,9 +1251,11 @@
                                   <Component id="botDesencriptarBloqueBloque" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="botDesencriptarTodo" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                              <Component id="botReintentarDes" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="panDesencriptarBloques" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="346" max="32767" attributes="0"/>
+                              <EmptySpace pref="337" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1282,26 +1287,31 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
+                              <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
                                           <Component id="labelBloqueDes" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="textBloqueDesencriptar" min="-2" pref="93" max="-2" attributes="0"/>
+                                          <Component id="textBloqueDesencriptar" min="-2" pref="177" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="labelRepNumdes" min="-2" max="-2" attributes="0"/>
+                                          <Component id="botdesencriptarBloque" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="labelCuentaDes" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="labelCuentaDes" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="labelCodAsciiDes" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="botSigBloqueDes" pref="129" max="32767" attributes="0"/>
+                                      <Component id="textASCIIDes" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="textASCIIdesencriptar" min="-2" pref="93" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="botTerminarDesencriptar" max="32767" attributes="0"/>
-                                      <Component id="botdesencriptarBloque" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace pref="88" max="32767" attributes="0"/>
+                                  <Component id="botTerminarDesencriptar" min="-2" pref="129" max="-2" attributes="0"/>
+                                  <EmptySpace pref="48" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1312,16 +1322,17 @@
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="labelBloqueDes" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="textBloqueDesencriptar" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="labelRepNumdes" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="botdesencriptarBloque" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="textASCIIdesencriptar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="botSigBloqueDes" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="botTerminarDesencriptar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace pref="18" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="labelCuentaDes" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textASCIIDes" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labelCodAsciiDes" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="botTerminarDesencriptar" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="labelCuentaDes" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace pref="14" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1339,24 +1350,13 @@
                             <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="labelRepNumdes">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Representaci&#xf3;n num&#xe9;rica:"/>
-                            <Property name="enabled" type="boolean" value="false"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="textASCIIdesencriptar">
-                          <Properties>
-                            <Property name="editable" type="boolean" value="false"/>
-                            <Property name="enabled" type="boolean" value="false"/>
-                          </Properties>
-                        </Component>
                         <Component class="javax.swing.JButton" name="botdesencriptarBloque">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Desencriptar Bloque"/>
                             <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <Events>
+                            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botdesencriptarBloqueMousePressed"/>
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botdesencriptarBloqueActionPerformed"/>
                           </Events>
                         </Component>
@@ -1365,6 +1365,9 @@
                             <Property name="text" type="java.lang.String" value="Terminar"/>
                             <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botTerminarDesencriptarMousePressed"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="labelCuentaDes">
                           <Properties>
@@ -1372,6 +1375,28 @@
                               <Color blue="0" green="0" red="cc" type="rgb"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Cuenta:"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="botSigBloqueDes">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Siguiente Bloque"/>
+                            <Property name="enabled" type="boolean" value="false"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botSigBloqueDesMousePressed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botSigBloqueDesActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="textASCIIDes">
+                          <Properties>
+                            <Property name="editable" type="boolean" value="false"/>
+                            <Property name="enabled" type="boolean" value="false"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="labelCodAsciiDes">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Codigo ASCII:"/>
+                            <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -1428,6 +1453,15 @@
                       <Events>
                         <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botDesencriptarTodoMousePressed"/>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botDesencriptarTodoActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="botReintentarDes">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Reintentar"/>
+                        <Property name="enabled" type="boolean" value="false"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botReintentarDesMousePressed"/>
                       </Events>
                     </Component>
                   </SubComponents>
