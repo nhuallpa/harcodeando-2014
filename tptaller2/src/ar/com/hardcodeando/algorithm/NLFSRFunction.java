@@ -11,8 +11,13 @@ public abstract class NLFSRFunction {
     boolean seed[];
     int min;
     
-    public abstract int getResult(int[] seed);
+    public int getResult(int[] seed){
+        toBooleanSeed(seed);
+        return calculate() ? 1 : 0;
+    }
     
+    public abstract boolean calculate();
+            
     public int getMin(){
         return min;
     }
@@ -20,6 +25,8 @@ public abstract class NLFSRFunction {
     public static Map<Integer,NLFSRFunction> getFunctions(){
         Map<Integer, NLFSRFunction> dictionary = new HashMap<>();
         dictionary.put(0, new NLFSRFunction4());
+        dictionary.put(1, new NLFSRFunction3());
+        dictionary.put(2, new NLFSRFunction2());
         return dictionary;
     }
 	

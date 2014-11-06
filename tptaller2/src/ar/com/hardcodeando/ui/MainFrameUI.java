@@ -141,6 +141,11 @@ public class MainFrameUI extends javax.swing.JFrame {
         jMenu7.add(jMenuItem6);
 
         jMenuItem7.setText("Autoevaluar");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         jMenu7.add(jMenuItem7);
 
         jMenu3.add(jMenu7);
@@ -339,7 +344,7 @@ public class MainFrameUI extends javax.swing.JFrame {
     private void jMenuItem6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem6MousePressed
         
         if(this.npanel == null){
-            this.npanel = new NLFSRPanel();
+            this.npanel = new NLFSRAprender();
         }
         if(this.currentComponent!=null){
             this.remove(this.currentComponent);
@@ -348,6 +353,18 @@ public class MainFrameUI extends javax.swing.JFrame {
         this.add(this.currentComponent, BorderLayout.CENTER);
         this.setVisible(true);
     }//GEN-LAST:event_jMenuItem6MousePressed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        if(this.nEvaluar == null){
+            this.nEvaluar = new NLFSREvaluar();
+        }
+        if(this.currentComponent!=null){
+            this.remove(this.currentComponent);
+        }
+        this.currentComponent = nEvaluar;
+        this.add(this.currentComponent, BorderLayout.CENTER);
+        this.setVisible(true);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
 
     
@@ -392,7 +409,8 @@ public class MainFrameUI extends javax.swing.JFrame {
     private MD5Panel md5panel=null;
     private DesPanel dpanel=null;
     private RSAPanel rpanel = null;
-    private NLFSRPanel npanel = null;
+    private NLFSRAprender npanel = null;
+    private NLFSREvaluar nEvaluar = null;
     private JComponent currentComponent=null;
     
     
