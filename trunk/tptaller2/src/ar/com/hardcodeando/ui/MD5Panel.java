@@ -417,60 +417,36 @@ public class MD5Panel extends javax.swing.JPanel {
         jLabel16.setBounds(0, 190, 390, 200);
 
         buttonRonda1.setText("<html>Ronda 1<br> Iteración: 0 </html>");
-        buttonRonda1.setEnabled(false);
         buttonRonda1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 buttonRonda1MousePressed(evt);
-            }
-        });
-        buttonRonda1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonRonda1ActionPerformed(evt);
             }
         });
         panelPaso4ii.add(buttonRonda1);
         buttonRonda1.setBounds(500, 150, 110, 44);
 
         buttonRonda2.setText("<html>Ronda 2<br> Iteración: 0 </html>");
-        buttonRonda2.setEnabled(false);
         buttonRonda2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 buttonRonda2MousePressed(evt);
-            }
-        });
-        buttonRonda2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonRonda2ActionPerformed(evt);
             }
         });
         panelPaso4ii.add(buttonRonda2);
         buttonRonda2.setBounds(500, 240, 110, 40);
 
         buttonRonda3.setText("<html>Ronda 3<br> Iteración: 0 </html>");
-        buttonRonda3.setEnabled(false);
         buttonRonda3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 buttonRonda3MousePressed(evt);
-            }
-        });
-        buttonRonda3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonRonda3ActionPerformed(evt);
             }
         });
         panelPaso4ii.add(buttonRonda3);
         buttonRonda3.setBounds(500, 320, 110, 40);
 
         buttonRonda4.setText("<html>Ronda 4<br> Iteración: 0 </html>");
-        buttonRonda4.setEnabled(false);
         buttonRonda4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 buttonRonda4MousePressed(evt);
-            }
-        });
-        buttonRonda4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonRonda4ActionPerformed(evt);
             }
         });
         panelPaso4ii.add(buttonRonda4);
@@ -708,9 +684,9 @@ public class MD5Panel extends javax.swing.JPanel {
         salidaFinal.setVisible(false);
         jTabbedPane1.setEnabledAt(4, true);
         System.out.println("contenido button 6" + buttonRonda4);
-        buttonRonda2.setEnabled(false);
-        buttonRonda3.setEnabled(false);
-        buttonRonda4.setEnabled(false);
+        buttonRonda2.setVisible(false);
+        buttonRonda3.setVisible(false);
+        buttonRonda4.setVisible(false);
         jTabbedPane1.setSelectedIndex(4);
     }//GEN-LAST:event_siguientePaso3MousePressed
 
@@ -819,6 +795,7 @@ public class MD5Panel extends javax.swing.JPanel {
             md5.update(chrTestData, chrTestData.length);
             md5.md5final();
             siguientePaso4ii.setVisible(false);
+            buttonRonda1.setVisible(false);
     }//GEN-LAST:event_siguientePaso4iActionPerformed
 
     private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
@@ -877,10 +854,6 @@ public class MD5Panel extends javax.swing.JPanel {
         ad.setVisible(true);
     }//GEN-LAST:event_jLabel11MousePressed
 
-    private void buttonRonda4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRonda4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonRonda4ActionPerformed
-
     private void buttonRonda4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonRonda4MousePressed
         iteracionRonda4= iteracionRonda4 + (limitei * limitej);
         if (iteracionRonda4 <= 16){
@@ -888,14 +861,10 @@ public class MD5Panel extends javax.swing.JPanel {
             buttonRonda4.setText("<html>Ronda 4 <br> Iteración: " + iteracionRonda4 + "</html>");
         }
         if (iteracionRonda4 == 16){
-            buttonRonda4.setEnabled(false);
+            buttonRonda4.setVisible(false);
             seteoSalidaProceso();
         }
     }//GEN-LAST:event_buttonRonda4MousePressed
-
-    private void buttonRonda3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRonda3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonRonda3ActionPerformed
 
     private void buttonRonda3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonRonda3MousePressed
         iteracionRonda3 = iteracionRonda3 + (limitei * limitej);
@@ -904,14 +873,10 @@ public class MD5Panel extends javax.swing.JPanel {
             buttonRonda3.setText("<html>Ronda 3 <br> Iteración: "+iteracionRonda3+"</html>");
         }
         if (iteracionRonda3 == 16){
-            buttonRonda3.setEnabled(false);
-            buttonRonda4.setEnabled(true);
+            buttonRonda3.setVisible(false);
+            buttonRonda4.setVisible(true);
         }
     }//GEN-LAST:event_buttonRonda3MousePressed
-
-    private void buttonRonda2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRonda2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonRonda2ActionPerformed
 
     private void buttonRonda2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonRonda2MousePressed
         iteracionRonda2= iteracionRonda2 + (limitei * limitej);
@@ -920,14 +885,10 @@ public class MD5Panel extends javax.swing.JPanel {
             buttonRonda2.setText("<html>Ronda 2 <br> Iteración: " + iteracionRonda2 + "</html>");
         }
         if (iteracionRonda2 == 16){
-            buttonRonda2.setEnabled(false);
-            buttonRonda3.setEnabled(true);
+            buttonRonda2.setVisible(false);
+            buttonRonda3.setVisible(true);
         }
     }//GEN-LAST:event_buttonRonda2MousePressed
-
-    private void buttonRonda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRonda1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonRonda1ActionPerformed
 
     private void buttonRonda1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonRonda1MousePressed
         iteracionRonda1= iteracionRonda1 + (limitei * limitej);
@@ -937,13 +898,13 @@ public class MD5Panel extends javax.swing.JPanel {
             buttonRonda1.setText("<html>Ronda 1 <br> Iteración: "+iteracionRonda1+"</html>");
         }
         if (iteracionRonda1 == 16){
-            buttonRonda1.setEnabled(false);
-            buttonRonda2.setEnabled(true);
+            buttonRonda1.setVisible(false);
+            buttonRonda2.setVisible(true);
         } else if (iteracionRonda1 == 64) {
-            buttonRonda1.setEnabled(false);
-            buttonRonda2.setEnabled(false);
-            buttonRonda3.setEnabled(false);
-            buttonRonda4.setEnabled(false);
+            buttonRonda1.setVisible(false);
+            buttonRonda2.setVisible(false);
+            buttonRonda3.setVisible(false);
+            buttonRonda4.setVisible(false);
             iteracionRonda1 = 16;
             iteracionRonda2 = 16;
             iteracionRonda3 = 16;
@@ -1021,10 +982,10 @@ public class MD5Panel extends javax.swing.JPanel {
                 case 64: limitei = 1; limitej = 1;
                     break;
             }
-        buttonRonda1.setEnabled(true);
-        buttonRonda2.setEnabled(false);
-        buttonRonda3.setEnabled(false);
-        buttonRonda4.setEnabled(false);
+        buttonRonda1.setVisible(true);
+        buttonRonda2.setVisible(false);
+        buttonRonda3.setVisible(false);
+        buttonRonda4.setVisible(false);
         iteracionRonda1 = 0;
         iteracionRonda2 = 0;
         iteracionRonda3 = 0;
