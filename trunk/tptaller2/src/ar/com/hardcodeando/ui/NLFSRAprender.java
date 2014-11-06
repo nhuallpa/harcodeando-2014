@@ -12,15 +12,11 @@ package ar.com.hardcodeando.ui;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import ar.com.hardcodeando.algorithm.*;
-import java.util.ArrayList;
-import javax.swing.JComboBox;
 import ar.com.hardcodeando.ui.utils.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Map;
 import javax.swing.table.DefaultTableModel;
 
-public class NLFSRPanel extends javax.swing.JPanel {
+public class NLFSRAprender extends javax.swing.JPanel {
  
     private String seed;
     
@@ -36,7 +32,7 @@ public class NLFSRPanel extends javax.swing.JPanel {
     
     private String answer = "Como podemos observar, ya podemos definir la clave, que en este caso tiene período igual a %d y queda definida como %s, es decir %d";
     
-    public NLFSRPanel() {
+    public NLFSRAprender() {
         
         initComponents();
         

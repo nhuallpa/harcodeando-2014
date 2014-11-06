@@ -9,16 +9,14 @@ package ar.com.hardcodeando.algorithm;
  *
  * @author connie
  */
-public class NLFSRFunction4 extends NLFSRFunction{
+public class NLFSRFunction2 extends NLFSRFunction {
     
-    public NLFSRFunction4(){
-        this.min = 4;
-        this.description = "(r0 & r2) | r3";
+    public NLFSRFunction2(){
+        this.min = 2;
+        this.description = "r0 & r1";
     }
     
-    @Override
     public boolean calculate(){
-        return (seed[0] && seed[2]) || seed [3];
-    }
+        return (seed[0] && seed[1]);
+    }    
 }
-
