@@ -193,6 +193,10 @@ public class RSA {
         return this.max_primo;
     }
     
+    public int GetMinPrimo(){
+        return this.min_primo;
+    }
+    
     public long GetIntervaloInfD(){
         return this.intervalo_d_inf;
     }
@@ -250,6 +254,10 @@ public class RSA {
     
     public long ObtenerModulo(){
         return this.n;
+    }
+    
+    public int GetLongitudBloque(){
+        return this.long_bloque;
     }
     
     /**
@@ -363,6 +371,7 @@ public class RSA {
         }
         return res;
     }
+   
    
     public String DesencriptarTodo(String mensaje, int tam_bloque){
         int offset = this.long_bloque;
