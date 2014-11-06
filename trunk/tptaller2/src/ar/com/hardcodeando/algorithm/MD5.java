@@ -510,6 +510,24 @@ public class MD5 {
 		return textoAProcesar;
 	}
 
+        public static StringBuffer ejecutarMd5(String textoIngresado) {
+                MD5 md5Test = new MD5();
+                char chrTestData[] = new char[64];
+                chrTestData = textoIngresado.toCharArray();
+		md5Test.update(chrTestData, chrTestData.length);
+		md5Test.md5final();
+                
+                return md5Test.toHexString();
+        }
+        
+        public static String[][] getMatrizValores() {
+                return matrizValores;
+        }
+
+        public static void setMatrizValores(String[][] matrizValores) {
+                MD5.matrizValores = matrizValores;
+        }
+
 	public static void main(String args[]) throws IOException {
 
 		char chrTestData[] = new char[64];

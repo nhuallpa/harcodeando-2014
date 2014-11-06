@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ar.com.hardcodeando.ui;
+package ar.com.hardcodeando.ui.utils;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -19,9 +19,9 @@ import javax.swing.JLabel;
  *
  * @author estefi
  */
-public class Ronda3Dialog extends JDialog {
+public class Ronda4Dialog extends JDialog {
 
-    public Ronda3Dialog() {
+    public Ronda4Dialog() {
 
         initUI();
     }
@@ -32,7 +32,7 @@ public class Ronda3Dialog extends JDialog {
 
         add(Box.createRigidArea(new Dimension(0, 10)));
 
-        ImageIcon icon = new ImageIcon("src/resources/md5/ronda3.PNG");
+        ImageIcon icon = new ImageIcon("src/resources/md5/ronda4.PNG");
         JLabel label = new JLabel(icon);
         label.setAlignmentX(0.5f);
         add(label);
@@ -53,7 +53,7 @@ public class Ronda3Dialog extends JDialog {
 
         setModalityType(ModalityType.APPLICATION_MODAL);
 
-        setTitle("Ronda 3");
+        setTitle("Ronda 4");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(rootPane);
         setSize(300, 550);
