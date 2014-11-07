@@ -268,7 +268,16 @@ public class MainFrameUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
-        // TODO add your handling code here:
+        if(this.md5EvaluarPanel==null){
+            this.md5EvaluarPanel = new MD5PanelEvaluar();       
+        }
+        if(this.currentComponent!=null){
+            this.remove(this.currentComponent);
+        }
+        
+        this.currentComponent=md5EvaluarPanel;
+        this.add(this.currentComponent, BorderLayout.CENTER);
+        this.setVisible(true);
     }//GEN-LAST:event_jMenuItem13ActionPerformed
 
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
@@ -418,6 +427,7 @@ public class MainFrameUI extends javax.swing.JFrame {
     private HillPanel hpanel=null;
     private HillEvaluarPanel hEvaluarPanel=null;
     private MD5Panel md5panel=null;
+    private MD5PanelEvaluar md5EvaluarPanel=null;
     private DesPanel dpanel=null;
     private RSAPanel rpanel = null;
     private RSAPanelAutoevaluar rpanelautoev = null;
