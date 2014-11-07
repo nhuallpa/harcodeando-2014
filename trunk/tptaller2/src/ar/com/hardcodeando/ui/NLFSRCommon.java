@@ -7,7 +7,7 @@ package ar.com.hardcodeando.ui;
 
 /**
  *
- * @author javier
+ * @author connie
  */
 public class NLFSRCommon {
     
@@ -20,6 +20,18 @@ public class NLFSRCommon {
         function = function + ") = </html>";
         
         return function;
+    }
+    
+    public static char getKey(String seed){
+        return seed.charAt(seed.length() - 1);
+    }
+    
+    public static String getSeedString(int[] seedArray){
+        String result = new String();
+        for (int i = 0; i < seedArray.length; i++) {
+              result = result.concat(Integer.toString(seedArray[i]));                      
+        }
+        return result;
     }
     
 }
