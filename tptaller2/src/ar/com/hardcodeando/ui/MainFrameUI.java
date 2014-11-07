@@ -11,6 +11,7 @@ import javax.swing.JComponent;
 import java.awt.Dimension;
 
 import javax.swing.BoxLayout;
+import javax.swing.JFrame;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -36,7 +37,7 @@ public class MainFrameUI extends javax.swing.JFrame {
         JLabel statusLabel = new JLabel("status");
         statusLabel.setHorizontalAlignment(SwingConstants.LEFT);
         statusPanel.add(statusLabel);
-        
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setSize(new Dimension(1024, 700));
     }
    
