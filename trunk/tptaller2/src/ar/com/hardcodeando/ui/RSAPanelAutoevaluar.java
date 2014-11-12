@@ -5,6 +5,7 @@
  */
 package ar.com.hardcodeando.ui;
 
+import ar.com.hardcodeando.algorithm.RSA;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -17,11 +18,17 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     /**
      * Creates new form RSAPanelAutoevaluar
      */
+    private final RSA rsa_evaluar;
+    
     public RSAPanelAutoevaluar() {
         initComponents();
+        this.rsa_evaluar = new RSA();
         this.RSAEvaluarPanel.setEnabledAt(1, false);
         this.RSAEvaluarPanel.setEnabledAt(2, false);
         this.RSAEvaluarPanel.setEnabledAt(3, false);
+        this.labelCorreccionN.setVisible(false);
+        this.labelCorreccionD.setVisible(false);
+        this.labelCorreccionE.setVisible(false);
     }
     
     private void ResetearPreguntas(){
@@ -51,6 +58,97 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         this.botResolverPreguntas.setEnabled(true);
     }
 
+    private boolean esNumero(String cadena){
+        try {
+            Integer.parseInt(cadena);
+            return true;
+        }catch (NumberFormatException nfe){
+            return false;
+        }
+    }
+    
+    private void CorregirModulo(){
+        this.labelCorreccionN.setText("");
+        int min_primo = this.rsa_evaluar.GetMinPrimo();
+        int max_primo = this.rsa_evaluar.GetMaxPrimo();
+        String p = this.text_p_ev.getText();
+        String q = this.text_q_ev.getText();
+        long pe = Long.parseLong(p);
+        long qu = Long.parseLong(q);
+        if(pe > max_primo || qu > max_primo || pe < min_primo || qu < min_primo){
+            this.labelCorreccionN.setText("Los valores ingresados no están dentro del intervalo establecido.");
+            this.labelCorreccionN.setForeground(Color.red);            
+        }
+        else{
+            boolean flag = false;
+            if(!this.rsa_evaluar.SetP(pe)){//Si pe no es primo informo el error
+                this.labelCorreccionN.setText(p + " no es número primo. ");
+                this.labelCorreccionN.setForeground(Color.red);
+                flag = true;
+            }            
+            if(!this.rsa_evaluar.SetQ(qu)){
+                String texto = this.labelCorreccionN.getText();
+                this.labelCorreccionN.setText(texto  + q + " no es número primo.");
+                this.labelCorreccionN.setForeground(Color.red);
+                if(!flag) flag = true;                    
+            }
+            if(!flag){
+                this.rsa_evaluar.GenerarModulo();
+                this.labelCorreccionN.setText("Correcto.");
+                this.labelCorreccionN.setForeground(Color.green);
+            }                         
+        }        
+    }
+    
+    private void CorregirD(){
+        String texto = this.textClavePrivadaDEv.getText();
+        long valor = Long.parseLong(texto);
+        if(!this.rsa_evaluar.SetD(valor)){
+            this.labelCorreccionD.setText("Incorrecto.");
+            this.labelCorreccionD.setForeground(Color.red);
+        }
+        else{
+            this.labelCorreccionD.setText("Correcto.");
+            this.labelCorreccionD.setForeground(Color.green);
+        }
+    }
+    
+    private void CorregirE(){
+        String texto = this.textClavePublicaEEv.getText();
+        long valor = Long.parseLong(texto);
+        if(!this.rsa_evaluar.SetE(valor)){
+            this.labelCorreccionE.setText("Incorrecto.");
+            this.labelCorreccionE.setForeground(Color.red);
+        }
+        else{
+            this.labelCorreccionE.setText("Correcto.");
+            this.labelCorreccionE.setForeground(Color.green);
+        }
+    }
+    
+    private void LimpiarCalculosIniciales(){
+        this.text_p_ev.setText("");
+        this.text_q_ev.setText("");
+        this.text_modulo_ev.setText("");
+        this.textClavePublicaEEv.setText("");
+        this.textClavePrivadaDEv.setText("");
+        this.panClavePrivadaEv.setEnabled(false);
+        this.textClavePrivadaDEv.setText("");
+        this.textClavePrivadaDEv.setEnabled(false);
+        this.botAceptarClavePrivEv.setEnabled(false);
+        this.panClavePublicaEv.setEnabled(false);
+        this.textClavePublicaEEv.setText("");
+        this.textClavePublicaEEv.setEnabled(false);
+        this.botAceptarClavePublEv.setEnabled(false);
+        this.botCalcularModuloEv.setEnabled(true);
+        this.botContinuarCI.setEnabled(false);
+        this.botReintentarCI.setEnabled(false);
+        this.botResolverCI.setEnabled(true);
+        this.botCorregirCI.setEnabled(false);        
+        this.labelCorreccionN.setVisible(false);
+        this.labelCorreccionD.setVisible(false);
+        this.labelCorreccionE.setVisible(false);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -127,19 +225,24 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         text_modulo_ev = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         botCalcularModuloEv = new javax.swing.JButton();
+        labelCorreccionN = new javax.swing.JLabel();
         panClavePrivadaEv = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         textClavePrivadaDEv = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
+        labelCorreccionD = new javax.swing.JLabel();
+        botAceptarClavePrivEv = new javax.swing.JButton();
         panClavePublicaEv = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         textClavePublicaEEv = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
+        labelCorreccionE = new javax.swing.JLabel();
+        botAceptarClavePublEv = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        botReintentarCI = new javax.swing.JButton();
+        botCorregirCI = new javax.swing.JButton();
+        botResolverCI = new javax.swing.JButton();
+        botContinuarCI = new javax.swing.JButton();
         panelEncriptarEv = new javax.swing.JPanel();
         panelDesencriptarEv = new javax.swing.JPanel();
 
@@ -526,12 +629,13 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         jLabel8.setText("<html>En esta etapa deberá definir los parámetros <strong>n, d y e</strong> a partir de los números primos <strong>p y q</strong></html>.");
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Calcular Módulo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(51, 0, 51)));
+        jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel14.setText("p");
 
         jLabel15.setText("q");
 
-        jLabel16.setText("<html>Ingresar números primos <strong>p</strong> y <strong>q</strong> para calcular el módulo <strong>n</strong>.</html>");
+        jLabel16.setText("<html>Ingresar números primos <strong>p</strong> y <strong>q</strong> en el intervalo <strong>(601, 811)</strong> para calcular el módulo <strong>n</strong>.</html>");
 
         text_modulo_ev.setEditable(false);
 
@@ -544,48 +648,59 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             }
         });
 
+        labelCorreccionN.setText("Corrección:");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(209, 209, 209)
+                .addComponent(jLabel16)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(183, 183, 183)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(botCalcularModuloEv, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
+                    .addComponent(text_p_ev))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botCalcularModuloEv)
-                    .addComponent(text_p_ev, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 52, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(text_modulo_ev, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(text_q_ev, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(257, Short.MAX_VALUE))
+                    .addComponent(text_q_ev, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(text_modulo_ev, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(190, 190, 190))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addComponent(labelCorreccionN, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(text_q_ev, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(text_p_ev, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel14))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botCalcularModuloEv)
-                    .addComponent(text_modulo_ev, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17))
-                .addGap(30, 30, 30))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(text_p_ev, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel14))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(text_q_ev, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel15)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(text_modulo_ev, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel17))
+                    .addComponent(botCalcularModuloEv))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelCorreccionN)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         panClavePrivadaEv.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Definir clave privada", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(51, 0, 51)));
@@ -597,31 +712,49 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
 
         jLabel19.setText("d:");
 
+        labelCorreccionD.setText("Corrección:");
+
+        botAceptarClavePrivEv.setText("Aceptar");
+        botAceptarClavePrivEv.setEnabled(false);
+        botAceptarClavePrivEv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botAceptarClavePrivEvMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panClavePrivadaEvLayout = new javax.swing.GroupLayout(panClavePrivadaEv);
         panClavePrivadaEv.setLayout(panClavePrivadaEvLayout);
         panClavePrivadaEvLayout.setHorizontalGroup(
             panClavePrivadaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panClavePrivadaEvLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panClavePrivadaEvLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel19)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textClavePrivadaDEv, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(126, 126, 126))
+                .addGroup(panClavePrivadaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelCorreccionD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panClavePrivadaEvLayout.createSequentialGroup()
+                        .addGroup(panClavePrivadaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panClavePrivadaEvLayout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(textClavePrivadaDEv, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botAceptarClavePrivEv)))
+                        .addGap(0, 34, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         panClavePrivadaEvLayout.setVerticalGroup(
             panClavePrivadaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panClavePrivadaEvLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
+                .addGap(14, 14, 14)
                 .addGroup(panClavePrivadaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textClavePrivadaDEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel19)
+                    .addComponent(botAceptarClavePrivEv))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelCorreccionD)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         panClavePublicaEv.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Definir clave pública", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(51, 0, 51)));
@@ -633,6 +766,16 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
 
         jLabel21.setText("e:");
 
+        labelCorreccionE.setText("Corrección:");
+
+        botAceptarClavePublEv.setText("Aceptar");
+        botAceptarClavePublEv.setEnabled(false);
+        botAceptarClavePublEv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botAceptarClavePublEvMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panClavePublicaEvLayout = new javax.swing.GroupLayout(panClavePublicaEv);
         panClavePublicaEv.setLayout(panClavePublicaEvLayout);
         panClavePublicaEvLayout.setHorizontalGroup(
@@ -641,14 +784,15 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(panClavePublicaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panClavePublicaEvLayout.createSequentialGroup()
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panClavePublicaEvLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel21)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(textClavePublicaEEv, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(110, 110, 110))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botAceptarClavePublEv))
+                    .addGroup(panClavePublicaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(labelCorreccionE, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panClavePublicaEvLayout.setVerticalGroup(
             panClavePublicaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -658,24 +802,38 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panClavePublicaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textClavePublicaEEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel21))
+                    .addComponent(jLabel21)
+                    .addComponent(botAceptarClavePublEv))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelCorreccionE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 0, 51), null));
 
-        jButton2.setText("Reintentar");
-        jButton2.setEnabled(false);
-
-        jButton3.setText("Corregir");
-
-        jButton4.setText("Resolver");
-
-        jButton5.setText("Continuar");
-        jButton5.setEnabled(false);
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+        botReintentarCI.setText("Reintentar");
+        botReintentarCI.setEnabled(false);
+        botReintentarCI.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButton5MousePressed(evt);
+                botReintentarCIMousePressed(evt);
+            }
+        });
+
+        botCorregirCI.setText("Corregir");
+        botCorregirCI.setEnabled(false);
+        botCorregirCI.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botCorregirCIMousePressed(evt);
+            }
+        });
+
+        botResolverCI.setText("Resolver");
+
+        botContinuarCI.setText("Continuar");
+        botContinuarCI.setEnabled(false);
+        botContinuarCI.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botContinuarCIMousePressed(evt);
             }
         });
 
@@ -684,26 +842,27 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addGap(199, 199, 199)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botContinuarCI, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(botCorregirCI, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(botReintentarCI)))
+                .addGap(18, 18, 18)
+                .addComponent(botResolverCI, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton4)
-                    .addComponent(jButton3))
+                    .addComponent(botReintentarCI)
+                    .addComponent(botResolverCI)
+                    .addComponent(botCorregirCI))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5)
+                .addComponent(botContinuarCI)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -718,17 +877,15 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelCalculosInicialesEvLayout.createSequentialGroup()
                         .addGap(124, 124, 124)
-                        .addGroup(panelCalculosInicialesEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelCalculosInicialesEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelCalculosInicialesEvLayout.createSequentialGroup()
-                                .addComponent(panClavePrivadaEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(panClavePublicaEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(108, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCalculosInicialesEvLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(273, 273, 273))
+                            .addGroup(panelCalculosInicialesEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(panelCalculosInicialesEvLayout.createSequentialGroup()
+                                    .addComponent(panClavePrivadaEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(panClavePublicaEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
         panelCalculosInicialesEvLayout.setVerticalGroup(
             panelCalculosInicialesEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -739,11 +896,11 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(panelCalculosInicialesEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panClavePrivadaEv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panClavePublicaEv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(panClavePublicaEv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panClavePrivadaEv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(97, 97, 97))
         );
 
         RSAEvaluarPanel.addTab("Cálculos Iniciales", panelCalculosInicialesEv);
@@ -756,7 +913,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         );
         panelEncriptarEvLayout.setVerticalGroup(
             panelEncriptarEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 601, Short.MAX_VALUE)
+            .addGap(0, 602, Short.MAX_VALUE)
         );
 
         RSAEvaluarPanel.addTab("Encriptar", panelEncriptarEv);
@@ -769,7 +926,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         );
         panelDesencriptarEvLayout.setVerticalGroup(
             panelDesencriptarEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 601, Short.MAX_VALUE)
+            .addGap(0, 602, Short.MAX_VALUE)
         );
 
         RSAEvaluarPanel.addTab("Desencriptar", panelDesencriptarEv);
@@ -895,24 +1052,102 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     }//GEN-LAST:event_botContinuarPreguntasMousePressed
 
     private void botCalcularModuloEvMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botCalcularModuloEvMousePressed
-        this.panClavePrivadaEv.setEnabled(true);
-        this.panClavePublicaEv.setEnabled(true);
-        this.textClavePrivadaDEv.setEnabled(true);
-        this.textClavePublicaEEv.setEnabled(true);
+
+        String p = this.text_p_ev.getText();
+        String q = this.text_q_ev.getText();
+        if(p.isEmpty() || q.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese números primos p y q para calcular el módulo.");
+            this.LimpiarCalculosIniciales();
+        }
+        else{
+            if(!this.esNumero(p) || !this.esNumero(q)){
+                JOptionPane.showMessageDialog(null, "Debe ingresar valores numéricos.");          
+                this.LimpiarCalculosIniciales();
+            }
+            else{
+                long pe = Long.parseLong(p);
+                long qu = Long.parseLong(q);
+                long modulo = pe * qu;
+                this.text_modulo_ev.setText(Long.toString(modulo));                
+                this.panClavePrivadaEv.setEnabled(true);
+                this.textClavePrivadaDEv.setEnabled(true);
+                this.botAceptarClavePrivEv.setEnabled(true);
+                this.botCalcularModuloEv.setEnabled(false);
+            }
+        }         
     }//GEN-LAST:event_botCalcularModuloEvMousePressed
 
-    private void jButton5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MousePressed
+    private void botContinuarCIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botContinuarCIMousePressed
         this.RSAEvaluarPanel.setEnabledAt(this.RSAEvaluarPanel.getSelectedIndex() + 1, true);
         this.RSAEvaluarPanel.setSelectedIndex(this.RSAEvaluarPanel.getSelectedIndex() + 1);
-    }//GEN-LAST:event_jButton5MousePressed
+    }//GEN-LAST:event_botContinuarCIMousePressed
+
+    private void botCorregirCIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botCorregirCIMousePressed
+        this.CorregirModulo();
+        this.CorregirD();
+        this.CorregirE();
+        this.labelCorreccionN.setVisible(true);
+        this.labelCorreccionD.setVisible(true);
+        this.labelCorreccionE.setVisible(true);
+        this.botReintentarCI.setEnabled(true);
+        this.botCorregirCI.setEnabled(false);
+        this.botResolverCI.setEnabled(false);
+    }//GEN-LAST:event_botCorregirCIMousePressed
+
+    private void botReintentarCIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botReintentarCIMousePressed
+        this.LimpiarCalculosIniciales();
+        this.rsa_evaluar.LimpiarValores();
+    }//GEN-LAST:event_botReintentarCIMousePressed
+
+    private void botAceptarClavePrivEvMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botAceptarClavePrivEvMousePressed
+        String texto = this.textClavePrivadaDEv.getText();        
+        if(texto.isEmpty())
+            JOptionPane.showMessageDialog(null, "Ingrese el valor D.");
+        else{
+            if(!this.esNumero(texto)){                            
+                JOptionPane.showMessageDialog(null, "Debe ingresar valores numéricos.");  
+                this.textClavePrivadaDEv.setText("");
+            }
+            else{
+                this.textClavePrivadaDEv.setEnabled(false);
+                this.botAceptarClavePrivEv.setEnabled(false);
+                this.panClavePublicaEv.setEnabled(true);
+                this.textClavePublicaEEv.setEnabled(true);
+                this.botAceptarClavePublEv.setEnabled(true);
+            }
+        }        
+    }//GEN-LAST:event_botAceptarClavePrivEvMousePressed
+
+    private void botAceptarClavePublEvMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botAceptarClavePublEvMousePressed
+        String texto = this.textClavePublicaEEv.getText();
+        if(texto.isEmpty())
+            JOptionPane.showMessageDialog(null, "Ingrese el valor E.");
+        else{
+            if(!this.esNumero(texto)){                            
+                JOptionPane.showMessageDialog(null, "Debe ingresar valores numéricos.");  
+                this.textClavePublicaEEv.setText("");
+            }   
+            else{
+                this.botAceptarClavePublEv.setEnabled(false);
+                this.textClavePublicaEEv.setEnabled(false);
+                this.botCorregirCI.setEnabled(true);
+            }
+        }
+    }//GEN-LAST:event_botAceptarClavePublEvMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane RSAEvaluarPanel;
+    private javax.swing.JButton botAceptarClavePrivEv;
+    private javax.swing.JButton botAceptarClavePublEv;
     private javax.swing.JButton botCalcularModuloEv;
+    private javax.swing.JButton botContinuarCI;
     private javax.swing.JButton botContinuarPreguntas;
+    private javax.swing.JButton botCorregirCI;
     private javax.swing.JButton botCorregirPreguntas;
+    private javax.swing.JButton botReintentarCI;
     private javax.swing.JButton botReintentarPreguntas;
+    private javax.swing.JButton botResolverCI;
     private javax.swing.JButton botResolverPreguntas;
     private javax.swing.ButtonGroup grupoPreg1;
     private javax.swing.ButtonGroup grupoPreg10;
@@ -924,10 +1159,6 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     private javax.swing.ButtonGroup grupoPreg7;
     private javax.swing.ButtonGroup grupoPreg8;
     private javax.swing.ButtonGroup grupoPreg9;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -968,6 +1199,9 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JRadioButton jRadioButton9;
+    private javax.swing.JLabel labelCorreccionD;
+    private javax.swing.JLabel labelCorreccionE;
+    private javax.swing.JLabel labelCorreccionN;
     private javax.swing.JPanel panClavePrivadaEv;
     private javax.swing.JPanel panClavePublicaEv;
     private javax.swing.JPanel panelBotonesPreguntas;
