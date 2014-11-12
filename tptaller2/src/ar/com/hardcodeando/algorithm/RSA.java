@@ -228,7 +228,33 @@ public class RSA {
     public String GetRepresentacionNumerica(){
         return this.rep_numerica;
     }
-            
+       
+    public boolean SetD(long valor){
+        boolean ret = false;
+        if(valor > this.intervalo_d_inf && valor < this.intervalo_d_sup){
+            if(this.MCD(valor, this.p1q1) == 1){
+                this.d = valor;
+                ret = true;
+            }
+        }
+        return ret;
+    }
+    
+    public boolean SetE(long valor){
+        boolean ret = false;
+        if(this.d != 0){
+            long mult = valor * this.d;
+            BigInteger multBE = new BigInteger(Long.toString(mult));
+            BigInteger modulo = new BigInteger(Long.toString(this.p1q1));
+            multBE = multBE.mod(modulo);
+            mult = multBE.longValue();
+            if(mult == 1){
+                this.e = valor;
+                ret = true;
+            }
+        }
+        return ret;
+    }
     
     
     
@@ -341,6 +367,16 @@ public class RSA {
     public void Reiniciar(){
         this.rep_numerica = "";
         this.mens_enciptado = "";
+    }
+    
+    public void LimpiarValores(){
+        this.p = 0;
+        this.q = 0;
+        this.n = 0;
+        this.e = 0;
+        this.p1q1 = 0;
+        this.intervalo_d_inf = 0;
+        this.intervalo_d_sup = 0;                
     }
     
     public void EncriptarBloque(String mensaje, int tam_bloque){
