@@ -118,18 +118,6 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
         jLabel67 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
-        jPanel9 = new javax.swing.JPanel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -700,124 +688,6 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Ronda Inicial", jPanel7);
 
-        jPanel6.setPreferredSize(new java.awt.Dimension(1024, 1024));
-
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/des/ronda.png"))); // NOI18N
-
-        jLabel20.setText("<html><body>Los siguientes pasos se repetir&aacute;n sistem&aacute;ticamente para cada uno de los 16 rondas del algoritmo:<br><b>1) </b>Expandir R(i-1) de 32 a 48 bits de acuerdo con la tabla que se muestra debajo</body></html>");
-
-        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/des/expronda.png"))); // NOI18N
-        jLabel21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel21.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-
-        jLabel22.setText("<html><body><b>2) </b>Exp(R(i-1)) Xor K(i). Or-exclusiva del resultado del paso anterior con la subclave K(i)<br><br><b>3) </b>Partir E(R(i-1)) Xor K(i) en ocho bloques de seis bits. B(1) representa a los bits 1-6, B(2) representa a los bits 7-12,..., B(8) representa a los bits 43- 48.</li><li>S(1)(B(1)), S(2)(B(2)),..., S(8)(B(8)). <br>Sustituir todos los B(j) por los valores correspondientes de las S-Cajas o tablas de sustitución (Substitution Boxes, S-Boxes) de 6*4 bits, seg&uacute;n se indica en el pr&oacute;ximo apartado. <br>Todos los valores de las S-Cajas se consideran de 4 bits de longitud. <br><br><b>4) </b>P[S(1)(B(1))... S(2)(B(8))]. Concatenar los nuevos bloques B(1) a B(8) y permutar los 32 bits (cuatro bits cada B(j)) en función de esta tabla:</body></html>");
-
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/des/perronda.png"))); // NOI18N
-        jLabel23.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jLabel23.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-
-        jLabel25.setText("<html><body><b>5) </b>Realizar una or-exclusiva entre el valor resultante y L(i-1). Este valor será R(i) y L(i)=R(i-1).</body></html>");
-
-        jButton7.setText("Siguiente");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel19)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel25))
-                        .addContainerGap())))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton7)
-                .addContainerGap())
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel19)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel21)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel23)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton7)
-                .addContainerGap(216, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Rondas", jPanel6);
-
-        jPanel9.setPreferredSize(new java.awt.Dimension(1024, 1024));
-
-        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/des/sboxronda.png"))); // NOI18N
-        jLabel26.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-
-        jLabel27.setText("<html><body>En el apartado anterior, vimos que se realizaba una sustituci&oacute;n con una tabla llamada S-Cajas. Para hacer dicha sustituci&oacute;n debemos hacer los siguientes pasos: <ul><li>Tomar los bits 1º y 6º de B(j) y formar un n&uacute;mero de 2 bits que llamaremos m. Este valor nos indicar&aacute; la fila en la tabla de sustituci&oacute;n correspondiente S(j). Obs&eacute;rvese que m=0 representa la 1ª fila y m=3 la &uacute;ltima.</li> <li>Con los bits 2º a 5º de B(j) formar otro n&uacute;mero, n, de cuatro bits que indicar&aacute; la columna de S(j) en la que buscar el valor de sustituci&oacute;n. En esta ocasi&oacute;n n=0 representa la 1ª columna y n=15 la &uacute;ltima columna.</li> <li>Reemplazar B(j) con S(j)(m,n), m fila y n columna.</li> <li>Repetir estos pasos para todos los bloques B(j)</li></ul></body></html>");
-        jLabel27.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-
-        jButton8.setText("Siguiente");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel26)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                        .addGap(0, 504, Short.MAX_VALUE)
-                        .addComponent(jButton8)))
-                .addContainerGap())
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel26)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton8)))
-                .addContainerGap(311, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("S-Cajas", jPanel9);
-
         jPanel8.setPreferredSize(new java.awt.Dimension(1024, 1024));
 
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -1234,16 +1104,6 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jTabbedPane1.setSelectedIndex(6);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        jTabbedPane1.setEnabledAt(5, true);
-        jTabbedPane1.setSelectedIndex(5);
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        jTabbedPane1.setEnabledAt(4, true);
-        jTabbedPane1.setSelectedIndex(4);
-    }//GEN-LAST:event_jButton7ActionPerformed
-
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         jTabbedPane1.setEnabledAt(3, true);
         jTabbedPane1.setSelectedIndex(3);
@@ -1622,8 +1482,6 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1635,16 +1493,8 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
@@ -1699,10 +1549,8 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
