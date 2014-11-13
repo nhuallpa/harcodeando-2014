@@ -5,21 +5,22 @@
  */
 package ar.com.hardcodeando.ui;
 
+import ar.com.hardcodeando.ui.*;
 import ar.com.hardcodeando.algorithm.Des;
 import java.awt.Dimension;
 
 /**
  *
- * @author Nestor
+ * @author Nacho
  */
-public class DesPanel extends javax.swing.JPanel {
+public class DesPanelEvaluar extends javax.swing.JPanel {
 
     private Des des;
     
     /**
      * Creates new form HillPanel
      */
-    public DesPanel() {
+    public DesPanelEvaluar() {
         initComponents();
   
         des = new Des();
@@ -32,8 +33,6 @@ public class DesPanel extends javax.swing.JPanel {
         jTabbedPane1.setEnabledAt(7, false);
         jTabbedPane1.setEnabledAt(8, false);
         jTabbedPane1.setEnabledAt(9, false);
-        jTabbedPane1.setEnabledAt(10, false);
-        jTabbedPane1.setEnabledAt(11, false);        
         
     }
 
@@ -60,30 +59,65 @@ public class DesPanel extends javax.swing.JPanel {
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jLabel39 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField10 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jTextField11 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jTextField12 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField13 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jTextField14 = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jTextField15 = new javax.swing.JTextField();
+        jLabel53 = new javax.swing.JLabel();
+        jTextField16 = new javax.swing.JTextField();
+        jLabel54 = new javax.swing.JLabel();
+        jTextField17 = new javax.swing.JTextField();
+        jLabel55 = new javax.swing.JLabel();
+        jTextField18 = new javax.swing.JTextField();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jTextField19 = new javax.swing.JTextField();
+        jLabel58 = new javax.swing.JLabel();
+        jTextField20 = new javax.swing.JTextField();
+        jLabel59 = new javax.swing.JLabel();
+        jTextField21 = new javax.swing.JTextField();
+        jLabel60 = new javax.swing.JLabel();
+        jTextField22 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jLabel40 = new javax.swing.JLabel();
+        jLabel61 = new javax.swing.JLabel();
+        jTextField23 = new javax.swing.JTextField();
+        jLabel62 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
+        jTextField24 = new javax.swing.JTextField();
+        jLabel64 = new javax.swing.JLabel();
+        jTextField25 = new javax.swing.JTextField();
+        jLabel65 = new javax.swing.JLabel();
+        jTextField26 = new javax.swing.JTextField();
+        jLabel66 = new javax.swing.JLabel();
+        jButton15 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
+        jLabel67 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -141,7 +175,7 @@ public class DesPanel extends javax.swing.JPanel {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/des/general.png"))); // NOI18N
 
-        jLabel6.setText("<html><body>Se trata de un sistema de cifrado simétrico por bloques de 64 bits. <br>Las partes principales del algoritmo son las siguientes:<br><ul><li>C&aacute;lculo de subclaves </li><li>Fraccionamiento del texto en bloques de 64 bits (8 bytes)</li><li>Permutación inicial de los bloques</li><li>Partición de los bloques en dos partes: izquierda y derecha, denominadas L y R respectivamente</li><li>Fases de permutación y de sustitución repetidas 16 veces (denominadas rondas)</li><li>Reconexión de las partes izquierda y derecha, seguida de la permutación inicial inversa.</li></ul> En el siguiente ejemplo, dividiremos el algoritmo en las siguientes etapas: <ul><li>C&aacute;lculo de subclaves </li><li>Permutaci&oacute;n inicial</li><li>Rondas</li><li>Permutaci&oacute;n final</li></ul>Para el siguiente ejemplo, utilizaremos mensaje y clave de 64 bits:<br><br></body></html>");
+        jLabel6.setText("<html><body>Para empezar, elija el mensaje y la clave que ser&aacute;n utilizados para evaluar su aprendizaje</body></html>");
 
         jButton2.setText("Siguiente");
         jButton2.setEnabled(false);
@@ -194,7 +228,7 @@ public class DesPanel extends javax.swing.JPanel {
                         .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 57, Short.MAX_VALUE))
+                        .addGap(0, 60, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel38)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -243,133 +277,10 @@ public class DesPanel extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2)
                     .addComponent(jLabel38))
-                .addContainerGap(333, Short.MAX_VALUE))
+                .addContainerGap(355, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Introducción", jPanel4);
-
-        jPanel5.setPreferredSize(new java.awt.Dimension(1024, 1024));
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/des/subclaves1.png"))); // NOI18N
-
-        jLabel8.setText("<html><body><b>1) Paso inicial: </b><br><ul><li>De cada uno de los ocho bytes de la clave se elimina el octavo bit (el menos significativo)<br> Para ello, realizar la siguiente permutación en la clave de 64 bits reduciéndose la misma a 56 bits <br>(El bit 1, el más significativo, de la clave transformada es el bit 57 de la clave original, el bit 2 pasa a ser el bit 49, etc.)</li></body></html>");
-
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/des/pc1clave.png"))); // NOI18N
-
-        jLabel10.setText("<html><body><ul><li>Dividir la clave permutada en dos mitades de 28 bits cada una. C(0) el bloque que contiene los 28 bits de mayor peso y D(0) los 28 bits restantes.</li></body></html>");
-
-        jButton3.setText("Siguiente");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 626, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButton3)))
-                        .addContainerGap())
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel7)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel9)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3)))
-                .addContainerGap(311, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Subclaves 1", jPanel5);
-
-        jPanel1.setPreferredSize(new java.awt.Dimension(1024, 1024));
-
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/des/subclaves2.png"))); // NOI18N
-
-        jLabel14.setText("<html><body><ul><li>Concatenar C(i) y D(i) y permutar como se indica a continuación. Así se obtiene K(i), que tiene una longitud de 48 bits.</li></ul></body></html>");
-
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/des/pc2clave.png"))); // NOI18N
-
-        jLabel16.setText("<html><body><ul><li>Repetir el paso 2) hasta que se haya calculado K(16).</li></body></html>");
-
-        jLabel17.setText("<html><body><b>2) Calcular las 16 subclaves (Empezar con i=1)</b> <ul><li>Rotar uno o dos bits a la izquierda C(i-1) y D(i-1) para obtener C(i) y D(i), respectivamente. El número de bits de desplazamiento está dado por la tabla siguiente:</li></body></html>");
-
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/des/shiftclave.png"))); // NOI18N
-
-        jButton4.setText("Siguiente");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton4)))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabel18)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel15)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4))
-                    .addComponent(jLabel12))
-                .addContainerGap(311, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Subclaves 2", jPanel1);
 
         jPanel3.setPreferredSize(new java.awt.Dimension(1024, 1024));
 
@@ -387,6 +298,97 @@ public class DesPanel extends javax.swing.JPanel {
 
         jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/des/subclaves3.png"))); // NOI18N
 
+        jTextField7.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField7ActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel8.setText("K+ = ");
+
+        jTextField8.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+
+        jLabel9.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel9.setText("C0 = ");
+
+        jTextField9.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+
+        jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel10.setText("D0 = ");
+
+        jTextField10.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+
+        jLabel14.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel14.setText("C1 = ");
+
+        jTextField11.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+
+        jLabel15.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel15.setText("D1 = ");
+
+        jTextField12.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+
+        jLabel16.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel16.setText("C2 = ");
+
+        jTextField13.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+
+        jLabel17.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel17.setText("D2 = ");
+
+        jTextField14.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+
+        jLabel18.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel18.setText("C3 = ");
+
+        jTextField15.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+
+        jLabel53.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel53.setText("D3 = ");
+
+        jTextField16.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+
+        jLabel54.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel54.setText("C4 = ");
+
+        jTextField17.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+
+        jLabel55.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel55.setText("D4 = ");
+
+        jTextField18.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+
+        jLabel57.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel57.setText("K1 = ");
+
+        jTextField19.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+
+        jLabel58.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel58.setText("K2 = ");
+
+        jTextField20.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+
+        jLabel59.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel59.setText("K3 = ");
+
+        jTextField21.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+
+        jLabel60.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel60.setText("K4 = ");
+
+        jTextField22.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+
+        jButton3.setText("Resolver");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Evaluar");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -394,28 +396,170 @@ public class DesPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel39)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 531, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton5))
-                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel56, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel54)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jLabel14)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jLabel16)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jLabel55)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField18))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jLabel53)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField16))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jLabel17)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField14))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jLabel15)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                    .addComponent(jLabel60)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextField22))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                    .addComponent(jLabel59)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextField21))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                    .addComponent(jLabel58)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextField20))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                    .addComponent(jLabel57)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 22, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel39)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5)))
-                .addContainerGap(182, Short.MAX_VALUE))
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel10)
+                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel15)
+                                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel17)
+                                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel18)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel53)
+                                .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel54)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel55)
+                                .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel56)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel57)
+                            .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel58)
+                            .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel59)
+                            .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel60)
+                            .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton5)
+                            .addComponent(jButton3)
+                            .addComponent(jButton4))))
+                .addContainerGap(311, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Subclaves 3", jPanel3);
+        jTabbedPane1.addTab("Subclaves", jPanel3);
 
         jPanel7.setPreferredSize(new java.awt.Dimension(1024, 1024));
 
@@ -437,6 +581,37 @@ public class DesPanel extends javax.swing.JPanel {
 
         jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/des/general1.png"))); // NOI18N
 
+        jLabel61.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel61.setText("M = ");
+
+        jTextField23.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+
+        jLabel63.setText("<html><body>Resultando de dicha permutaci&oacute;n: </body></html>");
+
+        jTextField24.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+
+        jLabel64.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel64.setText("L0 = ");
+
+        jTextField25.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+
+        jLabel65.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel65.setText("R0 = ");
+
+        jTextField26.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+
+        jButton15.setText("Resolver");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+
+        jButton16.setText("Evaluar");
+
+        jLabel67.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel67.setText("P1 = ");
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -446,17 +621,40 @@ public class DesPanel extends javax.swing.JPanel {
                 .addComponent(jLabel40)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
+                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
+                    .addComponent(jLabel62, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton6))))
+                        .addComponent(jButton16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton6))
+                    .addComponent(jLabel63)
+                    .addComponent(jLabel66, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
+                                    .addComponent(jLabel65)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextField26))
+                                .addGroup(jPanel7Layout.createSequentialGroup()
+                                    .addComponent(jLabel64)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel61)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel67)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -466,12 +664,37 @@ public class DesPanel extends javax.swing.JPanel {
                     .addComponent(jLabel40)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel24)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel61)
+                            .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel62)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel28)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel67))
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel29)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton6)))
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel64)
+                            .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel65)
+                            .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel66)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton6)
+                            .addComponent(jButton15)
+                            .addComponent(jButton16))))
                 .addContainerGap(391, Short.MAX_VALUE))
         );
 
@@ -576,7 +799,7 @@ public class DesPanel extends javax.swing.JPanel {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                        .addGap(0, 501, Short.MAX_VALUE)
+                        .addGap(0, 504, Short.MAX_VALUE)
                         .addComponent(jButton8)))
                 .addContainerGap())
         );
@@ -619,7 +842,7 @@ public class DesPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(0, 548, Short.MAX_VALUE)
+                        .addGap(0, 551, Short.MAX_VALUE)
                         .addComponent(jButton1))
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -662,7 +885,7 @@ public class DesPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 548, Short.MAX_VALUE)
+                        .addGap(0, 551, Short.MAX_VALUE)
                         .addComponent(jButton9))
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -705,7 +928,7 @@ public class DesPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(0, 560, Short.MAX_VALUE)
+                        .addGap(0, 563, Short.MAX_VALUE)
                         .addComponent(jButton10))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -749,7 +972,7 @@ public class DesPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGap(0, 548, Short.MAX_VALUE)
+                        .addGap(0, 551, Short.MAX_VALUE)
                         .addComponent(jButton11))
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -869,7 +1092,7 @@ public class DesPanel extends javax.swing.JPanel {
                 .addComponent(jLabel46)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel47, javax.swing.GroupLayout.DEFAULT_SIZE, 892, Short.MAX_VALUE)
+                    .addComponent(jLabel47, javax.swing.GroupLayout.DEFAULT_SIZE, 895, Short.MAX_VALUE)
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -934,7 +1157,7 @@ public class DesPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1147, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1150, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -949,61 +1172,31 @@ public class DesPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
-        jTabbedPane1.setEnabledAt(1, true);
-        jTabbedPane1.setSelectedIndex(1);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        String mensaje = jTextField4.getText();
+        String clave = jTextField5.getText();
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        jTabbedPane1.setEnabledAt(2, true);
-        jTabbedPane1.setSelectedIndex(2);
-    }//GEN-LAST:event_jButton3ActionPerformed
+        // Validacion
+        if (Des.validarMensaje(mensaje)) {
+            jLabel51.setText("");
+            if (Des.validarClave(clave)) {
+                jLabel52.setText("");
+                des.deencrypt(des.parseBytes(mensaje), des.parseBytes(clave));
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        jTabbedPane1.setEnabledAt(3, true);
-        jTabbedPane1.setSelectedIndex(3);
-    }//GEN-LAST:event_jButton4ActionPerformed
+                jTextField6.setText(des.getMsjDescifrado());
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        jTabbedPane1.setEnabledAt(4, true);
-        jTabbedPane1.setSelectedIndex(4);
-    }//GEN-LAST:event_jButton5ActionPerformed
+            } else {
+                jLabel52.setText("La clave debe ser hexadecimal hasta 64 bits");
+            }
+        } else {
+            jLabel51.setText("El mensaje debe ser hexadecimal hasta 64 bits");
+            jLabel52.setText("");
+        }
+    }//GEN-LAST:event_jButton14ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        jTabbedPane1.setEnabledAt(6, true);
-        jTabbedPane1.setSelectedIndex(6);
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        jTabbedPane1.setEnabledAt(7, true);
-        jTabbedPane1.setSelectedIndex(7);
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        jTabbedPane1.setEnabledAt(5, true);
-        jTabbedPane1.setSelectedIndex(5);
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        jTabbedPane1.setEnabledAt(8, true);
-        jTabbedPane1.setSelectedIndex(8);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        jTabbedPane1.setEnabledAt(9, true);
-        jTabbedPane1.setSelectedIndex(9);
-    }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        jTabbedPane1.setEnabledAt(10, true);
-        jTabbedPane1.setSelectedIndex(10);
-    }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        jTabbedPane1.setEnabledAt(11, true);
-        jTabbedPane1.setSelectedIndex(11);
-    }//GEN-LAST:event_jButton11ActionPerformed
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         jTabbedPane1.setEnabledAt(1, false);
@@ -1015,23 +1208,56 @@ public class DesPanel extends javax.swing.JPanel {
         jTabbedPane1.setEnabledAt(7, false);
         jTabbedPane1.setEnabledAt(8, false);
         jTabbedPane1.setEnabledAt(9, false);
-        jTabbedPane1.setEnabledAt(10, false);
-        jTabbedPane1.setEnabledAt(11, false);
-        
+
         jButton2.setEnabled(false);
-        
+
         jTabbedPane1.setSelectedIndex(0);
     }//GEN-LAST:event_jButton12ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        jTabbedPane1.setEnabledAt(9, true);
+        jTabbedPane1.setSelectedIndex(9);
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        jTabbedPane1.setEnabledAt(8, true);
+        jTabbedPane1.setSelectedIndex(8);
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        jTabbedPane1.setEnabledAt(7, true);
+        jTabbedPane1.setSelectedIndex(7);
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        jTabbedPane1.setEnabledAt(6, true);
+        jTabbedPane1.setSelectedIndex(6);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        jTabbedPane1.setEnabledAt(5, true);
+        jTabbedPane1.setSelectedIndex(5);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        jTabbedPane1.setEnabledAt(4, true);
+        jTabbedPane1.setSelectedIndex(4);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        jTabbedPane1.setEnabledAt(3, true);
+        jTabbedPane1.setSelectedIndex(3);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        jTabbedPane1.setEnabledAt(2, true);
+        jTabbedPane1.setSelectedIndex(2);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         String clave = jTextField1.getText();
         String mensaje = jTextField2.getText();
-        
-        
+
         // Validacion
         if (Des.validarMensaje(mensaje)) {
             jLabel37.setText("");
@@ -1041,9 +1267,17 @@ public class DesPanel extends javax.swing.JPanel {
 
                 jTextField3.setText(des.getMsjCifrado());
 
-                String subclavesLabel = crearLabelSubclaves();
+                String subclavesLabel1 = crearLabelSubclaves1();
+                String subclavesLabel2 = crearLabelSubclaves2();
+                String subclavesLabel3 = crearLabelSubclaves3();
+                String subclavesLabel4 = crearLabelSubclaves4();
+                
+                
                 String rondaInicial1Label = crearLabelRondaInicial1();
                 String rondaInicial2Label = crearLabelRondaInicial2();
+                String rondaInicial3Label = crearLabelRondaInicial3();
+                String rondaInicial4Label = crearLabelRondaInicial4();
+
 
                 String rondaFinal1Label = crearLabelRondaFinal1();
                 String rondaFinal2Label = crearLabelRondaFinal2();
@@ -1053,10 +1287,16 @@ public class DesPanel extends javax.swing.JPanel {
                 String ronda3Label = crearLabelRondaI(3);
                 String ronda16Label = crearLabelRondaI(16);
 
-
-                jLabel11.setText(subclavesLabel);
+                jLabel11.setText(subclavesLabel1);
+                jLabel7.setText(subclavesLabel2);
+                jLabel12.setText(subclavesLabel3);
+                jLabel56.setText(subclavesLabel4);
+                
+                
                 jLabel24.setText(rondaInicial1Label);
-                jLabel29.setText(rondaInicial2Label);
+                jLabel62.setText(rondaInicial2Label);
+                jLabel29.setText(rondaInicial3Label);
+                jLabel66.setText(rondaInicial4Label);
 
                 jLabel30.setText(rondaFinal1Label);
                 jLabel32.setText(rondaFinal2Label);
@@ -1066,9 +1306,9 @@ public class DesPanel extends javax.swing.JPanel {
                 jLabel2.setText( ronda2Label );
                 jLabel3.setText( ronda3Label );
                 jLabel4.setText( ronda16Label );
-                
+
                 jButton2.setEnabled(true);
-            
+
             } else {
                 jLabel38.setText("La clave debe ser hexadecimal hasta 64 bits");
             }
@@ -1076,98 +1316,177 @@ public class DesPanel extends javax.swing.JPanel {
             jLabel37.setText("El mensaje debe ser hexadecimal hasta 64 bits");
             jLabel38.setText("");
         }
-                
+
     }//GEN-LAST:event_jButton13ActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        String mensaje = jTextField4.getText();
-        String clave = jTextField5.getText();
-        
-        
-        // Validacion
-        if (Des.validarMensaje(mensaje)) {
-            jLabel51.setText("");
-            if (Des.validarClave(clave)) {
-                jLabel52.setText("");
-                des.deencrypt(des.parseBytes(mensaje), des.parseBytes(clave));
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-                jTextField6.setText(des.getMsjDescifrado());
+        jTabbedPane1.setEnabledAt(1, true);
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-            
-            } else {
-                jLabel52.setText("La clave debe ser hexadecimal hasta 64 bits");
-            }
-        } else {
-            jLabel51.setText("El mensaje debe ser hexadecimal hasta 64 bits");
-            jLabel52.setText("");
-        }
-    }//GEN-LAST:event_jButton14ActionPerformed
-
-
-    private String crearLabelSubclaves() {
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         long[] subclaves = des.getSubkeys();
         long[] subclavesC = des.getSubkeysC();
         long[] subclavesD = des.getSubkeysD();
+        String clave = jTextField1.getText();
+        
+        // Clave en binario
+        jTextField7.setText(des.hexToBinary(clave, 64));
+        
+        // Permutacion 1
+        jTextField8.setText(des.formatBinary(Long.toBinaryString(des.getSubkeysPc1()), 56, 4));
+        
+        // C0
+        jTextField9.setText(des.formatBinary(Long.toBinaryString(subclavesC[0]), 28, 4));
+        // D0
+        jTextField10.setText(des.formatBinary(Long.toBinaryString(subclavesD[0]), 28, 4));
+        
+        // C1 C2 C3 C4
+        jTextField11.setText(des.formatBinary(Long.toBinaryString(subclavesC[1]), 28, 4));
+        jTextField13.setText(des.formatBinary(Long.toBinaryString(subclavesC[2]), 28, 4));
+        jTextField15.setText(des.formatBinary(Long.toBinaryString(subclavesC[3]), 28, 4));
+        jTextField17.setText(des.formatBinary(Long.toBinaryString(subclavesC[4]), 28, 4));
+
+        // D1 D2 D3 D4
+        jTextField12.setText(des.formatBinary(Long.toBinaryString(subclavesD[1]), 28, 4));
+        jTextField14.setText(des.formatBinary(Long.toBinaryString(subclavesD[2]), 28, 4));
+        jTextField16.setText(des.formatBinary(Long.toBinaryString(subclavesD[3]), 28, 4));
+        jTextField18.setText(des.formatBinary(Long.toBinaryString(subclavesD[4]), 28, 4));
+
+        // K1 K2 K3 K4
+        jTextField19.setText(des.formatBinary(Long.toBinaryString(subclaves[0]), 48, 4));
+        jTextField20.setText(des.formatBinary(Long.toBinaryString(subclaves[1]), 48, 4));
+        jTextField21.setText(des.formatBinary(Long.toBinaryString(subclaves[2]), 48, 4));
+        jTextField22.setText(des.formatBinary(Long.toBinaryString(subclaves[3]), 48, 4));
+        
+        
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        String mensaje = jTextField2.getText();
+        int[] rondasL = des.getRondasL();
+        int[] rondasR = des.getRondasR();
+        long rondasPc1 = des.getRondasPc1();
+        
+        // M
+        jTextField23.setText(des.hexToBinary(mensaje, 64));
+        
+        // Permutacion
+        jTextField24.setText(des.formatBinary(Long.toBinaryString(rondasPc1), 64, 4));
+        
+        // L0
+        jTextField25.setText(des.formatBinary(Long.toBinaryString(rondasL[0]&0xFFFFFFFFL), 32, 4));
+        // R0
+        jTextField26.setText(des.formatBinary(Long.toBinaryString(rondasR[0]&0xFFFFFFFFL), 32, 4));
+        
+        
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+
+    private String crearLabelSubclaves1() {
         
         String clave = jTextField1.getText();
         String label = "<html><body><b>1)</b> Tomando como ejemplo nuestra clave ";
         label += "<b>" + clave + "</b>";
-        label += ", la pasamos a binario, obteniendo:<br>";
-        label += "<b>" + des.hexToBinary(clave, 64) + "</b><br><br>";
-        label += "<b>2)</b> Aplicamos la Permutaci&oacute;n 1, surgiendo los siguientes 56 bits: <br>";
-        label += "<b>K+ = " + des.formatBinary(Long.toBinaryString(des.getSubkeysPc1()), 56, 4) + "</b><br>";
-        label += "siendo <b>C0 = " + des.formatBinary(Long.toBinaryString(subclavesC[0]), 28, 4) + "</b> y ";
-        label += "<b>D0 = " + des.formatBinary(Long.toBinaryString(subclavesD[0]), 28, 4) + "</b><br><br>";
-        label += "<b>3)</b> Utilizando la tabla de rotaciones, obtenemos los siguientes <b>Ci</b> y <b>Di</b>:<br><br>";
-        for (int i= 1;i<17;i++) {
-            label += "<b>C" + i + " = </b>" + des.formatBinary(Long.toBinaryString(subclavesC[i]), 28, 4) + " - ";
-            label += "<b>D" + i + " = </b>" + des.formatBinary(Long.toBinaryString(subclavesD[i]), 28, 4) + "<br>";
-        }
-        label += "<br>";
-        label += "<b>4)</b> Finalmente, concatenando cada <b>Ci</b> con <b>Di</b> y aplicando la Permutaci&oacute;n 2, ";
-        label += "obtenemos las 16 subclaves <b>Ki</b>:<br><br>";
-        for (int i= 1;i<=16;i++) {
-            label += "<b>K" + i + " = </b>" + des.formatBinary(Long.toBinaryString(subclaves[i-1]), 48, 4) + "<br>";
-        }
-        label += "</body></html>";
+        label += ", la pasamos a binario, obteniendo:<br></body></html>";
         
         return label;
     }    
     
+    private String crearLabelSubclaves2() {
+       
+        String clave = jTextField1.getText();
+        String label = "<html><body>";      
+        label += "<b>2)</b> Aplicamos la Permutaci&oacute;n 1, surgiendo los siguientes 56 bits ";
+        label += "los cuales separo en 28 bits mas significativos (C0) y 28 bits menos significativos (D0): <br>";
+
+        label += "</body></html>";
+        
+        return label;
+    }      
+    
+    private String crearLabelSubclaves3() {
+        
+        String clave = jTextField1.getText();
+        String label = "<html><body>";      
+        
+        label += "<b>3)</b> A modo de ejemplo, solamente calcularemos los 4 primeros valores tanto de Ci como de Di.<br>";
+        label += "Utilizando la tabla de rotaciones, obtenemos los siguientes <b>Ci</b> y <b>Di</b>:<br><br>";
+    
+        label += "</body></html>";
+        
+        return label;
+    }      
+
+    
+    
+    private String crearLabelSubclaves4() {
+        
+        String clave = jTextField1.getText();
+        String label = "<html><body>";      
+        
+        label += "<b>4)</b> Finalmente, concatenando cada <b>Ci</b> con <b>Di</b> y aplicando la Permutaci&oacute;n 2, ";
+        label += "obtenemos las 16 subclaves <b>Ki (por simplicidad solamente calculamos las 4 primeras)</b>:<br><br>";
+        label += "</body></html>";
+
+        return label;
+    }      
+    
+    
+    
+    
+    
+    
+    
     private String crearLabelRondaInicial1() {
         String label = "<html><body><b>1)</b> Ahora vamos a trabajar sobre el mensaje en si mismo. <br>";
         label += "Pasamos los 16 bytes hexadecimales del mensaje original a binario, obteniendo <br>";
+        label += "</body></html>";
+
+        return label;
+    }    
+    
+    private String crearLabelRondaInicial2() {
         
-        String mensaje = jTextField2.getText();
-        label += "<b>M = " + des.hexToBinary(mensaje, 64) + "</b><br><br>";
+        String label = "<html><body>";
         label += "A continuaci&oacute;n, se realizar&aacute; una permutaci&oacute;n inicial ";
         label += "con la siguiente tabla:<br></body></html>";
 
         return label;
     }    
     
-    private String crearLabelRondaInicial2() {
-        int[] rondasL = des.getRondasL();
-        int[] rondasR = des.getRondasR();
-        long rondasPc1 = des.getRondasPc1();
+    private String crearLabelRondaInicial3() {
         
-        String label = "<html><body>Resultando de dicha permutaci&oacute;n: <br>";
-        label += "<b>" + des.formatBinary(Long.toBinaryString(rondasPc1), 64, 4) + "</b><br><br>";
+        String label = "<html><body>";
         label += "Al resultado, se lo divide en dos mitades de 32 bits cada una, siendo ";
         label += "L(0) el bloque que contiene los 32 bits de mayor peso y R(0) el resto: <br>";
-        label += "<b>L0 = " + des.formatBinary(Long.toBinaryString(rondasL[0]&0xFFFFFFFFL), 32, 4) + "</b><br>";
-        label += "<b>R0 = " + des.formatBinary(Long.toBinaryString(rondasR[0]&0xFFFFFFFFL), 32, 4) + "</b><br><br>";
-        label += "<b>2)</b> Luego se inician las 16 rondas del algoritmo. En el siguiente apartado se ilustra el comportamiento ";
-        label += "de cada una de ellas.</body></html> ";
 
+        label += "</body></html>";
         return label;
     }
     
-    
+     private String crearLabelRondaInicial4() {
+        
+        String label = "<html><body>";
+      
+        label += "<b>2)</b> Luego se inician las 16 rondas del algoritmo. En los pr&oacute;ximos pasos calcularemos cada una de ellas.";
+        label += "</body></html> ";
+
+        label += "</body></html>";
+        return label;
+    }
+     
+     
     private String crearLabelRondaFinal1() {
         int[] rondasL = des.getRondasL();
         int[] rondasR = des.getRondasR();
@@ -1296,6 +1615,8 @@ public class DesPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1352,11 +1673,25 @@ public class DesPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
@@ -1364,18 +1699,37 @@ public class DesPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField17;
+    private javax.swing.JTextField jTextField18;
+    private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField20;
+    private javax.swing.JTextField jTextField21;
+    private javax.swing.JTextField jTextField22;
+    private javax.swing.JTextField jTextField23;
+    private javax.swing.JTextField jTextField24;
+    private javax.swing.JTextField jTextField25;
+    private javax.swing.JTextField jTextField26;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 
 }
