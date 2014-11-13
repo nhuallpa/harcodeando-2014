@@ -289,23 +289,34 @@ public class RSA {
     /**
      *  Generar numero relativamente primo a (p-1)*(q-1)
      *  Junto con el modulo forman la clave privada
+     * @return true si pudo generar exponente privado, false si no.
      */
-    public void GenerarExponentePrivado(){
-        this.d = this.intervalo_d_inf;
-        while(this.MCD(this.d, this.p1q1)!= 1)
-        {
-            this.d++;
-        }    
+    public boolean GenerarExponentePrivado(){
+        boolean ret = false;
+        if(this.p1q1 != 0){
+            this.d = this.intervalo_d_inf;
+            while(this.MCD(this.d, this.p1q1)!= 1)
+            {
+                this.d++;
+            } 
+            ret = true;
+        }  
+        return ret;
     }
     
     /**
      * Generar numero e dentro del rango 1 <= e <= (p-1)*(q-1)
      * Junto con el modulo forman la clave publica
+     * @return true si pudo generar el exponente publico, false si no
      */
-    public void GenerarExponentePublico(){
+    public boolean GenerarExponentePublico(){
         //Hallar el inverso modular de d mod (p-1)(q-1)--> de = 1 mod (p-1)(q-1)
-        this.e = this.InversoMultiplicativo(this.d, this.p1q1);
-        
+        boolean ret = false;
+        if(this.d != 0 && this.p1q1 != 0){
+            this.e = this.InversoMultiplicativo(this.d, this.p1q1);
+            ret = true;
+        }
+        return ret;
     }
     
     private void GenerarRepresentacionNumerica(String mensaje){
