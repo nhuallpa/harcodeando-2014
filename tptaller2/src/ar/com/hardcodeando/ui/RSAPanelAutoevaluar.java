@@ -748,10 +748,11 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
-                .addGroup(panClavePrivadaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textClavePrivadaDEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19)
-                    .addComponent(botAceptarClavePrivEv))
+                .addGroup(panClavePrivadaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panClavePrivadaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(textClavePrivadaDEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botAceptarClavePrivEv)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelCorreccionD)
                 .addContainerGap(15, Short.MAX_VALUE))
@@ -828,6 +829,11 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         });
 
         botResolverCI.setText("Resolver");
+        botResolverCI.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botResolverCIMousePressed(evt);
+            }
+        });
 
         botContinuarCI.setText("Continuar");
         botContinuarCI.setEnabled(false);
@@ -1134,6 +1140,30 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_botAceptarClavePublEvMousePressed
+
+    private void botResolverCIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botResolverCIMousePressed
+        this.rsa_evaluar.GenerarPrimos();
+        this.rsa_evaluar.GenerarModulo();
+        this.rsa_evaluar.GenerarExponentePrivado();
+        this.rsa_evaluar.GenerarExponentePublico();
+        long p = this.rsa_evaluar.GetP();
+        long q = this.rsa_evaluar.GetQ();
+        long n = this.rsa_evaluar.GetModulo();
+        long d = this.rsa_evaluar.GetD();
+        long e = this.rsa_evaluar.GetE();
+        this.text_p_ev.setText(Long.toString(p));
+        this.text_q_ev.setText(Long.toString(q));
+        this.text_modulo_ev.setText(Long.toString(n));
+        this.textClavePrivadaDEv.setText(Long.toString(d));
+        this.textClavePublicaEEv.setText(Long.toString(e));
+        this.panClavePrivadaEv.setEnabled(true);
+        this.textClavePrivadaDEv.setEnabled(true);
+        this.panClavePublicaEv.setEnabled(true);
+        this.textClavePublicaEEv.setEnabled(true);
+        this.botResolverCI.setEnabled(false);
+        this.botReintentarCI.setEnabled(true);
+        
+    }//GEN-LAST:event_botResolverCIMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

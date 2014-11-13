@@ -949,10 +949,12 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="textClavePrivadaDEv" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel19" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="botAceptarClavePrivEv" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="textClavePrivadaDEv" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="botAceptarClavePrivEv" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="labelCorreccionD" min="-2" max="-2" attributes="0"/>
@@ -1146,6 +1148,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Resolver"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botResolverCIMousePressed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="botContinuarCI">
                   <Properties>
