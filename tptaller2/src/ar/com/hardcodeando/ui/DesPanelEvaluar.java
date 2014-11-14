@@ -7,6 +7,7 @@ package ar.com.hardcodeando.ui;
 
 import ar.com.hardcodeando.ui.*;
 import ar.com.hardcodeando.algorithm.Des;
+import java.awt.Color;
 import java.awt.Dimension;
 
 /**
@@ -98,6 +99,8 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel33 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jButton19 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
@@ -380,7 +383,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel36))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton13)
                             .addComponent(jLabel37)))
                     .addComponent(jLabel5))
@@ -401,6 +404,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jLabel11.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
 
         jButton5.setText("Siguiente");
+        jButton5.setEnabled(false);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -499,9 +503,21 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         });
 
         jButton4.setText("Evaluar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel33.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel33.setText("K = ");
+
+        jButton19.setText("Limpiar");
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -512,90 +528,95 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                 .addComponent(jLabel39)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton5))
-                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel56, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel54)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel18)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jButton19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton5))
+                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel56, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel14)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jLabel8)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel16)
+                                        .addComponent(jLabel9)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel55)
+                                        .addComponent(jLabel54)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField18))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel53)
+                                        .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jLabel18)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField16))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel17)
+                                        .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                                .addComponent(jLabel14)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                                .addComponent(jLabel16)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField14))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel15)
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                                .addComponent(jLabel55)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jTextField18))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                                .addComponent(jLabel53)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jTextField16))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                                .addComponent(jLabel17)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jTextField14))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                                .addComponent(jLabel15)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                            .addComponent(jLabel60)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jTextField22))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                            .addComponent(jLabel59)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jTextField21))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                            .addComponent(jLabel58)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jTextField20))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                            .addComponent(jLabel57)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(jLabel33)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                    .addComponent(jLabel60)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField22))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                    .addComponent(jLabel59)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField21))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                    .addComponent(jLabel58)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField20))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                    .addComponent(jLabel57)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel33)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 179, Short.MAX_VALUE)))
-                .addContainerGap())
+                                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 179, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -670,11 +691,14 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel60)
                             .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel42)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton5)
                             .addComponent(jButton3)
-                            .addComponent(jButton4))))
+                            .addComponent(jButton4)
+                            .addComponent(jButton19))))
                 .addContainerGap(311, Short.MAX_VALUE))
         );
 
@@ -2052,6 +2076,27 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        
+        // Color verde
+        jTextField7.setBackground(Color.green);
+        jTextField8.setBackground(Color.green);
+        jTextField9.setBackground(Color.green);
+        jTextField10.setBackground(Color.green);
+        jTextField11.setBackground(Color.green);
+        jTextField12.setBackground(Color.green);
+        jTextField13.setBackground(Color.green);
+        jTextField14.setBackground(Color.green);
+        jTextField15.setBackground(Color.green);
+        jTextField16.setBackground(Color.green);
+        jTextField17.setBackground(Color.green);
+        jTextField18.setBackground(Color.green);
+        jTextField19.setBackground(Color.green);
+        jTextField20.setBackground(Color.green);
+        jTextField21.setBackground(Color.green);
+        jTextField22.setBackground(Color.green);
+        
+        jButton5.setEnabled(true);
+        
         long[] subclaves = des.getSubkeys();
         long[] subclavesC = des.getSubkeysC();
         long[] subclavesD = des.getSubkeysD();
@@ -2085,7 +2130,8 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jTextField20.setText(des.formatBinary(Long.toBinaryString(subclaves[1]), 48, 4));
         jTextField21.setText(des.formatBinary(Long.toBinaryString(subclaves[2]), 48, 4));
         jTextField22.setText(des.formatBinary(Long.toBinaryString(subclaves[3]), 48, 4));
-
+        
+        jLabel42.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
@@ -2121,8 +2167,6 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                 String rondaInicial4Label = crearLabelRondaInicial4();
 
                 String rondaFinal1Label = crearLabelRondaFinal1();
-                String rondaFinal2Label = crearLabelRondaFinal2();
-                String rondaFinal3Label = crearLabelRondaFinal3();
 
                 String ronda1LabelA = crearLabelRondaIa(1);
                 String ronda1LabelB = crearLabelRondaIb(1);
@@ -2292,6 +2336,191 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        
+        
+        long[] subclaves = des.getSubkeys();
+        long[] subclavesC = des.getSubkeysC();
+        long[] subclavesD = des.getSubkeysD();
+        String clave = jTextField1.getText();
+
+        boolean valido = true;
+        // Clave binario
+        String claveBinario = jTextField7.getText().replaceAll(" ", "");
+        claveBinario = des.formatBinary(claveBinario, 64, 4);
+        
+        if (claveBinario.equalsIgnoreCase(des.hexToBinary(clave, 64))){
+            jTextField7.setBackground(Color.green);
+        } else {
+            jTextField7.setBackground(Color.red);
+            valido = false;
+        }
+
+        
+        // Permutacion 1
+        String permutacion1 = jTextField8.getText().replaceAll(" ", "");
+        permutacion1 = des.formatBinary(permutacion1, 56, 4);
+
+        
+        
+        if (permutacion1.equalsIgnoreCase(des.formatBinary(Long.toBinaryString(des.getSubkeysPc1()), 56, 4))){
+            jTextField8.setBackground(Color.green);
+        } else {
+            jTextField8.setBackground(Color.red);
+            valido = false;
+        }
+
+        // C0
+        String c0 = jTextField9.getText().replaceAll(" ", "");
+        c0 = des.formatBinary(c0, 28, 4);
+
+        if (c0.equalsIgnoreCase(des.formatBinary(Long.toBinaryString(subclavesC[0]), 28, 4))){
+            jTextField9.setBackground(Color.green);
+        } else {
+            jTextField9.setBackground(Color.red);
+            valido = false;
+        }
+        
+        // D0
+        String d0 = jTextField10.getText().replaceAll(" ", "");
+        d0 = des.formatBinary(d0, 28, 4);
+        
+        if (d0.equalsIgnoreCase(des.formatBinary(Long.toBinaryString(subclavesD[0]), 28, 4))){
+            jTextField10.setBackground(Color.green);
+        } else {
+            jTextField10.setBackground(Color.red);
+            valido = false;            
+        }
+        
+
+        // C1 C2 C3 C4
+        String c1 = jTextField11.getText().replaceAll(" ", "");
+        c1 = des.formatBinary(c1, 28, 4);
+        String c2 = jTextField13.getText().replaceAll(" ", "");
+        c2 = des.formatBinary(c2, 28, 4);
+        String c3 = jTextField15.getText().replaceAll(" ", "");
+        c3 = des.formatBinary(c3, 28, 4);
+        String c4 = jTextField17.getText().replaceAll(" ", "");
+        c4 = des.formatBinary(c4, 28, 4);
+        
+        if (c1.equalsIgnoreCase(des.formatBinary(Long.toBinaryString(subclavesC[1]), 28, 4))){
+            jTextField11.setBackground(Color.green);
+        } else {
+            jTextField11.setBackground(Color.red);
+            valido = false;
+        }
+        
+        if (c2.equalsIgnoreCase(des.formatBinary(Long.toBinaryString(subclavesC[2]), 28, 4))){
+            jTextField13.setBackground(Color.green);
+        } else {
+            jTextField13.setBackground(Color.red);
+            valido = false;
+        }
+        
+        if (c3.equalsIgnoreCase(des.formatBinary(Long.toBinaryString(subclavesC[3]), 28, 4))){
+            jTextField15.setBackground(Color.green);
+        } else {
+            jTextField15.setBackground(Color.red);
+            valido = false;
+        }
+        
+        if (c4.equalsIgnoreCase(des.formatBinary(Long.toBinaryString(subclavesC[4]), 28, 4))){
+            jTextField17.setBackground(Color.green);
+        } else {
+            jTextField17.setBackground(Color.red);
+            valido = false;
+        }
+        
+        
+        // D1 D2 D3 D4
+        String d1 = jTextField12.getText().replaceAll(" ", "");
+        d1 = des.formatBinary(d1, 28, 4);
+        String d2 = jTextField14.getText().replaceAll(" ", "");
+        d2 = des.formatBinary(d2, 28, 4);
+        String d3 = jTextField16.getText().replaceAll(" ", "");
+        d3 = des.formatBinary(d3, 28, 4);
+        String d4 = jTextField18.getText().replaceAll(" ", "");
+        d4 = des.formatBinary(d4, 28, 4);
+        
+        if (d1.equalsIgnoreCase(des.formatBinary(Long.toBinaryString(subclavesD[1]), 28, 4))){
+            jTextField12.setBackground(Color.green);
+        } else {
+            jTextField12.setBackground(Color.red);
+            valido = false;
+        }
+        
+        if (d2.equalsIgnoreCase(des.formatBinary(Long.toBinaryString(subclavesD[2]), 28, 4))){
+            jTextField14.setBackground(Color.green);
+        } else {
+            jTextField14.setBackground(Color.red);
+            valido = false;
+        }
+        
+        if (d3.equalsIgnoreCase(des.formatBinary(Long.toBinaryString(subclavesD[3]), 28, 4))){
+            jTextField16.setBackground(Color.green);
+        } else {
+            jTextField16.setBackground(Color.red);
+            valido = false;
+        }
+        
+        if (d4.equalsIgnoreCase(des.formatBinary(Long.toBinaryString(subclavesD[4]), 28, 4))){
+            jTextField18.setBackground(Color.green);
+        } else {
+            jTextField18.setBackground(Color.red);
+            valido = false;
+        }
+        
+        // K1 K2 K3 K4
+        String k1 = jTextField19.getText().replaceAll(" ", "");
+        k1 = des.formatBinary(k1, 28, 4);
+        String k2 = jTextField20.getText().replaceAll(" ", "");
+        k2 = des.formatBinary(k2, 28, 4);
+        String k3 = jTextField21.getText().replaceAll(" ", "");
+        k3 = des.formatBinary(k3, 28, 4);
+        String k4 = jTextField22.getText().replaceAll(" ", "");
+        k4 = des.formatBinary(k4, 28, 4);
+        if (k1.equalsIgnoreCase(des.formatBinary(Long.toBinaryString(subclaves[0]), 48, 4))){
+            jTextField19.setBackground(Color.green);
+        } else {
+            jTextField19.setBackground(Color.red);
+            valido = false;
+        }
+        
+        if (k2.equalsIgnoreCase(des.formatBinary(Long.toBinaryString(subclaves[1]), 48, 4))){
+            jTextField20.setBackground(Color.green);
+        } else {
+            jTextField20.setBackground(Color.red);
+            valido = false;
+        }
+        
+        if (k3.equalsIgnoreCase(des.formatBinary(Long.toBinaryString(subclaves[2]), 48, 4))){
+            jTextField21.setBackground(Color.green);
+        } else {
+            jTextField21.setBackground(Color.red);
+            valido = false;
+        }
+        
+        if (k4.equalsIgnoreCase(des.formatBinary(Long.toBinaryString(subclaves[3]), 48, 4))){
+            jTextField22.setBackground(Color.green);
+        } else {
+            jTextField22.setBackground(Color.red);
+            valido = false;
+        }        
+
+        if (!valido) {
+            jLabel42.setText("Revise las cuentas, hay valores incorrectos.");
+            jButton5.setEnabled(false);
+        } else {
+            jLabel42.setText("");
+            jButton5.setEnabled(true);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        limpiarSubclaves();
+        jButton5.setEnabled(false);
+    }//GEN-LAST:event_jButton19ActionPerformed
+
 
     private String crearLabelSubclaves1() {
         
@@ -2305,7 +2534,6 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
     
     private String crearLabelSubclaves2() {
        
-        String clave = jTextField1.getText();
         String label = "<html><body>";      
         label += "<b>2)</b> Aplicamos la Permutaci&oacute;n 1, surgiendo los siguientes 56 bits ";
         label += "los cuales separo en 28 bits mas significativos (C0) y 28 bits menos significativos (D0): <br>";
@@ -2316,8 +2544,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
     }      
     
     private String crearLabelSubclaves3() {
-        
-        String clave = jTextField1.getText();
+
         String label = "<html><body>";      
         
         label += "<b>3)</b> A modo de ejemplo, solamente calcularemos los 4 primeros valores tanto de Ci como de Di.<br>";
@@ -2424,33 +2651,67 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         return label;
     }
 
-        private String crearLabelRondaIa(int i) {
-            int[] rondasL = des.getRondasL();
-            int[] rondasR = des.getRondasR();
-            int j = i-1;
-            
-            String label = "<html><body><b>1) </b>Partiendo de los bloques iniciales:<br> ";
-            label += "<b>L"+j+" = " + des.formatBinary(Long.toBinaryString(rondasL[j]&0xFFFFFFFFL), 32, 4) + "</b> y ";
-            label += "<b>R"+j+" = " + des.formatBinary(Long.toBinaryString(rondasR[j]&0xFFFFFFFFL), 32, 4) + "</b><br><br>";
-            label += "Aplico la expansi&oacute;n E al bloque R"+j+", obteniendo:<br>";
- 
-            label += "</body></html>";        
-            return label;
-        }
+    private String crearLabelRondaIa(int i) {
+        int[] rondasL = des.getRondasL();
+        int[] rondasR = des.getRondasR();
+        int j = i-1;
 
-        private String crearLabelRondaIb(int i) {
-            long[] subclaves = des.getSubkeys();
+        String label = "<html><body><b>1) </b>Partiendo de los bloques iniciales:<br> ";
+        label += "<b>L"+j+" = " + des.formatBinary(Long.toBinaryString(rondasL[j]&0xFFFFFFFFL), 32, 4) + "</b> y ";
+        label += "<b>R"+j+" = " + des.formatBinary(Long.toBinaryString(rondasR[j]&0xFFFFFFFFL), 32, 4) + "</b><br><br>";
+        label += "Aplico la expansi&oacute;n E al bloque R"+j+", obteniendo:<br>";
 
-            int j = i-1;
-            
-            String label = "<html><body><b>K("+i+") = " + des.formatBinary(Long.toBinaryString(subclaves[j]),48, 4) + "</b><br> ";
-            label += "Quedando finalmente: <br> ";
-            label += "</body></html>";        
-            
-            return label;
-        }
+        label += "</body></html>";        
+        return label;
+    }
+
+    private String crearLabelRondaIb(int i) {
+        long[] subclaves = des.getSubkeys();
+
+        int j = i-1;
+
+        String label = "<html><body><b>K("+i+") = " + des.formatBinary(Long.toBinaryString(subclaves[j]),48, 4) + "</b><br> ";
+        label += "Quedando finalmente: <br> ";
+        label += "</body></html>";        
+
+        return label;
+    }
         
+    private void limpiarSubclaves (){
+        jTextField7.setBackground(Color.white);
+        jTextField8.setBackground(Color.white);
+        jTextField9.setBackground(Color.white);
+        jTextField10.setBackground(Color.white);
+        jTextField11.setBackground(Color.white);
+        jTextField12.setBackground(Color.white);
+        jTextField13.setBackground(Color.white);
+        jTextField14.setBackground(Color.white);
+        jTextField15.setBackground(Color.white);
+        jTextField16.setBackground(Color.white);
+        jTextField17.setBackground(Color.white);
+        jTextField18.setBackground(Color.white);
+        jTextField19.setBackground(Color.white);
+        jTextField20.setBackground(Color.white);
+        jTextField21.setBackground(Color.white);
+        jTextField22.setBackground(Color.white);
         
+        jTextField7.setText("");
+        jTextField8.setText("");
+        jTextField9.setText("");
+        jTextField10.setText("");
+        jTextField11.setText("");
+        jTextField12.setText("");
+        jTextField13.setText("");
+        jTextField14.setText("");
+        jTextField15.setText("");
+        jTextField16.setText("");
+        jTextField17.setText("");
+        jTextField18.setText("");
+        jTextField19.setText("");
+        jTextField20.setText("");
+        jTextField21.setText("");
+        jTextField22.setText("");
+}
         
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -2464,6 +2725,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
@@ -2568,6 +2830,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
