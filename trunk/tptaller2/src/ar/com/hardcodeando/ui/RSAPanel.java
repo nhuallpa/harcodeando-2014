@@ -1397,9 +1397,15 @@ public class RSAPanel extends javax.swing.JPanel {
                             this.LimpiarCalcularPaso1();
                         }
                         else{
-                            this.rsa_aprender.GenerarModulo();                            
-                            this.textModulo.setText(Long.toString(this.rsa_aprender.ObtenerModulo()));
-                            this.botContinuarPaso1.setEnabled(true);
+                            if(pe == qu){
+                                JOptionPane.showMessageDialog(null, "Elegir p y q distintos.");
+                                this.LimpiarCalcularPaso1();
+                            }
+                            else{
+                                this.rsa_aprender.GenerarModulo();                            
+                                this.textModulo.setText(Long.toString(this.rsa_aprender.ObtenerModulo()));
+                                this.botContinuarPaso1.setEnabled(true);                               
+                            }
                         }
                     }
                 }                               
@@ -1459,8 +1465,8 @@ public class RSAPanel extends javax.swing.JPanel {
     private void botContinuarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botContinuarMousePressed
         this.RSATabbedPanel.setEnabledAt(this.RSATabbedPanel.getSelectedIndex()+1, true);
         this.RSATabbedPanel.setSelectedIndex(this.RSATabbedPanel.getSelectedIndex()+1);
-        this.spinTamBloqueDes.setValue(this.spinTamBloque.getValue());
-        this.textMensajeCifradoDes.setText(this.rsa_aprender.GetMensajeEncriptado());
+        this.spinTamBloqueDes.setValue(this.spinTamBloque.getValue());        
+        this.textMensajeCifradoDes.setText(this.textMensCifrado.getText());
     }//GEN-LAST:event_botContinuarMousePressed
 
     private void textMensCifradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMensCifradoActionPerformed
@@ -1501,7 +1507,6 @@ public class RSAPanel extends javax.swing.JPanel {
             this.botEncriptarTodo.setEnabled(false);
             this.botEncriptarBloques.setEnabled(false);
 
-            this.rsa_aprender.Reiniciar();
             this.MostrarBloqueEncriptar(mensaje);
         }
     }//GEN-LAST:event_botEncriptarBloquesMousePressed
@@ -1516,9 +1521,9 @@ public class RSAPanel extends javax.swing.JPanel {
             this.textMensCifrado.setText("");
         }
         else{
-            this.rsa_aprender.EncriptarTodo(mensaje, (int)this.spinTamBloque.getValue());
-            this.textMensCifrado.setText(this.rsa_aprender.GetMensajeEncriptado());
-            this.textRepNum.setText(this.rsa_aprender.GetRepresentacionNumerica());
+            String msg = this.rsa_aprender.Encrypt(mensaje, (int)this.spinTamBloque.getValue());          
+            this.textMensCifrado.setText(msg);            
+            this.textRepNum.setText(this.rsa_aprender.Codificar(mensaje));
             this.botEncriptarBloques.setEnabled(false);
             this.botEncriptarTodo.setEnabled(false);
             this.textMensajeEncriptar.setEnabled(false);
@@ -1538,8 +1543,8 @@ public class RSAPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_botSigBloqueActionPerformed
 
     private void botEncriptarBloqueMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botEncriptarBloqueMousePressed
-        this.rsa_aprender.EncriptarBloque(this.textBloqueEncriptar.getText(), (int)this.spinTamBloque.getValue());
-        this.textMensCifrado.setText(this.rsa_aprender.GetMensajeEncriptado());
+        String msg = this.rsa_aprender.Encrypt(this.textBloqueEncriptar.getText(), (int)this.spinTamBloque.getValue());
+        this.textMensCifrado.setText(this.textMensCifrado.getText() + msg);
         String aux = this.textRepNum.getText() + this.textASCIIencriptar.getText();        
         this.textRepNum.setText(aux);
         this.botSigBloque.setEnabled(true);
@@ -1570,9 +1575,9 @@ public class RSAPanel extends javax.swing.JPanel {
 
     private void botTerminarEncriptarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botTerminarEncriptarMousePressed
         String mensaje = this.textMensajeEncriptar.getText();
-        this.rsa_aprender.EncriptarTodo(mensaje, (int)this.spinTamBloque.getValue());
-        this.textMensCifrado.setText(this.rsa_aprender.GetMensajeEncriptado());
-        this.textRepNum.setText(this.rsa_aprender.GetRepresentacionNumerica());
+        String encriptado = this.rsa_aprender.Encrypt(mensaje, (int)this.spinTamBloque.getValue());
+        this.textMensCifrado.setText(encriptado);
+        this.textRepNum.setText(this.rsa_aprender.Codificar(mensaje));
         JOptionPane.showMessageDialog(null, "El mensaje ha sido encriptado.");
         this.botSigBloque.setEnabled(false);
         this.botTerminarEncriptar.setEnabled(false);
