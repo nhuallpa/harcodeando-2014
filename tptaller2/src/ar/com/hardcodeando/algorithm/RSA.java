@@ -26,8 +26,6 @@ public class RSA {
     private long intervalo_d_inf;
     private long intervalo_d_sup;
     private long p1q1;
-    private String mens_enciptado;
-    private String rep_numerica;
     
     
     public RSA(){
@@ -42,8 +40,6 @@ public class RSA {
         this.p1q1 = 0;
         this.max_primo = 811;
         this.min_primo = 601;
-        this.mens_enciptado = "";
-        this.rep_numerica = "";
     }
     /**
      * Para saber con cuantos digitos se va a representar 1 caracter
@@ -221,12 +217,8 @@ public class RSA {
         return this.n;
     }
     
-    public String GetMensajeEncriptado(){
-        return this.mens_enciptado;
-    }
-    
-    public String GetRepresentacionNumerica(){
-        return this.rep_numerica;
+    public int GetLongitudBloque(){
+        return this.long_bloque;    
     }
        
     public boolean SetD(long valor){
@@ -282,9 +274,6 @@ public class RSA {
         return this.n;
     }
     
-    public int GetLongitudBloque(){
-        return this.long_bloque;
-    }
     
     /**
      *  Generar numero relativamente primo a (p-1)*(q-1)
@@ -319,15 +308,15 @@ public class RSA {
         return ret;
     }
     
-    private void GenerarRepresentacionNumerica(String mensaje){
-        String aux = "";
+    private String GenerarRepresentacionNumerica(String mensaje){
+        String aux = "";        
         for(int i = 0;i < mensaje.length();i++){
             char c = mensaje.charAt(i);
             long ascii = c;
             if(ascii < 100) aux += "0";
             aux += Long.toString(ascii);
-        }
-        this.rep_numerica = aux;
+        }       
+        return aux;
     }
     /**
      * Convierte un mensaje a su representacion ASCII
@@ -346,16 +335,23 @@ public class RSA {
         return res;
     }
     
-    private void Encriptar(String mensaje, int cant_bloques){
-        this.GenerarRepresentacionNumerica(mensaje);        
+    /**
+     * 
+     * @param mensaje mensaje a encriptar
+     * @param cant_bloques cantidad de caracteres q se toman por ronda
+     * @return representacion numerica encriptada
+     */
+    public String Encrypt(String mensaje, int cant_bloques){
+        String encriptado = "";
+        String rep_num = this.GenerarRepresentacionNumerica(mensaje);
         int offset = 3*cant_bloques;
         int pos = 0;
-        while(pos < this.rep_numerica.length()){
+        while(pos < rep_num.length()){
             String aux;
-            if(pos + offset < this.rep_numerica.length())
-                aux = this.rep_numerica.substring(pos, pos + offset);
+            if(pos + offset < rep_num.length())
+                aux = rep_num.substring(pos, pos + offset);
             else
-                aux = this.rep_numerica.substring(pos);
+                aux = rep_num.substring(pos);
             long cifrado = Long.parseLong(aux);
             BigInteger potencia = new BigInteger(Long.toString(cifrado));
             BigInteger exponente = new BigInteger(Long.toString(this.e));
@@ -367,17 +363,10 @@ public class RSA {
             while(sub_bloque.length() < this.long_bloque){
                 sub_bloque = "0" + sub_bloque;
             }
-            this.mens_enciptado += sub_bloque;
+            encriptado += sub_bloque;
             pos += offset;
-        }                           
-    }
-    
-    /**
-     * Reinicia el mensaje encriptado para un nuevo calculo
-     */
-    public void Reiniciar(){
-        this.rep_numerica = "";
-        this.mens_enciptado = "";
+        }        
+        return encriptado;
     }
     
     public void LimpiarValores(){
@@ -387,18 +376,9 @@ public class RSA {
         this.e = 0;
         this.p1q1 = 0;
         this.intervalo_d_inf = 0;
-        this.intervalo_d_sup = 0;                
-    }
-    
-    public void EncriptarBloque(String mensaje, int tam_bloque){
-        this.Encriptar(mensaje, tam_bloque);
-    }
-    
-    public void EncriptarTodo(String mensaje, int tam_bloque){
-        this.rep_numerica = "";
-        this.mens_enciptado = "";
-        this.Encriptar(mensaje, tam_bloque);        
-    }
+        this.intervalo_d_sup = 0; 
+        this.long_bloque = 0;
+    }    
     
     /**
      * Convierte una cadena con digitos ascii en su cadena equivalente
