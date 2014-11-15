@@ -9,22 +9,22 @@ import java.io.*;
 public class MD5 {
   
 	/* Desplazamientos antes de cada ronda */
-	private static long S11 = 7L;
-	private static long S12 = 12L;
-	private static long S13 = 17L;
-	private static long S14 = 22L;
-	private static long S21 = 5L;
-	private static long S22 = 9L;
-	private static long S23 = 14L;
-	private static long S24 = 20L;
-	private static long S31 = 4L;
-	private static long S32 = 11L;
-	private static long S33 = 16L;
-	private static long S34 = 23L;
-	private static long S41 = 6L;
-	private static long S42 = 10L;
-	private static long S43 = 15L;
-	private static long S44 = 21L;
+	private static final long S11 = 7L;
+	private static final long S12 = 12L;
+	private static final long S13 = 17L;
+	private static final long S14 = 22L;
+	private static final long S21 = 5L;
+	private static final long S22 = 9L;
+	private static final long S23 = 14L;
+	private static final long S24 = 20L;
+	private static final long S31 = 4L;
+	private static final long S32 = 11L;
+	private static final long S33 = 16L;
+	private static final long S34 = 23L;
+	private static final long S41 = 6L;
+	private static final long S42 = 10L;
+	private static final long S43 = 15L;
+	private static final long S44 = 21L;
 	// array de 64 bits
 	private static char pad[] = { 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 			0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -83,8 +83,8 @@ public class MD5 {
 		matrizValores[1][0] = Long.toHexString(lngD).toUpperCase();
 		matrizValores[2][0] = Long.toHexString(lngC).toUpperCase();
 		matrizValores[3][0] = Long.toHexString(lngB).toUpperCase();
-		/* Ronda 1 */
-//		System.out.println("Ronda 1");
+		
+                /* Ronda 1 */
 		lngA = ff(lngA, lngB, lngC, lngD, x[0], S11, 0xd76aa478L); /* 1 */
 		lngD = ff(lngD, lngA, lngB, lngC, x[1], S12, 0xe8c7b756L); /* 2 */
 		lngC = ff(lngC, lngD, lngA, lngB, x[2], S13, 0x242070dbL); /* 3 */
@@ -93,12 +93,8 @@ public class MD5 {
 		matrizValores[1][1] = Long.toHexString(lngD).toUpperCase();
 		matrizValores[2][1] = Long.toHexString(lngC).toUpperCase();
 		matrizValores[3][1] = Long.toHexString(lngB).toUpperCase();
-//		if (pasos == 16) {
-//			System.out.println("FF A " + Long.toHexString(lngA) + " D "
-//					+ Long.toHexString(lngD) + " C " + Long.toHexString(lngC)
-//					+ " B " + Long.toHexString(lngB));
-//		}
-		lngA = ff(lngA, lngB, lngC, lngD, x[4], S11, 0xf57c0fafL); /* 5 */
+
+                lngA = ff(lngA, lngB, lngC, lngD, x[4], S11, 0xf57c0fafL); /* 5 */
 		lngD = ff(lngD, lngA, lngB, lngC, x[5], S12, 0x4787c62aL); /* 6 */
 		lngC = ff(lngC, lngD, lngA, lngB, x[6], S13, 0xa8304613L); /* 7 */
 		lngB = ff(lngB, lngC, lngD, lngA, x[7], S14, 0xfd469501L); /* 8 */
@@ -106,12 +102,8 @@ public class MD5 {
 		matrizValores[1][2] = Long.toHexString(lngD).toUpperCase();
 		matrizValores[2][2] = Long.toHexString(lngC).toUpperCase();
 		matrizValores[3][2] = Long.toHexString(lngB).toUpperCase();
-//		if (pasos == 16) {
-//			System.out.println("FF A " + Long.toHexString(lngA) + " D "
-//					+ Long.toHexString(lngD) + " C " + Long.toHexString(lngC)
-//					+ " B " + Long.toHexString(lngB));
-//		}
-		lngA = ff(lngA, lngB, lngC, lngD, x[8], S11, 0x698098d8L); /* 9 */
+
+                lngA = ff(lngA, lngB, lngC, lngD, x[8], S11, 0x698098d8L); /* 9 */
 		lngD = ff(lngD, lngA, lngB, lngC, x[9], S12, 0x8b44f7afL); /* 10 */
 		lngC = ff(lngC, lngD, lngA, lngB, x[10], S13, 0xffff5bb1L); /* 11 */
 		lngB = ff(lngB, lngC, lngD, lngA, x[11], S14, 0x895cd7beL); /* 12 */
@@ -119,12 +111,8 @@ public class MD5 {
 		matrizValores[1][3] = Long.toHexString(lngD).toUpperCase();
 		matrizValores[2][3] = Long.toHexString(lngC).toUpperCase();
 		matrizValores[3][3] = Long.toHexString(lngB).toUpperCase();
-//		if (pasos == 16) {
-//			System.out.println("FF A " + Long.toHexString(lngA) + " D "
-//					+ Long.toHexString(lngD) + " C " + Long.toHexString(lngC)
-//					+ " B " + Long.toHexString(lngB));
-//		}
-		lngA = ff(lngA, lngB, lngC, lngD, x[12], S11, 0x6b901122L); /* 13 */
+
+                lngA = ff(lngA, lngB, lngC, lngD, x[12], S11, 0x6b901122L); /* 13 */
 		lngD = ff(lngD, lngA, lngB, lngC, x[13], S12, 0xfd987193L); /* 14 */
 		lngC = ff(lngC, lngD, lngA, lngB, x[14], S13, 0xa679438eL); /* 15 */
 		lngB = ff(lngB, lngC, lngD, lngA, x[15], S14, 0x49b40821L); /* 16 */
@@ -132,14 +120,8 @@ public class MD5 {
 		matrizValores[1][4] = Long.toHexString(lngD).toUpperCase();
 		matrizValores[2][4] = Long.toHexString(lngC).toUpperCase();
 		matrizValores[3][4] = Long.toHexString(lngB).toUpperCase();
-//		if (pasos == 4 || pasos == 16) {
-//			System.out.println("FF A " + Long.toHexString(lngA) + " D "
-//					+ Long.toHexString(lngD) + " C " + Long.toHexString(lngC)
-//					+ " B " + Long.toHexString(lngB));
-//		}
 
 		/* Ronda 2 */
-//		System.out.println("Ronda 2");
 		lngA = gg(lngA, lngB, lngC, lngD, x[1], S21, 0xf61e2562L); /* 17 */
 		lngD = gg(lngD, lngA, lngB, lngC, x[6], S22, 0xc040b340L); /* 18 */
 		lngC = gg(lngC, lngD, lngA, lngB, x[11], S23, 0x265e5a51L); /* 19 */
@@ -148,12 +130,8 @@ public class MD5 {
 		matrizValores[1][5] = Long.toHexString(lngD).toUpperCase();
 		matrizValores[2][5] = Long.toHexString(lngC).toUpperCase();
 		matrizValores[3][5] = Long.toHexString(lngB).toUpperCase();
-//		if (pasos == 16) {
-//			System.out.println("GG A " + Long.toHexString(lngA) + " D "
-//					+ Long.toHexString(lngD) + " C " + Long.toHexString(lngC)
-//					+ " B " + Long.toHexString(lngB));
-//		}
-		lngA = gg(lngA, lngB, lngC, lngD, x[5], S21, 0xd62f105dL); /* 21 */
+
+                lngA = gg(lngA, lngB, lngC, lngD, x[5], S21, 0xd62f105dL); /* 21 */
 		lngD = gg(lngD, lngA, lngB, lngC, x[10], S22, 0x2441453L); /* 22 */
 		lngC = gg(lngC, lngD, lngA, lngB, x[15], S23, 0xd8a1e681L); /* 23 */
 		lngB = gg(lngB, lngC, lngD, lngA, x[4], S24, 0xe7d3fbc8L); /* 24 */
@@ -161,12 +139,8 @@ public class MD5 {
 		matrizValores[1][6] = Long.toHexString(lngD).toUpperCase();
 		matrizValores[2][6] = Long.toHexString(lngC).toUpperCase();
 		matrizValores[3][6] = Long.toHexString(lngB).toUpperCase();
-//		if (pasos == 16) {
-//			System.out.println("GG A " + Long.toHexString(lngA) + " D "
-//					+ Long.toHexString(lngD) + " C " + Long.toHexString(lngC)
-//					+ " B " + Long.toHexString(lngB));
-//		}
-		lngA = gg(lngA, lngB, lngC, lngD, x[9], S21, 0x21e1cde6L); /* 25 */
+
+                lngA = gg(lngA, lngB, lngC, lngD, x[9], S21, 0x21e1cde6L); /* 25 */
 		lngD = gg(lngD, lngA, lngB, lngC, x[14], S22, 0xc33707d6L); /* 26 */
 		lngC = gg(lngC, lngD, lngA, lngB, x[3], S23, 0xf4d50d87L); /* 27 */
 		lngB = gg(lngB, lngC, lngD, lngA, x[8], S24, 0x455a14edL); /* 28 */
@@ -174,12 +148,8 @@ public class MD5 {
 		matrizValores[1][7] = Long.toHexString(lngD).toUpperCase();
 		matrizValores[2][7] = Long.toHexString(lngC).toUpperCase();
 		matrizValores[3][7] = Long.toHexString(lngB).toUpperCase();
-//		if (pasos == 16) {
-//			System.out.println("GG A " + Long.toHexString(lngA) + " D "
-//					+ Long.toHexString(lngD) + " C " + Long.toHexString(lngC)
-//					+ " B " + Long.toHexString(lngB));
-//		}
-		lngA = gg(lngA, lngB, lngC, lngD, x[13], S21, 0xa9e3e905L); /* 29 */
+
+                lngA = gg(lngA, lngB, lngC, lngD, x[13], S21, 0xa9e3e905L); /* 29 */
 		lngD = gg(lngD, lngA, lngB, lngC, x[2], S22, 0xfcefa3f8L); /* 30 */
 		lngC = gg(lngC, lngD, lngA, lngB, x[7], S23, 0x676f02d9L); /* 31 */
 		lngB = gg(lngB, lngC, lngD, lngA, x[12], S24, 0x8d2a4c8aL); /* 32 */
@@ -187,13 +157,8 @@ public class MD5 {
 		matrizValores[1][8] = Long.toHexString(lngD).toUpperCase();
 		matrizValores[2][8] = Long.toHexString(lngC).toUpperCase();
 		matrizValores[3][8] = Long.toHexString(lngB).toUpperCase();
-//		if (pasos == 4 || pasos == 16) {
-//			System.out.println("GG A " + Long.toHexString(lngA) + " D "
-//					+ Long.toHexString(lngD) + " C " + Long.toHexString(lngC)
-//					+ " B " + Long.toHexString(lngB));
-//		}
-		/* Ronda 3 */
-//		System.out.println("Ronda 3 ");
+
+                /* Ronda 3 */
 		lngA = hh(lngA, lngB, lngC, lngD, x[5], S31, 0xfffa3942L); /* 33 */
 		lngD = hh(lngD, lngA, lngB, lngC, x[8], S32, 0x8771f681L); /* 34 */
 		lngC = hh(lngC, lngD, lngA, lngB, x[11], S33, 0x6d9d6122L); /* 35 */
@@ -202,11 +167,7 @@ public class MD5 {
 		matrizValores[1][9] = Long.toHexString(lngD).toUpperCase();
 		matrizValores[2][9] = Long.toHexString(lngC).toUpperCase();
 		matrizValores[3][9] = Long.toHexString(lngB).toUpperCase();
-//		if (pasos == 16) {
-//			System.out.println("HH A " + Long.toHexString(lngA) + " D "
-//					+ Long.toHexString(lngD) + " C " + Long.toHexString(lngC)
-//					+ " B " + Long.toHexString(lngB));
-//		}
+
 		lngA = hh(lngA, lngB, lngC, lngD, x[1], S31, 0xa4beea44L); /* 37 */
 		lngD = hh(lngD, lngA, lngB, lngC, x[4], S32, 0x4bdecfa9L); /* 38 */
 		lngC = hh(lngC, lngD, lngA, lngB, x[7], S33, 0xf6bb4b60L); /* 39 */
@@ -447,7 +408,7 @@ public class MD5 {
 		this.lngState[3] = 0x10325476L; // D
 	}
 
-	public static String textoEnBinario(String textoIngresado) {
+	public static String textoEnBinario(String textoIngresado, boolean autoevaluar) {
 		String textoBinario = "";
 		String charABinario = "";
 		for (int i = 0; i < textoIngresado.length(); i++) {
@@ -456,15 +417,19 @@ public class MD5 {
 			for (int j = 0; j < 8 - charABinario.length(); j++) {
 				textoBinario += "0";
 			}
-			textoBinario += charABinario + " ";
-			if ((i % 6) == 5) {
-				textoBinario += "<br>";
-			}
+                        if (!autoevaluar) {
+                            textoBinario += charABinario + " ";
+                            if ((i % 6) == 5) {
+    				textoBinario += "<br>";
+                            }
+                        } else {
+                            textoBinario += charABinario;
+                        }
 		}
 		return textoBinario;
 	}
 
-	public static String textoPadeado(String textoIngresado, int textoSize) {
+	public static String textoPadeado(String textoIngresado, int textoSize, boolean autoevaluar) {
 		String textoPadeado = "";
 		String textoBinario = "";
 		String charABinario = "";
@@ -474,36 +439,51 @@ public class MD5 {
 			for (int j = 0; j < 8 - charABinario.length(); j++) {
 				textoBinario += "0";
 			}
-			textoBinario += charABinario + " ";
-			if ((i % 6) == 5) {
-				textoBinario += "<br>";
-			}
+                        if (!autoevaluar) {
+                            textoBinario += charABinario + " ";
+                            if ((i % 6) == 5) {
+    				textoBinario += "<br>";
+                            }
+                        } else {
+                            textoBinario += charABinario;
+                        }
 		}
-		textoPadeado = textoBinario + "<br>" + "1";
+                if (!autoevaluar) {
+                    textoPadeado = textoBinario + "<br>" + "1";    
+                } else {
+                    textoPadeado = textoBinario + "1";    
+                }
 		int maxPadeo = 448 - (textoSize * 8);
 		for (int i = 1; i < maxPadeo; i++) {
+                    if (!autoevaluar) {
 			if ((i % 8) == 0) {
 				textoPadeado += " ";
 			}
 			if ((i % 48) == 0) {
 				textoPadeado += "<br>";
 			}
-			textoPadeado += "0";
+                    }
+                    textoPadeado += "0";
 		}
 		return textoPadeado;
 	}
 
-	public String textoAProcesar(String msgAEncriptar, int length) {
-		String textoAProcesar = textoPadeado(msgAEncriptar, length) + "<br>";
+	public static String textoAProcesar(String msgAEncriptar, int length, boolean autoevaluar) {
+		String textoAProcesar = textoPadeado(msgAEncriptar, length, autoevaluar);
+                if (!autoevaluar) {
+                     textoAProcesar += "<br>";
+                }
 		String charABinario = Integer.toBinaryString(length * 8);
 		int maxPadeo = 64 - charABinario.length();
 		for (int i = 0; i < maxPadeo; i++) {
-			if ((i % 8) == 0) {
+                        if (!autoevaluar) {
+                            if ((i % 8) == 0) {
 				textoAProcesar += " ";
-			}
-			if ((i % 48) == 0) {
+                            }
+                            if ((i % 48) == 0) {
 				textoAProcesar += "<br>";
-			}
+                            }
+                        }
 			textoAProcesar += "0";
 		}
 		textoAProcesar += charABinario;
@@ -536,8 +516,9 @@ public class MD5 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("Ingresar String");
 		String textoIngresado = br.readLine();
-		System.out.println("binario:" + textoEnBinario(textoIngresado));
-		System.out.println("padeado:" + textoPadeado(textoIngresado, textoIngresado.length()));
+		System.out.println("binario:" + textoEnBinario(textoIngresado, true));
+		System.out.println("padeado:" + textoPadeado(textoIngresado, textoIngresado.length(), true));
+                System.out.println("padeado:" + textoAProcesar(textoIngresado, textoIngresado.length(), true));
 		chrTestData = textoIngresado.toCharArray();
 		md5Test.update(chrTestData, chrTestData.length);
 		md5Test.md5final();

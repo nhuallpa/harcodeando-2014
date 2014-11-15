@@ -11,20 +11,11 @@ import ar.com.hardcodeando.ui.utils.Ronda3Dialog;
 import ar.com.hardcodeando.ui.utils.Ronda2Dialog;
 import ar.com.hardcodeando.ui.utils.Ronda1Dialog;
 import ar.com.hardcodeando.algorithm.MD5;
-import java.awt.event.ActionEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.Enumeration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
-import javax.swing.ButtonModel;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
 
 /**
  *
@@ -128,7 +119,23 @@ public class MD5Panel extends javax.swing.JPanel {
         jRadioButton5 = new javax.swing.JRadioButton();
         valoresLabel = new javax.swing.JLabel();
         valoresIniciales = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
         labelSumaFinal = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         panelPaso5 = new javax.swing.JPanel();
@@ -182,7 +189,7 @@ public class MD5Panel extends javax.swing.JPanel {
         lblHeaderPaso3.setText("Paso 1: Adición de bits");
         panelPaso1.add(lblHeaderPaso3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        jLabel10.setText("<html> <ul> <li>Convertimos cada caracter del mensaje a su valor binario.</li> </ul> </html>");
+        jLabel10.setText("<html> <ul> <li>Convertimos el mensaje a su valor binario.</li> </ul> </html>");
         panelPaso1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 390, 50));
 
         siguientePaso1.setText("Siguiente");
@@ -452,7 +459,7 @@ public class MD5Panel extends javax.swing.JPanel {
         panelPaso4ii.add(buttonRonda4);
         buttonRonda4.setBounds(500, 400, 110, 40);
         panelPaso4ii.add(salidaFinal);
-        salidaFinal.setBounds(640, 480, 500, 20);
+        salidaFinal.setBounds(760, 480, 460, 20);
 
         jLabel11.setForeground(new java.awt.Color(0, 23, 255));
         jLabel11.setText("Operaciones Ronda 1");
@@ -567,49 +574,108 @@ public class MD5Panel extends javax.swing.JPanel {
                 jRadioButton5MouseClicked(evt);
             }
         });
-        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton5ActionPerformed(evt);
-            }
-        });
         panelPaso4ii.add(jRadioButton5);
         jRadioButton5.setBounds(60, 120, 70, 22);
 
         valoresLabel.setText("Valores iniciales:");
         panelPaso4ii.add(valoresLabel);
-        valoresLabel.setBounds(500, 80, 110, 15);
+        valoresLabel.setBounds(640, 80, 110, 15);
         panelPaso4ii.add(valoresIniciales);
-        valoresIniciales.setBounds(640, 80, 550, 15);
+        valoresIniciales.setBounds(760, 80, 450, 15);
+
+        jLabel36.setText("1");
+        panelPaso4ii.add(jLabel36);
+        jLabel36.setBounds(680, 170, 52, 10);
 
         labelSumaFinal.setText("Salida Final:");
         panelPaso4ii.add(labelSumaFinal);
-        labelSumaFinal.setBounds(510, 480, 90, 15);
+        labelSumaFinal.setBounds(660, 480, 90, 15);
+
+        jLabel37.setText("1");
+        panelPaso4ii.add(jLabel37);
+        jLabel37.setBounds(680, 130, 52, 10);
+
+        jLabel38.setText("1");
+        panelPaso4ii.add(jLabel38);
+        jLabel38.setBounds(680, 190, 52, 10);
+
+        jLabel39.setText("1");
+        panelPaso4ii.add(jLabel39);
+        jLabel39.setBounds(680, 150, 52, 10);
+
+        jLabel40.setText("2");
+        panelPaso4ii.add(jLabel40);
+        jLabel40.setBounds(680, 210, 52, 10);
+
+        jLabel41.setText("2");
+        panelPaso4ii.add(jLabel41);
+        jLabel41.setBounds(680, 230, 52, 15);
+
+        jLabel42.setText("2");
+        panelPaso4ii.add(jLabel42);
+        jLabel42.setBounds(680, 250, 52, 15);
+
+        jLabel43.setText("2");
+        panelPaso4ii.add(jLabel43);
+        jLabel43.setBounds(680, 270, 52, 20);
+
+        jLabel44.setText("3");
+        panelPaso4ii.add(jLabel44);
+        jLabel44.setBounds(680, 290, 52, 20);
+
+        jLabel45.setText("3");
+        panelPaso4ii.add(jLabel45);
+        jLabel45.setBounds(680, 310, 52, 20);
+
+        jLabel46.setText("3");
+        panelPaso4ii.add(jLabel46);
+        jLabel46.setBounds(680, 330, 52, 20);
+
+        jLabel47.setText("3");
+        panelPaso4ii.add(jLabel47);
+        jLabel47.setBounds(680, 355, 52, 15);
+
+        jLabel48.setText("4");
+        panelPaso4ii.add(jLabel48);
+        jLabel48.setBounds(680, 380, 52, 10);
+
+        jLabel49.setText("4");
+        panelPaso4ii.add(jLabel49);
+        jLabel49.setBounds(680, 400, 52, 10);
+
+        jLabel50.setText("4");
+        panelPaso4ii.add(jLabel50);
+        jLabel50.setBounds(680, 420, 52, 10);
+
+        jLabel51.setText("4");
+        panelPaso4ii.add(jLabel51);
+        jLabel51.setBounds(680, 440, 52, 10);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "A", "D", "C", "B"
+                "Ronda", "A", "D", "C", "B"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -621,9 +687,12 @@ public class MD5Panel extends javax.swing.JPanel {
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
         jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+        }
 
         panelPaso4ii.add(jScrollPane1);
-        jScrollPane1.setBounds(640, 100, 460, 370);
+        jScrollPane1.setBounds(640, 100, 580, 370);
 
         jTabbedPane1.addTab("Paso 4ii de 5", panelPaso4ii);
 
@@ -691,14 +760,11 @@ public class MD5Panel extends javax.swing.JPanel {
     }//GEN-LAST:event_siguientePaso3MousePressed
 
     private void adicionarLongitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarLongitudActionPerformed
-        MD5 md5 = new MD5();
-
         String msgAEncriptar = textMensaje.getText();
-        String msgPadeado = "";
 
         try {
             if (!msgAEncriptar.equals("")) {
-                msgPadeado = md5.textoAProcesar(msgAEncriptar, msgAEncriptar.length());
+                String msgPadeado = MD5.textoAProcesar(msgAEncriptar, msgAEncriptar.length(), false);
                 jLabel6.setText("<html><div style=\"background-color: white;\">"+msgPadeado+"</html>");
             }
         } catch (Exception ex) {
@@ -713,14 +779,11 @@ public class MD5Panel extends javax.swing.JPanel {
     }//GEN-LAST:event_siguientePaso2MousePressed
 
     private void adicionarBitsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarBitsActionPerformed
-        MD5 md5 = new MD5();
-
         String msgAEncriptar = textMensaje.getText();
-        String msgPadeado = "";
 
         try {
             if (!msgAEncriptar.equals("")) {
-                msgPadeado = md5.textoPadeado(msgAEncriptar, msgAEncriptar.length());
+                String msgPadeado = MD5.textoPadeado(msgAEncriptar, msgAEncriptar.length(), false);
                 jLabel3.setText("<html><div style=\"background-color: white;\">"+msgPadeado+"</html>");
             }
         } catch (Exception ex) {
@@ -730,14 +793,11 @@ public class MD5Panel extends javax.swing.JPanel {
     }//GEN-LAST:event_adicionarBitsActionPerformed
 
     private void textoABinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoABinarioActionPerformed
-        MD5 md5 = new MD5();
-
         String msgAEncriptar = textMensaje.getText();
-        String msgBinario = "";
 
         try {
             if (!msgAEncriptar.equals("")) {
-                msgBinario = md5.textoEnBinario(msgAEncriptar);
+                String msgBinario = MD5.textoEnBinario(msgAEncriptar, false);
                 jLabel4.setText("<html><div style=\"background-color: white;\">"+msgBinario+"</html>");
             }
         } catch (Exception ex) {
@@ -797,10 +857,6 @@ public class MD5Panel extends javax.swing.JPanel {
             siguientePaso4ii.setVisible(false);
             buttonRonda1.setVisible(false);
     }//GEN-LAST:event_siguientePaso4iActionPerformed
-
-    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton5ActionPerformed
 
     private void jRadioButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton5MouseClicked
         seteoInicial();
@@ -919,36 +975,36 @@ public class MD5Panel extends javax.swing.JPanel {
 
     private void seteoValoresIniciales() {
         String inicial = "";
-        inicial += " A = " + MD5.getMatrizValores()[0][0] + "      ";
-        inicial += " D = " + MD5.getMatrizValores()[3][0] + "      ";
-        inicial += " C = " + MD5.getMatrizValores()[2][0] + "      ";
-        inicial += " B = " + MD5.getMatrizValores()[1][0] + "      ";
+        inicial += " A = " + MD5.getMatrizValores()[0][0] + "    ";
+        inicial += " D = " + MD5.getMatrizValores()[3][0] + "    ";
+        inicial += " C = " + MD5.getMatrizValores()[2][0] + "    ";
+        inicial += " B = " + MD5.getMatrizValores()[1][0];
         valoresIniciales.setText(inicial);
     }
 
     private void seteoSalidaProceso() {
         String salida = "";
-        salida += "AA = " + MD5.getMatrizValores()[0][16] + "     ";
-        salida += "DD = " + MD5.getMatrizValores()[3][16] + "     ";
-        salida += "CC = " + MD5.getMatrizValores()[2][16] + "     ";
-        salida += "BB = " + MD5.getMatrizValores()[1][16] + "     ";
+        salida += "AA = " + MD5.getMatrizValores()[0][16] + "   ";
+        salida += "DD = " + MD5.getMatrizValores()[3][16] + "   ";
+        salida += "CC = " + MD5.getMatrizValores()[2][16] + "   ";
+        salida += "BB = " + MD5.getMatrizValores()[1][16];
         salidaFinal.setText(salida);
         salidaFinal.setVisible(true);
         siguientePaso4ii.setVisible(true);
     }
     private String seteoSumaFinal() {
         String sumaFinal = "";
-        sumaFinal += " A = " + MD5.getMatrizValores()[0][17] + "      ";
-        sumaFinal += " D = " + MD5.getMatrizValores()[3][17] + "      ";
-        sumaFinal += " C = " + MD5.getMatrizValores()[2][17] + "      ";
-        sumaFinal += " B = " + MD5.getMatrizValores()[1][17] + "      ";
+        sumaFinal += " A = " + MD5.getMatrizValores()[0][17] + "    ";
+        sumaFinal += " D = " + MD5.getMatrizValores()[3][17] + "    ";
+        sumaFinal += " C = " + MD5.getMatrizValores()[2][17] + "    ";
+        sumaFinal += " B = " + MD5.getMatrizValores()[1][17];
         return sumaFinal;
     }
     private void completarGrilla(int limiteColumna, int limiteFila) {
         int count = 0;
         while (janterior < 16) {
             while (ianterior < 4){
-                jTable1.setValueAt(MD5.getMatrizValores()[ianterior][janterior+1], janterior, ianterior);
+                jTable1.setValueAt(MD5.getMatrizValores()[ianterior][janterior+1], janterior, ianterior+1);
                 count++;
                 ianterior++;
                 if (count >= limiteColumna*limiteFila){
@@ -967,7 +1023,7 @@ public class MD5Panel extends javax.swing.JPanel {
 
     private void seteoInicial() throws NumberFormatException {
             for (int j = 0; j < 16; j++) {
-                for (int i = 0; i < 4; i++) {
+                for (int i = 1; i < 5; i++) {
                     jTable1.setValueAt("", j, i);     
                 }
             }
@@ -1043,8 +1099,24 @@ public class MD5Panel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel66;
