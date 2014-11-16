@@ -549,7 +549,7 @@ public class MD5Panel extends javax.swing.JPanel {
         jRadioButton4.setBounds(140, 120, 80, 22);
 
         jLabel30.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        jLabel30.setText("<html>Seleccione una cantidad de pasos, para seguir el proceso:</html>");
+        jLabel30.setText("<html>Seleccione una cantidad de pasos para seguir el proceso:</html>");
         panelPaso4ii.add(jLabel30);
         jLabel30.setBounds(20, 70, 390, 50);
 
@@ -1055,7 +1055,9 @@ public class MD5Panel extends javax.swing.JPanel {
         janterior = 0;
         
     }
-    int pasos= 0; int limitei= 0; int limitej= 0;
+    int pasos= 0; 
+    protected int limitei= 0; 
+    protected int limitej= 0;
     MD5 md5 = new MD5();
     int ianterior = 0; int janterior = 0;
     int iteracionRonda1 = 0;    int iteracionRonda2 = 0;    int iteracionRonda3 = 0;    int iteracionRonda4 = 0;
