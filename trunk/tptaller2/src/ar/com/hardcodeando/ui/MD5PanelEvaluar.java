@@ -6,10 +6,10 @@
 package ar.com.hardcodeando.ui;
 
 import ar.com.hardcodeando.algorithm.MD5;
+import ar.com.hardcodeando.ui.utils.MyCellEditor;
+import ar.com.hardcodeando.ui.utils.StatusColumnCellRenderer;
 import java.awt.Color;
 import java.util.Enumeration;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
@@ -19,12 +19,25 @@ import javax.swing.JOptionPane;
  * @author estefi
  */
 public class MD5PanelEvaluar extends javax.swing.JPanel {
+    
 
+    private MyCellEditor myCellEditor=null;    
     /**
      * Creates new form MD5Panel
      */
     public MD5PanelEvaluar() {
+        
         initComponents();
+        jTable2.getColumnModel().getColumn(1).setCellEditor(new MyCellEditor());        
+        jTable2.getColumnModel().getColumn(2).setCellEditor(new MyCellEditor());        
+        jTable2.getColumnModel().getColumn(3).setCellEditor(new MyCellEditor());        
+        jTable2.getColumnModel().getColumn(4).setCellEditor(new MyCellEditor());
+        
+        jTable2.getColumnModel().getColumn(1).setCellRenderer(new StatusColumnCellRenderer());        
+        jTable2.getColumnModel().getColumn(2).setCellRenderer(new StatusColumnCellRenderer());        
+        jTable2.getColumnModel().getColumn(3).setCellRenderer(new StatusColumnCellRenderer());        
+        jTable2.getColumnModel().getColumn(4).setCellRenderer(new StatusColumnCellRenderer());
+                        
         jTabbedPane1.setEnabledAt(1, false);
         jTabbedPane1.setEnabledAt(2, false);
         jTabbedPane1.setEnabledAt(3, false);
@@ -114,7 +127,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         sumaFinal = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         valoresIniciales = new javax.swing.JLabel();
-        jButton15 = new javax.swing.JButton();
+        botonMostrarGrillaCompleta = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
         radioButton1 = new javax.swing.JRadioButton();
@@ -126,8 +139,8 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         buttonRonda3 = new javax.swing.JButton();
         buttonRonda4 = new javax.swing.JButton();
         valoresLabel = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
@@ -150,10 +163,10 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         hashSalida = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jTextField18 = new javax.swing.JTextField();
-        jButton17 = new javax.swing.JButton();
+        botonValidarPaso5 = new javax.swing.JButton();
         jLabel39 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
-        jButton18 = new javax.swing.JButton();
+        botonMostrarPaso5 = new javax.swing.JButton();
         jLabel42 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -493,9 +506,9 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         panelPaso4ii.setLayout(null);
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel26.setText("Paso 4: Ronda 4");
+        jLabel26.setText("Paso 4: Procesamiento del mensaje");
         panelPaso4ii.add(jLabel26);
-        jLabel26.setBounds(20, 10, 163, 22);
+        jLabel26.setBounds(20, 10, 390, 22);
         panelPaso4ii.add(sumaFinal);
         sumaFinal.setBounds(660, 500, 440, 20);
 
@@ -510,21 +523,26 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         panelPaso4ii.add(valoresIniciales);
         valoresIniciales.setBounds(630, 80, 550, 15);
 
-        jButton15.setText("Mostrar");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
+        botonMostrarGrillaCompleta.setText("Mostrar");
+        botonMostrarGrillaCompleta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
+                botonMostrarGrillaCompletaActionPerformed(evt);
             }
         });
-        panelPaso4ii.add(jButton15);
-        jButton15.setBounds(230, 510, 110, 30);
+        panelPaso4ii.add(botonMostrarGrillaCompleta);
+        botonMostrarGrillaCompleta.setBounds(230, 510, 110, 30);
 
         jButton16.setText("Validar");
+        jButton16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                onValidarGrilla(evt);
+            }
+        });
         panelPaso4ii.add(jButton16);
         jButton16.setBounds(360, 510, 110, 30);
 
         jLabel30.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        jLabel30.setText("<html>Seleccione una cantidad de pasos, para seguir el proceso:</html>");
+        jLabel30.setText("<html>Seleccione una cantidad de pasos para seguir el proceso:</html>");
         panelPaso4ii.add(jLabel30);
         jLabel30.setBounds(20, 110, 390, 50);
 
@@ -618,13 +636,13 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         panelPaso4ii.add(valoresLabel);
         valoresLabel.setBounds(500, 80, 110, 15);
 
-        jLabel40.setText("La base del algoritmo es una función de compresión que consta de cuatro rondas de estructura similar");
-        panelPaso4ii.add(jLabel40);
-        jLabel40.setBounds(20, 40, 651, 15);
-
         jLabel37.setText("1");
         panelPaso4ii.add(jLabel37);
         jLabel37.setBounds(680, 140, 52, 10);
+
+        jLabel40.setText("La base del algoritmo es una función de compresión que consta de cuatro rondas de estructura similar");
+        panelPaso4ii.add(jLabel40);
+        jLabel40.setBounds(20, 40, 651, 15);
 
         jLabel45.setText("1");
         panelPaso4ii.add(jLabel45);
@@ -717,9 +735,36 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        jTable2.setCellEditor(myCellEditor);
         jTable2.setColumnSelectionAllowed(true);
         jTable2.setRowHeight(21);
         jTable2.getTableHeader().setReorderingAllowed(false);
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                onGrillaMouseClick(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                onGrillaMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                onGrillaMousePressed(evt);
+            }
+        });
+        jTable2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                onGrillaMouseDragged(evt);
+            }
+        });
+        jTable2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                onGrillaFocusLost(evt);
+            }
+        });
+        jTable2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                onGrillaKeyPressed(evt);
+            }
+        });
         jScrollPane4.setViewportView(jTable2);
         jTable2.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
@@ -749,56 +794,51 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         panelPaso5.add(jTextField18);
         jTextField18.setBounds(400, 330, 440, 30);
 
-        jButton17.setText("Validar");
-        panelPaso5.add(jButton17);
-        jButton17.setBounds(570, 440, 110, 30);
+        botonValidarPaso5.setText("Validar");
+        panelPaso5.add(botonValidarPaso5);
+        botonValidarPaso5.setBounds(570, 440, 110, 30);
 
         jLabel39.setText("Variables iniciales");
         panelPaso5.add(jLabel39);
-        jLabel39.setBounds(220, 170, 140, 15);
+        jLabel39.setBounds(220, 160, 140, 20);
 
         jLabel41.setText("Variables salida");
         panelPaso5.add(jLabel41);
-        jLabel41.setBounds(220, 190, 140, 15);
+        jLabel41.setBounds(220, 180, 140, 15);
 
-        jButton18.setText("Motrar");
-        jButton18.addActionListener(new java.awt.event.ActionListener() {
+        botonMostrarPaso5.setText("Mostrar");
+        botonMostrarPaso5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton18ActionPerformed(evt);
+                botonMostrarPaso5ActionPerformed(evt);
             }
         });
-        panelPaso5.add(jButton18);
-        jButton18.setBounds(430, 440, 110, 30);
+        panelPaso5.add(botonMostrarPaso5);
+        botonMostrarPaso5.setBounds(430, 440, 110, 30);
 
         jLabel42.setText("Suma final");
         panelPaso5.add(jLabel42);
-        jLabel42.setBounds(220, 210, 140, 15);
+        jLabel42.setBounds(220, 200, 140, 15);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "", "A", "D", "C", "B"
+                "A", "D", "C", "B"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, true, true, true, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jScrollPane5.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setResizable(false);
+            jTable1.getColumnModel().getColumn(2).setResizable(false);
+            jTable1.getColumnModel().getColumn(3).setResizable(false);
         }
 
         panelPaso5.add(jScrollPane5);
-        jScrollPane5.setBounds(210, 150, 690, 80);
+        jScrollPane5.setBounds(340, 140, 550, 80);
 
         jLabel43.setText("Ingrese el resumen del mensaje en formato little - endian");
         panelPaso5.add(jLabel43);
@@ -821,28 +861,27 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton18ActionPerformed
+    private void botonMostrarPaso5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMostrarPaso5ActionPerformed
+        
+    }//GEN-LAST:event_botonMostrarPaso5ActionPerformed
 
     private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField18ActionPerformed
 
     private void buttonRonda4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonRonda4MousePressed
-        /*  iteracionRonda4= iteracionRonda4 + (limitei * limitej);
+        iteracionRonda4= iteracionRonda4 + (limitei * limitej);
         if (iteracionRonda4 <= 16){
             completarGrilla(limitei, limitej);
             buttonRonda4.setText("<html>Ronda 4 <br> Iteración: " + iteracionRonda4 + "</html>");
         }
         if (iteracionRonda4 == 16){
             buttonRonda4.setVisible(false);
-            seteoSalidaProceso();
-        }*/
+        }
     }//GEN-LAST:event_buttonRonda4MousePressed
 
     private void buttonRonda3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonRonda3MousePressed
-        /* iteracionRonda3 = iteracionRonda3 + (limitei * limitej);
+        iteracionRonda3 = iteracionRonda3 + (limitei * limitej);
         if (iteracionRonda3 <= 16){
             completarGrilla(limitei, limitej);
             buttonRonda3.setText("<html>Ronda 3 <br> Iteración: "+iteracionRonda3+"</html>");
@@ -850,11 +889,11 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         if (iteracionRonda3 == 16){
             buttonRonda3.setVisible(false);
             buttonRonda4.setVisible(true);
-        }*/
+        }
     }//GEN-LAST:event_buttonRonda3MousePressed
 
     private void buttonRonda2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonRonda2MousePressed
-        /*   iteracionRonda2= iteracionRonda2 + (limitei * limitej);
+        iteracionRonda2= iteracionRonda2 + (limitei * limitej);
         if (iteracionRonda2 <= 16){
             completarGrilla(limitei, limitej);
             buttonRonda2.setText("<html>Ronda 2 <br> Iteración: " + iteracionRonda2 + "</html>");
@@ -862,11 +901,11 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         if (iteracionRonda2 == 16){
             buttonRonda2.setVisible(false);
             buttonRonda3.setVisible(true);
-        }*/
+        }
     }//GEN-LAST:event_buttonRonda2MousePressed
 
     private void buttonRonda1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonRonda1MousePressed
-        /*     iteracionRonda1= iteracionRonda1 + (limitei * limitej);
+        iteracionRonda1= iteracionRonda1 + (limitei * limitej);
         seteoValoresIniciales();
         completarGrilla(limitei, limitej);
         if (iteracionRonda1 <= 16){
@@ -888,10 +927,17 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             buttonRonda2.setText("<html>Ronda 2 <br> Iteración: " + iteracionRonda2 + "</html>");
             buttonRonda3.setText("<html>Ronda 3 <br> Iteración: " + iteracionRonda3 + "</html>");
             buttonRonda4.setText("<html>Ronda 4 <br> Iteración: " + iteracionRonda4 + "</html>");
-            seteoSalidaProceso();
-        }*/
+        }
     }//GEN-LAST:event_buttonRonda1MousePressed
 
+    private void seteoValoresIniciales() {
+        String inicial = "";
+        inicial += " A = " + MD5.getMatrizValores()[0][0] + "    ";
+        inicial += " D = " + MD5.getMatrizValores()[3][0] + "    ";
+        inicial += " C = " + MD5.getMatrizValores()[2][0] + "    ";
+        inicial += " B = " + MD5.getMatrizValores()[1][0];
+        valoresIniciales.setText(inicial);
+    }
     private void radioButton64ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioButton64ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_radioButton64ActionPerformed
@@ -916,9 +962,10 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         //        seteoInicial();
     }//GEN-LAST:event_radioButton4MouseClicked
 
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+    private void botonMostrarGrillaCompletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMostrarGrillaCompletaActionPerformed
         seteoInicial();
-    }//GEN-LAST:event_jButton15ActionPerformed
+        completarGrilla(limitei, limitej);
+    }//GEN-LAST:event_botonMostrarGrillaCompletaActionPerformed
     
     private void seteoInicial() throws NumberFormatException {
             for (int j = 0; j < 16; j++) {
@@ -926,6 +973,9 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
                     jTable2.setValueAt("", j, i);     
                 }
             }
+        if (getSelectedButtonText(buttonGroupPasos) == null){
+          JOptionPane.showMessageDialog(IntroMD5, "Debe elegir una cantidad de pasos!", "MD5", JOptionPane.ERROR_MESSAGE);  
+        } else {
             pasos = Integer.parseInt(getSelectedButtonText(buttonGroupPasos));
             switch (pasos){
                 case 1: limitei = 4; limitej = 16;
@@ -951,12 +1001,34 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         buttonRonda4.setText("<html>Ronda 4 <br> Iteración: " + iteracionRonda4 + "</html>");
         ianterior = 0;
         janterior = 0;
-        
+        }
     }
 
+     private void completarGrilla(int limiteColumna, int limiteFila) {
+        int count = 0;
+        while (janterior < 16) {
+            while (ianterior < 4){
+                jTable2.setValueAt(MD5.getMatrizValores()[ianterior][janterior+1], janterior, ianterior+1);
+                count++;
+                ianterior++;
+                if (count >= limiteColumna*limiteFila){
+                    break;
+                }
+            }
+            if (ianterior == 4){
+                janterior++;
+                ianterior=0;
+            }
+            if (count >= limiteColumna*limiteFila){
+                    break;
+            }
+        }      
+    }
+     
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        jTabbedPane1.setEnabledAt(6, true);
-        jTabbedPane1.setSelectedIndex(6);
+        
+        jTabbedPane1.setEnabledAt(5, true);
+        jTabbedPane1.setSelectedIndex(5);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void botonMostrarVariablesConcatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMostrarVariablesConcatActionPerformed
@@ -969,8 +1041,12 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
     }//GEN-LAST:event_botonMostrarVariablesConcatActionPerformed
 
     private void botonSiguientePaso3AEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguientePaso3AEActionPerformed
-        jTabbedPane1.setEnabledAt(4, true);
-        jTabbedPane1.setSelectedIndex(4);
+            char chrTestData[] = new char[64];
+            chrTestData = mensajeAEncriptar.getText().toCharArray();
+            md5.update(chrTestData, chrTestData.length);
+            md5.md5final();
+            jTabbedPane1.setEnabledAt(4, true);
+            jTabbedPane1.setSelectedIndex(4);
     }//GEN-LAST:event_botonSiguientePaso3AEActionPerformed
 
     private void botonSiguientePaso3AEMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonSiguientePaso3AEMousePressed
@@ -1135,6 +1211,124 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(IntroMD5, "Uno o más de los valores de concatenación ingresados son invalidos!", "MD5", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_botonValidarVariablesConcatActionPerformed
+
+    private void onGrillaMouseClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_onGrillaMouseClick
+       /* this.clickedOnGrilla = true;
+        handleGrillaEvents(evt);    */  
+         jTable2.updateUI();
+         handleGrillaEvents(evt);
+    }//GEN-LAST:event_onGrillaMouseClick
+
+    private void onGrillaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_onGrillaMouseExited
+                  jTable2.updateUI(); 
+    }//GEN-LAST:event_onGrillaMouseExited
+
+    private void onGrillaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_onGrillaKeyPressed
+       /* if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            this.blurGrilla = true;
+            handleGrillaEvents(evt);      
+        }*/        
+    }//GEN-LAST:event_onGrillaKeyPressed
+
+    private void onGrillaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_onGrillaMousePressed
+       /* this.clickedOnGrilla=true;
+        handleGrillaEvents(evt);*/
+        handleGrillaEvents(evt);
+    }//GEN-LAST:event_onGrillaMousePressed
+
+    private void onGrillaMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_onGrillaMouseDragged
+      /* this.clickedOnGrilla=true;
+        handleGrillaEvents(evt);*/
+         jTable2.updateUI(); 
+    }//GEN-LAST:event_onGrillaMouseDragged
+
+    private void onGrillaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_onGrillaFocusLost
+           /* this.blurGrilla = true;
+            handleGrillaEvents(evt);  */    
+    }//GEN-LAST:event_onGrillaFocusLost
+
+    private void onValidarGrilla(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_onValidarGrilla
+        
+        String[][] auxMatrix = new String[16][4];
+        for(int i=0;i<auxMatrix.length;i++){
+            auxMatrix[i] = new String[4];
+        }
+             
+        int janteriorLocal =0;
+        int ianteriorLocal =0;
+        while (janteriorLocal < 16) {
+            while (ianteriorLocal < 4){                
+                auxMatrix[janteriorLocal][ianteriorLocal]=MD5.getMatrizValores()[ianteriorLocal][janteriorLocal+1];
+            
+                ianteriorLocal++;                
+            }
+            if (ianteriorLocal == 4){
+                janteriorLocal++;
+                ianteriorLocal=0;
+            }            
+        }      
+        /*********************************************************************/
+        
+        String currentValue = null;
+        Object userInput = null;
+        int countErrores = 0;
+        for(int i=0;i<16;i++){
+            for(int j=0;j<4;j++){               
+                currentValue = auxMatrix[i][j];
+                userInput = MyCellEditor.cleanText((String) jTable2.getValueAt(i, j+1));
+                if(userInput!=null && !userInput.toString().isEmpty()){
+                    if(compararIgualdadTextos(currentValue, userInput.toString())){
+                        jTable2.setValueAt("<html><div style='color: green;'>"+userInput.toString()+"</div></html>", i, j+1);
+                    }else{//no son iguales
+                         countErrores++;
+                        jTable2.setValueAt("<html><div style='color: red;'>"+userInput.toString()+"</div></html>", i, j+1);
+                    }
+                }else{
+                    continue;
+                }
+            }//end for j
+        } //end for i
+        if(countErrores>0){
+            JOptionPane.showMessageDialog(panelPaso4ii, "Usted tiene "+countErrores+" errores en la grilla", "Error", JOptionPane.ERROR_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(panelPaso4ii, "Todos los valores ingresados son correctos", "Error", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_onValidarGrilla
+    
+    public void validateInputGrilla(){
+        if(blurGrilla){
+                this.blurGrilla=false;
+                String currentValue = MD5.getMatrizValores()[ianterior][janterior+1];
+                if(currentValue == null || currentValue.isEmpty()) return;
+                String userInput = jTable2.getValueAt(janterior, ianterior+1).toString();
+                if(!compararIgualdadTextos(currentValue, userInput)){
+                    JOptionPane.showMessageDialog(panelPaso4ii, "Usted mando fruta. Ese no es el valor esperado", "Error", JOptionPane.ERROR_MESSAGE);
+                }else{                                
+                    completarGrilla(limitei, limitej);
+                }
+        }
+    }
+    
+    
+    public void validateContent(){
+        
+        if(this.selectedColumnForEdit == -1 || this.selectedRowForEdit == -1 ) return;
+        String realValue = MD5.getMatrizValores()[ this.selectedColumnForEdit ][ this.selectedRowForEdit +1];
+        if(realValue == null || realValue.isEmpty()) return;
+        String userInput = jTable2.getValueAt( this.selectedColumnForEdit , this.selectedRowForEdit+1).toString();
+        
+        if(!compararIgualdadTextos(realValue, userInput)){
+            JOptionPane.showMessageDialog(panelPaso4ii, "Udted mando fruta. Ese no es el valor esperado", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public void handleGrillaEvents(java.awt.event.ComponentEvent evt){
+       
+        if (jTable2.getCellEditor() != null) {
+                this.selectedColumnForEdit = jTable2.getSelectedRow();
+                this.selectedRowForEdit = jTable2.getSelectedColumn()-1;
+        }
+    }
     
     public String getSelectedButtonText(ButtonGroup buttonGroup) {
         for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
@@ -1169,18 +1363,28 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
     int iteracionRonda1 = 0;    int iteracionRonda2 = 0;    int iteracionRonda3 = 0;    int iteracionRonda4 = 0;
     int pasos= 0; int limitei= 0; int limitej= 0;
     int ianterior = 0; int janterior = 0;
+    private boolean clickedOnGrilla = false;
+    private boolean blurGrilla = false;
+    
+    private int selectedColumnForEdit = -1;
+    private int selectedRowForEdit = -1;
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel IntroMD5;
     private javax.swing.JButton botContinuarPreguntas;
     private javax.swing.JButton botCorregirPreguntas;
     private javax.swing.JButton botReintentarPreguntas;
     private javax.swing.JButton botResolverPreguntas;
+    private javax.swing.JButton botonMostrarGrillaCompleta;
     private javax.swing.JButton botonMostrarMensajeConLongitud;
+    private javax.swing.JButton botonMostrarPaso5;
     private javax.swing.JButton botonMostrarVariablesConcat;
     private javax.swing.JButton botonSiguientePaso1AE;
     private javax.swing.JButton botonSiguientePaso2AE;
     private javax.swing.JButton botonSiguientePaso3AE;
     private javax.swing.JButton botonValidarMensajeConLongitud;
+    private javax.swing.JButton botonValidarPaso5;
     private javax.swing.JButton botonValidarVariablesConcat;
     private javax.swing.ButtonGroup buttonGroupPasos;
     private javax.swing.JButton buttonMostrarAdicionBits;
@@ -1195,10 +1399,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
     private javax.swing.ButtonGroup grupoPreg4;
     private javax.swing.ButtonGroup grupoPreg5;
     private javax.swing.JLabel hashSalida;
-    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;

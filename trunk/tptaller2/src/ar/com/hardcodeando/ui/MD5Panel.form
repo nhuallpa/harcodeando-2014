@@ -909,7 +909,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="DejaVu Sans" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;Seleccione una cantidad de pasos, para seguir el proceso:&lt;/html&gt;"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;Seleccione una cantidad de pasos para seguir el proceso:&lt;/html&gt;"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
