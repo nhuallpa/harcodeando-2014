@@ -129,11 +129,6 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         valoresIniciales = new javax.swing.JLabel();
         botonMostrarGrillaCompleta = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
-        jLabel30 = new javax.swing.JLabel();
-        radioButton1 = new javax.swing.JRadioButton();
-        radioButton4 = new javax.swing.JRadioButton();
-        radioButton16 = new javax.swing.JRadioButton();
-        radioButton64 = new javax.swing.JRadioButton();
         buttonRonda1 = new javax.swing.JButton();
         buttonRonda2 = new javax.swing.JButton();
         buttonRonda3 = new javax.swing.JButton();
@@ -519,7 +514,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             }
         });
         panelPaso4ii.add(jButton5);
-        jButton5.setBounds(490, 510, 110, 30);
+        jButton5.setBounds(510, 510, 110, 30);
         panelPaso4ii.add(valoresIniciales);
         valoresIniciales.setBounds(630, 80, 550, 15);
 
@@ -539,62 +534,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             }
         });
         panelPaso4ii.add(jButton16);
-        jButton16.setBounds(360, 510, 110, 30);
-
-        jLabel30.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
-        jLabel30.setText("<html>Seleccione una cantidad de pasos para seguir el proceso:</html>");
-        panelPaso4ii.add(jLabel30);
-        jLabel30.setBounds(20, 110, 390, 50);
-
-        buttonGroupPasos.add(radioButton1);
-        radioButton1.setText("1");
-        radioButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                radioButton1MouseClicked(evt);
-            }
-        });
-        radioButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radioButton1ActionPerformed(evt);
-            }
-        });
-        panelPaso4ii.add(radioButton1);
-        radioButton1.setBounds(60, 160, 70, 22);
-
-        buttonGroupPasos.add(radioButton4);
-        radioButton4.setText("4");
-        radioButton4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                radioButton4MouseClicked(evt);
-            }
-        });
-        panelPaso4ii.add(radioButton4);
-        radioButton4.setBounds(140, 160, 80, 22);
-
-        buttonGroupPasos.add(radioButton16);
-        radioButton16.setText("16");
-        radioButton16.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                radioButton16MouseClicked(evt);
-            }
-        });
-        panelPaso4ii.add(radioButton16);
-        radioButton16.setBounds(220, 160, 50, 22);
-
-        buttonGroupPasos.add(radioButton64);
-        radioButton64.setText("64");
-        radioButton64.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                radioButton64MouseClicked(evt);
-            }
-        });
-        radioButton64.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radioButton64ActionPerformed(evt);
-            }
-        });
-        panelPaso4ii.add(radioButton64);
-        radioButton64.setBounds(300, 160, 70, 22);
+        jButton16.setBounds(370, 510, 110, 30);
 
         buttonRonda1.setText("<html>Ronda 1<br> Iteración: 0 </html>");
         buttonRonda1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -938,30 +878,6 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         inicial += " B = " + MD5.getMatrizValores()[1][0];
         valoresIniciales.setText(inicial);
     }
-    private void radioButton64ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioButton64ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_radioButton64ActionPerformed
-
-    private void radioButton64MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_radioButton64MouseClicked
-        //   seteoInicial();
-    }//GEN-LAST:event_radioButton64MouseClicked
-
-    private void radioButton16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_radioButton16MouseClicked
-        //  seteoInicial();
-    }//GEN-LAST:event_radioButton16MouseClicked
-
-    private void radioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_radioButton1ActionPerformed
-
-    private void radioButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_radioButton1MouseClicked
-        //       seteoInicial();
-    }//GEN-LAST:event_radioButton1MouseClicked
-
-    private void radioButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_radioButton4MouseClicked
-        //        seteoInicial();
-    }//GEN-LAST:event_radioButton4MouseClicked
-
     private void botonMostrarGrillaCompletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMostrarGrillaCompletaActionPerformed
         seteoInicial();
         completarGrilla(limitei, limitej);
@@ -973,20 +889,8 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
                     jTable2.setValueAt("", j, i);     
                 }
             }
-        if (getSelectedButtonText(buttonGroupPasos) == null){
-          JOptionPane.showMessageDialog(IntroMD5, "Debe elegir una cantidad de pasos!", "MD5", JOptionPane.ERROR_MESSAGE);  
-        } else {
-            pasos = Integer.parseInt(getSelectedButtonText(buttonGroupPasos));
-            switch (pasos){
-                case 1: limitei = 4; limitej = 16;
-                    break;
-                case 4: limitei = 4; limitej = 4;
-                    break;
-                case 16: limitei = 4; limitej = 1;
-                    break;
-                case 64: limitei = 1; limitej = 1;
-                    break;
-            }
+        limitei = 1; limitej = 1;
+         
         buttonRonda1.setVisible(true);
         buttonRonda2.setVisible(false);
         buttonRonda3.setVisible(false);
@@ -1001,7 +905,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         buttonRonda4.setText("<html>Ronda 4 <br> Iteración: " + iteracionRonda4 + "</html>");
         ianterior = 0;
         janterior = 0;
-        }
+        
     }
 
      private void completarGrilla(int limiteColumna, int limiteFila) {
@@ -1291,7 +1195,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         if(countErrores>0){
             JOptionPane.showMessageDialog(panelPaso4ii, "Usted tiene "+countErrores+" errores en la grilla", "Error", JOptionPane.ERROR_MESSAGE);
         }else{
-            JOptionPane.showMessageDialog(panelPaso4ii, "Todos los valores ingresados son correctos", "Error", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(panelPaso4ii, "Todos los valores ingresados son correctos", "MD5", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_onValidarGrilla
     
@@ -1411,7 +1315,6 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
@@ -1461,10 +1364,6 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
     private javax.swing.JPanel panelPaso3;
     private javax.swing.JPanel panelPaso4ii;
     private javax.swing.JPanel panelPaso5;
-    private javax.swing.JRadioButton radioButton1;
-    private javax.swing.JRadioButton radioButton16;
-    private javax.swing.JRadioButton radioButton4;
-    private javax.swing.JRadioButton radioButton64;
     private javax.swing.JRadioButton rbcorrecto1;
     private javax.swing.JRadioButton rbcorrecto2;
     private javax.swing.JRadioButton rbcorrecto3;
