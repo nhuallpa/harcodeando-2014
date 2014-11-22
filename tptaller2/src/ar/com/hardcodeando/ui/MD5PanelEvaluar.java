@@ -28,15 +28,15 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
     public MD5PanelEvaluar() {
         
         initComponents();
-        jTable2.getColumnModel().getColumn(1).setCellEditor(new MyCellEditor());        
-        jTable2.getColumnModel().getColumn(2).setCellEditor(new MyCellEditor());        
-        jTable2.getColumnModel().getColumn(3).setCellEditor(new MyCellEditor());        
-        jTable2.getColumnModel().getColumn(4).setCellEditor(new MyCellEditor());
+        tablaPaso4.getColumnModel().getColumn(1).setCellEditor(new MyCellEditor());        
+        tablaPaso4.getColumnModel().getColumn(2).setCellEditor(new MyCellEditor());        
+        tablaPaso4.getColumnModel().getColumn(3).setCellEditor(new MyCellEditor());        
+        tablaPaso4.getColumnModel().getColumn(4).setCellEditor(new MyCellEditor());
         
-        jTable2.getColumnModel().getColumn(1).setCellRenderer(new StatusColumnCellRenderer());        
-        jTable2.getColumnModel().getColumn(2).setCellRenderer(new StatusColumnCellRenderer());        
-        jTable2.getColumnModel().getColumn(3).setCellRenderer(new StatusColumnCellRenderer());        
-        jTable2.getColumnModel().getColumn(4).setCellRenderer(new StatusColumnCellRenderer());
+        tablaPaso4.getColumnModel().getColumn(1).setCellRenderer(new StatusColumnCellRenderer());        
+        tablaPaso4.getColumnModel().getColumn(2).setCellRenderer(new StatusColumnCellRenderer());        
+        tablaPaso4.getColumnModel().getColumn(3).setCellRenderer(new StatusColumnCellRenderer());        
+        tablaPaso4.getColumnModel().getColumn(4).setCellRenderer(new StatusColumnCellRenderer());
                         
         jTabbedPane1.setEnabledAt(1, false);
         jTabbedPane1.setEnabledAt(2, false);
@@ -122,10 +122,10 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         valorInicialB = new javax.swing.JTextField();
         botonValidarVariablesConcat = new javax.swing.JButton();
         botonMostrarVariablesConcat = new javax.swing.JButton();
-        panelPaso4ii = new javax.swing.JPanel();
+        panelPaso4 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
         sumaFinal = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        botonSiguientePaso4AE = new javax.swing.JButton();
         botonMostrarGrillaCompleta = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
         jLabel37 = new javax.swing.JLabel();
@@ -146,8 +146,9 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         jLabel58 = new javax.swing.JLabel();
         jLabel59 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tablaPaso4 = new javax.swing.JTable();
         jLabel60 = new javax.swing.JLabel();
+        botonCompletarGrilla = new javax.swing.JButton();
         panelPaso5 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         hashSalida = new javax.swing.JLabel();
@@ -493,23 +494,24 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Paso 3 de 5", panelPaso3);
 
-        panelPaso4ii.setLayout(null);
+        panelPaso4.setLayout(null);
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel26.setText("Paso 4: Procesamiento del mensaje");
-        panelPaso4ii.add(jLabel26);
+        panelPaso4.add(jLabel26);
         jLabel26.setBounds(20, 10, 390, 22);
-        panelPaso4ii.add(sumaFinal);
+        panelPaso4.add(sumaFinal);
         sumaFinal.setBounds(660, 500, 440, 20);
 
-        jButton5.setText("Siguiente");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        botonSiguientePaso4AE.setText("Siguiente");
+        botonSiguientePaso4AE.setEnabled(false);
+        botonSiguientePaso4AE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                botonSiguientePaso4AEActionPerformed(evt);
             }
         });
-        panelPaso4ii.add(jButton5);
-        jButton5.setBounds(510, 510, 110, 30);
+        panelPaso4.add(botonSiguientePaso4AE);
+        botonSiguientePaso4AE.setBounds(610, 510, 110, 30);
 
         botonMostrarGrillaCompleta.setText("Mostrar");
         botonMostrarGrillaCompleta.addActionListener(new java.awt.event.ActionListener() {
@@ -517,8 +519,8 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
                 botonMostrarGrillaCompletaActionPerformed(evt);
             }
         });
-        panelPaso4ii.add(botonMostrarGrillaCompleta);
-        botonMostrarGrillaCompleta.setBounds(230, 510, 110, 30);
+        panelPaso4.add(botonMostrarGrillaCompleta);
+        botonMostrarGrillaCompleta.setBounds(150, 510, 110, 30);
 
         jButton16.setText("Validar");
         jButton16.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -526,78 +528,78 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
                 onValidarGrilla(evt);
             }
         });
-        panelPaso4ii.add(jButton16);
-        jButton16.setBounds(370, 510, 110, 30);
+        panelPaso4.add(jButton16);
+        jButton16.setBounds(460, 510, 110, 30);
 
         jLabel37.setText("1");
-        panelPaso4ii.add(jLabel37);
+        panelPaso4.add(jLabel37);
         jLabel37.setBounds(470, 140, 52, 10);
 
         jLabel40.setText("<html>Ingrese los valores que van tomando las variables de concatenación durante el procesamiento del mensaje, para validar su contenido:</html>");
-        panelPaso4ii.add(jLabel40);
+        panelPaso4.add(jLabel40);
         jLabel40.setBounds(40, 130, 310, 70);
 
         jLabel45.setText("1");
-        panelPaso4ii.add(jLabel45);
+        panelPaso4.add(jLabel45);
         jLabel45.setBounds(470, 200, 52, 10);
 
         jLabel46.setText("1");
-        panelPaso4ii.add(jLabel46);
+        panelPaso4.add(jLabel46);
         jLabel46.setBounds(470, 160, 52, 10);
 
         jLabel47.setText("2");
-        panelPaso4ii.add(jLabel47);
+        panelPaso4.add(jLabel47);
         jLabel47.setBounds(470, 220, 52, 10);
 
         jLabel48.setText("2");
-        panelPaso4ii.add(jLabel48);
+        panelPaso4.add(jLabel48);
         jLabel48.setBounds(470, 240, 52, 15);
 
         jLabel49.setText("2");
-        panelPaso4ii.add(jLabel49);
+        panelPaso4.add(jLabel49);
         jLabel49.setBounds(470, 260, 52, 15);
 
         jLabel50.setText("2");
-        panelPaso4ii.add(jLabel50);
+        panelPaso4.add(jLabel50);
         jLabel50.setBounds(470, 280, 52, 20);
 
         jLabel51.setText("3");
-        panelPaso4ii.add(jLabel51);
+        panelPaso4.add(jLabel51);
         jLabel51.setBounds(470, 300, 52, 20);
 
         jLabel52.setText("3");
-        panelPaso4ii.add(jLabel52);
+        panelPaso4.add(jLabel52);
         jLabel52.setBounds(470, 320, 52, 20);
 
         jLabel53.setText("3");
-        panelPaso4ii.add(jLabel53);
+        panelPaso4.add(jLabel53);
         jLabel53.setBounds(470, 340, 52, 20);
 
         jLabel54.setText("3");
-        panelPaso4ii.add(jLabel54);
+        panelPaso4.add(jLabel54);
         jLabel54.setBounds(470, 370, 52, 10);
 
         jLabel55.setText("4");
-        panelPaso4ii.add(jLabel55);
+        panelPaso4.add(jLabel55);
         jLabel55.setBounds(470, 390, 52, 10);
 
         jLabel56.setText("4");
-        panelPaso4ii.add(jLabel56);
+        panelPaso4.add(jLabel56);
         jLabel56.setBounds(470, 410, 52, 10);
 
         jLabel57.setText("4");
-        panelPaso4ii.add(jLabel57);
+        panelPaso4.add(jLabel57);
         jLabel57.setBounds(470, 430, 52, 10);
 
         jLabel58.setText("4");
-        panelPaso4ii.add(jLabel58);
+        panelPaso4.add(jLabel58);
         jLabel58.setBounds(470, 450, 52, 10);
 
         jLabel59.setText("1");
-        panelPaso4ii.add(jLabel59);
+        panelPaso4.add(jLabel59);
         jLabel59.setBounds(470, 180, 52, 10);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tablaPaso4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -628,11 +630,11 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTable2.setCellEditor(myCellEditor);
-        jTable2.setColumnSelectionAllowed(true);
-        jTable2.setRowHeight(21);
-        jTable2.getTableHeader().setReorderingAllowed(false);
-        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+        tablaPaso4.setCellEditor(myCellEditor);
+        tablaPaso4.setColumnSelectionAllowed(true);
+        tablaPaso4.setRowHeight(21);
+        tablaPaso4.getTableHeader().setReorderingAllowed(false);
+        tablaPaso4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 onGrillaMouseClick(evt);
             }
@@ -643,22 +645,31 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
                 onGrillaMousePressed(evt);
             }
         });
-        jTable2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        tablaPaso4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 onGrillaMouseDragged(evt);
             }
         });
-        jScrollPane4.setViewportView(jTable2);
-        jTable2.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        jScrollPane4.setViewportView(tablaPaso4);
+        tablaPaso4.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
-        panelPaso4ii.add(jScrollPane4);
+        panelPaso4.add(jScrollPane4);
         jScrollPane4.setBounds(420, 110, 580, 370);
 
         jLabel60.setText("La base del algoritmo es una función de compresión que consta de cuatro rondas de estructura similar.");
-        panelPaso4ii.add(jLabel60);
+        panelPaso4.add(jLabel60);
         jLabel60.setBounds(20, 40, 720, 15);
 
-        jTabbedPane1.addTab("Paso 4 de 5", panelPaso4ii);
+        botonCompletarGrilla.setText("Completar grilla");
+        botonCompletarGrilla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCompletarGrillaActionPerformed(evt);
+            }
+        });
+        panelPaso4.add(botonCompletarGrilla);
+        botonCompletarGrilla.setBounds(280, 510, 140, 30);
+
+        jTabbedPane1.addTab("Paso 4 de 5", panelPaso4);
 
         panelPaso5.setLayout(null);
 
@@ -676,6 +687,11 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         valorResumen.setBounds(400, 330, 440, 30);
 
         botonValidarPaso5.setText("Validar");
+        botonValidarPaso5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonValidarPaso5ActionPerformed(evt);
+            }
+        });
         panelPaso5.add(botonValidarPaso5);
         botonValidarPaso5.setBounds(570, 440, 110, 30);
 
@@ -710,6 +726,22 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
                 "A", "D", "C", "B"
             }
         ));
+        tablaPaso5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaPaso5MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                tablaPaso5MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tablaPaso5MousePressed(evt);
+            }
+        });
+        tablaPaso5.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                tablaPaso5MouseDragged(evt);
+            }
+        });
         jScrollPane5.setViewportView(tablaPaso5);
         if (tablaPaso5.getColumnModel().getColumnCount() > 0) {
             tablaPaso5.getColumnModel().getColumn(0).setResizable(false);
@@ -744,30 +776,31 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
 
     private void botonMostrarPaso5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMostrarPaso5ActionPerformed
         
-        tablaPaso5.setValueAt(MD5.getMatrizValores()[0][0], 0, 0);
-        tablaPaso5.setValueAt(MD5.getMatrizValores()[3][0], 0, 1);
-        tablaPaso5.setValueAt(MD5.getMatrizValores()[2][0], 0, 2);
-        tablaPaso5.setValueAt(MD5.getMatrizValores()[1][0], 0, 3);
-        tablaPaso5.setValueAt(MD5.getMatrizValores()[0][16], 1, 0);
-        tablaPaso5.setValueAt(MD5.getMatrizValores()[3][16], 1, 1);
-        tablaPaso5.setValueAt(MD5.getMatrizValores()[2][16], 1, 2);
-        tablaPaso5.setValueAt(MD5.getMatrizValores()[1][16], 1, 3);
-        tablaPaso5.setValueAt(MD5.getMatrizValores()[0][17], 2, 0);
-        tablaPaso5.setValueAt(MD5.getMatrizValores()[3][17], 2, 1);
-        tablaPaso5.setValueAt(MD5.getMatrizValores()[2][17], 2, 2);
-        tablaPaso5.setValueAt(MD5.getMatrizValores()[1][17], 2, 3);
+            tablaPaso5.setValueAt(MD5.getMatrizValores()[0][0], 0, 0);
+            tablaPaso5.setValueAt(MD5.getMatrizValores()[3][0], 0, 1);
+            tablaPaso5.setValueAt(MD5.getMatrizValores()[2][0], 0, 2);
+            tablaPaso5.setValueAt(MD5.getMatrizValores()[1][0], 0, 3);
+            tablaPaso5.setValueAt(MD5.getMatrizValores()[0][16], 1, 0);
+            tablaPaso5.setValueAt(MD5.getMatrizValores()[3][16], 1, 1);
+            tablaPaso5.setValueAt(MD5.getMatrizValores()[2][16], 1, 2);
+            tablaPaso5.setValueAt(MD5.getMatrizValores()[1][16], 1, 3);
+            tablaPaso5.setValueAt(MD5.getMatrizValores()[0][17], 2, 0);
+            tablaPaso5.setValueAt(MD5.getMatrizValores()[3][17], 2, 1);
+            tablaPaso5.setValueAt(MD5.getMatrizValores()[2][17], 2, 2);
+            tablaPaso5.setValueAt(MD5.getMatrizValores()[1][17], 2, 3);
         valorResumen.setText("" + MD5.ejecutarMd5(mensajeAEncriptar.getText()));
     }//GEN-LAST:event_botonMostrarPaso5ActionPerformed
 
     private void botonMostrarGrillaCompletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMostrarGrillaCompletaActionPerformed
         seteoInicial();
-        completarGrilla(limitei, limitej);
+        completarGrilla(limitei, limitej, true);
+        botonSiguientePaso4AE.setEnabled(true);  
     }//GEN-LAST:event_botonMostrarGrillaCompletaActionPerformed
     
     private void seteoInicial() throws NumberFormatException {
             for (int j = 0; j < 16; j++) {
                 for (int i = 1; i < 5; i++) {
-                    jTable2.setValueAt("", j, i);     
+                    tablaPaso4.setValueAt("", j, i);     
                 }
             }
         limitei = 4; limitej = 16;
@@ -779,11 +812,12 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         janterior = 0;        
     }
 
-     private void completarGrilla(int limiteColumna, int limiteFila) {
+     private void completarGrilla(int limiteColumna, int limiteFila, boolean completamente) {
         int count = 0;
         while (janterior < 16) {
             while (ianterior < 4){
-                jTable2.setValueAt(MD5.getMatrizValores()[ianterior][janterior+1], janterior, ianterior+1);
+                if (completamente || (tablaPaso4.getValueAt(janterior, ianterior+1) == null || tablaPaso4.getValueAt(janterior, ianterior+1).equals("")))
+                tablaPaso4.setValueAt(MD5.getMatrizValores()[ianterior][janterior+1], janterior, ianterior+1);
                 count++;
                 ianterior++;
                 if (count >= limiteColumna*limiteFila){
@@ -800,11 +834,11 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         }      
     }
      
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void botonSiguientePaso4AEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguientePaso4AEActionPerformed
         
         jTabbedPane1.setEnabledAt(5, true);
         jTabbedPane1.setSelectedIndex(5);
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_botonSiguientePaso4AEActionPerformed
 
     private void botonMostrarVariablesConcatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMostrarVariablesConcatActionPerformed
         valorInicialA.setText("01234567");
@@ -987,12 +1021,12 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
     }//GEN-LAST:event_botonValidarVariablesConcatActionPerformed
 
     private void onGrillaMouseClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_onGrillaMouseClick
-         jTable2.updateUI();
+         tablaPaso4.updateUI();
          handleGrillaEvents(evt);
     }//GEN-LAST:event_onGrillaMouseClick
 
     private void onGrillaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_onGrillaMouseExited
-                  jTable2.updateUI(); 
+                  tablaPaso4.updateUI(); 
     }//GEN-LAST:event_onGrillaMouseExited
 
     private void onGrillaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_onGrillaMousePressed
@@ -1000,7 +1034,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
     }//GEN-LAST:event_onGrillaMousePressed
 
     private void onGrillaMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_onGrillaMouseDragged
-         jTable2.updateUI(); 
+         tablaPaso4.updateUI(); 
     }//GEN-LAST:event_onGrillaMouseDragged
 
     private void onValidarGrilla(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_onValidarGrilla
@@ -1031,13 +1065,13 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         for(int i=0;i<16;i++){
             for(int j=0;j<4;j++){               
                 currentValue = auxMatrix[i][j];
-                userInput = MyCellEditor.cleanText((String) jTable2.getValueAt(i, j+1));
+                userInput = MyCellEditor.cleanText((String) tablaPaso4.getValueAt(i, j+1));
                 if(userInput!=null && !userInput.toString().isEmpty()){
                     if(compararIgualdadTextos(currentValue, userInput.toString())){
-                        jTable2.setValueAt("<html><div style='color: green;'>"+userInput.toString()+"</div></html>", i, j+1);
+                        tablaPaso4.setValueAt("<html><div style='color: green;'>"+userInput.toString()+"</div></html>", i, j+1);
                     }else{//no son iguales
                          countErrores++;
-                        jTable2.setValueAt("<html><div style='color: red;'>"+userInput.toString()+"</div></html>", i, j+1);
+                        tablaPaso4.setValueAt("<html><div style='color: red;'>"+userInput.toString()+"</div></html>", i, j+1);
                     }
                 }else{
                     continue;
@@ -1045,12 +1079,157 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             }//end for j
         } //end for i
         if(countErrores>0){
-            JOptionPane.showMessageDialog(panelPaso4ii, "Usted tiene "+countErrores+" errores en la grilla", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(panelPaso4, "Usted tiene "+countErrores+" errores en la grilla", "Error", JOptionPane.ERROR_MESSAGE);
         }else{
-            JOptionPane.showMessageDialog(panelPaso4ii, "Todos los valores ingresados son correctos", "MD5", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(panelPaso4, "Todos los valores ingresados son correctos", "MD5", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_onValidarGrilla
-    
+
+    private void botonValidarPaso5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonValidarPaso5ActionPerformed
+        
+        String currentValue = null;
+        Object userInput = null;
+        int countErrores = 0;
+        
+        currentValue = MD5.getMatrizValores()[0][0]; 
+        userInput = MyCellEditor.cleanText((String) tablaPaso5.getValueAt(0,0));
+        if (compararIgualdadTextos(currentValue, (String)userInput)){
+            tablaPaso5.setValueAt("<html><div style='color: green;'>"+userInput.toString()+"</div></html>", 0, 0);
+        } else {//no son iguales
+            tablaPaso5.setValueAt("<html><div style='color: red;'>"+userInput.toString()+"</div></html>", 0, 0);
+            countErrores++;
+        }
+        currentValue = MD5.getMatrizValores()[3][0]; 
+        userInput = MyCellEditor.cleanText((String) tablaPaso5.getValueAt(0,1));
+        if (compararIgualdadTextos(currentValue, (String)userInput)){
+            tablaPaso5.setValueAt("<html><div style='color: green;'>"+userInput.toString()+"</div></html>", 0, 1);
+        } else {//no son iguales
+            tablaPaso5.setValueAt("<html><div style='color: red;'>"+userInput.toString()+"</div></html>", 0, 1);
+            countErrores++;
+        }
+        currentValue = MD5.getMatrizValores()[2][0]; 
+        userInput = MyCellEditor.cleanText((String) tablaPaso5.getValueAt(0,2));
+        if (compararIgualdadTextos(currentValue, (String)userInput)){
+            tablaPaso5.setValueAt("<html><div style='color: green;'>"+userInput.toString()+"</div></html>", 0, 2);
+        } else {//no son iguales
+            tablaPaso5.setValueAt("<html><div style='color: red;'>"+userInput.toString()+"</div></html>", 0, 2);            
+            countErrores++;
+        }
+        currentValue = MD5.getMatrizValores()[1][0]; 
+        userInput = MyCellEditor.cleanText((String) tablaPaso5.getValueAt(0,3));
+        if (compararIgualdadTextos(currentValue, (String)userInput)){
+            tablaPaso5.setValueAt("<html><div style='color: green;'>"+userInput.toString()+"</div></html>", 0, 3);
+        } else {//no son iguales
+            tablaPaso5.setValueAt("<html><div style='color: red;'>"+userInput.toString()+"</div></html>", 0, 3);
+            countErrores++;
+        }
+        currentValue = MD5.getMatrizValores()[0][16]; 
+        userInput = MyCellEditor.cleanText((String) tablaPaso5.getValueAt(1,0));
+        if (compararIgualdadTextos(currentValue, (String)userInput)){
+            tablaPaso5.setValueAt("<html><div style='color: green;'>"+userInput.toString()+"</div></html>", 1, 0);
+        } else {//no son iguales
+            tablaPaso5.setValueAt("<html><div style='color: red;'>"+userInput.toString()+"</div></html>", 1, 0);
+            countErrores++;
+        }
+        currentValue = MD5.getMatrizValores()[3][16]; 
+        userInput = MyCellEditor.cleanText((String) tablaPaso5.getValueAt(1,1));
+        if (compararIgualdadTextos(currentValue, (String)userInput)){
+            tablaPaso5.setValueAt("<html><div style='color: green;'>"+userInput.toString()+"</div></html>", 1, 1);
+        } else {//no son iguales
+            tablaPaso5.setValueAt("<html><div style='color: red;'>"+userInput.toString()+"</div></html>", 1, 1);
+            countErrores++;
+        }
+        currentValue = MD5.getMatrizValores()[2][16]; 
+        userInput = MyCellEditor.cleanText((String) tablaPaso5.getValueAt(1,2));
+        if (compararIgualdadTextos(currentValue, (String)userInput)){
+            tablaPaso5.setValueAt("<html><div style='color: green;'>"+userInput.toString()+"</div></html>", 1, 2);
+        } else {//no son iguales
+            tablaPaso5.setValueAt("<html><div style='color: red;'>"+userInput.toString()+"</div></html>", 1, 2);            
+            countErrores++;
+        }
+        currentValue = MD5.getMatrizValores()[1][16]; 
+        userInput = MyCellEditor.cleanText((String) tablaPaso5.getValueAt(1,3));
+        if (compararIgualdadTextos(currentValue, (String)userInput)){
+            tablaPaso5.setValueAt("<html><div style='color: green;'>"+userInput.toString()+"</div></html>", 1, 3);
+        } else {//no son iguales
+            tablaPaso5.setValueAt("<html><div style='color: red;'>"+userInput.toString()+"</div></html>", 1, 3);
+            countErrores++;
+        }
+        currentValue = MD5.getMatrizValores()[0][17]; 
+        userInput = MyCellEditor.cleanText((String) tablaPaso5.getValueAt(2,0));
+        if (compararIgualdadTextos(currentValue, (String)userInput)){
+            tablaPaso5.setValueAt("<html><div style='color: green;'>"+userInput.toString()+"</div></html>", 2, 0);
+        } else {//no son iguales
+            tablaPaso5.setValueAt("<html><div style='color: red;'>"+userInput.toString()+"</div></html>", 2, 0);
+            countErrores++;
+        }
+        currentValue = MD5.getMatrizValores()[3][17]; 
+        userInput = MyCellEditor.cleanText((String) tablaPaso5.getValueAt(2,1));
+        if (compararIgualdadTextos(currentValue, (String)userInput)){
+            tablaPaso5.setValueAt("<html><div style='color: green;'>"+userInput.toString()+"</div></html>", 2, 1);
+        } else {//no son iguales
+            tablaPaso5.setValueAt("<html><div style='color: red;'>"+userInput.toString()+"</div></html>", 2, 1);
+            countErrores++;
+        }
+        currentValue = MD5.getMatrizValores()[2][17]; 
+        userInput = MyCellEditor.cleanText((String) tablaPaso5.getValueAt(2,2));
+        if (compararIgualdadTextos(currentValue, (String)userInput)){
+            tablaPaso5.setValueAt("<html><div style='color: green;'>"+userInput.toString()+"</div></html>", 2, 2);
+        } else {//no son iguales
+            tablaPaso5.setValueAt("<html><div style='color: red;'>"+userInput.toString()+"</div></html>", 2, 2);            
+            countErrores++;
+        }
+        currentValue = MD5.getMatrizValores()[1][17]; 
+        userInput = MyCellEditor.cleanText((String) tablaPaso5.getValueAt(2,3));
+        if (compararIgualdadTextos(currentValue, (String)userInput)){
+            tablaPaso5.setValueAt("<html><div style='color: green;'>"+userInput.toString()+"</div></html>", 2, 3);
+        } else {//no son iguales
+            tablaPaso5.setValueAt("<html><div style='color: red;'>"+userInput.toString()+"</div></html>", 2, 3);
+            countErrores++;
+        }
+        if(countErrores > 0){
+            JOptionPane.showMessageDialog(panelPaso5, "Usted tiene "+countErrores+" errores en la grilla", "Error", JOptionPane.ERROR_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(panelPaso5, "Todos los valores ingresados en la grilla son correctos", "MD5", JOptionPane.INFORMATION_MESSAGE);
+        }
+        String resumen = "" + MD5.ejecutarMd5(mensajeAEncriptar.getText());        
+        if (!compararIgualdadTextos(resumen, valorResumen.getText())){
+            JOptionPane.showMessageDialog(panelPaso5, "El resumen ingresado es inválido", "Error", JOptionPane.ERROR_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(panelPaso5, "El resumen ingresado es correcto", "MD5", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_botonValidarPaso5ActionPerformed
+
+    private void tablaPaso5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaPaso5MouseClicked
+            tablaPaso5.updateUI();
+            handleGrillaEventsPaso5(evt);
+    }//GEN-LAST:event_tablaPaso5MouseClicked
+
+    private void tablaPaso5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaPaso5MousePressed
+            handleGrillaEventsPaso5(evt);
+    }//GEN-LAST:event_tablaPaso5MousePressed
+
+    private void tablaPaso5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaPaso5MouseExited
+            tablaPaso5.updateUI(); 
+    }//GEN-LAST:event_tablaPaso5MouseExited
+
+    private void tablaPaso5MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaPaso5MouseDragged
+         tablaPaso5.updateUI(); 
+    }//GEN-LAST:event_tablaPaso5MouseDragged
+
+    private void botonCompletarGrillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCompletarGrillaActionPerformed
+       // seteoInicial();
+        completarGrilla(4, 16, false);
+        botonSiguientePaso4AE.setEnabled(true);  
+    }//GEN-LAST:event_botonCompletarGrillaActionPerformed
+    public void handleGrillaEventsPaso5(java.awt.event.ComponentEvent evt){
+       
+        if (tablaPaso5.getCellEditor() != null) {
+                this.selectedColumnForEdit = tablaPaso5.getSelectedRow();
+                this.selectedRowForEdit = tablaPaso5.getSelectedColumn()-1;
+        }
+    }
+    /*
     public void validateContent(){
         
         if(this.selectedColumnForEdit == -1 || this.selectedRowForEdit == -1 ) return;
@@ -1062,12 +1241,12 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(panelPaso4ii, "Udted mando fruta. Ese no es el valor esperado", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+    */
     public void handleGrillaEvents(java.awt.event.ComponentEvent evt){
        
-        if (jTable2.getCellEditor() != null) {
-                this.selectedColumnForEdit = jTable2.getSelectedRow();
-                this.selectedRowForEdit = jTable2.getSelectedColumn()-1;
+        if (tablaPaso4.getCellEditor() != null) {
+                this.selectedColumnForEdit = tablaPaso4.getSelectedRow();
+                this.selectedRowForEdit = tablaPaso4.getSelectedColumn()-1;
         }
     }
     
@@ -1114,6 +1293,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
     private javax.swing.JButton botCorregirPreguntas;
     private javax.swing.JButton botReintentarPreguntas;
     private javax.swing.JButton botResolverPreguntas;
+    private javax.swing.JButton botonCompletarGrilla;
     private javax.swing.JButton botonMostrarGrillaCompleta;
     private javax.swing.JButton botonMostrarMensajeConLongitud;
     private javax.swing.JButton botonMostrarPaso5;
@@ -1121,6 +1301,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
     private javax.swing.JButton botonSiguientePaso1AE;
     private javax.swing.JButton botonSiguientePaso2AE;
     private javax.swing.JButton botonSiguientePaso3AE;
+    private javax.swing.JButton botonSiguientePaso4AE;
     private javax.swing.JButton botonValidarMensajeConLongitud;
     private javax.swing.JButton botonValidarPaso5;
     private javax.swing.JButton botonValidarVariablesConcat;
@@ -1134,7 +1315,6 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
     private javax.swing.ButtonGroup grupoPreg5;
     private javax.swing.JLabel hashSalida;
     private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -1185,13 +1365,12 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JLabel lblHeaderPaso3;
     private javax.swing.JTextField mensajeAEncriptar;
     private javax.swing.JPanel panelPaso1;
     private javax.swing.JPanel panelPaso2;
     private javax.swing.JPanel panelPaso3;
-    private javax.swing.JPanel panelPaso4ii;
+    private javax.swing.JPanel panelPaso4;
     private javax.swing.JPanel panelPaso5;
     private javax.swing.JRadioButton rbcorrecto1;
     private javax.swing.JRadioButton rbcorrecto2;
@@ -1212,6 +1391,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
     private javax.swing.JTextArea representacionBinaria;
     private javax.swing.JTextArea representacionBinariaMasLongitud;
     private javax.swing.JLabel sumaFinal;
+    private javax.swing.JTable tablaPaso4;
     private javax.swing.JTable tablaPaso5;
     private javax.swing.JTextField valorInicialA;
     private javax.swing.JTextField valorInicialB;
