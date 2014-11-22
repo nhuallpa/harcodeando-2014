@@ -37,6 +37,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         this.labelCorreccionE.setVisible(false);
         this.labelCorreccionEncriptarTodo.setVisible(false);
         this.labelCorreccionEncriptarBloques.setVisible(false);
+        this.labelCorreccionDesTodo.setVisible(false);
         this.modulo_generado = false;
     }
     
@@ -171,21 +172,25 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     
     private void LimpiarEncriptar(){
         this.pos_encriptar = 0;
-        /*this.rsa_evaluar.LimpiarValores();        
+        this.rsa_evaluar.LimpiarValores();        
         this.NuevoRSA();
         long e = this.rsa_evaluar.GetE();
         long n = this.rsa_evaluar.GetModulo();
         this.text_e_encriptar.setText(Long.toString(e));
-        this.text_modulo_encriptar.setText(Long.toString(n));*/
+        this.text_modulo_encriptar.setText(Long.toString(n));
         this.botEncriptarBloques.setEnabled(true);
         this.botEncriptarTodo.setEnabled(true);
+        this.botNuevoEncriptar.setEnabled(false);
         this.spinTamBloque.setValue(1);
         this.spinTamBloque.setEnabled(true);
+        this.text_mens_encriptar.setText("Prueba");
         this.panEncriptarBloques.setEnabled(false);
         this.textResultadoBloque.setEnabled(false);
         this.textResultadoBloque.setText("");
         this.textBloqueActual.setEnabled(false);
         this.textBloqueActual.setText("");
+        this.text_ascii_enc.setEnabled(false);
+        this.text_ascii_enc.setText("");
         this.textResParcial.setEnabled(false);
         this.textResParcial.setText("");
         this.botAceptarBloques.setEnabled(false);
@@ -330,6 +335,8 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         jLabel31 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         labelCorreccionEncriptarBloques = new javax.swing.JLabel();
+        text_ascii_enc = new javax.swing.JTextField();
+        jLabel41 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         botEncriptarTodo = new javax.swing.JButton();
         botEncriptarBloques = new javax.swing.JButton();
@@ -343,12 +350,44 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         text_modulo_encriptar = new javax.swing.JTextField();
         spinTamBloque = new javax.swing.JSpinner();
         jLabel30 = new javax.swing.JLabel();
+        botNuevoEncriptar = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         botCorregirEncriptar = new javax.swing.JButton();
         botReintenterEncriptar = new javax.swing.JButton();
         botResolverEncriptar = new javax.swing.JButton();
         botContinuarEncriptar = new javax.swing.JButton();
         panelDesencriptarEv = new javax.swing.JPanel();
+        jLabel32 = new javax.swing.JLabel();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel33 = new javax.swing.JLabel();
+        text_mens_encriptado = new javax.swing.JTextField();
+        text_d_desenc = new javax.swing.JTextField();
+        jLabel34 = new javax.swing.JLabel();
+        text_n_desenc = new javax.swing.JTextField();
+        jLabel35 = new javax.swing.JLabel();
+        botDesencTodo = new javax.swing.JButton();
+        botDesencBloques = new javax.swing.JButton();
+        panDesencTodo = new javax.swing.JPanel();
+        jLabel36 = new javax.swing.JLabel();
+        text_resultado_des_todo = new javax.swing.JTextField();
+        jPanel15 = new javax.swing.JPanel();
+        labelCorreccionDesTodo = new javax.swing.JLabel();
+        botAceptarDesTodo = new javax.swing.JButton();
+        jPanel13 = new javax.swing.JPanel();
+        jLabel37 = new javax.swing.JLabel();
+        text_resultado_des_bloque = new javax.swing.JTextField();
+        text_parcial_des_bloque = new javax.swing.JTextField();
+        jLabel38 = new javax.swing.JLabel();
+        text_bloque_des_bloque = new javax.swing.JTextField();
+        jLabel39 = new javax.swing.JLabel();
+        botAceptarDesBloque = new javax.swing.JButton();
+        botSiguienteDesBloque = new javax.swing.JButton();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel40 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(860, 679));
 
@@ -871,12 +910,13 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panClavePrivadaEvLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jLabel19)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(28, 28, 28)
                         .addGroup(panClavePrivadaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panClavePrivadaEvLayout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(textClavePrivadaDEv, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(botAceptarClavePrivEv)))))
@@ -943,12 +983,13 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panClavePublicaEvLayout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jLabel21)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(23, 23, 23)
                         .addGroup(panClavePublicaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panClavePublicaEvLayout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(textClavePublicaEEv, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(botAceptarClavePublEv)))))
@@ -1122,10 +1163,11 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                         .addComponent(botAceptarTodo)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panEncriptarTodoLayout.createSequentialGroup()
-                        .addGroup(panEncriptarTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(textResultadoTodo))
+                        .addComponent(textResultadoTodo)
                         .addGap(4, 4, 4))))
+            .addGroup(panEncriptarTodoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panEncriptarTodoLayout.setVerticalGroup(
             panEncriptarTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1202,6 +1244,11 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 .addGap(0, 11, Short.MAX_VALUE))
         );
 
+        text_ascii_enc.setEditable(false);
+        text_ascii_enc.setEnabled(false);
+
+        jLabel41.setText("Rep. Numerica:");
+
         javax.swing.GroupLayout panEncriptarBloquesLayout = new javax.swing.GroupLayout(panEncriptarBloques);
         panEncriptarBloques.setLayout(panEncriptarBloquesLayout);
         panEncriptarBloquesLayout.setHorizontalGroup(
@@ -1211,19 +1258,23 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 .addComponent(botAceptarBloques)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botSiguienteBloque)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(609, Short.MAX_VALUE))
             .addGroup(panEncriptarBloquesLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(panEncriptarBloquesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel28)
-                    .addComponent(jLabel29)
-                    .addComponent(jLabel31))
+                    .addComponent(jLabel31)
+                    .addComponent(jLabel41))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panEncriptarBloquesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textResultadoBloque)
                     .addComponent(textResParcial)
                     .addGroup(panEncriptarBloquesLayout.createSequentialGroup()
                         .addComponent(textBloqueActual, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel29)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(text_ascii_enc, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -1242,7 +1293,9 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panEncriptarBloquesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textBloqueActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel29))
+                    .addComponent(jLabel29)
+                    .addComponent(text_ascii_enc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel41))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
@@ -1286,6 +1339,14 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
 
         jLabel30.setText("Tamaño Bloque:");
 
+        botNuevoEncriptar.setText("Nuevo");
+        botNuevoEncriptar.setEnabled(false);
+        botNuevoEncriptar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botNuevoEncriptarMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -1293,9 +1354,11 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botEncriptarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botEncriptarBloques, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botNuevoEncriptar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(98, 98, 98))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1318,7 +1381,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                         .addComponent(jLabel30)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(spinTamBloque, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 289, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -1341,7 +1404,8 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botEncriptarTodo)
-                    .addComponent(botEncriptarBloques))
+                    .addComponent(botEncriptarBloques)
+                    .addComponent(botNuevoEncriptar))
                 .addGap(55, 55, 55))
         );
 
@@ -1373,6 +1437,11 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
 
         botContinuarEncriptar.setText("Continuar");
         botContinuarEncriptar.setEnabled(false);
+        botContinuarEncriptar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botContinuarEncriptarMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -1420,7 +1489,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
             .addGroup(panelEncriptarEvLayout.createSequentialGroup()
-                .addGap(234, 234, 234)
+                .addGap(235, 235, 235)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1430,27 +1499,317 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 .addGap(20, 20, 20)
                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panEncriptarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panEncriptarBloques, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
 
         RSAEvaluarPanel.addTab("Encriptar", panelEncriptarEv);
+
+        jLabel32.setText("<html>De acuerdo a los parámetros <strong>(n, d)</strong> desencripte el siguiente mensaje. Recuerde que los bloques son de 6 dígitos y que debe tener en cuenta si se encriptó de a 1 o de a 2 caracteres.</html> ");
+
+        jLabel33.setText("Mensaje encriptado:");
+
+        text_mens_encriptado.setEditable(false);
+
+        text_d_desenc.setEditable(false);
+
+        jLabel34.setText("d:");
+
+        text_n_desenc.setEditable(false);
+
+        jLabel35.setText("n:");
+
+        botDesencTodo.setText("Todo");
+        botDesencTodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botDesencTodoActionPerformed(evt);
+            }
+        });
+
+        botDesencBloques.setText("Bloques");
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel34)
+                    .addComponent(jLabel33))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(text_mens_encriptado)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(text_d_desenc, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel35)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(text_n_desenc, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botDesencTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(botDesencBloques, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67))
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel33)
+                    .addComponent(text_mens_encriptado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(text_d_desenc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel34)
+                    .addComponent(text_n_desenc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel35))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botDesencTodo)
+                    .addComponent(botDesencBloques))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        panDesencTodo.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 0, 51), null));
+        panDesencTodo.setEnabled(false);
+
+        jLabel36.setText("Resultado:");
+
+        text_resultado_des_todo.setEnabled(false);
+
+        labelCorreccionDesTodo.setText("Corrección:");
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelCorreccionDesTodo, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelCorreccionDesTodo)
+                .addContainerGap())
+        );
+
+        botAceptarDesTodo.setText("Aceptar");
+        botAceptarDesTodo.setEnabled(false);
+
+        javax.swing.GroupLayout panDesencTodoLayout = new javax.swing.GroupLayout(panDesencTodo);
+        panDesencTodo.setLayout(panDesencTodoLayout);
+        panDesencTodoLayout.setHorizontalGroup(
+            panDesencTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panDesencTodoLayout.createSequentialGroup()
+                .addGroup(panDesencTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panDesencTodoLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(panDesencTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panDesencTodoLayout.createSequentialGroup()
+                                .addComponent(jLabel36)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(text_resultado_des_todo, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(panDesencTodoLayout.createSequentialGroup()
+                        .addGap(178, 178, 178)
+                        .addComponent(botAceptarDesTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panDesencTodoLayout.setVerticalGroup(
+            panDesencTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panDesencTodoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panDesencTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel36)
+                    .addComponent(text_resultado_des_todo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(botAceptarDesTodo)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        jPanel13.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 0, 51), null));
+        jPanel13.setEnabled(false);
+
+        jLabel37.setText("Resultado:");
+
+        text_resultado_des_bloque.setEnabled(false);
+
+        text_parcial_des_bloque.setEditable(false);
+
+        jLabel38.setText("Parcial:");
+
+        text_bloque_des_bloque.setEditable(false);
+        text_bloque_des_bloque.setEnabled(false);
+
+        jLabel39.setText("Bloque:");
+
+        botAceptarDesBloque.setText("Aceptar");
+        botAceptarDesBloque.setEnabled(false);
+
+        botSiguienteDesBloque.setText("Siguiente");
+        botSiguienteDesBloque.setEnabled(false);
+
+        jLabel40.setText("Corrección:");
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel40)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel37)
+                            .addComponent(jLabel38)
+                            .addComponent(jLabel39))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(text_resultado_des_bloque, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel13Layout.createSequentialGroup()
+                                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel13Layout.createSequentialGroup()
+                                        .addComponent(text_bloque_des_bloque, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(94, 94, 94))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
+                                        .addComponent(botAceptarDesBloque, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                .addComponent(botSiguienteDesBloque, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(text_parcial_des_bloque, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(text_resultado_des_bloque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel37))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(text_parcial_des_bloque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel38))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(text_bloque_des_bloque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel39))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botAceptarDesBloque)
+                    .addComponent(botSiguienteDesBloque))
+                .addGap(26, 26, 26))
+        );
+
+        jPanel14.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 0, 51), null));
+
+        jButton1.setText("Corregir");
+        jButton1.setEnabled(false);
+
+        jButton2.setText("Reintentar");
+        jButton2.setEnabled(false);
+
+        jButton3.setText("Resolver");
+        jButton3.setEnabled(false);
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(94, Short.MAX_VALUE))
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout panelDesencriptarEvLayout = new javax.swing.GroupLayout(panelDesencriptarEv);
         panelDesencriptarEv.setLayout(panelDesencriptarEvLayout);
         panelDesencriptarEvLayout.setHorizontalGroup(
             panelDesencriptarEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 928, Short.MAX_VALUE)
+            .addGroup(panelDesencriptarEvLayout.createSequentialGroup()
+                .addGroup(panelDesencriptarEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDesencriptarEvLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelDesencriptarEvLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 784, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 74, Short.MAX_VALUE))
+                    .addGroup(panelDesencriptarEvLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(panDesencTodo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelDesencriptarEvLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(panelDesencriptarEvLayout.createSequentialGroup()
+                .addGap(178, 178, 178)
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelDesencriptarEvLayout.setVerticalGroup(
             panelDesencriptarEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 709, Short.MAX_VALUE)
+            .addGroup(panelDesencriptarEvLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(panDesencTodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         RSAEvaluarPanel.addTab("Desencriptar", panelDesencriptarEv);
@@ -1714,6 +2073,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             this.spinTamBloque.setEnabled(false);
             this.text_mens_encriptar.setEnabled(false);
             this.text_repnum_encriptar.setText(this.rsa_evaluar.Codificar(texto));
+            this.botNuevoEncriptar.setEnabled(true);
         }
         else{
             JOptionPane.showMessageDialog(null, "Por cuestiones didácticas el texto a encriptar debe ser como máximo de " 
@@ -1728,6 +2088,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             this.panEncriptarBloques.setEnabled(true);
             this.textResultadoBloque.setEnabled(true);
             this.textBloqueActual.setEnabled(true);
+            this.text_ascii_enc.setEnabled(true);
             this.botAceptarBloques.setEnabled(true);
             this.spinTamBloque.setEnabled(false);
             this.botEncriptarTodo.setEnabled(false);
@@ -1738,13 +2099,20 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             int tam_bloque;
             tam_bloque = (int)this.spinTamBloque.getValue();
             String bloque;
+            String caracteres;
             String repnum = this.text_repnum_encriptar.getText();
-            if(this.pos_encriptar + (3*tam_bloque) < repnum.length())
+            if(this.pos_encriptar + (3*tam_bloque) < repnum.length()){
                 bloque = repnum.substring(this.pos_encriptar, this.pos_encriptar + (3*tam_bloque));
-            else
+                caracteres = texto.substring(this.pos_encriptar, this.pos_encriptar + tam_bloque );
+            }
+            else{
                 bloque = repnum.substring(this.pos_encriptar);
+                caracteres = texto.substring(this.pos_encriptar);
+            }
             this.textBloqueActual.setText(bloque);
+            this.text_ascii_enc.setText(caracteres);
             this.pos_encriptar += 3*tam_bloque;
+            this.botNuevoEncriptar.setEnabled(true);
        }
        else{
             JOptionPane.showMessageDialog(null, "Por cuestiones didácticas el texto a encriptar debe ser como máximo de " 
@@ -1754,7 +2122,29 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     }//GEN-LAST:event_botEncriptarBloquesMousePressed
 
     private void botReintenterEncriptarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botReintenterEncriptarMousePressed
-        this.LimpiarEncriptar();
+        if(this.panEncriptarTodo.isEnabled()){
+            this.textResultadoTodo.setEnabled(true);
+            this.textResultadoTodo.setText("");
+            this.botAceptarTodo.setEnabled(true);
+            this.botCorregirEncriptar.setEnabled(false);
+            this.botReintenterEncriptar.setEnabled(false);
+            this.botResolverEncriptar.setEnabled(true);
+            this.botContinuarEncriptar.setEnabled(false);
+            this.labelCorreccionEncriptarTodo.setVisible(false);
+        }
+        else{
+            if(this.panEncriptarBloques.isEnabled()){
+                this.textResultadoBloque.setEnabled(true);
+                this.textResultadoBloque.setText("");
+                this.botAceptarBloques.setEnabled(true);
+                this.botSiguienteBloque.setEnabled(false);
+                this.botReintenterEncriptar.setEnabled(false);
+                this.botResolverEncriptar.setEnabled(true);
+                this.labelCorreccionEncriptarBloques.setVisible(false);
+                String parcial = this.textResParcial.getText();
+                this.textResParcial.setText(parcial.substring(0,parcial.length() - this.rsa_evaluar.GetLongitudBloque()));
+            }
+        }
     }//GEN-LAST:event_botReintenterEncriptarMousePressed
 
     private void botAceptarTodoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botAceptarTodoMousePressed
@@ -1776,6 +2166,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 else{
                     this.textResultadoTodo.setEnabled(false);
                     this.botCorregirEncriptar.setEnabled(true);
+                    this.botResolverEncriptar.setEnabled(false);
                     this.botAceptarTodo.setEnabled(false); 
                 }
         }
@@ -1791,42 +2182,47 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "El bloque debe tener " + Long.toString(tam_bloque) + " dígitos.");
             else{
                 this.botAceptarBloques.setEnabled(false);
-                this.botSiguienteBloque.setEnabled(true);
+                this.botResolverEncriptar.setEnabled(false);
+                this.botCorregirEncriptar.setEnabled(true);
+                this.textResultadoBloque.setEnabled(false);
                 this.textResParcial.setText(this.textResParcial.getText() + this.textResultadoBloque.getText());
             }
         }
     }//GEN-LAST:event_botAceptarBloquesMousePressed
 
     private void botCorregirEncriptarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botCorregirEncriptarMousePressed
+    if(this.panEncriptarTodo.isEnabled()){
         String encriptado = this.rsa_evaluar.Encrypt(this.text_mens_encriptar.getText(),
-                                                        (int) this.spinTamBloque.getValue());
-        if(this.panEncriptarTodo.isEnabled()){            
-            if(encriptado.compareTo(this.textResultadoTodo.getText()) == 0){
-                this.labelCorreccionEncriptarTodo.setText("Correcto.");
-                this.labelCorreccionEncriptarTodo.setForeground(Color.green);
-                this.botResolverEncriptar.setEnabled(false);
-            }
-            else{
-                this.labelCorreccionEncriptarTodo.setText("<html>Incorrecto.</html>");
-                this.labelCorreccionEncriptarTodo.setForeground(Color.red);                
-            }
-            this.labelCorreccionEncriptarTodo.setVisible(true);
-        }        
-        if(this.panEncriptarBloques.isEnabled()){
-            if(encriptado.compareTo(this.textResParcial.getText()) == 0){
-                this.labelCorreccionEncriptarBloques.setText("Correcto.");
-                this.labelCorreccionEncriptarBloques.setForeground(Color.green);
-                this.botResolverEncriptar.setEnabled(false);
-            }
-            else{
-                this.labelCorreccionEncriptarBloques.setText("<html>Incorrecto.</html>");
-                this.labelCorreccionEncriptarBloques.setForeground(Color.red);                
-            }
-            this.labelCorreccionEncriptarBloques.setVisible(true);
-        }        
-        this.botCorregirEncriptar.setEnabled(false);
-        this.botContinuarEncriptar.setEnabled(true);
-        this.botReintenterEncriptar.setEnabled(true);        
+                                                (int) this.spinTamBloque.getValue());
+        if(encriptado.compareTo(this.textResultadoTodo.getText()) == 0){
+            this.labelCorreccionEncriptarTodo.setText("Correcto.");
+            this.labelCorreccionEncriptarTodo.setForeground(Color.green);  
+            this.botContinuarEncriptar.setEnabled(true);
+        }
+        else{
+            this.labelCorreccionEncriptarTodo.setText("<html>Incorrecto.</html>");
+            this.labelCorreccionEncriptarTodo.setForeground(Color.red);                
+        }
+        this.botResolverEncriptar.setEnabled(false);
+        this.labelCorreccionEncriptarTodo.setVisible(true);        
+    }        
+    if(this.panEncriptarBloques.isEnabled()){
+        String encriptado = this.rsa_evaluar.Encrypt(this.text_ascii_enc.getText(),
+                                                    (int) this.spinTamBloque.getValue());
+        if(encriptado.compareTo(this.textResParcial.getText()) == 0){
+            this.labelCorreccionEncriptarBloques.setText("Correcto.");
+            this.labelCorreccionEncriptarBloques.setForeground(Color.green);
+            this.botSiguienteBloque.setEnabled(true);            
+        }
+        else{
+            this.labelCorreccionEncriptarBloques.setText("<html>Incorrecto.</html>");
+            this.labelCorreccionEncriptarBloques.setForeground(Color.red);            
+        }
+        this.botResolverEncriptar.setEnabled(false);
+        this.labelCorreccionEncriptarBloques.setVisible(true);
+    }           
+    this.botCorregirEncriptar.setEnabled(false);    
+    this.botReintenterEncriptar.setEnabled(true);        
     }//GEN-LAST:event_botCorregirEncriptarMousePressed
 
     private void textResParcialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textResParcialActionPerformed
@@ -1834,51 +2230,81 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     }//GEN-LAST:event_textResParcialActionPerformed
 
     private void botSiguienteBloqueMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botSiguienteBloqueMousePressed
-        String repnum = this.text_repnum_encriptar.getText();                
+        String repnum = this.text_repnum_encriptar.getText();
+        String texto = this.text_mens_encriptar.getText();
         if(this.pos_encriptar < repnum.length()){
             String bloque;
+            String caracteres;
             int tam_bloque = (int)this.spinTamBloque.getValue();
-            if(this.pos_encriptar + 3*tam_bloque < repnum.length())
+            if(this.pos_encriptar + 3*tam_bloque < repnum.length()){
                 bloque = repnum.substring(this.pos_encriptar, this.pos_encriptar + (3*tam_bloque));
-            else
+                caracteres = texto.substring(this.pos_encriptar/3, (this.pos_encriptar/3) + tam_bloque);
+            }
+            else{
                 bloque = repnum.substring(this.pos_encriptar);
+                caracteres = texto.substring(this.pos_encriptar/3);
+            }
             this.textBloqueActual.setText(bloque);
+            this.text_ascii_enc.setText(caracteres);
             this.pos_encriptar += 3*tam_bloque;            
             this.botAceptarBloques.setEnabled(true);
             this.botSiguienteBloque.setEnabled(false);
+            this.botReintenterEncriptar.setEnabled(false);
+            this.botResolverEncriptar.setEnabled(true);
+            this.textResultadoBloque.setEnabled(true);
+            this.labelCorreccionEncriptarBloques.setVisible(false);
+            this.textResultadoBloque.setText("");
         }
-        else{            
+        else{ 
+            JOptionPane.showMessageDialog(null, "El mensaje ha sido encriptado.");
             this.botAceptarBloques.setEnabled(false);
             this.botSiguienteBloque.setEnabled(false);
             this.botResolverEncriptar.setEnabled(false);
-            this.botCorregirEncriptar.setEnabled(true);
+            this.botCorregirEncriptar.setEnabled(false);
+            this.botReintenterEncriptar.setEnabled(false);
+            this.botContinuarEncriptar.setEnabled(true);
         }
         this.textResultadoBloque.setText("");
     }//GEN-LAST:event_botSiguienteBloqueMousePressed
 
     private void botResolverEncriptarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botResolverEncriptarMousePressed
-        String res = this.rsa_evaluar.Encrypt(this.text_mens_encriptar.getText(),
+        if(this.panEncriptarTodo.isEnabled()){ 
+            String res = this.rsa_evaluar.Encrypt(this.text_mens_encriptar.getText(),
                                                     (int) this.spinTamBloque.getValue());
-        if(this.panEncriptarTodo.isEnabled()){            
             this.labelCorreccionEncriptarTodo.setText("<html>Mensaje encriptado: " + res + "</html>" );
             this.labelCorreccionEncriptarTodo.setForeground(Color.green);
             this.labelCorreccionEncriptarTodo.setVisible(true);
             this.botAceptarTodo.setEnabled(false);
             this.textResultadoTodo.setEnabled(false);
+            this.botContinuarEncriptar.setEnabled(true);
         }
         if(this.panEncriptarBloques.isEnabled()){
+            String res = this.rsa_evaluar.Encrypt(this.text_ascii_enc.getText(),(int)this.spinTamBloque.getValue());
             this.labelCorreccionEncriptarBloques.setText("<html>Mensaje encriptado: " + res + "</html>");
-            this.labelCorreccionEncriptarBloques.setForeground(Color.green);
+            this.labelCorreccionEncriptarBloques.setForeground(Color.green);            
             this.labelCorreccionEncriptarBloques.setVisible(true);
+            this.textResParcial.setText(this.textResParcial.getText() + res);
             this.botAceptarBloques.setEnabled(false);
-            this.botSiguienteBloque.setEnabled(false);
+            this.botSiguienteBloque.setEnabled(true);
             this.textResultadoBloque.setEnabled(false);
         }
-        this.botResolverEncriptar.setEnabled(false);
-        this.botContinuarEncriptar.setEnabled(true);
+        this.botResolverEncriptar.setEnabled(false);        
         this.botReintenterEncriptar.setEnabled(true);
         this.botCorregirEncriptar.setEnabled(false);
     }//GEN-LAST:event_botResolverEncriptarMousePressed
+
+    private void botContinuarEncriptarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botContinuarEncriptarMousePressed
+        this.RSAEvaluarPanel.setEnabledAt(this.RSAEvaluarPanel.getSelectedIndex() + 1, true);
+        this.RSAEvaluarPanel.setSelectedIndex(this.RSAEvaluarPanel.getSelectedIndex() + 1); 
+    }//GEN-LAST:event_botContinuarEncriptarMousePressed
+
+    private void botDesencTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botDesencTodoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botDesencTodoActionPerformed
+
+    private void botNuevoEncriptarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botNuevoEncriptarMousePressed
+        this.LimpiarEncriptar();
+    }//GEN-LAST:event_botNuevoEncriptarMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1886,6 +2312,8 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     private javax.swing.JButton botAceptarBloques;
     private javax.swing.JButton botAceptarClavePrivEv;
     private javax.swing.JButton botAceptarClavePublEv;
+    private javax.swing.JButton botAceptarDesBloque;
+    private javax.swing.JButton botAceptarDesTodo;
     private javax.swing.JButton botAceptarTodo;
     private javax.swing.JButton botCalcularModuloEv;
     private javax.swing.JButton botContinuarCI;
@@ -1894,8 +2322,11 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     private javax.swing.JButton botCorregirCI;
     private javax.swing.JButton botCorregirEncriptar;
     private javax.swing.JButton botCorregirPreguntas;
+    private javax.swing.JButton botDesencBloques;
+    private javax.swing.JButton botDesencTodo;
     private javax.swing.JButton botEncriptarBloques;
     private javax.swing.JButton botEncriptarTodo;
+    private javax.swing.JButton botNuevoEncriptar;
     private javax.swing.JButton botReintentarCI;
     private javax.swing.JButton botReintentarPreguntas;
     private javax.swing.JButton botReintenterEncriptar;
@@ -1903,6 +2334,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     private javax.swing.JButton botResolverEncriptar;
     private javax.swing.JButton botResolverPreguntas;
     private javax.swing.JButton botSiguienteBloque;
+    private javax.swing.JButton botSiguienteDesBloque;
     private javax.swing.ButtonGroup grupoPreg1;
     private javax.swing.ButtonGroup grupoPreg10;
     private javax.swing.ButtonGroup grupoPreg2;
@@ -1913,6 +2345,9 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     private javax.swing.ButtonGroup grupoPreg7;
     private javax.swing.ButtonGroup grupoPreg8;
     private javax.swing.ButtonGroup grupoPreg9;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1938,7 +2373,17 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1947,6 +2392,11 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1971,12 +2421,14 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JRadioButton jRadioButton9;
     private javax.swing.JLabel labelCorreccionD;
+    private javax.swing.JLabel labelCorreccionDesTodo;
     private javax.swing.JLabel labelCorreccionE;
     private javax.swing.JLabel labelCorreccionEncriptarBloques;
     private javax.swing.JLabel labelCorreccionEncriptarTodo;
     private javax.swing.JLabel labelCorreccionN;
     private javax.swing.JPanel panClavePrivadaEv;
     private javax.swing.JPanel panClavePublicaEv;
+    private javax.swing.JPanel panDesencTodo;
     private javax.swing.JPanel panEncriptarBloques;
     private javax.swing.JPanel panEncriptarTodo;
     private javax.swing.JPanel panelBotonesPreguntas;
@@ -2001,12 +2453,20 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     private javax.swing.JTextField textResParcial;
     private javax.swing.JTextField textResultadoBloque;
     private javax.swing.JTextField textResultadoTodo;
+    private javax.swing.JTextField text_ascii_enc;
+    private javax.swing.JTextField text_bloque_des_bloque;
+    private javax.swing.JTextField text_d_desenc;
     private javax.swing.JTextField text_e_encriptar;
+    private javax.swing.JTextField text_mens_encriptado;
     private javax.swing.JTextField text_mens_encriptar;
     private javax.swing.JTextField text_modulo_encriptar;
     private javax.swing.JTextField text_modulo_ev;
+    private javax.swing.JTextField text_n_desenc;
     private javax.swing.JTextField text_p_ev;
+    private javax.swing.JTextField text_parcial_des_bloque;
     private javax.swing.JTextField text_q_ev;
     private javax.swing.JTextField text_repnum_encriptar;
+    private javax.swing.JTextField text_resultado_des_bloque;
+    private javax.swing.JTextField text_resultado_des_todo;
     // End of variables declaration//GEN-END:variables
 }
