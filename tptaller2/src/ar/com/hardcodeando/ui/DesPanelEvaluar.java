@@ -120,6 +120,8 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
         jLabel67 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jButton28 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -751,9 +753,21 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         });
 
         jButton16.setText("Evaluar");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
 
         jLabel67.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel67.setText("P1 = ");
+
+        jButton28.setText("Limpiar");
+        jButton28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton28ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -764,11 +778,12 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                 .addComponent(jLabel40)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 729, Short.MAX_VALUE)
+                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
                     .addComponent(jLabel62, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton28)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton15)
@@ -796,7 +811,8 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                                 .addComponent(jLabel67)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -833,11 +849,14 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                             .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel66)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel43)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton6)
                             .addComponent(jButton15)
-                            .addComponent(jButton16))))
+                            .addComponent(jButton16)
+                            .addComponent(jButton28))))
                 .addContainerGap(391, Short.MAX_VALUE))
         );
 
@@ -2067,6 +2086,8 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jTextField25.setText(des.formatBinary(Long.toBinaryString(rondasL[0]&0xFFFFFFFFL), 32, 4));
         // R0
         jTextField26.setText(des.formatBinary(Long.toBinaryString(rondasR[0]&0xFFFFFFFFL), 32, 4));
+        
+        evaluarRondaInicial();
 
     }//GEN-LAST:event_jButton15ActionPerformed
 
@@ -2076,25 +2097,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
-        // Color verde
-        jTextField7.setBackground(Color.green);
-        jTextField8.setBackground(Color.green);
-        jTextField9.setBackground(Color.green);
-        jTextField10.setBackground(Color.green);
-        jTextField11.setBackground(Color.green);
-        jTextField12.setBackground(Color.green);
-        jTextField13.setBackground(Color.green);
-        jTextField14.setBackground(Color.green);
-        jTextField15.setBackground(Color.green);
-        jTextField16.setBackground(Color.green);
-        jTextField17.setBackground(Color.green);
-        jTextField18.setBackground(Color.green);
-        jTextField19.setBackground(Color.green);
-        jTextField20.setBackground(Color.green);
-        jTextField21.setBackground(Color.green);
-        jTextField22.setBackground(Color.green);
-        
+              
         jButton5.setEnabled(true);
         
         long[] subclaves = des.getSubkeys();
@@ -2131,7 +2134,9 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jTextField21.setText(des.formatBinary(Long.toBinaryString(subclaves[2]), 48, 4));
         jTextField22.setText(des.formatBinary(Long.toBinaryString(subclaves[3]), 48, 4));
         
-        jLabel42.setText("");
+        evaluarSubclaves();
+        
+        //jLabel42.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
@@ -2152,9 +2157,10 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
             jLabel37.setText("");
             if (Des.validarClave(clave)) {
                 jLabel38.setText("");
-                byte[] received = des.encrypt(des.parseBytes(mensaje), des.parseBytes(clave));
 
-                jTextField3.setText(des.getMsjCifrado());
+                byte[] received = des.encrypt(des.parseBytes(mensaje), des.parseBytes(clave));
+                
+                //jTextField3.setText(des.getMsjCifrado());
 
                 String subclavesLabel1 = crearLabelSubclaves1();
                 String subclavesLabel2 = crearLabelSubclaves2();
@@ -2338,10 +2344,98 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         
+        evaluarSubclaves();
         
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        limpiarSubclaves();
+        jButton5.setEnabled(false);
+    }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        evaluarRondaInicial();
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+        limpiarRondaInicial();
+        jButton6.setEnabled(false);
+    }//GEN-LAST:event_jButton28ActionPerformed
+
+    
+    private void evaluarRondaInicial() {
+                
+        String mensaje = jTextField2.getText();
+        int[] rondasL = des.getRondasL();
+        int[] rondasR = des.getRondasR();
+        long rondasPc1 = des.getRondasPc1();
+
+        boolean valido = true;
+        
+        
+        // M     
+        String mensajeBinario = jTextField23.getText().replaceAll(" ", "");
+        mensaje = des.hexToBinary(mensaje, 64);
+        
+        if (mensaje.equalsIgnoreCase(des.formatBinary(mensajeBinario, 64, 4))){
+            jTextField23.setBackground(Color.green);
+        } else {
+            jTextField23.setBackground(Color.red);
+            valido = false;
+        }       
+        
+        
+        // Permutacion
+        String permutacion1 = jTextField24.getText().replaceAll(" ", "");
+        permutacion1 = des.formatBinary(permutacion1, 64, 4);
+
+        if (permutacion1.equalsIgnoreCase(des.formatBinary(Long.toBinaryString(rondasPc1), 64, 4))){
+            jTextField24.setBackground(Color.green);
+        } else {
+            jTextField24.setBackground(Color.red);
+            valido = false;
+        }   
+        
+
+        // L0  
+        String l0 = jTextField25.getText().replaceAll(" ", "");
+        l0 = des.formatBinary(l0, 32, 4);
+     
+        if (l0.equalsIgnoreCase(des.formatBinary(Long.toBinaryString(rondasL[0]&0xFFFFFFFFL), 32, 4))){
+            jTextField25.setBackground(Color.green);
+        } else {
+            jTextField25.setBackground(Color.red);
+            valido = false;
+        }
+        
+        
+        // R0     
+        String r0 = jTextField26.getText().replaceAll(" ", "");
+        r0 = des.formatBinary(r0, 32, 4);
+     
+        if (r0.equalsIgnoreCase(des.formatBinary(Long.toBinaryString(rondasR[0]&0xFFFFFFFFL), 32, 4))){
+            jTextField26.setBackground(Color.green);
+        } else {
+            jTextField26.setBackground(Color.red);
+            valido = false;
+        }
+        
+        if (!valido) {
+            jLabel43.setText("Revise las cuentas, hay valores incorrectos.");
+            jButton6.setEnabled(false);
+        } else {
+            jLabel43.setText("");
+            jButton6.setEnabled(true);
+        }        
+        
+        
+    }
+    
+    private void evaluarSubclaves() {
         long[] subclaves = des.getSubkeys();
         long[] subclavesC = des.getSubkeysC();
         long[] subclavesD = des.getSubkeysD();
+        long subclavesPc1 = des.getSubkeysPc1();
         String clave = jTextField1.getText();
 
         boolean valido = true;
@@ -2363,7 +2457,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
 
         
         
-        if (permutacion1.equalsIgnoreCase(des.formatBinary(Long.toBinaryString(des.getSubkeysPc1()), 56, 4))){
+        if (permutacion1.equalsIgnoreCase(des.formatBinary(Long.toBinaryString(subclavesPc1), 56, 4))){
             jTextField8.setBackground(Color.green);
         } else {
             jTextField8.setBackground(Color.red);
@@ -2514,14 +2608,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
             jLabel42.setText("");
             jButton5.setEnabled(true);
         }
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        limpiarSubclaves();
-        jButton5.setEnabled(false);
-    }//GEN-LAST:event_jButton19ActionPerformed
-
-
+    }
     private String crearLabelSubclaves1() {
         
         String clave = jTextField1.getText();
@@ -2711,8 +2798,21 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jTextField20.setText("");
         jTextField21.setText("");
         jTextField22.setText("");
+        jLabel42.setText("");
 }
         
+    private void limpiarRondaInicial (){
+        jTextField23.setBackground(Color.white);
+        jTextField24.setBackground(Color.white);
+        jTextField25.setBackground(Color.white);
+        jTextField26.setBackground(Color.white);
+        
+        jTextField23.setText("");
+        jTextField24.setText("");
+        jTextField25.setText("");
+        jTextField26.setText("");
+        jLabel43.setText("");
+}    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -2735,6 +2835,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
+    private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -2831,6 +2932,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
