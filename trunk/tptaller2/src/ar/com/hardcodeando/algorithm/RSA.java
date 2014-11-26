@@ -385,7 +385,7 @@ public class RSA {
      * @param ascii cadena de digitos ascii representando caracteres
      * @return cadena transformada en su equivalente
      */
-    private String DecodificarAscii(String ascii){
+    public String DecodificarAscii(String ascii){
         int pos = 0;
         int offset = 3;
         String res = "";
@@ -424,7 +424,7 @@ public class RSA {
             ascii += sub_bloque;
             pos += offset;
         }                
-        return this.DecodificarAscii(ascii);
+        return ascii;
     }
     
 
