@@ -166,6 +166,13 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         }
     }
     
+    private void NuevoRSA(){
+        this.rsa_evaluar.GenerarPrimos();
+        this.rsa_evaluar.GenerarModulo();
+        this.rsa_evaluar.GenerarExponentePrivado();
+        this.rsa_evaluar.GenerarExponentePublico();
+    }
+    
     private void LimpiarCalculosIniciales(){
         this.text_p_ev.setText("");
         this.text_q_ev.setText("");
@@ -235,12 +242,9 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         this.parcial_desenc_ascii = "";
         this.parcial_desenc_numerico = "";
         this.rsa_evaluar.LimpiarValores();
-        this.rsa_evaluar.GenerarPrimos();
-        this.rsa_evaluar.GenerarModulo();
-        this.rsa_evaluar.GenerarExponentePrivado();
-        this.rsa_evaluar.GenerarExponentePublico();
+        this.NuevoRSA();
         this.text_d_desenc.setText(Long.toString(this.rsa_evaluar.GetD()));
-        this.text_n_desenc.setText(Long.toString(this.rsa_evaluar.GetE()));
+        this.text_n_desenc.setText(Long.toString(this.rsa_evaluar.GetModulo()));
         Random rnd = new Random();
         int val = 0;
         while(val == 0) val = rnd.nextInt(3);
@@ -277,12 +281,6 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         return texto.length() <= this.max_lenght_encriptar;
     }
     
-    private void NuevoRSA(){
-        this.rsa_evaluar.GenerarPrimos();
-        this.rsa_evaluar.GenerarModulo();
-        this.rsa_evaluar.GenerarExponentePrivado();
-        this.rsa_evaluar.GenerarExponentePublico();
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
