@@ -45,7 +45,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         this.modulo_generado = false;
         this.parcial_desenc_numerico = "";
         this.parcial_desenc_ascii = "";
-    }
+    }    
     
     private String GenerarString(int longitud){
         String cadenaAleatoria = "";
@@ -90,8 +90,13 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     }
 
     private boolean esNumero(String cadena){
-        try {
-            Long.parseLong(cadena);            
+        try{ 
+            int i;            
+            for(i = 0; i < cadena.length();i++){
+                String aux = "";
+                aux += cadena.charAt(i);
+                Long.parseLong(aux);
+            }                        
             return true;
         }catch (NumberFormatException nfe){
             return false;
@@ -258,6 +263,8 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         this.panDesencTodo.setEnabled(false);
         this.text_resultado_des_todo.setEnabled(false);
         this.text_resultado_des_todo.setText("");
+        this.text_res_decodificado_todo.setEnabled(false);
+        this.text_res_decodificado_todo.setText("");
         this.labelCorreccionDesTodo.setVisible(false);
         this.botAceptarDesTodo.setEnabled(false);
         this.panDesenBloques.setEnabled(false);
@@ -438,6 +445,8 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         jPanel15 = new javax.swing.JPanel();
         labelCorreccionDesTodo = new javax.swing.JLabel();
         botAceptarDesTodo = new javax.swing.JButton();
+        text_res_decodificado_todo = new javax.swing.JTextField();
+        jLabel43 = new javax.swing.JLabel();
         panDesenBloques = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
         text_resultado_des_bloque = new javax.swing.JTextField();
@@ -1713,6 +1722,11 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             }
         });
 
+        text_res_decodificado_todo.setEditable(false);
+        text_res_decodificado_todo.setEnabled(false);
+
+        jLabel43.setText("Mensaje Original:");
+
         javax.swing.GroupLayout panDesencTodoLayout = new javax.swing.GroupLayout(panDesencTodo);
         panDesencTodo.setLayout(panDesencTodoLayout);
         panDesencTodoLayout.setHorizontalGroup(
@@ -1724,11 +1738,15 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                         .addGroup(panDesencTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panDesencTodoLayout.createSequentialGroup()
-                                .addComponent(jLabel36)
+                                .addGroup(panDesencTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel36)
+                                    .addComponent(jLabel43))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(text_resultado_des_todo, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(panDesencTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(text_res_decodificado_todo)
+                                    .addComponent(text_resultado_des_todo, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)))))
                     .addGroup(panDesencTodoLayout.createSequentialGroup()
-                        .addGap(91, 91, 91)
+                        .addGap(85, 85, 85)
                         .addComponent(botAceptarDesTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1740,10 +1758,14 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                     .addComponent(jLabel36)
                     .addComponent(text_resultado_des_todo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panDesencTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(text_res_decodificado_todo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel43))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botAceptarDesTodo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         panDesenBloques.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 0, 51), null));
@@ -1924,7 +1946,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                         .addGap(0, 16, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(panelDesencriptarEvLayout.createSequentialGroup()
-                .addGap(184, 184, 184)
+                .addGap(187, 187, 187)
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1941,7 +1963,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 .addComponent(panDesenBloques, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         RSAEvaluarPanel.addTab("Desencriptar", panelDesencriptarEv);
@@ -2284,6 +2306,11 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         if(texto.isEmpty())
             JOptionPane.showMessageDialog(null, "Ingrese el mensaje encriptado.");
         else{
+            if(!this.esNumero(texto)){
+                JOptionPane.showMessageDialog(null, "Debe ingresar solo valores numéricos.");
+                this.textResultadoTodo.setText("");
+            }
+            else{
                 int tam_bloque = this.rsa_evaluar.GetLongitudBloque();
                 int cant_caracteres = (int)this.spinTamBloque.getValue();
                 String palabra = this.text_mens_encriptar.getText();
@@ -2292,15 +2319,16 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                     pal_car++;
                 int tam_encript = pal_car*tam_bloque;
                 if(texto.length() != tam_encript){
-                    JOptionPane.showMessageDialog(null, "El mensaje encriptado debe tener " + Long.toString(tam_encript) + 
-                            " dígitos.");
+                    JOptionPane.showMessageDialog(null, "El mensaje encriptado debe tener " + 
+                            Long.toString(tam_encript) + " dígitos.");
                 }
                 else{
                     this.textResultadoTodo.setEnabled(false);
                     this.botCorregirEncriptar.setEnabled(true);
                     this.botResolverEncriptar.setEnabled(false);
                     this.botAceptarTodo.setEnabled(false); 
-                }
+                }                  
+            }                 
         }
     }//GEN-LAST:event_botAceptarTodoMousePressed
 
@@ -2309,15 +2337,21 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         if(texto.isEmpty())
             JOptionPane.showMessageDialog(null, "Ingrese el mensaje encriptado.");
         else{
-            int tam_bloque = this.rsa_evaluar.GetLongitudBloque();
-            if(texto.length() != tam_bloque)
-                JOptionPane.showMessageDialog(null, "El bloque debe tener " + Long.toString(tam_bloque) + " dígitos.");
+            if(!this.esNumero(texto)){
+                JOptionPane.showMessageDialog(null, "Debe ingresar solo valores numéricos.");
+                this.textResultadoBloque.setText("");
+            }
             else{
-                this.botAceptarBloques.setEnabled(false);
-                this.botResolverEncriptar.setEnabled(false);
-                this.botCorregirEncriptar.setEnabled(true);
-                this.textResultadoBloque.setEnabled(false);
-                this.textResParcial.setText(this.textResParcial.getText() + this.textResultadoBloque.getText());
+                int tam_bloque = this.rsa_evaluar.GetLongitudBloque();
+                if(texto.length() != tam_bloque)
+                    JOptionPane.showMessageDialog(null, "El bloque debe tener " + Long.toString(tam_bloque) + " dígitos.");
+                else{
+                    this.botAceptarBloques.setEnabled(false);
+                    this.botResolverEncriptar.setEnabled(false);
+                    this.botCorregirEncriptar.setEnabled(true);
+                    this.textResultadoBloque.setEnabled(false);
+                    this.textResParcial.setText(this.textResParcial.getText() + this.textResultadoBloque.getText());
+                }                
             }
         }
     }//GEN-LAST:event_botAceptarBloquesMousePressed
@@ -2402,11 +2436,12 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     private void botResolverEncriptarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botResolverEncriptarMousePressed
         if(this.panEncriptarTodo.isEnabled()){ 
             String res = this.rsa_evaluar.Encrypt(this.text_mens_encriptar.getText(),
-                                                    (int) this.spinTamBloque.getValue());
+                                                    (int) this.spinTamBloque.getValue());            
             this.labelCorreccionEncriptarTodo.setText("<html>Mensaje encriptado: " + res + "</html>" );
             this.labelCorreccionEncriptarTodo.setForeground(Color.green);
             this.labelCorreccionEncriptarTodo.setVisible(true);
             this.botAceptarTodo.setEnabled(false);
+            this.textResultadoTodo.setText(res);
             this.textResultadoTodo.setEnabled(false);
             this.botContinuarEncriptar.setEnabled(true);
         }
@@ -2458,17 +2493,23 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         if(texto.isEmpty())
             JOptionPane.showMessageDialog(null, "Ingrese el mensaje desencriptado.");
         else{
-            int cant_bl_caract = (int)this.spinTamBloqueDes.getValue();
-            String encriptado = this.text_mens_encriptado.getText();
-            int cant_digitos = 3*cant_bl_caract*(encriptado.length()/this.rsa_evaluar.GetLongitudBloque());
-            if(texto.length() > cant_digitos)
-                JOptionPane.showMessageDialog(null, "El resultado debe tener hasta " + Long.toString(cant_digitos) + " dígitos.");
-            else{  
-                this.text_resultado_des_todo.setEnabled(false);
-                this.botAceptarDesTodo.setEnabled(false);
-                this.botCorregirDesencriptar.setEnabled(true);
-                this.botResolverDesencriptar.setEnabled(false);
-                this.botReintentarDesencriptar.setEnabled(false);
+            if(!this.esNumero(texto)){
+                JOptionPane.showMessageDialog(null, "Debe ingresar solo valores numéricos.");
+                this.text_resultado_des_todo.setText("");
+            }
+            else{
+                int cant_bl_caract = (int)this.spinTamBloqueDes.getValue();
+                String encriptado = this.text_mens_encriptado.getText();
+                int cant_digitos = 3*cant_bl_caract*(encriptado.length()/this.rsa_evaluar.GetLongitudBloque());
+                if(texto.length() > cant_digitos)
+                    JOptionPane.showMessageDialog(null, "El resultado debe tener hasta " + Long.toString(cant_digitos) + " dígitos.");
+                else{  
+                    this.text_resultado_des_todo.setEnabled(false);
+                    this.botAceptarDesTodo.setEnabled(false);
+                    this.botCorregirDesencriptar.setEnabled(true);
+                    this.botResolverDesencriptar.setEnabled(false);
+                    this.botReintentarDesencriptar.setEnabled(false);
+                }                
             }
         }        
     }//GEN-LAST:event_botAceptarDesTodoMousePressed
@@ -2477,8 +2518,11 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         if(this.panDesencTodo.isEnabled()){
             String res = this.rsa_evaluar.DesencriptarTodo(this.text_mens_encriptado.getText(),
                     (int)this.spinTamBloqueDes.getValue());
+            String decod = this.rsa_evaluar.DecodificarAscii(res);
             this.labelCorreccionDesTodo.setText("Mensaje desencriptado: " + res + 
-                                        " -- Mensaje decodificado: " + this.rsa_evaluar.DecodificarAscii(res));
+                                        " -- Mensaje decodificado: " + decod);
+            this.text_resultado_des_todo.setText(res);
+            this.text_res_decodificado_todo.setText(decod);
             this.labelCorreccionDesTodo.setForeground(Color.green);
             this.labelCorreccionDesTodo.setVisible(true);
             this.text_resultado_des_todo.setEnabled(false);
@@ -2513,10 +2557,13 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             if(desenc_ok.compareTo(this.text_resultado_des_todo.getText()) == 0){
                 this.labelCorreccionDesTodo.setText("Correcto.");
                 this.labelCorreccionDesTodo.setForeground(Color.green);
+                this.botReintentarDesencriptar.setEnabled(false);
+                this.text_res_decodificado_todo.setText(this.rsa_evaluar.DecodificarAscii(desenc_ok));
             }
             else{
                 this.labelCorreccionDesTodo.setText("Incorrecto.");
                 this.labelCorreccionDesTodo.setForeground(Color.red);
+                this.botReintentarDesencriptar.setEnabled(true);
             }
             this.labelCorreccionDesTodo.setVisible(true);
         }
@@ -2526,9 +2573,6 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             if(desenc_ok.compareTo(this.text_resultado_des_bloque.getText()) == 0){
                 this.labelCorreccionDesencBloque.setText("Correcto.");
                 this.labelCorreccionDesencBloque.setForeground(Color.green);
-                /*this.text_parcial_des_bloque.setText(this.text_parcial_des_bloque.getText() + desenc_ok);
-                this.text_string_resultante_Des.setText(this.text_string_resultante_Des.getText() + 
-                        this.rsa_evaluar.DecodificarAscii(desenc_ok));*/
                 this.parcial_desenc_numerico = desenc_ok;
                 this.parcial_desenc_ascii = this.rsa_evaluar.DecodificarAscii(desenc_ok);
                 this.botReintentarDesencriptar.setEnabled(false);
@@ -2549,6 +2593,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         if(this.panDesencTodo.isEnabled()){
             this.text_resultado_des_todo.setEnabled(true);
             this.text_resultado_des_todo.setText("");
+            this.text_res_decodificado_todo.setText("");
             this.botAceptarDesTodo.setEnabled(true);
             this.labelCorreccionDesTodo.setVisible(false);
         }
@@ -2589,18 +2634,24 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         if(texto.isEmpty())
             JOptionPane.showMessageDialog(null, "Ingrese el mensaje desencriptado.");
         else{
-            String bloque = this.text_bloque_des_bloque.getText();
-            int cant_bl_caract = (int)this.spinTamBloqueDes.getValue();
-            int cant_digitos = 3*cant_bl_caract*(bloque.length()/this.rsa_evaluar.GetLongitudBloque());
-            if(texto.length() > cant_digitos)
-                JOptionPane.showMessageDialog(null, "El resultado debe tener hasta " + Long.toString(cant_digitos) + " dígitos.");
+            if(!this.esNumero(texto)){
+                JOptionPane.showMessageDialog(null, "Debe ingresar solo valores numéricos.");
+                this.text_resultado_des_bloque.setText("");
+            }
             else{
-                this.text_resultado_des_bloque.setEnabled(false);
-                this.text_bloque_des_bloque.setEnabled(false);
-                this.botAceptarDesBloque.setEnabled(false);
-                this.botCorregirDesencriptar.setEnabled(true);
-                this.botResolverDesencriptar.setEnabled(false);
-                this.botReintentarDesencriptar.setEnabled(false);
+                String bloque = this.text_bloque_des_bloque.getText();
+                int cant_bl_caract = (int)this.spinTamBloqueDes.getValue();
+                int cant_digitos = 3*cant_bl_caract*(bloque.length()/this.rsa_evaluar.GetLongitudBloque());
+                if(texto.length() > cant_digitos)
+                    JOptionPane.showMessageDialog(null, "El resultado debe tener hasta " + Long.toString(cant_digitos) + " dígitos.");
+                else{
+                    this.text_resultado_des_bloque.setEnabled(false);
+                    this.text_bloque_des_bloque.setEnabled(false);
+                    this.botAceptarDesBloque.setEnabled(false);
+                    this.botCorregirDesencriptar.setEnabled(true);
+                    this.botResolverDesencriptar.setEnabled(false);
+                    this.botReintentarDesencriptar.setEnabled(false);
+                }                
             }
         }
     }//GEN-LAST:event_botAceptarDesBloqueMousePressed
@@ -2708,6 +2759,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -2792,6 +2844,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     private javax.swing.JTextField text_parcial_des_bloque;
     private javax.swing.JTextField text_q_ev;
     private javax.swing.JTextField text_repnum_encriptar;
+    private javax.swing.JTextField text_res_decodificado_todo;
     private javax.swing.JTextField text_resultado_des_bloque;
     private javax.swing.JTextField text_resultado_des_todo;
     private javax.swing.JTextField text_string_resultante_Des;
