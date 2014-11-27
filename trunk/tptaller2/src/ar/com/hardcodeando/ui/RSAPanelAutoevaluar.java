@@ -196,7 +196,8 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         this.botContinuarCI.setEnabled(false);
         this.botReintentarCI.setEnabled(false);
         this.botResolverCI.setEnabled(true);
-        this.botCorregirCI.setEnabled(false);        
+        this.botCorregirCI.setEnabled(false);
+        this.botNuevoCI.setEnabled(false);
         this.labelCorreccionN.setVisible(false);
         this.labelCorreccionD.setVisible(false);
         this.labelCorreccionE.setVisible(false);
@@ -385,6 +386,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         botCorregirCI = new javax.swing.JButton();
         botResolverCI = new javax.swing.JButton();
         botContinuarCI = new javax.swing.JButton();
+        botNuevoCI = new javax.swing.JButton();
         panelEncriptarEv = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         panEncriptarTodo = new javax.swing.JPanel();
@@ -1119,20 +1121,32 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             }
         });
 
+        botNuevoCI.setText("Nuevo");
+        botNuevoCI.setEnabled(false);
+        botNuevoCI.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botNuevoCIMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(199, 199, 199)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(botContinuarCI, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(botCorregirCI, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(botReintentarCI)))
-                .addGap(18, 18, 18)
-                .addComponent(botResolverCI, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botReintentarCI)
+                        .addGap(18, 18, 18)
+                        .addComponent(botResolverCI, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(botContinuarCI, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(botNuevoCI, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -1144,7 +1158,9 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                     .addComponent(botResolverCI)
                     .addComponent(botCorregirCI))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botContinuarCI)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botContinuarCI)
+                    .addComponent(botNuevoCI))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -2111,6 +2127,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                     this.textClavePrivadaDEv.setEnabled(true);
                     this.botAceptarClavePrivEv.setEnabled(true);
                     this.botCalcularModuloEv.setEnabled(false);
+                    this.botNuevoCI.setEnabled(true);
                     this.modulo_generado = true;
                 }
                 this.labelCorreccionN.setVisible(true);
@@ -2142,8 +2159,22 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     }//GEN-LAST:event_botCorregirCIMousePressed
 
     private void botReintentarCIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botReintentarCIMousePressed
-        this.LimpiarCalculosIniciales();
-        this.rsa_evaluar.LimpiarValores();
+        this.panClavePrivadaEv.setEnabled(true);
+        this.textClavePrivadaDEv.setEnabled(true);
+        this.textClavePrivadaDEv.setText("");
+        this.botAceptarClavePrivEv.setEnabled(true);
+        this.labelCorreccionD.setVisible(false);
+        this.panClavePublicaEv.setEnabled(false);
+        this.textClavePublicaEEv.setEnabled(false);
+        this.textClavePublicaEEv.setText("");
+        this.botAceptarClavePublEv.setEnabled(false);
+        this.labelCorreccionE.setVisible(false);
+        
+        this.botCorregirCI.setEnabled(false);
+        this.botReintentarCI.setEnabled(false);
+        this.botResolverCI.setEnabled(true);
+        this.botContinuarCI.setEnabled(false);
+        this.botNuevoCI.setEnabled(true);
     }//GEN-LAST:event_botReintentarCIMousePressed
 
     private void botAceptarClavePrivEvMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botAceptarClavePrivEvMousePressed
@@ -2178,6 +2209,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 this.botAceptarClavePublEv.setEnabled(false);
                 this.textClavePublicaEEv.setEnabled(false);
                 this.botCorregirCI.setEnabled(true);
+                this.botResolverCI.setEnabled(false);
             }
         }
     }//GEN-LAST:event_botAceptarClavePublEvMousePressed
@@ -2679,6 +2711,11 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         this.botSiguienteDesBloque.setEnabled(false);
     }//GEN-LAST:event_botSiguienteDesBloqueMousePressed
 
+    private void botNuevoCIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botNuevoCIMousePressed
+        this.LimpiarCalculosIniciales();
+        this.rsa_evaluar.LimpiarValores();
+    }//GEN-LAST:event_botNuevoCIMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane RSAEvaluarPanel;
@@ -2700,6 +2737,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     private javax.swing.JButton botDesencTodo;
     private javax.swing.JButton botEncriptarBloques;
     private javax.swing.JButton botEncriptarTodo;
+    private javax.swing.JButton botNuevoCI;
     private javax.swing.JButton botNuevoDesenc;
     private javax.swing.JButton botNuevoEncriptar;
     private javax.swing.JButton botReintentarCI;
