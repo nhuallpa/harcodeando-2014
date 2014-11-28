@@ -51,7 +51,6 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
         jButton13 = new javax.swing.JButton();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
@@ -295,7 +294,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/des/general.png"))); // NOI18N
 
-        jLabel6.setText("<html><body>Para empezar, elija el mensaje y la clave que ser&aacute;n utilizados para evaluar su aprendizaje</body></html>");
+        jLabel6.setText("<html><body>Para empezar, elija el mensaje y la clave en formato hexadecimal que ser&aacute;n utilizados para evaluar su aprendizaje. <br>Ambos valores deben ser de 16 caracteres (64 bits)</body></html>");
 
         jButton2.setText("Siguiente");
         jButton2.setEnabled(false);
@@ -321,8 +320,6 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
             }
         });
 
-        jTextField3.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-
         jButton13.setText("Validar");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -334,7 +331,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
 
         jLabel35.setText("Clave:");
 
-        jLabel36.setText("Mensaje cifrado:");
+        jLabel36.setText("<html><body>Durante los pasos sucesivos, se deber&aacute;n completar los campos con valores binarios, salvo que se indique lo contrario.</body></html>");
 
         jLabel37.setForeground(new java.awt.Color(228, 27, 27));
 
@@ -352,7 +349,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton2))
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 737, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 787, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton13)
@@ -369,41 +366,40 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel36)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                        .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel34)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(23, 23, 23)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel35)
-                            .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel36))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton13))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel35))
+                            .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton13))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2))))
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addContainerGap(355, Short.MAX_VALUE))
+                .addContainerGap(391, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Introducción", jPanel4);
@@ -626,7 +622,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                                         .addComponent(jLabel33)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 187, Short.MAX_VALUE)))
+                                .addGap(0, 237, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -741,7 +737,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
 
         jTextField23.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
 
-        jLabel63.setText("<html><body>Resultando de dicha permutaci&oacute;n: </body></html>");
+        jLabel63.setText("<html><body>Resultando de dicha permutaci&oacute;n: (64 bits)</body></html>");
 
         jTextField24.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
 
@@ -788,7 +784,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                 .addComponent(jLabel40)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 731, Short.MAX_VALUE)
+                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 781, Short.MAX_VALUE)
                     .addComponent(jLabel62, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
@@ -917,21 +913,21 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
 
         jTextField31.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
 
-        jLabel70.setText("<html><body>Siguiendo con el resto de los bloques, obtenemos:</body></html>\";");
+        jLabel70.setText("<html><body>Siguiendo con el resto de los bloques, obtenemos: (32 bits)</body></html>");
 
         jLabel71.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel71.setText("S1(B1)S2(B2)S3(B3)S4(B4)S5(B5)S6(B6)S7(B7)S8(B8) = ");
 
         jTextField32.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
 
-        jLabel72.setText("<html><body><b>4)</b> A este resultado le aplico la permutaci&oacute;n P y obtengo: </body></html>");
+        jLabel72.setText("<html><body><b>4)</b> A este resultado le aplico la permutaci&oacute;n P y obtengo: (32 bits)</body></html>");
 
         jLabel73.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel73.setText("P = ");
 
         jTextField33.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
 
-        jLabel74.setText("<html><body><b>5)</b> Luego, realizo un &uacute;ltimo OR-exclusivo con el valor L0 inicial (que no fue modificado), obteniendo:</body></html>");
+        jLabel74.setText("<html><body><b>5)</b> Luego, realizo un &uacute;ltimo OR-exclusivo con el valor L0 inicial (que no fue modificado), obteniendo: (32 bits)</body></html>");
 
         jLabel75.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel75.setText("P (+) L0 = ");
@@ -981,7 +977,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton1))
                             .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
                             .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -1024,7 +1020,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                                         .addComponent(jLabel75)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 32, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -1144,21 +1140,21 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
 
         jTextField47.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
 
-        jLabel107.setText("<html><body>Siguiendo con el resto de los bloques, obtenemos:</body></html>\";");
+        jLabel107.setText("<html><body>Siguiendo con el resto de los bloques, obtenemos: (32 bits)</body></html>");
 
         jLabel108.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel108.setText("S1(B1)S2(B2)S3(B3)S4(B4)S5(B5)S6(B6)S7(B7)S8(B8) = ");
 
         jTextField48.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
 
-        jLabel109.setText("<html><body><b>4)</b> A este resultado le aplico la permutaci&oacute;n P y obtengo: </body></html>");
+        jLabel109.setText("<html><body><b>4)</b> A este resultado le aplico la permutaci&oacute;n P y obtengo: (32 bits)</body></html>");
 
         jLabel110.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel110.setText("P = ");
 
         jTextField49.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
 
-        jLabel111.setText("<html><body><b>5)</b> Luego, realizo un &uacute;ltimo OR-exclusivo con el valor L1 inicial (que no fue modificado), obteniendo:</body></html>");
+        jLabel111.setText("<html><body><b>5)</b> Luego, realizo un &uacute;ltimo OR-exclusivo con el valor L0 inicial (que no fue modificado), obteniendo: (32 bits)</body></html>");
 
         jLabel112.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel112.setText("P (+) L1 = ");
@@ -1208,7 +1204,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton9))
                             .addComponent(jLabel95, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel98, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jLabel98, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
                             .addComponent(jLabel99, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel101, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jLabel103, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -1251,7 +1247,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                                         .addComponent(jLabel112)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jTextField50, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 32, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addComponent(jLabel77, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -1371,21 +1367,21 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
 
         jTextField55.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
 
-        jLabel126.setText("<html><body>Siguiendo con el resto de los bloques, obtenemos:</body></html>\";");
+        jLabel126.setText("<html><body>Siguiendo con el resto de los bloques, obtenemos: (32 bits)</body></html>");
 
         jLabel127.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel127.setText("S1(B1)S2(B2)S3(B3)S4(B4)S5(B5)S6(B6)S7(B7)S8(B8) = ");
 
         jTextField56.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
 
-        jLabel128.setText("<html><body><b>4)</b> A este resultado le aplico la permutaci&oacute;n P y obtengo: </body></html>");
+        jLabel128.setText("<html><body><b>4)</b> A este resultado le aplico la permutaci&oacute;n P y obtengo: (32 bits)</body></html>");
 
         jLabel129.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel129.setText("P = ");
 
         jTextField57.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
 
-        jLabel130.setText("<html><body><b>5)</b> Luego, realizo un &uacute;ltimo OR-exclusivo con el valor L2 inicial (que no fue modificado), obteniendo:</body></html>");
+        jLabel130.setText("<html><body><b>5)</b> Luego, realizo un &uacute;ltimo OR-exclusivo con el valor L0 inicial (que no fue modificado), obteniendo: (32 bits)</body></html>");
 
         jLabel131.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel131.setText("P (+) L2 = ");
@@ -1435,7 +1431,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton22))
                             .addComponent(jLabel114, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel117, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jLabel117, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
                             .addComponent(jLabel118, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel120, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jLabel122, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -1478,7 +1474,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                                         .addComponent(jLabel131)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jTextField58, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 32, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addComponent(jLabel78, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -1598,21 +1594,21 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
 
         jTextField63.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
 
-        jLabel145.setText("<html><body>Siguiendo con el resto de los bloques, obtenemos:</body></html>\";");
+        jLabel145.setText("<html><body>Siguiendo con el resto de los bloques, obtenemos: (32 bits)</body></html>");
 
         jLabel146.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel146.setText("S1(B1)S2(B2)S3(B3)S4(B4)S5(B5)S6(B6)S7(B7)S8(B8) = ");
 
         jTextField64.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
 
-        jLabel147.setText("<html><body><b>4)</b> A este resultado le aplico la permutaci&oacute;n P y obtengo: </body></html>");
+        jLabel147.setText("<html><body><b>4)</b> A este resultado le aplico la permutaci&oacute;n P y obtengo: (32 bits)</body></html>");
 
         jLabel148.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel148.setText("P = ");
 
         jTextField65.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
 
-        jLabel149.setText("<html><body><b>5)</b> Luego, realizo un &uacute;ltimo OR-exclusivo con el valor L15 inicial (que no fue modificado), obteniendo:</body></html>");
+        jLabel149.setText("<html><body><b>5)</b> Luego, realizo un &uacute;ltimo OR-exclusivo con el valor L0 inicial (que no fue modificado), obteniendo: (32 bits)</body></html>");
 
         jLabel150.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel150.setText("P (+) L15 = ");
@@ -1662,7 +1658,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton25))
                             .addComponent(jLabel133, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel136, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jLabel136, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
                             .addComponent(jLabel137, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel139, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jLabel141, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -1705,7 +1701,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                                         .addComponent(jLabel150)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jTextField66, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 32, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addComponent(jLabel79, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -1790,7 +1786,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jLabel31.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel32.setText("<html><body><b>3) </b>Obteni&eacute;ndose finalmente: </body></html>");
+        jLabel32.setText("<html><body><b>3) </b>Obteni&eacute;ndose finalmente: (64 bits)</body></html>");
         jLabel32.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         jButton12.setText("Volver a empezar");
@@ -1875,7 +1871,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                                         .addComponent(jLabel2)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 162, Short.MAX_VALUE)))
+                                .addGap(0, 212, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addComponent(jLabel80, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -1967,7 +1963,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                 .addComponent(jLabel46)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel47, javax.swing.GroupLayout.DEFAULT_SIZE, 1054, Short.MAX_VALUE)
+                    .addComponent(jLabel47, javax.swing.GroupLayout.DEFAULT_SIZE, 1104, Short.MAX_VALUE)
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel13Layout.createSequentialGroup()
@@ -2043,7 +2039,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1309, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1359, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -3561,7 +3557,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         String clave = jTextField1.getText();
         String label = "<html><body><b>1)</b> Tomando como ejemplo nuestra clave ";
         label += "<b>" + clave + "</b>";
-        label += ", la pasamos a binario, obteniendo:<br></body></html>";
+        label += ", la pasamos a binario, obteniendo (64 bits):<br></body></html>";
         
         return label;
     }    
@@ -3582,7 +3578,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         String label = "<html><body>";      
         
         label += "<b>3)</b> A modo de ejemplo, solamente calcularemos los 4 primeros valores tanto de Ci como de Di.<br>";
-        label += "Utilizando la tabla de rotaciones, obtenemos los siguientes <b>Ci</b> y <b>Di</b>:<br><br>";
+        label += "Utilizando la tabla de rotaciones, obtenemos los siguientes <b>Ci</b> y <b>Di</b>: (28 bits)<br><br>";
     
         label += "</body></html>";
         
@@ -3597,7 +3593,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         String label = "<html><body>";      
         
         label += "<b>4)</b> Finalmente, concatenando cada <b>Ci</b> con <b>Di</b> y aplicando la Permutaci&oacute;n 2, ";
-        label += "obtenemos las 16 subclaves <b>Ki (por simplicidad solamente calculamos las 4 primeras)</b>:<br><br>";
+        label += "obtenemos las 16 subclaves <b>Ki (por simplicidad solamente calculamos las 4 primeras)</b>: (48 bits)<br><br>";
         label += "</body></html>";
 
         return label;
@@ -3607,7 +3603,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
     
     private String crearLabelRondaInicial1() {
         String label = "<html><body><b>1)</b> Ahora vamos a trabajar sobre el mensaje en si mismo. <br>";
-        label += "Pasamos los 16 bytes hexadecimales del mensaje original a binario, obteniendo <br>";
+        label += "Pasamos los 16 bytes hexadecimales del mensaje original a binario, obteniendo (64 bits)<br>";
         label += "</body></html>";
 
         return label;
@@ -3616,7 +3612,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
     private String crearLabelRondaInicial2() {
         
         String label = "<html><body>";
-        label += "A continuaci&oacute;n, se realizar&aacute; una permutaci&oacute;n inicial ";
+        label += "A continuaci&oacute;n, se realizar&aacute; una permutaci&oacute;n inicial (64 bits)";
         label += "con la siguiente tabla:<br></body></html>";
 
         return label;
@@ -3661,29 +3657,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         return label;
     }
     
-    private String crearLabelRondaFinal2() {
-        long fp = des.getRondasFP();
 
-        String label = "<html><body><b>3) </b>Obteni&eacute;ndose finalmente: <br>";
-        label += "<b>C = " + des.formatBinary(Long.toBinaryString(fp), 64, 4) + "</b><br>";
-        label += "el cual se traduce en hexadecimal como <b>" + Long.toHexString(fp).toUpperCase() + "</b><br>";
-        label += "Ese finalmente es el mensaje cifrado.<br><br><br></body></html>";
-        
-        return label;
-    }
-
-    private String crearLabelRondaFinal3() {
-        
-        String clave = jTextField1.getText();
-        String mensaje = jTextField2.getText();
-        
-        String label = "<html><body>En resumen, utilizando el algoritmo DES:<br><br> ";
-        label += "Mensaje original: <b>" + mensaje + "</b><br>";
-        label += "Clave: <b>" + clave + "</b><br> ";
-        label += "Mensaje cifrado: <b>" + des.getMsjCifrado() + "</b></body></html>";
-        
-        return label;
-    }
 
     private String crearLabelRondaIa(int i) {
         int[] rondasL = des.getRondasL();
@@ -3693,7 +3667,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         String label = "<html><body><b>1) </b>Partiendo de los bloques iniciales:<br> ";
         label += "<b>L"+j+" = " + des.formatBinary(Long.toBinaryString(rondasL[j]&0xFFFFFFFFL), 32, 4) + "</b> y ";
         label += "<b>R"+j+" = " + des.formatBinary(Long.toBinaryString(rondasR[j]&0xFFFFFFFFL), 32, 4) + "</b><br><br>";
-        label += "Aplico la expansi&oacute;n E al bloque R"+j+", obteniendo:<br>";
+        label += "Aplico la expansi&oacute;n E al bloque R"+j+", obteniendo: (48 bits)<br>";
 
         label += "</body></html>";        
         return label;
@@ -3705,7 +3679,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         int j = i-1;
 
         String label = "<html><body><b>K("+i+") = " + des.formatBinary(Long.toBinaryString(subclaves[j]),48, 4) + "</b><br> ";
-        label += "Quedando finalmente: <br> ";
+        label += "Quedando finalmente: (48 bits)<br> ";
         label += "</body></html>";        
 
         return label;
@@ -4095,7 +4069,6 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField27;
     private javax.swing.JTextField jTextField28;
     private javax.swing.JTextField jTextField29;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField30;
     private javax.swing.JTextField jTextField31;
     private javax.swing.JTextField jTextField32;
