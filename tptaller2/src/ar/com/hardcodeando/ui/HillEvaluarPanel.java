@@ -8,6 +8,7 @@ package ar.com.hardcodeando.ui;
 import ar.com.hardcodeando.algorithm.BadFormedKeyException;
 import ar.com.hardcodeando.algorithm.HillCipher;
 import ar.com.hardcodeando.ui.utils.MyIntFilter;
+import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -61,18 +62,18 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        rbCorrecto1 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jToggleButton1 = new javax.swing.JToggleButton();
         jButton4 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        rbCorrecto2 = new javax.swing.JRadioButton();
         jRadioButton6 = new javax.swing.JRadioButton();
         jLabel20 = new javax.swing.JLabel();
         jRadioButton7 = new javax.swing.JRadioButton();
         jRadioButton8 = new javax.swing.JRadioButton();
-        jRadioButton9 = new javax.swing.JRadioButton();
+        rbCorrecto3 = new javax.swing.JRadioButton();
         hillPaso1Panel = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         lblHeaderPaso1 = new javax.swing.JLabel();
@@ -143,15 +144,15 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         });
         IntroHillPanel.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
 
-        buttonGroupPreg1.add(jRadioButton2);
-        jRadioButton2.setLabel("Matriz Inversible modulo 26");
-        IntroHillPanel.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
+        buttonGroupPreg1.add(rbCorrecto1);
+        rbCorrecto1.setLabel("Matriz Inversible modulo 26");
+        IntroHillPanel.add(rbCorrecto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
 
         buttonGroupPreg1.add(jRadioButton3);
         jRadioButton3.setLabel("Matriz no inversible");
         IntroHillPanel.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, -1));
 
-        jToggleButton1.setText("Validar");
+        jToggleButton1.setText("Resolver");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);
@@ -159,7 +160,12 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         });
         IntroHillPanel.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(525, 470, 90, -1));
 
-        jButton4.setText("Mostrar");
+        jButton4.setText("Corregir");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         IntroHillPanel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 470, 90, -1));
 
         jLabel19.setText("<html><ul><li>¿Que caracterista tiene que clave para enciptar?</li></ul></html>");
@@ -169,9 +175,9 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         jRadioButton4.setText("Sumatoria");
         IntroHillPanel.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
 
-        buttonGroupPreg2.add(jRadioButton5);
-        jRadioButton5.setText("Producto punto");
-        IntroHillPanel.add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
+        buttonGroupPreg2.add(rbCorrecto2);
+        rbCorrecto2.setText("Producto punto");
+        IntroHillPanel.add(rbCorrecto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
 
         buttonGroupPreg2.add(jRadioButton6);
         jRadioButton6.setText("Division");
@@ -193,9 +199,9 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         jRadioButton8.setText("Obtener matriz inversa");
         IntroHillPanel.add(jRadioButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, -1, -1));
 
-        buttonGroupPreg3.add(jRadioButton9);
-        jRadioButton9.setText("Obtener la matriz inverza modulo 26");
-        IntroHillPanel.add(jRadioButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, -1));
+        buttonGroupPreg3.add(rbCorrecto3);
+        rbCorrecto3.setText("Obtener la matriz inverza modulo 26");
+        IntroHillPanel.add(rbCorrecto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, -1));
 
         jTabbedPane1.addTab("Introducción", IntroHillPanel);
 
@@ -462,7 +468,9 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jRadioButton7ActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-         JOptionPane.showMessageDialog(hillPaso1Panel, "Resultado:", TOOL_TIP_TEXT_KEY, WIDTH);
+         rbCorrecto1.setForeground(Color.green);
+         rbCorrecto2.setForeground(Color.green);
+         rbCorrecto3.setForeground(Color.green);
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -541,6 +549,29 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton9ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        short correctas = 0;
+        if(this.rbCorrecto1.isSelected()){
+            correctas++;
+            this.rbCorrecto1.setForeground(Color.green);
+        }
+        else this.rbCorrecto1.setForeground(Color.red);
+        
+        if(this.rbCorrecto2.isSelected()){
+            correctas++;
+            this.rbCorrecto2.setForeground(Color.green);
+        }
+        else this.rbCorrecto2.setForeground(Color.red);
+        
+        if(this.rbCorrecto3.isSelected()){
+            correctas++;
+            this.rbCorrecto3.setForeground(Color.green);
+        }
+        else this.rbCorrecto3.setForeground(Color.red);
+        
+        JOptionPane.showMessageDialog(null, "Correctas: " + correctas + "/3");
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel IntroHillPanel;
@@ -577,14 +608,11 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JRadioButton jRadioButton6;
     private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JRadioButton jRadioButton8;
-    private javax.swing.JRadioButton jRadioButton9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -600,5 +628,8 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lblHeaderPaso1;
+    private javax.swing.JRadioButton rbCorrecto1;
+    private javax.swing.JRadioButton rbCorrecto2;
+    private javax.swing.JRadioButton rbCorrecto3;
     // End of variables declaration//GEN-END:variables
 }

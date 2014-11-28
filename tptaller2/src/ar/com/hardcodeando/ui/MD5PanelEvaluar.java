@@ -254,6 +254,11 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
                 botCorregirPreguntasMousePressed(evt);
             }
         });
+        botCorregirPreguntas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botCorregirPreguntasActionPerformed(evt);
+            }
+        });
         IntroMD5.add(botCorregirPreguntas, new org.netbeans.lib.awtextra.AbsoluteConstraints(292, 430, 110, 30));
 
         botReintentarPreguntas.setText("Reintentar");
@@ -269,6 +274,11 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         botResolverPreguntas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 botResolverPreguntasMousePressed(evt);
+            }
+        });
+        botResolverPreguntas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botResolverPreguntasActionPerformed(evt);
             }
         });
         IntroMD5.add(botResolverPreguntas, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 430, 110, 30));
@@ -452,19 +462,19 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
 
         jLabel16.setText("A: ");
         panelPaso3.add(jLabel16);
-        jLabel16.setBounds(220, 150, 16, 15);
+        jLabel16.setBounds(220, 150, 14, 14);
 
         jLabel17.setText("B:");
         panelPaso3.add(jLabel17);
-        jLabel17.setBounds(220, 190, 34, 15);
+        jLabel17.setBounds(220, 190, 34, 14);
 
         jLabel18.setText("C:");
         panelPaso3.add(jLabel18);
-        jLabel18.setBounds(220, 230, 34, 15);
+        jLabel18.setBounds(220, 230, 34, 14);
 
         jLabel19.setText("D:");
         panelPaso3.add(jLabel19);
-        jLabel19.setBounds(220, 270, 34, 15);
+        jLabel19.setBounds(220, 270, 34, 14);
         panelPaso3.add(valorInicialA);
         valorInicialA.setBounds(270, 140, 220, 30);
         panelPaso3.add(valorInicialD);
@@ -553,11 +563,11 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
 
         jLabel48.setText("2");
         panelPaso4.add(jLabel48);
-        jLabel48.setBounds(470, 240, 52, 15);
+        jLabel48.setBounds(470, 240, 52, 14);
 
         jLabel49.setText("2");
         panelPaso4.add(jLabel49);
-        jLabel49.setBounds(470, 260, 52, 15);
+        jLabel49.setBounds(470, 260, 52, 14);
 
         jLabel50.setText("2");
         panelPaso4.add(jLabel50);
@@ -658,7 +668,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
 
         jLabel60.setText("La base del algoritmo es una función de compresión que consta de cuatro rondas de estructura similar.");
         panelPaso4.add(jLabel60);
-        jLabel60.setBounds(20, 40, 720, 15);
+        jLabel60.setBounds(20, 40, 720, 14);
 
         botonCompletarGrilla.setText("Completar grilla");
         botonCompletarGrilla.addActionListener(new java.awt.event.ActionListener() {
@@ -682,7 +692,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
 
         jLabel38.setText("Ingrese los valores ya calculados en los pasos 3 y 4 y realice la suma para obtener el resumen del mensaje:");
         panelPaso5.add(jLabel38);
-        jLabel38.setBounds(20, 80, 810, 15);
+        jLabel38.setBounds(20, 80, 810, 14);
         panelPaso5.add(valorResumen);
         valorResumen.setBounds(400, 330, 440, 30);
 
@@ -701,7 +711,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
 
         jLabel41.setText("Variables salida");
         panelPaso5.add(jLabel41);
-        jLabel41.setBounds(220, 180, 140, 15);
+        jLabel41.setBounds(220, 180, 140, 14);
 
         botonMostrarPaso5.setText("Mostrar");
         botonMostrarPaso5.addActionListener(new java.awt.event.ActionListener() {
@@ -714,7 +724,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
 
         jLabel42.setText("Suma final");
         panelPaso5.add(jLabel42);
-        jLabel42.setBounds(220, 200, 140, 15);
+        jLabel42.setBounds(220, 200, 140, 14);
 
         tablaPaso5.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -759,7 +769,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
 
         jLabel44.setText("Resumen MD5:");
         panelPaso5.add(jLabel44);
-        jLabel44.setBounds(230, 340, 140, 15);
+        jLabel44.setBounds(230, 340, 140, 14);
 
         jTabbedPane1.addTab("Paso 5 de 5", panelPaso5);
 
@@ -769,7 +779,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("MD5");
         add(jLabel1);
-        jLabel1.setBounds(480, 10, 46, 22);
+        jLabel1.setBounds(480, 10, 41, 22);
 
         getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
@@ -1222,6 +1232,14 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         completarGrilla(4, 16, false);
         botonSiguientePaso4AE.setEnabled(true);  
     }//GEN-LAST:event_botonCompletarGrillaActionPerformed
+
+    private void botResolverPreguntasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botResolverPreguntasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botResolverPreguntasActionPerformed
+
+    private void botCorregirPreguntasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botCorregirPreguntasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botCorregirPreguntasActionPerformed
     public void handleGrillaEventsPaso5(java.awt.event.ComponentEvent evt){
        
         if (tablaPaso5.getCellEditor() != null) {
