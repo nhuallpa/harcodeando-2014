@@ -8,11 +8,16 @@ package ar.com.hardcodeando.ui;
 import ar.com.hardcodeando.algorithm.NLFSR;
 import ar.com.hardcodeando.algorithm.NLFSRFunction;
 import ar.com.hardcodeando.ui.utils.ComboItem;
+import java.awt.Color;
 import static java.awt.image.ImageObserver.WIDTH;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Map;
+import javax.swing.ButtonModel;
 import static javax.swing.JComponent.TOOL_TIP_TEXT_KEY;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -29,6 +34,10 @@ public class NLFSREvaluar extends javax.swing.JPanel {
     private NLFSR nlfsr;
     private int s0;
     private String key;
+    private ArrayList<JRadioButton> wronganswers;
+    private ArrayList<JRadioButton> rightanswers;
+    private int it = 0;
+    private int maxIt;
 
     /**
      * Creates new form NLFSREvaluar
@@ -40,6 +49,23 @@ public class NLFSREvaluar extends javax.swing.JPanel {
         jTabbedPane1.setEnabledAt(2, false);
         jTabbedPane1.setEnabledAt(3, false);
         jTabbedPane1.setEnabledAt(4, false);
+        jTabbedPane1.setEnabledAt(5, false);
+        
+        wronganswers = new ArrayList<>();
+        wronganswers.add(jRadioButton2);
+        wronganswers.add(jRadioButton3);
+        wronganswers.add(jRadioButton4);
+        wronganswers.add(jRadioButton5);
+        wronganswers.add(jRadioButton7);
+        wronganswers.add(jRadioButton8);
+        wronganswers.add(jRadioButton11);
+        wronganswers.add(jRadioButton12);
+        
+        rightanswers = new ArrayList<>();
+        rightanswers.add(jRadioButton1);
+        rightanswers.add(jRadioButton6);
+        rightanswers.add(jRadioButton9);
+        rightanswers.add(jRadioButton10);
     }
 
     /**
@@ -51,8 +77,33 @@ public class NLFSREvaluar extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jLabel18 = new javax.swing.JLabel();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        jRadioButton5 = new javax.swing.JRadioButton();
+        jRadioButton6 = new javax.swing.JRadioButton();
+        jLabel19 = new javax.swing.JLabel();
+        jRadioButton7 = new javax.swing.JRadioButton();
+        jRadioButton8 = new javax.swing.JRadioButton();
+        jRadioButton9 = new javax.swing.JRadioButton();
+        jLabel20 = new javax.swing.JLabel();
+        jRadioButton10 = new javax.swing.JRadioButton();
+        jRadioButton11 = new javax.swing.JRadioButton();
+        jRadioButton12 = new javax.swing.JRadioButton();
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -96,17 +147,184 @@ public class NLFSREvaluar extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        jButton16 = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(850, 840));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("NLFSR");
+        jLabel1.setText("NLFSR - Modo Evaluar");
         jLabel1.setAlignmentX(0.5F);
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel16.setText("Introducción");
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel17.setText("¿Qué tipos de números se generan con NLFSR?");
+
+        buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setText("Aleatorios");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioButton2);
+        jRadioButton2.setText("Pseudo-aleatorios");
+
+        buttonGroup1.add(jRadioButton3);
+        jRadioButton3.setText("No generan números");
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel18.setText("¿Qué tipo de función se puede utilizar?");
+
+        buttonGroup2.add(jRadioButton4);
+        jRadioButton4.setText("Cualquier función lógica");
+
+        buttonGroup2.add(jRadioButton5);
+        jRadioButton5.setText("Cualquier funcion logica aplicable a la misma cantidad de bits del registro");
+
+        buttonGroup2.add(jRadioButton6);
+        jRadioButton6.setText("Cualquier funcion logica aplicable al registro");
+        jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton6ActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel19.setText("¿Que bit del registro se agrega a la clave?");
+
+        buttonGroup3.add(jRadioButton7);
+        jRadioButton7.setText("Ninguno");
+
+        buttonGroup3.add(jRadioButton8);
+        jRadioButton8.setText("r0");
+
+        buttonGroup3.add(jRadioButton9);
+        jRadioButton9.setText("rn-1");
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel20.setText("¿En qué posición del registro se ubica el x calculado a traves de la función?");
+
+        buttonGroup4.add(jRadioButton10);
+        jRadioButton10.setText("En r0 luego de desplazar el registro a la derecha");
+
+        buttonGroup4.add(jRadioButton11);
+        jRadioButton11.setText("En rn-1 luego de desplazar el registro a la izquierda");
+
+        buttonGroup4.add(jRadioButton12);
+        jRadioButton12.setText("Se agrega en rn");
+
+        jButton13.setText("Corregir");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+
+        jButton14.setText("Mostrar");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
+        jButton15.setText("Siguiente");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton12)
+                    .addComponent(jRadioButton11)
+                    .addComponent(jRadioButton10)
+                    .addComponent(jRadioButton9)
+                    .addComponent(jRadioButton8)
+                    .addComponent(jRadioButton7)
+                    .addComponent(jRadioButton6)
+                    .addComponent(jRadioButton5)
+                    .addComponent(jRadioButton3)
+                    .addComponent(jRadioButton2)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel18)
+                    .addComponent(jRadioButton4)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel20))
+                .addContainerGap(437, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton14)
+                .addGap(9, 9, 9)
+                .addComponent(jButton15)
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel17)
+                .addGap(18, 18, 18)
+                .addComponent(jRadioButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jRadioButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jRadioButton3)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel18)
+                .addGap(18, 18, 18)
+                .addComponent(jRadioButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jRadioButton5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jRadioButton6)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jRadioButton7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jRadioButton8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jRadioButton9)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel20)
+                .addGap(18, 18, 18)
+                .addComponent(jRadioButton10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jRadioButton11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jRadioButton12)
+                .addGap(45, 45, 45)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton13)
+                    .addComponent(jButton14)
+                    .addComponent(jButton15))
+                .addContainerGap(160, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Introduccion", jPanel6);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Paso 1: Definir semilla");
 
-        jLabel5.setText("Ingrese un número a usar como semilla y expréselo en binario. Puede ingresar números que se expresen en hasta 6 bits.");
+        jLabel5.setText("Ingrese un número decimal a usar como semilla y expréselo en binario. Puede ingresar números que se expresen en hasta 4 bits.");
 
         jLabel2.setText("semilla:");
 
@@ -153,7 +371,7 @@ public class NLFSREvaluar extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField2)
                             .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE))))
-                .addContainerGap(236, Short.MAX_VALUE))
+                .addContainerGap(238, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton2)
@@ -226,7 +444,7 @@ public class NLFSREvaluar extends javax.swing.JPanel {
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(296, Short.MAX_VALUE))
+                .addContainerGap(336, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,7 +521,7 @@ public class NLFSREvaluar extends javax.swing.JPanel {
                     .addComponent(jLabel12)
                     .addComponent(jLabel13)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(363, Short.MAX_VALUE))
+                .addContainerGap(403, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton11)
@@ -388,15 +606,13 @@ public class NLFSREvaluar extends javax.swing.JPanel {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
                     .addComponent(jLabel14)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(363, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addComponent(jButton5)
                 .addGap(26, 26, 26)
                 .addComponent(jButton9)
@@ -418,7 +634,7 @@ public class NLFSREvaluar extends javax.swing.JPanel {
                     .addComponent(jButton8)
                     .addComponent(jButton9)
                     .addComponent(jButton5))
-                .addContainerGap(264, Short.MAX_VALUE))
+                .addContainerGap(378, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Paso 4", jPanel4);
@@ -426,13 +642,18 @@ public class NLFSREvaluar extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setText("Paso 5: Definir clave");
 
-        jLabel15.setText("Usando el nuevo registro, repita los pasos 3 y 4 hasta obtener una clave definida. Indique la clave obtenida, su período y su valor en decimal:");
+        jLabel15.setText("Usando el nuevo registro, repita los pasos 3 y 4 hasta obtener una clave definida. Una vez finalizadas las iteraciones indique la clave obtenida, su período y su valor en decimal:");
 
+        jTextField3.setEnabled(false);
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
             }
         });
+
+        jTextField4.setEnabled(false);
+
+        jTextField5.setEnabled(false);
 
         jLabel4.setText("Clave:");
 
@@ -441,6 +662,7 @@ public class NLFSREvaluar extends javax.swing.JPanel {
         jLabel7.setText("Número:");
 
         jButton10.setText("Validar");
+        jButton10.setEnabled(false);
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
@@ -448,9 +670,34 @@ public class NLFSREvaluar extends javax.swing.JPanel {
         });
 
         jButton12.setText("Mostrar");
+        jButton12.setEnabled(false);
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton12ActionPerformed(evt);
+            }
+        });
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "registro", "clave", "x", "nuevo registro"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable3);
+
+        jButton16.setText("Validar iteración");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+
+        jButton17.setText("Mostrar iteracion");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
             }
         });
 
@@ -459,30 +706,41 @@ public class NLFSREvaluar extends javax.swing.JPanel {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
-                            .addComponent(jLabel15)))
+                            .addComponent(jLabel15))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(299, 299, 299)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE))))
-                .addContainerGap(134, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton12)
-                .addGap(29, 29, 29)
-                .addComponent(jButton10)
-                .addGap(80, 80, 80))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton12)
+                                .addGap(29, 29, 29)
+                                .addComponent(jButton10)
+                                .addContainerGap())
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGap(48, 48, 48)
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel7)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel4))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextField3)
+                                            .addComponent(jTextField4)
+                                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGap(38, 38, 38)
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jButton17)
+                                            .addComponent(jButton16))))
+                                .addGap(188, 188, 188))))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -491,23 +749,33 @@ public class NLFSREvaluar extends javax.swing.JPanel {
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel15)
-                .addGap(33, 33, 33)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton10)
-                    .addComponent(jButton12))
-                .addGap(316, 316, 316))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jButton16)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton17)
+                        .addGap(138, 138, 138)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addGap(86, 86, 86)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton10)
+                            .addComponent(jButton12))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 254, Short.MAX_VALUE))))
         );
 
         jTabbedPane1.addTab("Paso 5", jPanel5);
@@ -522,7 +790,7 @@ public class NLFSREvaluar extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 870, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -560,8 +828,8 @@ public class NLFSREvaluar extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        jTabbedPane1.setEnabledAt(1, true);
-        jTabbedPane1.setSelectedIndex(1);
+        jTabbedPane1.setEnabledAt(2, true);
+        jTabbedPane1.setSelectedIndex(2);
         
         jLabel9.setText(NLFSRCommon.getFunctionDescription(length));
         
@@ -575,11 +843,13 @@ public class NLFSREvaluar extends javax.swing.JPanel {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
-        jTabbedPane1.setEnabledAt(2, true);
-        jTabbedPane1.setSelectedIndex(2);
+        jTabbedPane1.setEnabledAt(3, true);
+        jTabbedPane1.setSelectedIndex(3);
         
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.addRow(new Object []{ Integer.toBinaryString(seed), "", "" });
+        
+        maxIt = (int) Math.pow(2, length) - 1;
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -631,8 +901,8 @@ public class NLFSREvaluar extends javax.swing.JPanel {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         
         //display step 4
-        jTabbedPane1.setEnabledAt(3, true);
-        jTabbedPane1.setSelectedIndex(3);
+        jTabbedPane1.setEnabledAt(4, true);
+        jTabbedPane1.setSelectedIndex(4);
         
         DefaultTableModel model1 = (DefaultTableModel) jTable1.getModel();
         DefaultTableModel model2 = (DefaultTableModel) jTable2.getModel();
@@ -660,8 +930,14 @@ public class NLFSREvaluar extends javax.swing.JPanel {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         //show step 5
-        jTabbedPane1.setEnabledAt(4, true);
-        jTabbedPane1.setSelectedIndex(4);
+        jTabbedPane1.setEnabledAt(5, true);
+        jTabbedPane1.setSelectedIndex(5);
+        
+        DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
+        
+        String newSeedOk = NLFSRCommon.getSeedString(nlfsr.shiftSeed(nlfsr.getSeedArray(seedStr), s0));
+        model.addRow(new Object[]{seedStr, NLFSRCommon.getKey(seedStr), function.getResult(nlfsr.getSeedArray(seedStr)), newSeedOk});
+        model.addRow(new Object[]{"","","",""});
         
         nlfsr.Execute();
     }//GEN-LAST:event_jButton8ActionPerformed
@@ -705,15 +981,144 @@ public class NLFSREvaluar extends javax.swing.JPanel {
         jTextField5.setText(String.valueOf(Integer.parseInt(key,2)));
     }//GEN-LAST:event_jButton12ActionPerformed
 
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton6ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        showRightAnswers();
+        setWrongAnswers(wronganswers);
+                
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        buttonGroup1.clearSelection();
+        buttonGroup2.clearSelection();
+        buttonGroup3.clearSelection();
+        buttonGroup4.clearSelection();
+        resetForeground(wronganswers);
+        resetForeground(rightanswers);
+        showRightAnswers();
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void resetForeground(ArrayList<JRadioButton> buttons){
+        for (JRadioButton button : buttons) {
+            button.setForeground(Color.BLACK);
+        }
+    }
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        //show step 5
+        jTabbedPane1.setEnabledAt(1, true);
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        //Validar iteracion
+        try{
+            it = jTable3.getRowCount() - 1;
+            DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
+            String r = model.getValueAt(it, 0).toString();
+            String k = model.getValueAt(it, 1).toString();
+            String x = model.getValueAt(it, 2).toString();
+            String n = model.getValueAt(it, 3).toString();
+
+
+            String rOk = model.getValueAt(it-1, 3).toString();
+            int rOkArray[] = nlfsr.getSeedArray(rOk);
+            String kOk = String.valueOf(NLFSRCommon.getKey(rOk));
+            String xOk = String.valueOf(function.getResult(rOkArray));
+            String nOk = NLFSRCommon.getSeedString(nlfsr.shiftSeed(rOkArray, Integer.parseInt(xOk)));
+
+            if(r.equals(rOk) && k.equals(kOk) && x.equals(xOk) && n.equals(nOk)){
+                showPopup(jPanel5, "Los valores ingresados son correctos.");
+                if(it == maxIt){
+                    jButton16.setEnabled(false);
+                    jButton17.setEnabled(false);
+                    jTextField3.setEnabled(true);
+                    jTextField4.setEnabled(true);
+                    jTextField5.setEnabled(true);
+                    jButton12.setEnabled(true);
+                    jButton10.setEnabled(true);
+                }else{
+                    model.addRow(new Object[]{"","","",""});
+                }                
+            }            
+            else{
+                showPopup(jPanel5, "Los valores ingresados son incorrectos.");
+
+            }
+        }catch(Exception e){
+            showPopup(jPanel5, "Los valores ingresados son incorrectos.");
+        }
+        
+            
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        // Calculate iteration
+        it = jTable3.getRowCount() - 1;
+        DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
+        String rOk = model.getValueAt(it-1, 3).toString();
+        int rOkArray[] = nlfsr.getSeedArray(rOk);
+        String kOk = String.valueOf(NLFSRCommon.getKey(rOk));
+        String xOk = String.valueOf(function.getResult(rOkArray));
+        String nOk = NLFSRCommon.getSeedString(nlfsr.shiftSeed(rOkArray, Integer.parseInt(xOk)));
+        model.setValueAt(rOk, it, 0);
+        model.setValueAt(kOk, it, 1);
+        model.setValueAt(xOk, it, 2);
+        model.setValueAt(nOk, it, 3);
+        if(it == maxIt){
+            jButton16.setEnabled(false);
+            jButton17.setEnabled(false);
+            jTextField3.setEnabled(true);
+            jTextField4.setEnabled(true);
+            jTextField5.setEnabled(true);
+            jButton12.setEnabled(true);
+            jButton10.setEnabled(true);
+        }else{
+            model.addRow(new Object[]{"","","",""});
+        }
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void setWrongAnswers(ArrayList<JRadioButton> buttons){
+        for (JRadioButton button : buttons) {
+            if (button.isSelected()) {
+                button.setForeground(Color.red);
+            }        
+        }
+    }
+    
+    private void showRightAnswers(){
+        
+        Color green = new Color(16, 182, 21);
+        
+        jRadioButton1.setForeground(green);
+        jRadioButton6.setForeground(green);
+        jRadioButton9.setForeground(green);
+        jRadioButton10.setForeground(green);
+    }
     private void showPopup(JPanel panel, String message){
         JOptionPane.showMessageDialog(panel, message, "Validacion", WIDTH);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -730,7 +1135,12 @@ public class NLFSREvaluar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
@@ -745,11 +1155,26 @@ public class NLFSREvaluar extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton10;
+    private javax.swing.JRadioButton jRadioButton11;
+    private javax.swing.JRadioButton jRadioButton12;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JRadioButton jRadioButton6;
+    private javax.swing.JRadioButton jRadioButton7;
+    private javax.swing.JRadioButton jRadioButton8;
+    private javax.swing.JRadioButton jRadioButton9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
