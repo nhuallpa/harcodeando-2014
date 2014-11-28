@@ -9,7 +9,6 @@ package ar.com.hardcodeando.algorithm;
 
 import java.math.BigInteger;
 import java.util.Random;
-import static org.eclipse.persistence.platform.database.oracle.plsql.OraclePLSQLTypes.Int;
 /**
  *
  * @author Gabo
