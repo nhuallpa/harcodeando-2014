@@ -1282,7 +1282,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="panEncriptarBloques" max="32767" attributes="0"/>
-                                  <Component id="panEncriptarTodo" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="panEncriptarTodo" alignment="0" pref="908" max="32767" attributes="0"/>
                                   <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -1340,19 +1340,17 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                           <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Component id="textResultadoTodo" min="-2" pref="803" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                                   <Component id="botAceptarTodo" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="textResultadoTodo" max="32767" attributes="0"/>
-                                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
@@ -1928,7 +1926,7 @@
                                   <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                                   <Component id="spinTamBloqueDes" min="-2" pref="45" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="379" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1938,9 +1936,7 @@
                           <Component id="botDesencTodo" min="-2" pref="81" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="botDesencBloques" min="-2" pref="81" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="botNuevoDesenc" min="-2" pref="81" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1965,7 +1961,6 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="botDesencBloques" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="botDesencTodo" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="botNuevoDesenc" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="15" max="32767" attributes="0"/>
                       </Group>
@@ -2032,15 +2027,6 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Tama&#xf1;o Bloque:"/>
                   </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="botNuevoDesenc">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Nuevo"/>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botNuevoDesencMousePressed"/>
-                  </Events>
                 </Component>
               </SubComponents>
             </Container>
