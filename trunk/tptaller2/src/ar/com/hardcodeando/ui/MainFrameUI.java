@@ -9,8 +9,12 @@ import java.awt.BorderLayout;
 import javax.swing.JComponent;
 
 import java.awt.Dimension;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 import javax.swing.BoxLayout;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
 import javax.swing.JLabel;
@@ -54,6 +58,7 @@ public class MainFrameUI extends javax.swing.JFrame {
         menuBar1 = new java.awt.MenuBar();
         menu1 = new java.awt.Menu();
         menu2 = new java.awt.Menu();
+        fileChooser = new javax.swing.JFileChooser();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -73,6 +78,8 @@ public class MainFrameUI extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem13 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         menu1.setLabel("File");
         menu1.addActionListener(new java.awt.event.ActionListener() {
@@ -84,6 +91,8 @@ public class MainFrameUI extends javax.swing.JFrame {
 
         menu2.setLabel("Edit");
         menuBar1.add(menu2);
+
+        fileChooser.setCurrentDirectory(new java.io.File("/"));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(860, 540));
@@ -225,6 +234,18 @@ public class MainFrameUI extends javax.swing.JFrame {
         jMenu3.add(jMenu2);
 
         jMenuBar1.add(jMenu3);
+
+        jMenu1.setText("Historial");
+
+        jMenuItem1.setText("Abrir Archivo");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -397,6 +418,21 @@ public class MainFrameUI extends javax.swing.JFrame {
         this.setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        int returnVal = fileChooser.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
+            try {
+              FileReader text = new FileReader(file.getAbsolutePath());
+              //TODO: ver que hacer con el archivo una vez levantado
+            } catch (IOException ex) {
+            System.out.println("problem accessing file"+file.getAbsolutePath());
+            }
+        } else {
+             System.out.println("File access cancelled by user.");
+        }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
 
     
     /**
@@ -449,7 +485,9 @@ public class MainFrameUI extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFileChooser fileChooser;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu5;
@@ -457,6 +495,7 @@ public class MainFrameUI extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
