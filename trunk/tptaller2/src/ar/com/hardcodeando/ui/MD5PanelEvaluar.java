@@ -360,6 +360,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         panelPaso1.add(jLabel80, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
         buttonGuardarArchivoPaso1.setText("Guardar");
+        buttonGuardarArchivoPaso1.setEnabled(false);
         buttonGuardarArchivoPaso1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonGuardarArchivoPaso1ActionPerformed(evt);
@@ -491,19 +492,19 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
 
         jLabel16.setText("A: ");
         panelPaso3.add(jLabel16);
-        jLabel16.setBounds(220, 150, 14, 14);
+        jLabel16.setBounds(220, 150, 16, 15);
 
         jLabel17.setText("B:");
         panelPaso3.add(jLabel17);
-        jLabel17.setBounds(220, 190, 34, 14);
+        jLabel17.setBounds(220, 190, 34, 15);
 
         jLabel18.setText("C:");
         panelPaso3.add(jLabel18);
-        jLabel18.setBounds(220, 230, 34, 14);
+        jLabel18.setBounds(220, 230, 34, 15);
 
         jLabel19.setText("D:");
         panelPaso3.add(jLabel19);
-        jLabel19.setBounds(220, 270, 34, 14);
+        jLabel19.setBounds(220, 270, 34, 15);
         panelPaso3.add(valorInicialA);
         valorInicialA.setBounds(270, 140, 220, 30);
         panelPaso3.add(valorInicialD);
@@ -602,11 +603,11 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
 
         jLabel48.setText("2");
         panelPaso4.add(jLabel48);
-        jLabel48.setBounds(470, 240, 52, 14);
+        jLabel48.setBounds(470, 240, 52, 15);
 
         jLabel49.setText("2");
         panelPaso4.add(jLabel49);
-        jLabel49.setBounds(470, 260, 52, 14);
+        jLabel49.setBounds(470, 260, 52, 15);
 
         jLabel50.setText("2");
         panelPaso4.add(jLabel50);
@@ -707,7 +708,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
 
         jLabel60.setText("La base del algoritmo es una función de compresión que consta de cuatro rondas de estructura similar.");
         panelPaso4.add(jLabel60);
-        jLabel60.setBounds(20, 40, 720, 14);
+        jLabel60.setBounds(20, 40, 720, 15);
 
         botonCompletarGrilla.setText("Completar grilla");
         botonCompletarGrilla.addActionListener(new java.awt.event.ActionListener() {
@@ -741,7 +742,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
 
         jLabel38.setText("Ingrese los valores ya calculados en los pasos 3 y 4 y realice la suma para obtener el resumen del mensaje:");
         panelPaso5.add(jLabel38);
-        jLabel38.setBounds(20, 80, 810, 14);
+        jLabel38.setBounds(20, 80, 810, 15);
         panelPaso5.add(valorResumen);
         valorResumen.setBounds(400, 330, 440, 30);
 
@@ -760,7 +761,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
 
         jLabel41.setText("Variables salida");
         panelPaso5.add(jLabel41);
-        jLabel41.setBounds(220, 180, 140, 14);
+        jLabel41.setBounds(220, 180, 140, 15);
 
         botonMostrarPaso5.setText("Mostrar");
         botonMostrarPaso5.addActionListener(new java.awt.event.ActionListener() {
@@ -773,7 +774,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
 
         jLabel42.setText("Suma final");
         panelPaso5.add(jLabel42);
-        jLabel42.setBounds(220, 200, 140, 14);
+        jLabel42.setBounds(220, 200, 140, 15);
 
         tablaPaso5.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -818,7 +819,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
 
         jLabel44.setText("Resumen MD5:");
         panelPaso5.add(jLabel44);
-        jLabel44.setBounds(230, 340, 140, 14);
+        jLabel44.setBounds(230, 340, 140, 15);
 
         buttonGuardarArchivoPaso5.setText("Guardar");
         buttonGuardarArchivoPaso5.setEnabled(false);
@@ -838,7 +839,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("MD5");
         add(jLabel1);
-        jLabel1.setBounds(480, 10, 41, 22);
+        jLabel1.setBounds(480, 10, 46, 22);
 
         getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
@@ -857,13 +858,15 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             tablaPaso5.setValueAt(MD5.getMatrizValores()[3][17], 2, 1);
             tablaPaso5.setValueAt(MD5.getMatrizValores()[2][17], 2, 2);
             tablaPaso5.setValueAt(MD5.getMatrizValores()[1][17], 2, 3);
-        valorResumen.setText("" + MD5.ejecutarMd5(mensajeAEncriptar.getText()));
+            valorResumen.setText("" + MD5.ejecutarMd5(mensajeAEncriptar.getText()));
+            buttonGuardarArchivoPaso5.setEnabled(true);
     }//GEN-LAST:event_botonMostrarPaso5ActionPerformed
 
     private void botonMostrarGrillaCompletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMostrarGrillaCompletaActionPerformed
-        seteoInicial();
-        completarGrilla(limitei, limitej, true);
-        botonSiguientePaso4AE.setEnabled(true);  
+            seteoInicial();
+            completarGrilla(limitei, limitej, true);
+            botonSiguientePaso4AE.setEnabled(true);
+            buttonGuardarArchivoPaso4.setEnabled(true);
     }//GEN-LAST:event_botonMostrarGrillaCompletaActionPerformed
     
     private void seteoInicial() throws NumberFormatException {
@@ -914,7 +917,8 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         valorInicialB.setText("89ABCDEF");
         valorInicialC.setText("FEDCBA98");
         valorInicialD.setText("76543210");   
-        botonSiguientePaso3AE.setEnabled(true);  
+        botonSiguientePaso3AE.setEnabled(true);
+        buttonGuardarArchivoPaso3.setEnabled(true);
     }//GEN-LAST:event_botonMostrarVariablesConcatActionPerformed
 
     private void botonSiguientePaso3AEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguientePaso3AEActionPerformed
@@ -936,6 +940,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             String msgAprocesar = MD5.textoAProcesar(msgAEncriptar, msgAEncriptar.length(), true);
             representacionBinariaMasLongitud.setText(msgAprocesar);
             botonSiguientePaso2AE.setEnabled(true);      
+            buttonGuardarArchivoPaso2.setEnabled(true);
     }//GEN-LAST:event_botonMostrarMensajeConLongitudActionPerformed
 
     private void botonSiguientePaso2AEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguientePaso2AEActionPerformed
@@ -963,6 +968,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         StringWriter out = new StringWriter();
         try {
             JSONObject obj = new JSONObject();
+            obj.put("algorithm", "MD5");
             obj.put("message", mensajeAEncriptar.getText());
             obj.put("key", "");
             obj.put("step", step);
@@ -972,6 +978,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         }
         return out.toString();    
     }
+    
     public boolean compararIgualdadTextos(String valor1, String valor2) {
         boolean sonIguales = false;
         valor1 = valor1.trim();
@@ -1005,6 +1012,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         this.botCorregirPreguntas.setEnabled(false);
         this.botResolverPreguntas.setEnabled(false);
         this.botReintentarPreguntas.setEnabled(true);
+        this.buttonGuardarArchivoPaso1.setEnabled(true);
     }//GEN-LAST:event_botResolverPreguntasMousePressed
 
     private void botReintentarPreguntasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botReintentarPreguntasMousePressed
@@ -1061,6 +1069,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
                 String msgPadeado = MD5.textoPadeado(msgAEncriptar, msgAEncriptar.length(), true);
                 representacionBinMasRelleno.setText(msgPadeado);
                 botonSiguientePaso1AE.setEnabled(true);
+                buttonGuardarArchivoPaso1.setEnabled(true);
         } else {
                 JOptionPane.showMessageDialog(IntroMD5, "Debe ingresar un texto a encriptar!", "MD5", JOptionPane.ERROR_MESSAGE);
         }         
@@ -1072,6 +1081,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         String msgAProcesar = MD5.textoAProcesar(msgAEncriptar, msgAEncriptar.length(), true);
         if (compararIgualdadTextos(msgAProcesar, representacionBinariaMasLongitud.getText())) {
                 botonSiguientePaso2AE.setEnabled(true);
+                buttonGuardarArchivoPaso2.setEnabled(true);
                 JOptionPane.showMessageDialog(IntroMD5, "El mensaje a procesar es correcto!", "MD5", JOptionPane.INFORMATION_MESSAGE);
         } else {
                 JOptionPane.showMessageDialog(IntroMD5, "El mensaje a procesar es invalido!", "MD5", JOptionPane.ERROR_MESSAGE);
@@ -1085,7 +1095,8 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         boolean valorD = compararIgualdadTextos(valorInicialD.getText(), "76543210");
         
         if (valorA && valorB && valorC && valorD) {
-                botonSiguientePaso3AE.setEnabled(true);            
+                botonSiguientePaso3AE.setEnabled(true); 
+                buttonGuardarArchivoPaso3.setEnabled(true);
                 JOptionPane.showMessageDialog(IntroMD5, "Los valores de concatenación ingresados son correctos!", "MD5", JOptionPane.INFORMATION_MESSAGE);
         } else {
                 JOptionPane.showMessageDialog(IntroMD5, "Uno o más de los valores de concatenación ingresados son invalidos!", "MD5", JOptionPane.ERROR_MESSAGE);
@@ -1308,6 +1319,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
                 String msgPadeado = MD5.textoPadeado(msgAEncriptar, msgAEncriptar.length(), true);
                 if (compararIgualdadTextos(msgPadeado, representacionBinMasRelleno.getText())) {
                     botonSiguientePaso1AE.setEnabled(true);
+                    buttonGuardarArchivoPaso1.setEnabled(true);
                     JOptionPane.showMessageDialog(IntroMD5, "La representacion binaria más el relleno es correcto!", "MD5", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(IntroMD5, "La representacion binaria más el relleno es invalido!", "MD5", JOptionPane.ERROR_MESSAGE);
@@ -1372,19 +1384,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
                 this.selectedRowForEdit = tablaPaso5.getSelectedColumn()-1;
         }
     }
-    /*
-    public void validateContent(){
-        
-        if(this.selectedColumnForEdit == -1 || this.selectedRowForEdit == -1 ) return;
-        String realValue = MD5.getMatrizValores()[ this.selectedColumnForEdit ][ this.selectedRowForEdit +1];
-        if(realValue == null || realValue.isEmpty()) return;
-        String userInput = jTable2.getValueAt( this.selectedColumnForEdit , this.selectedRowForEdit+1).toString();
-        
-        if(!compararIgualdadTextos(realValue, userInput)){
-            JOptionPane.showMessageDialog(panelPaso4ii, "Udted mando fruta. Ese no es el valor esperado", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-    */
+    
     public void handleGrillaEvents(java.awt.event.ComponentEvent evt){
        
         if (tablaPaso4.getCellEditor() != null) {
