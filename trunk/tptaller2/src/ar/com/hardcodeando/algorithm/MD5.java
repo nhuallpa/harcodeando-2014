@@ -1,6 +1,10 @@
 package ar.com.hardcodeando.algorithm;
 
+import ar.com.hardcodeando.ui.SaveFile;
 import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.json.simple.JSONObject;
 
  /**
 	 * MD5 Esta clase encapsula un conjunto de funciones MD5 Message Digest.
@@ -479,7 +483,7 @@ public class MD5 {
             MD5.hashFinal = hashFinal;
         }
 
-        
+        /*
 	public static void main(String args[]) throws IOException {
 
 		char chrTestData[] = new char[64];
@@ -504,5 +508,5 @@ public class MD5 {
 		}
 		System.out.println("MD5 (" + textoIngresado + ") = " + md5Salida);
 	}
-
+*/
 }

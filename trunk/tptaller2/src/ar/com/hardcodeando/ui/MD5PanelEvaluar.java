@@ -9,10 +9,16 @@ import ar.com.hardcodeando.algorithm.MD5;
 import ar.com.hardcodeando.ui.utils.MyCellEditor;
 import ar.com.hardcodeando.ui.utils.StatusColumnCellRenderer;
 import java.awt.Color;
+import java.io.IOException;
+import java.io.StringWriter;
 import java.util.Enumeration;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -95,11 +101,12 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         representacionBinaria = new javax.swing.JTextArea();
         jLabel80 = new javax.swing.JLabel();
-        buttonValidarAdicionBits = new javax.swing.JButton();
+        buttonGuardarArchivoPaso1 = new javax.swing.JButton();
         buttonMostrarAdicionBits = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         representacionBinMasRelleno = new javax.swing.JTextArea();
         jLabel67 = new javax.swing.JLabel();
+        buttonValidarAdicionBits1 = new javax.swing.JButton();
         panelPaso2 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         botonSiguientePaso2AE = new javax.swing.JButton();
@@ -108,6 +115,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         jLabel68 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         representacionBinariaMasLongitud = new javax.swing.JTextArea();
+        buttonGuardarArchivoPaso2 = new javax.swing.JButton();
         panelPaso3 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         botonSiguientePaso3AE = new javax.swing.JButton();
@@ -122,6 +130,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         valorInicialB = new javax.swing.JTextField();
         botonValidarVariablesConcat = new javax.swing.JButton();
         botonMostrarVariablesConcat = new javax.swing.JButton();
+        buttonGuardarArchivoPaso3 = new javax.swing.JButton();
         panelPaso4 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
         sumaFinal = new javax.swing.JLabel();
@@ -149,6 +158,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         tablaPaso4 = new javax.swing.JTable();
         jLabel60 = new javax.swing.JLabel();
         botonCompletarGrilla = new javax.swing.JButton();
+        buttonGuardarArchivoPaso4 = new javax.swing.JButton();
         panelPaso5 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         hashSalida = new javax.swing.JLabel();
@@ -163,6 +173,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         tablaPaso5 = new javax.swing.JTable();
         jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
+        buttonGuardarArchivoPaso5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1024, 1000));
@@ -348,13 +359,13 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         jLabel80.setText("Introduzca un mensaje:");
         panelPaso1.add(jLabel80, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
-        buttonValidarAdicionBits.setText("Validar");
-        buttonValidarAdicionBits.addActionListener(new java.awt.event.ActionListener() {
+        buttonGuardarArchivoPaso1.setText("Guardar");
+        buttonGuardarArchivoPaso1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonValidarAdicionBitsActionPerformed(evt);
+                buttonGuardarArchivoPaso1ActionPerformed(evt);
             }
         });
-        panelPaso1.add(buttonValidarAdicionBits, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 460, 100, 30));
+        panelPaso1.add(buttonGuardarArchivoPaso1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 460, 100, 30));
 
         buttonMostrarAdicionBits.setText("Mostrar");
         buttonMostrarAdicionBits.addActionListener(new java.awt.event.ActionListener() {
@@ -374,6 +385,14 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
 
         jLabel67.setText("<html>Introduzca aquí el mensaje en representación binaria, sin espacios ni saltos de línea:</html>");
         panelPaso1.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 350, 40));
+
+        buttonValidarAdicionBits1.setText("Validar");
+        buttonValidarAdicionBits1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonValidarAdicionBits1ActionPerformed(evt);
+            }
+        });
+        panelPaso1.add(buttonValidarAdicionBits1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 460, 100, 30));
 
         jTabbedPane1.addTab("Paso 1 de 5", panelPaso1);
 
@@ -430,6 +449,16 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
 
         panelPaso2.add(jScrollPane6);
         jScrollPane6.setBounds(370, 170, 610, 140);
+
+        buttonGuardarArchivoPaso2.setText("Guardar");
+        buttonGuardarArchivoPaso2.setEnabled(false);
+        buttonGuardarArchivoPaso2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonGuardarArchivoPaso2ActionPerformed(evt);
+            }
+        });
+        panelPaso2.add(buttonGuardarArchivoPaso2);
+        buttonGuardarArchivoPaso2.setBounds(310, 440, 100, 30);
 
         jTabbedPane1.addTab("Paso 2 de 5", panelPaso2);
 
@@ -502,6 +531,16 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         panelPaso3.add(botonMostrarVariablesConcat);
         botonMostrarVariablesConcat.setBounds(430, 440, 110, 30);
 
+        buttonGuardarArchivoPaso3.setText("Guardar");
+        buttonGuardarArchivoPaso3.setEnabled(false);
+        buttonGuardarArchivoPaso3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonGuardarArchivoPaso3ActionPerformed(evt);
+            }
+        });
+        panelPaso3.add(buttonGuardarArchivoPaso3);
+        buttonGuardarArchivoPaso3.setBounds(290, 440, 120, 30);
+
         jTabbedPane1.addTab("Paso 3 de 5", panelPaso3);
 
         panelPaso4.setLayout(null);
@@ -530,7 +569,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             }
         });
         panelPaso4.add(botonMostrarGrillaCompleta);
-        botonMostrarGrillaCompleta.setBounds(150, 510, 110, 30);
+        botonMostrarGrillaCompleta.setBounds(160, 510, 110, 30);
 
         jButton16.setText("Validar");
         jButton16.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -677,7 +716,17 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             }
         });
         panelPaso4.add(botonCompletarGrilla);
-        botonCompletarGrilla.setBounds(280, 510, 140, 30);
+        botonCompletarGrilla.setBounds(290, 510, 140, 30);
+
+        buttonGuardarArchivoPaso4.setText("Guardar");
+        buttonGuardarArchivoPaso4.setEnabled(false);
+        buttonGuardarArchivoPaso4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonGuardarArchivoPaso4ActionPerformed(evt);
+            }
+        });
+        panelPaso4.add(buttonGuardarArchivoPaso4);
+        buttonGuardarArchivoPaso4.setBounds(40, 510, 100, 30);
 
         jTabbedPane1.addTab("Paso 4 de 5", panelPaso4);
 
@@ -770,6 +819,16 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         jLabel44.setText("Resumen MD5:");
         panelPaso5.add(jLabel44);
         jLabel44.setBounds(230, 340, 140, 14);
+
+        buttonGuardarArchivoPaso5.setText("Guardar");
+        buttonGuardarArchivoPaso5.setEnabled(false);
+        buttonGuardarArchivoPaso5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonGuardarArchivoPaso5ActionPerformed(evt);
+            }
+        });
+        panelPaso5.add(buttonGuardarArchivoPaso5);
+        buttonGuardarArchivoPaso5.setBounds(300, 440, 100, 30);
 
         jTabbedPane1.addTab("Paso 5 de 5", panelPaso5);
 
@@ -888,28 +947,31 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         jTabbedPane1.setSelectedIndex(3);
     }//GEN-LAST:event_botonSiguientePaso2AEMousePressed
 
-    private void buttonValidarAdicionBitsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonValidarAdicionBitsActionPerformed
-        String msgAEncriptar = mensajeAEncriptar.getText();
+    private void buttonGuardarArchivoPaso1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGuardarArchivoPaso1ActionPerformed
+       
+         JFileChooser saveFile = new JFileChooser();
+         saveFile.showSaveDialog(null);
+         String path=saveFile.getSelectedFile().getAbsolutePath();
+         String filename=saveFile.getSelectedFile().getName();
+         SaveFile sf = SaveFile.getInstance();
+         String jsonStr = this.messageToJson(1);         
+         sf.saveToFile(filename, path, jsonStr);
+    }//GEN-LAST:event_buttonGuardarArchivoPaso1ActionPerformed
 
-        if (!msgAEncriptar.equals("")) {
-                String msgBinario = MD5.textoEnBinario(msgAEncriptar, true);
-                if (compararIgualdadTextos(msgBinario, representacionBinaria.getText())) {
-                    JOptionPane.showMessageDialog(IntroMD5, "La representacion binaria es correcta!", "MD5", JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    JOptionPane.showMessageDialog(IntroMD5, "La representacion binaria es invalida!", "MD5", JOptionPane.ERROR_MESSAGE);
-                }
-                String msgPadeado = MD5.textoPadeado(msgAEncriptar, msgAEncriptar.length(), true);
-                if (compararIgualdadTextos(msgPadeado, representacionBinMasRelleno.getText())) {
-                    botonSiguientePaso1AE.setEnabled(true);
-                    JOptionPane.showMessageDialog(IntroMD5, "La representacion binaria más el relleno es correcto!", "MD5", JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    JOptionPane.showMessageDialog(IntroMD5, "La representacion binaria más el relleno es invalido!", "MD5", JOptionPane.ERROR_MESSAGE);
-                }
-        } else {
-                JOptionPane.showMessageDialog(IntroMD5, "Debe ingresar un texto a encriptar!", TOOL_TIP_TEXT_KEY, WIDTH);
+    public String messageToJson(int step){
+
+        StringWriter out = new StringWriter();
+        try {
+            JSONObject obj = new JSONObject();
+            obj.put("message", mensajeAEncriptar.getText());
+            obj.put("key", "");
+            obj.put("step", step);
+            obj.writeJSONString(out);
+        } catch (IOException ex) {
+            Logger.getLogger(SaveFile.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_buttonValidarAdicionBitsActionPerformed
-
+        return out.toString();    
+    }
     public boolean compararIgualdadTextos(String valor1, String valor2) {
         boolean sonIguales = false;
         valor1 = valor1.trim();
@@ -1233,6 +1295,68 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         botonSiguientePaso4AE.setEnabled(true);  
     }//GEN-LAST:event_botonCompletarGrillaActionPerformed
 
+    private void buttonValidarAdicionBits1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonValidarAdicionBits1ActionPerformed
+        String msgAEncriptar = mensajeAEncriptar.getText();
+
+        if (!msgAEncriptar.equals("")) {
+                String msgBinario = MD5.textoEnBinario(msgAEncriptar, true);
+                if (compararIgualdadTextos(msgBinario, representacionBinaria.getText())) {
+                    JOptionPane.showMessageDialog(IntroMD5, "La representacion binaria es correcta!", "MD5", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(IntroMD5, "La representacion binaria es invalida!", "MD5", JOptionPane.ERROR_MESSAGE);
+                }
+                String msgPadeado = MD5.textoPadeado(msgAEncriptar, msgAEncriptar.length(), true);
+                if (compararIgualdadTextos(msgPadeado, representacionBinMasRelleno.getText())) {
+                    botonSiguientePaso1AE.setEnabled(true);
+                    JOptionPane.showMessageDialog(IntroMD5, "La representacion binaria más el relleno es correcto!", "MD5", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(IntroMD5, "La representacion binaria más el relleno es invalido!", "MD5", JOptionPane.ERROR_MESSAGE);
+                }
+        } else {
+                JOptionPane.showMessageDialog(IntroMD5, "Debe ingresar un texto a encriptar!", TOOL_TIP_TEXT_KEY, WIDTH);
+        }
+    }//GEN-LAST:event_buttonValidarAdicionBits1ActionPerformed
+
+    private void buttonGuardarArchivoPaso2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGuardarArchivoPaso2ActionPerformed
+         JFileChooser saveFile = new JFileChooser();
+         saveFile.showSaveDialog(null);
+         String path=saveFile.getSelectedFile().getAbsolutePath();
+         String filename=saveFile.getSelectedFile().getName();
+         SaveFile sf = SaveFile.getInstance();
+         String jsonStr = this.messageToJson(2);         
+         sf.saveToFile(filename, path, jsonStr);
+    }//GEN-LAST:event_buttonGuardarArchivoPaso2ActionPerformed
+
+    private void buttonGuardarArchivoPaso3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGuardarArchivoPaso3ActionPerformed
+         JFileChooser saveFile = new JFileChooser();
+         saveFile.showSaveDialog(null);
+         String path=saveFile.getSelectedFile().getAbsolutePath();
+         String filename=saveFile.getSelectedFile().getName();
+         SaveFile sf = SaveFile.getInstance();
+         String jsonStr = this.messageToJson(3);         
+         sf.saveToFile(filename, path, jsonStr);
+    }//GEN-LAST:event_buttonGuardarArchivoPaso3ActionPerformed
+
+    private void buttonGuardarArchivoPaso4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGuardarArchivoPaso4ActionPerformed
+         JFileChooser saveFile = new JFileChooser();
+         saveFile.showSaveDialog(null);
+         String path=saveFile.getSelectedFile().getAbsolutePath();
+         String filename=saveFile.getSelectedFile().getName();
+         SaveFile sf = SaveFile.getInstance();
+         String jsonStr = this.messageToJson(4);         
+         sf.saveToFile(filename, path, jsonStr);
+    }//GEN-LAST:event_buttonGuardarArchivoPaso4ActionPerformed
+
+    private void buttonGuardarArchivoPaso5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGuardarArchivoPaso5ActionPerformed
+         JFileChooser saveFile = new JFileChooser();
+         saveFile.showSaveDialog(null);
+         String path=saveFile.getSelectedFile().getAbsolutePath();
+         String filename=saveFile.getSelectedFile().getName();
+         SaveFile sf = SaveFile.getInstance();
+         String jsonStr = this.messageToJson(5);         
+         sf.saveToFile(filename, path, jsonStr);
+    }//GEN-LAST:event_buttonGuardarArchivoPaso5ActionPerformed
+
     private void botResolverPreguntasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botResolverPreguntasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botResolverPreguntasActionPerformed
@@ -1240,6 +1364,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
     private void botCorregirPreguntasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botCorregirPreguntasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botCorregirPreguntasActionPerformed
+
     public void handleGrillaEventsPaso5(java.awt.event.ComponentEvent evt){
        
         if (tablaPaso5.getCellEditor() != null) {
@@ -1324,8 +1449,13 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
     private javax.swing.JButton botonValidarPaso5;
     private javax.swing.JButton botonValidarVariablesConcat;
     private javax.swing.ButtonGroup buttonGroupPasos;
+    private javax.swing.JButton buttonGuardarArchivoPaso1;
+    private javax.swing.JButton buttonGuardarArchivoPaso2;
+    private javax.swing.JButton buttonGuardarArchivoPaso3;
+    private javax.swing.JButton buttonGuardarArchivoPaso4;
+    private javax.swing.JButton buttonGuardarArchivoPaso5;
     private javax.swing.JButton buttonMostrarAdicionBits;
-    private javax.swing.JButton buttonValidarAdicionBits;
+    private javax.swing.JButton buttonValidarAdicionBits1;
     private javax.swing.ButtonGroup grupoPreg1;
     private javax.swing.ButtonGroup grupoPreg2;
     private javax.swing.ButtonGroup grupoPreg3;
