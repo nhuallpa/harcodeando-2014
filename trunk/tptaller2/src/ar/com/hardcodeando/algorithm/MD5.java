@@ -1,6 +1,6 @@
 package ar.com.hardcodeando.algorithm;
 
-import ar.com.hardcodeando.ui.SaveFile;
+import ar.com.hardcodeando.ui.utils.SaveFile;
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
