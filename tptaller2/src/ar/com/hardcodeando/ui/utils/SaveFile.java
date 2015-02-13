@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ar.com.hardcodeando.ui;
+package ar.com.hardcodeando.ui.utils;
+import ar.com.hardcodeando.dto.HillDTO;
 import java.io.File;  
 import java.io.FileWriter;
 import java.io.IOException;
@@ -45,5 +46,21 @@ public class SaveFile {
         } catch (IOException ex) {
             Logger.getLogger(SaveFile.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public void saveStep(String hilltxt, HillDTO hillDTO) throws IOException {
+        JSONObject obj=new JSONObject();
+        obj.put("type", "HILL");
+        obj.put("currentStep", hillDTO.getCurrentStep());
+        obj.put("valueScreen1", hillDTO.getValueScreen1());
+        obj.put("valueScreen2", hillDTO.getValueScreen2());
+        StringWriter out = new StringWriter();
+        obj.writeJSONString(out);
+        this.saveToFile(hilltxt, hilltxt, out.toString());
+       
+    }
+
+    public HillDTO loadHillState(String hilltxt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
