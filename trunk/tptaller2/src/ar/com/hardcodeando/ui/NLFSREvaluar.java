@@ -8,17 +8,26 @@ package ar.com.hardcodeando.ui;
 import ar.com.hardcodeando.algorithm.NLFSR;
 import ar.com.hardcodeando.algorithm.NLFSRFunction;
 import ar.com.hardcodeando.ui.utils.ComboItem;
+import ar.com.hardcodeando.ui.utils.SaveFile;
 import java.awt.Color;
 import static java.awt.image.ImageObserver.WIDTH;
+import java.io.IOException;
+import java.io.StringWriter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ButtonModel;
 import static javax.swing.JComponent.TOOL_TIP_TEXT_KEY;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.table.DefaultTableModel;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -113,6 +122,7 @@ public class NLFSREvaluar extends javax.swing.JPanel {
         jTextField2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton18 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -120,6 +130,7 @@ public class NLFSREvaluar extends javax.swing.JPanel {
         jComboBox1 = new javax.swing.JComboBox();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton19 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -128,6 +139,7 @@ public class NLFSREvaluar extends javax.swing.JPanel {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
+        jButton20 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -136,6 +148,7 @@ public class NLFSREvaluar extends javax.swing.JPanel {
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jButton21 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -151,6 +164,7 @@ public class NLFSREvaluar extends javax.swing.JPanel {
         jTable3 = new javax.swing.JTable();
         jButton16 = new javax.swing.JButton();
         jButton17 = new javax.swing.JButton();
+        jButton22 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(850, 840));
 
@@ -351,6 +365,13 @@ public class NLFSREvaluar extends javax.swing.JPanel {
             }
         });
 
+        jButton18.setLabel("Guardar");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -374,6 +395,8 @@ public class NLFSREvaluar extends javax.swing.JPanel {
                 .addContainerGap(238, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton18)
+                .addGap(58, 58, 58)
                 .addComponent(jButton2)
                 .addGap(55, 55, 55)
                 .addComponent(jButton1)
@@ -397,9 +420,12 @@ public class NLFSREvaluar extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2)
+                    .addComponent(jButton18))
                 .addGap(264, 264, 264))
         );
+
+        jButton18.getAccessibleContext().setAccessibleName("Guardar");
 
         jTabbedPane1.addTab("Paso 1", jPanel1);
 
@@ -425,16 +451,29 @@ public class NLFSREvaluar extends javax.swing.JPanel {
             }
         });
 
+        jButton19.setLabel("Guardar");
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel22)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton19)
+                        .addGap(42, 42, 42)))
                 .addComponent(jButton4)
                 .addGap(38, 38, 38)
                 .addComponent(jButton3)
@@ -460,7 +499,8 @@ public class NLFSREvaluar extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 353, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(jButton4)
+                    .addComponent(jButton19))
                 .addGap(180, 180, 180))
         );
 
@@ -511,6 +551,13 @@ public class NLFSREvaluar extends javax.swing.JPanel {
             }
         });
 
+        jButton20.setLabel("Guardar");
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -524,6 +571,8 @@ public class NLFSREvaluar extends javax.swing.JPanel {
                 .addContainerGap(403, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton20)
+                .addGap(32, 32, 32)
                 .addComponent(jButton11)
                 .addGap(38, 38, 38)
                 .addComponent(jButton7)
@@ -544,8 +593,9 @@ public class NLFSREvaluar extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton6)
                     .addComponent(jButton7)
-                    .addComponent(jButton11))
-                .addContainerGap(266, Short.MAX_VALUE))
+                    .addComponent(jButton11)
+                    .addComponent(jButton20))
+                .addContainerGap(380, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Paso 3", jPanel3);
@@ -602,17 +652,30 @@ public class NLFSREvaluar extends javax.swing.JPanel {
             }
         });
 
+        jButton21.setLabel("Guardar");
+        jButton21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton21ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel14)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel14)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton21)
+                        .addGap(42, 42, 42)))
                 .addComponent(jButton5)
                 .addGap(26, 26, 26)
                 .addComponent(jButton9)
@@ -633,7 +696,8 @@ public class NLFSREvaluar extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton8)
                     .addComponent(jButton9)
-                    .addComponent(jButton5))
+                    .addComponent(jButton5)
+                    .addComponent(jButton21))
                 .addContainerGap(378, Short.MAX_VALUE))
         );
 
@@ -701,6 +765,13 @@ public class NLFSREvaluar extends javax.swing.JPanel {
             }
         });
 
+        jButton22.setLabel("Guardar");
+        jButton22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton22ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -718,6 +789,8 @@ public class NLFSREvaluar extends javax.swing.JPanel {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton22)
+                                .addGap(42, 42, 42)
                                 .addComponent(jButton12)
                                 .addGap(29, 29, 29)
                                 .addComponent(jButton10)
@@ -770,7 +843,8 @@ public class NLFSREvaluar extends javax.swing.JPanel {
                         .addGap(86, 86, 86)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton10)
-                            .addComponent(jButton12))
+                            .addComponent(jButton12)
+                            .addComponent(jButton22))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -790,7 +864,7 @@ public class NLFSREvaluar extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 870, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -1084,6 +1158,87 @@ public class NLFSREvaluar extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton17ActionPerformed
 
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        //Paso 1 - guardar
+        saveFile(1);
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        // Paso 2 - Guardar
+        saveFile(2);
+    }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        // Paso 3 - Guardar
+        saveFile(3);
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+        // Paso 4 - Guardar
+        saveFile(4);
+    }//GEN-LAST:event_jButton21ActionPerformed
+
+    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+        // Paso 5 - Guardar
+        saveFile(5);
+    }//GEN-LAST:event_jButton22ActionPerformed
+
+    private String messageToJson(int step){
+
+        StringWriter out = new StringWriter();
+        try {
+            JSONObject obj = new JSONObject();
+            obj.put("algorithm", "NLFSR");
+            obj.put("seed", this.jTextField1.getText());
+            obj.put("register", this.jTextField2.getText());
+            if(step > 1)
+                obj.put("function", this.jComboBox1.getSelectedIndex());
+            if(step > 2){
+                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+                LinkedList list = new LinkedList();
+                list.add(model.getValueAt(0, 0).toString());
+                list.add(model.getValueAt(0, 1).toString());
+                list.add(model.getValueAt(0, 2).toString());
+                obj.put("rowStep3", list);
+            }
+            if(step > 3){
+                DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+                LinkedList list = new LinkedList();
+                list.add(model.getValueAt(0, 0).toString());
+                list.add(model.getValueAt(0, 1).toString());
+                list.add(model.getValueAt(0, 2).toString());
+                list.add(model.getValueAt(0, 3).toString());
+                obj.put("rowStep4", list);
+            }
+            if(step > 4){
+                DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
+                for (int i = 0; i < model.getRowCount(); i++) {
+                    LinkedList list = new LinkedList();
+                    list.add(model.getValueAt(i, 0).toString());
+                    list.add(model.getValueAt(i, 1).toString());
+                    list.add(model.getValueAt(i, 2).toString());
+                    list.add(model.getValueAt(i, 3).toString());
+                    obj.put("row"+i, list);
+                }                
+            }
+            obj.put("step", step);
+            obj.writeJSONString(out);
+        } catch (IOException ex) {
+            Logger.getLogger(SaveFile.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return out.toString();    
+    }
+    
+    private void saveFile(int step){
+        JFileChooser saveFile = new JFileChooser();
+        saveFile.showSaveDialog(null);
+        String path=saveFile.getSelectedFile().getAbsolutePath();
+        String filename=saveFile.getSelectedFile().getName();
+        SaveFile sf = SaveFile.getInstance();
+        String jsonStr = this.messageToJson(step);         
+        sf.saveToFile(filename, path, jsonStr);
+    }
+    
     private void setWrongAnswers(ArrayList<JRadioButton> buttons){
         for (JRadioButton button : buttons) {
             if (button.isSelected()) {
@@ -1119,7 +1274,12 @@ public class NLFSREvaluar extends javax.swing.JPanel {
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
