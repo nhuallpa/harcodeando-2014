@@ -7,6 +7,7 @@ package ar.com.hardcodeando.ui;
 
 import ar.com.hardcodeando.algorithm.BadFormedKeyException;
 import ar.com.hardcodeando.algorithm.HillCipher;
+import ar.com.hardcodeando.dto.HillDTO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -380,4 +381,27 @@ public class HillPanel extends javax.swing.JPanel {
     private javax.swing.JTextField textResultPaso2;
     private javax.swing.JTextField textSecreto;
     // End of variables declaration//GEN-END:variables
+
+    void load(HillDTO hillDTO) {
+        
+        int step = hillDTO.getCurrentStep();
+        
+        if (step == 2) {
+            this.textMensaje.setText(hillDTO.getMessage());
+            this.textResultPaso2.setText(hillDTO.getCipherMessage());
+            jTabbedPane1.setEnabledAt(1, true);
+            jTabbedPane1.setEnabledAt(2, true);
+            jTabbedPane1.setSelectedIndex(2);
+        } else if (step == 3) {
+            this.textSecreto.setText(hillDTO.getCipherMessage());
+            this.textMensajeDescubierto.setText(hillDTO.getMessage());
+            jTabbedPane1.setEnabledAt(1, true);
+            jTabbedPane1.setEnabledAt(2, true);
+            jTabbedPane1.setEnabledAt(3, true);
+            jTabbedPane1.setSelectedIndex(3);
+        } else {
+            // no corresponde el paso
+        }
+        
+    }
 }

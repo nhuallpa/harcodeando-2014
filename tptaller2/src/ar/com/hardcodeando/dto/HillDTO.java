@@ -16,9 +16,8 @@ public class HillDTO {
     
     private int currentStep;
     
-    private String valueScreen1;
-    
-    private String valueScreen2;
+    private String message;
+    private String cipherMessage;
 
     public String getType() {
         return type;
@@ -32,25 +31,27 @@ public class HillDTO {
         this.currentStep = currentStep;
     }
 
-    public void setValueScreen1(String valueScreen1) {
-        this.valueScreen1 = valueScreen1;
-    }
-
-    public void setValueScreen2(String valueScreen2) {
-        this.valueScreen2 = valueScreen2;
-    }
 
     public int getCurrentStep() {
         return currentStep;
     }
 
-    public String getValueScreen1() {
-        return valueScreen1;
+    public String getMessage() {
+        return message;
     }
 
-    public String getValueScreen2() {
-        return valueScreen2;
+    public String getCipherMessage() {
+        return cipherMessage;
     }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setCipherMessage(String cipherMessage) {
+        this.cipherMessage = cipherMessage;
+    }
+    
     
     
 }

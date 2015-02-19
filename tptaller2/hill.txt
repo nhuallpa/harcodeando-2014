@@ -1,2 +1,2 @@
 type:HILL
-{"currentStep":1,"valueScreen1":"Hola"}
+{"currentStep":2,"message":"Hola","cipherMessage":"XDHD"}

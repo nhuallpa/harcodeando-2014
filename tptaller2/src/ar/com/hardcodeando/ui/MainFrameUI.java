@@ -5,6 +5,8 @@
  */
 package ar.com.hardcodeando.ui;
 
+import ar.com.hardcodeando.dto.HillDTO;
+import ar.com.hardcodeando.ui.utils.AlgorithmStateStorage;
 import java.awt.BorderLayout;
 import javax.swing.JComponent;
 
@@ -333,17 +335,7 @@ public class MainFrameUI extends javax.swing.JFrame {
 
     private void jMenuItem4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem4MousePressed
         
-        if(this.hpanel==null){
-            this.hpanel = new HillPanel();       
-        }
-        if(this.currentComponent!=null){
-            this.remove(this.currentComponent);
-        }
-        //this.setLayout(new BorderLayout());
-        this.currentComponent=hpanel;
-        
-        this.add(this.currentComponent, BorderLayout.CENTER);
-        this.setVisible(true);
+        this.showHillPanelAprender(null);
         //jLabel1.setVisible(false);
     }//GEN-LAST:event_jMenuItem4MousePressed
 
@@ -422,11 +414,10 @@ public class MainFrameUI extends javax.swing.JFrame {
         int returnVal = fileChooser.showOpenDialog(this);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
-            try {
-              FileReader text = new FileReader(file.getAbsolutePath());
-              //TODO: ver que hacer con el archivo una vez levantado
-            } catch (IOException ex) {
-            System.out.println("problem accessing file"+file.getAbsolutePath());
+            String type = AlgorithmStateStorage.getType(file.getAbsolutePath());
+            if (type.equals(AlgorithmStateStorage.ALGO_HILL)) {
+                HillDTO hillDTO = AlgorithmStateStorage.loadHill(file.getAbsolutePath());
+                showHillPanelAprender(hillDTO);
             }
         } else {
              System.out.println("File access cancelled by user.");
@@ -511,4 +502,23 @@ public class MainFrameUI extends javax.swing.JFrame {
     private java.awt.Menu menu2;
     private java.awt.MenuBar menuBar1;
     // End of variables declaration//GEN-END:variables
+
+    private void showHillPanelAprender(HillDTO hillDTO) {
+        if (this.hpanel==null){
+            this.hpanel = new HillPanel();       
+        }
+        
+        if (hillDTO != null) {
+            this.hpanel.load(hillDTO);
+        }
+        
+        if(this.currentComponent!=null){
+            this.remove(this.currentComponent);
+        }
+        //this.setLayout(new BorderLayout());
+        this.currentComponent=hpanel;
+        
+        this.add(this.currentComponent, BorderLayout.CENTER);
+        this.setVisible(true);
+    }
 }
