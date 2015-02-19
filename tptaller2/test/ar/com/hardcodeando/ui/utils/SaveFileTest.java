@@ -7,6 +7,7 @@ package ar.com.hardcodeando.ui.utils;
 
 
 import ar.com.hardcodeando.dto.HillDTO;
+import java.io.IOException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -37,18 +38,40 @@ public class SaveFileTest {
     public void tearDown() {
 
     }    
+    
     @Test
-    public void saveHillStepOne() {
+    public void getTypeRigth() throws IOException {
+        HillDTO hillDTO = new HillDTO();
+        hillDTO.setCurrentStep(1);
+        hillDTO.setValueScreen1("Hola");
+        
+
+        
+        AlgorithmStateStorage.saveHill("./hill.txt", hillDTO);
+        
+        String type = AlgorithmStateStorage.getType("./hill.txt");
+        
+        assertEquals(AlgorithmStateStorage.ALGO_HILL, type);
+        
+    }
+    
+    
+    @Test
+    public void saveAndLoadHill() throws IOException {
         HillDTO hillDTO = new HillDTO();
         HillDTO hillDTOLoaded = null;
         hillDTO.setCurrentStep(1);
         hillDTO.setValueScreen1("Hola");
-        SaveFile.getInstance().saveStep("./hill.txt", hillDTO);
         
-        hillDTOLoaded = SaveFile.getInstance().loadHillState("./hill.txt");
+        
+        
+        AlgorithmStateStorage.saveHill("./hill.txt", hillDTO);
+        
+
+        hillDTOLoaded = AlgorithmStateStorage.loadHill("./hill.txt");
         
         assertEquals(1, hillDTOLoaded.getCurrentStep());
-        assertEquals(2, hillDTOLoaded.getValueScreen1());
+        assertEquals("Hola", hillDTOLoaded.getValueScreen1());
         
     }
     
