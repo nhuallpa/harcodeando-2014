@@ -42,10 +42,9 @@ public class SaveFileTest {
     @Test
     public void getTypeRigth() throws IOException {
         HillDTO hillDTO = new HillDTO();
-        hillDTO.setCurrentStep(1);
-        hillDTO.setValueScreen1("Hola");
-        
-
+        hillDTO.setCurrentStep(2);
+        hillDTO.setMessage("Hola");
+        hillDTO.setCipherMessage("XDHD");
         
         AlgorithmStateStorage.saveHill("./hill.txt", hillDTO);
         
@@ -60,9 +59,9 @@ public class SaveFileTest {
     public void saveAndLoadHill() throws IOException {
         HillDTO hillDTO = new HillDTO();
         HillDTO hillDTOLoaded = null;
-        hillDTO.setCurrentStep(1);
-        hillDTO.setValueScreen1("Hola");
-        
+        hillDTO.setCurrentStep(2);
+        hillDTO.setMessage("Hola");
+        hillDTO.setCipherMessage("XDHD");
         
         
         AlgorithmStateStorage.saveHill("./hill.txt", hillDTO);
@@ -70,8 +69,8 @@ public class SaveFileTest {
 
         hillDTOLoaded = AlgorithmStateStorage.loadHill("./hill.txt");
         
-        assertEquals(1, hillDTOLoaded.getCurrentStep());
-        assertEquals("Hola", hillDTOLoaded.getValueScreen1());
+        assertEquals(2, hillDTOLoaded.getCurrentStep());
+        assertEquals("Hola", hillDTOLoaded.getMessage());
         
     }
     
