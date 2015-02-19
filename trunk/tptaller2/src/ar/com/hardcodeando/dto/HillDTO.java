@@ -11,11 +11,22 @@ package ar.com.hardcodeando.dto;
  * @author nestor
  */
 public class HillDTO {
+    
+    private String type;
+    
     private int currentStep;
     
     private String valueScreen1;
     
     private String valueScreen2;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public void setCurrentStep(int currentStep) {
         this.currentStep = currentStep;
