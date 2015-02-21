@@ -1500,7 +1500,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
     private int selectedRowForEdit = -1;
     
     void load(MD5DTO md5DTO) {
-        
+        MD5.ejecutarMd5(this.mensajeAEncriptar.getText());
         int step = md5DTO.getCurrentStep();
         
         switch(step){
