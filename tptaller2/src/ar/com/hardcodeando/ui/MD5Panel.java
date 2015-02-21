@@ -742,9 +742,10 @@ public class MD5Panel extends javax.swing.JPanel {
         jTabbedPane1.setBounds(20, 60, 1250, 600);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("MD5");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("MD5 - Modo Aprender");
         add(jLabel1);
-        jLabel1.setBounds(480, 10, 46, 22);
+        jLabel1.setBounds(390, 10, 270, 22);
 
         getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents

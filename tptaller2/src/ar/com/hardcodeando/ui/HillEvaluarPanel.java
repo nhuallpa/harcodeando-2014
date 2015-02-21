@@ -118,7 +118,7 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         jButton12 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Hill Cipher");
+        jLabel1.setText("Hill Cipher - Modo Autoevaluar");
 
         jTabbedPane1.setFocusable(false);
 
@@ -330,13 +330,13 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        hillPaso2Panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 380, -1));
+        hillPaso2Panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 380, -1));
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
         jScrollPane2.setViewportView(jTextArea2);
 
-        hillPaso2Panel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, 380, -1));
+        hillPaso2Panel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 380, -1));
 
         jButton8.setLabel("Mostrar");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -383,13 +383,13 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         jTextArea3.setRows(5);
         jScrollPane3.setViewportView(jTextArea3);
 
-        hillPaso3Panel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 380, -1));
+        hillPaso3Panel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 380, -1));
 
         jTextArea4.setColumns(20);
         jTextArea4.setRows(5);
         jScrollPane4.setViewportView(jTextArea4);
 
-        hillPaso3Panel.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, 380, -1));
+        hillPaso3Panel.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 380, -1));
 
         jButton9.setText("Mostrar");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -414,13 +414,13 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(398, 398, 398)
-                .addComponent(jLabel1)
-                .addContainerGap(369, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 840, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 849, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(296, 296, 296)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
