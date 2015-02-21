@@ -7,10 +7,15 @@ package ar.com.hardcodeando.ui;
 
 import ar.com.hardcodeando.algorithm.BadFormedKeyException;
 import ar.com.hardcodeando.algorithm.HillCipher;
+import ar.com.hardcodeando.dto.HillDTO;
+import ar.com.hardcodeando.ui.utils.AlgorithmStateStorage;
 import ar.com.hardcodeando.ui.utils.MyIntFilter;
+import ar.com.hardcodeando.ui.utils.SaveFile;
 import java.awt.Color;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.text.PlainDocument;
 
@@ -85,6 +90,7 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         jTextField4 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
         hillPaso2Panel = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
@@ -277,6 +283,14 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         });
         hillPaso1Panel.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(523, 470, 80, -1));
 
+        jButton10.setText("Guardar");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+        hillPaso1Panel.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 470, 80, -1));
+
         jTabbedPane1.addTab("Paso 1 de 3", hillPaso1Panel);
 
         hillPaso2Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -387,7 +401,7 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
                 .addContainerGap(369, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 840, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 840, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -572,6 +586,40 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, "Correctas: " + correctas + "/3");
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        JFileChooser saveFile = new JFileChooser();
+        int selectOp = saveFile.showSaveDialog(null);
+         String path=saveFile.getSelectedFile().getAbsolutePath();
+        String filename=saveFile.getSelectedFile().getName();
+        
+        if (selectOp == JFileChooser.APPROVE_OPTION) {
+            int a=0;int b=0;int c=0;int d=0;
+            a = Integer.parseInt(jTextField1.getText());
+            b = Integer.parseInt(jTextField2.getText());
+            c = Integer.parseInt(jTextField3.getText());
+            d = Integer.parseInt(jTextField4.getText());
+
+            HillDTO hillDTO = new HillDTO();
+
+            hillDTO.setCurrentStep(2);
+            hillDTO.setC11(a);
+            hillDTO.setC12(b);
+            hillDTO.setC21(c);
+            hillDTO.setC22(d);
+
+
+            try {
+                AlgorithmStateStorage.saveHill(path.concat(filename), hillDTO);
+                JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
+            } catch (IOException ex) {
+                Logger.getLogger(HillEvaluarPanel.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
+            }
+            
+            
+        }
+    }//GEN-LAST:event_jButton10ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel IntroHillPanel;
@@ -582,6 +630,7 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
     private javax.swing.JPanel hillPaso2Panel;
     private javax.swing.JPanel hillPaso3Panel;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
