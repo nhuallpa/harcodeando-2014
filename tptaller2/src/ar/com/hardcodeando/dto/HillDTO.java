@@ -18,6 +18,12 @@ public class HillDTO {
     
     private String message;
     private String cipherMessage;
+    
+    private int c11;
+    private int c12;
+    private int c21;
+    private int c22;
+    
 
     public String getType() {
         return type;
@@ -50,6 +56,38 @@ public class HillDTO {
 
     public void setCipherMessage(String cipherMessage) {
         this.cipherMessage = cipherMessage;
+    }
+
+    public int getC11() {
+        return c11;
+    }
+
+    public int getC12() {
+        return c12;
+    }
+
+    public int getC21() {
+        return c21;
+    }
+
+    public int getC22() {
+        return c22;
+    }
+
+    public void setC11(int c11) {
+        this.c11 = c11;
+    }
+
+    public void setC12(int c12) {
+        this.c12 = c12;
+    }
+
+    public void setC21(int c21) {
+        this.c21 = c21;
+    }
+
+    public void setC22(int c22) {
+        this.c22 = c22;
     }
     
     
