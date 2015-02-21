@@ -17,6 +17,14 @@ public class MD5DTO {
     private String cipherMessage;
     private String binaryMessage;
     private String representationBitsPlusFiller;
+    private String representationBitsPlusLong;
+    private String initialValueA;
+    private String initialValueB;
+    private String initialValueC;
+    private String initialValueD;
+    private String resumeValue;
+    private String[][] matrixStep5 = new String [3][4];
+    private String[][] matrixStep4 = new String[16][4];
 
     public String getType() {
         return type;
@@ -64,4 +72,65 @@ public class MD5DTO {
     public String getRepresentationBitsPlusFiller() {
        return representationBitsPlusFiller;
     }
+
+    public void setRepresentationBitsPlusLong(String representationBitsPlusLong) {
+        this.representationBitsPlusLong = representationBitsPlusLong;
+    }
+    public String getRepresentationBitsPlusLong() {
+       return representationBitsPlusLong;
+    }
+
+    public String getInitialValueA() {
+        return initialValueA;
+    }
+    
+    public void setInitialValueA(String initialValueA) {
+        this.initialValueA = initialValueA;
+    }
+    public String getInitialValueB() {
+        return initialValueB;
+    }
+    
+    public void setInitialValueB(String initialValueB) {
+        this.initialValueB = initialValueB;
+    }
+    public String getInitialValueC() {
+        return initialValueC;
+    }
+    
+    public void setInitialValueC(String initialValueC) {
+        this.initialValueC = initialValueC;
+    }
+    public String getInitialValueD() {
+        return initialValueD;
+    }
+    
+    public void setInitialValueD(String initialValueD) {
+        this.initialValueD = initialValueD;
+    }
+
+    public String getResumeValue() {
+        return resumeValue;
+    }
+    
+    public void setResumeValue(String resumeValue) {
+        this.resumeValue = resumeValue;
+    }
+    
+    public String[][] getMatrixStep4() {
+        return matrixStep4;
+    }
+    
+    public void setMatrixStep4(String[][] matrixStep4) {
+        this.matrixStep4 = matrixStep4;
+    }
+    
+    public String[][] getMatrixStep5() {
+        return matrixStep5;
+    }
+    
+    public void setMatrixStep5(String[][] matrixStep5) {
+        this.matrixStep5 = matrixStep5;
+    }
+    
 }

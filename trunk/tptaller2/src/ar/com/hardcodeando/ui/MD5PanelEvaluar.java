@@ -977,7 +977,8 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             md5DTO.setCurrentStep(step);
             md5DTO.setMessage(mensajeAEncriptar.getText());
             md5DTO.setBinaryMessage(representacionBinaria.getText());
-            md5DTO.setCipherMessage("");            
+            md5DTO.setRepresentationBitsPlusFiller(representacionBinMasRelleno.getText());
+            md5DTO.setRepresentationBitsPlusLong(representacionBinariaMasLongitud.getText());
             return md5DTO;
     }
     public MD5DTO messageToJsonPaso3(int step){
@@ -985,7 +986,12 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             md5DTO.setCurrentStep(step);
             md5DTO.setMessage(mensajeAEncriptar.getText());
             md5DTO.setBinaryMessage(representacionBinaria.getText());
-            md5DTO.setCipherMessage("");            
+            md5DTO.setRepresentationBitsPlusFiller(representacionBinMasRelleno.getText());
+            md5DTO.setRepresentationBitsPlusLong(representacionBinariaMasLongitud.getText());
+            md5DTO.setInitialValueA(valorInicialA.getText());
+            md5DTO.setInitialValueB(valorInicialB.getText());
+            md5DTO.setInitialValueC(valorInicialC.getText());
+            md5DTO.setInitialValueD(valorInicialD.getText());
             return md5DTO;
     }
     public MD5DTO messageToJsonPaso4(int step){
@@ -993,7 +999,19 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             md5DTO.setCurrentStep(step);
             md5DTO.setMessage(mensajeAEncriptar.getText());
             md5DTO.setBinaryMessage(representacionBinaria.getText());
-            md5DTO.setCipherMessage("");            
+            md5DTO.setRepresentationBitsPlusFiller(representacionBinMasRelleno.getText());
+            md5DTO.setRepresentationBitsPlusLong(representacionBinariaMasLongitud.getText());
+            md5DTO.setInitialValueA(valorInicialA.getText());
+            md5DTO.setInitialValueB(valorInicialB.getText());
+            md5DTO.setInitialValueC(valorInicialC.getText());
+            md5DTO.setInitialValueD(valorInicialD.getText());
+            String [][] matrizActual = new String[16][4];
+            for (int i = 0; i < 16; i++) {
+                for (int j = 1; j < 5; j++) {
+                    matrizActual[i][j-1] = tablaPaso4.getValueAt(i, j).toString();
+                }
+            }
+            md5DTO.setMatrixStep4(matrizActual);
             return md5DTO;
     }
     
@@ -1001,10 +1019,32 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             MD5DTO md5DTO = new MD5DTO();
             md5DTO.setCurrentStep(step);
             md5DTO.setMessage(mensajeAEncriptar.getText());
+            md5DTO.setMessage(mensajeAEncriptar.getText());
             md5DTO.setBinaryMessage(representacionBinaria.getText());
-            md5DTO.setCipherMessage("");            
+            md5DTO.setRepresentationBitsPlusFiller(representacionBinMasRelleno.getText());
+            md5DTO.setRepresentationBitsPlusLong(representacionBinariaMasLongitud.getText());
+            md5DTO.setInitialValueA(valorInicialA.getText());
+            md5DTO.setInitialValueB(valorInicialB.getText());
+            md5DTO.setInitialValueC(valorInicialC.getText());
+            md5DTO.setInitialValueD(valorInicialD.getText());
+            String [][] matrizActualPaso4 = new String[16][4];
+            for (int i = 0; i < 16; i++) {
+                for (int j = 1; j < 5; j++) {
+                    matrizActualPaso4[i][j-1] = tablaPaso4.getValueAt(i, j).toString();
+                }
+            }
+            md5DTO.setMatrixStep4(matrizActualPaso4);
+            md5DTO.setResumeValue(valorResumen.getText());
+            String [][] matrizActualPaso5 = new String[3][4];
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 4; j++) {
+                    matrizActualPaso5[i][j] = tablaPaso5.getValueAt(i, j).toString();
+                }
+            }
+            md5DTO.setMatrixStep5(matrizActualPaso5);
             return md5DTO;
     }
+    
     public boolean compararIgualdadTextos(String valor1, String valor2) {
         boolean sonIguales = false;
         valor1 = valor1.trim();
@@ -1473,34 +1513,77 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
                 jTabbedPane1.setSelectedIndex(1);
                 break;
             case 2 : 
+                this.mensajeAEncriptar.setText(md5DTO.getMessage());
+                this.representacionBinaria.setText(md5DTO.getBinaryMessage());
+                this.representacionBinMasRelleno.setText(md5DTO.getRepresentationBitsPlusFiller());
+                this.representacionBinariaMasLongitud.setText(md5DTO.getRepresentationBitsPlusLong());
                 jTabbedPane1.setEnabledAt(1, true);
                 jTabbedPane1.setEnabledAt(2, true);
                 jTabbedPane1.setSelectedIndex(2);
                 break;
             case 3:    
-                 /*       this.textSecreto.setText(md5DTO.getCipherMessage());
-                this.textMensajeDescubierto.setText(md5DTO.getMessage());*/
+                this.mensajeAEncriptar.setText(md5DTO.getMessage());
+                this.representacionBinaria.setText(md5DTO.getBinaryMessage());
+                this.representacionBinMasRelleno.setText(md5DTO.getRepresentationBitsPlusFiller());
+                this.representacionBinariaMasLongitud.setText(md5DTO.getRepresentationBitsPlusLong());
+                this.valorInicialA.setText(md5DTO.getInitialValueA());
+                this.valorInicialB.setText(md5DTO.getInitialValueB());
+                this.valorInicialC.setText(md5DTO.getInitialValueC());
+                this.valorInicialD.setText(md5DTO.getInitialValueD());
                 jTabbedPane1.setEnabledAt(1, true);
                 jTabbedPane1.setEnabledAt(2, true);
                 jTabbedPane1.setEnabledAt(3, true);
                 jTabbedPane1.setSelectedIndex(3);
                 break;
             case 4:
+                this.mensajeAEncriptar.setText(md5DTO.getMessage());
+                this.representacionBinaria.setText(md5DTO.getBinaryMessage());
+                this.representacionBinMasRelleno.setText(md5DTO.getRepresentationBitsPlusFiller());
+                this.representacionBinariaMasLongitud.setText(md5DTO.getRepresentationBitsPlusLong());
+                this.valorInicialA.setText(md5DTO.getInitialValueA());
+                this.valorInicialB.setText(md5DTO.getInitialValueB());
+                this.valorInicialC.setText(md5DTO.getInitialValueC());
+                this.valorInicialD.setText(md5DTO.getInitialValueD());
+                String [][] matrizActualPaso4 = md5DTO.getMatrixStep4();
+                for (int i = 0; i < 16; i++) {
+                    for (int j = 0; j < 4; j++) {
+                        tablaPaso4.setValueAt(matrizActualPaso4[i][j], i, j+1);
+                    }
+                }
+                jTabbedPane1.setEnabledAt(1, true);
+                jTabbedPane1.setEnabledAt(2, true);
+                jTabbedPane1.setEnabledAt(3, true);
+                jTabbedPane1.setEnabledAt(4, true);
+                jTabbedPane1.setSelectedIndex(4);
+                break;
+            case 5:
+                 this.mensajeAEncriptar.setText(md5DTO.getMessage());
+                this.representacionBinaria.setText(md5DTO.getBinaryMessage());
+                this.representacionBinMasRelleno.setText(md5DTO.getRepresentationBitsPlusFiller());
+                this.representacionBinariaMasLongitud.setText(md5DTO.getRepresentationBitsPlusLong());
+                this.valorInicialA.setText(md5DTO.getInitialValueA());
+                this.valorInicialB.setText(md5DTO.getInitialValueB());
+                this.valorInicialC.setText(md5DTO.getInitialValueC());
+                this.valorInicialD.setText(md5DTO.getInitialValueD());
+                String [][] matrizActualStep4 = md5DTO.getMatrixStep4();
+                for (int i = 0; i < 16; i++) {
+                    for (int j = 0; j < 4; j++) {
+                        tablaPaso4.setValueAt(matrizActualStep4[i][j], i, j+1);
+                    }
+                }
+                this.valorResumen.setText(md5DTO.getResumeValue());
+                String [][] matrizActual = md5DTO.getMatrixStep5();
+                for (int i = 0; i < 3; i++) {
+                    for (int j = 0; j < 4; j++) {
+                        tablaPaso5.setValueAt(matrizActual[i][j], i, j);
+                    }
+                }
                 jTabbedPane1.setEnabledAt(1, true);
                 jTabbedPane1.setEnabledAt(2, true);
                 jTabbedPane1.setEnabledAt(3, true);
                 jTabbedPane1.setEnabledAt(4, true);
                 jTabbedPane1.setEnabledAt(5, true);
                 jTabbedPane1.setSelectedIndex(5);
-                break;
-            case 5:
-                jTabbedPane1.setEnabledAt(1, true);
-                jTabbedPane1.setEnabledAt(2, true);
-                jTabbedPane1.setEnabledAt(3, true);
-                jTabbedPane1.setEnabledAt(4, true);
-                jTabbedPane1.setEnabledAt(5, true);
-                jTabbedPane1.setEnabledAt(6, true);
-                jTabbedPane1.setSelectedIndex(6);
                 break;
             default:
         }        
