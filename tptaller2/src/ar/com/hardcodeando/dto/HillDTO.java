@@ -24,6 +24,8 @@ public class HillDTO {
     private int c21;
     private int c22;
     
+    private String message3;
+    private String cipherMessage3;
 
     public String getType() {
         return type;
@@ -89,7 +91,21 @@ public class HillDTO {
     public void setC22(int c22) {
         this.c22 = c22;
     }
-    
-    
+
+    public String getMessage3() {
+        return message3;
+    }
+
+    public String getCipherMessage3() {
+        return cipherMessage3;
+    }
+
+    public void setMessage3(String message3) {
+        this.message3 = message3;
+    }
+
+    public void setCipherMessage3(String cipherMessage3) {
+        this.cipherMessage3 = cipherMessage3;
+    }
     
 }

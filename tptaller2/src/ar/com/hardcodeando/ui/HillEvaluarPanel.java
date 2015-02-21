@@ -103,6 +103,7 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jButton8 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
         hillPaso3Panel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -114,6 +115,7 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea4 = new javax.swing.JTextArea();
         jButton9 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Hill Cipher");
@@ -344,6 +346,14 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         });
         hillPaso2Panel.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 100, -1));
 
+        jButton11.setText("Guardar");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        hillPaso2Panel.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 470, 110, -1));
+
         jTabbedPane1.addTab("Paso 2 de 3", hillPaso2Panel);
 
         hillPaso3Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -388,6 +398,14 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
             }
         });
         hillPaso3Panel.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 100, -1));
+
+        jButton12.setText("Guardar");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+        hillPaso3Panel.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 470, 100, -1));
 
         jTabbedPane1.addTab("Paso 3 de 3", hillPaso3Panel);
 
@@ -589,8 +607,38 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         JFileChooser saveFile = new JFileChooser();
         int selectOp = saveFile.showSaveDialog(null);
-         String path=saveFile.getSelectedFile().getAbsolutePath();
-        String filename=saveFile.getSelectedFile().getName();
+        String path=saveFile.getSelectedFile().getAbsolutePath();
+        
+        if (selectOp == JFileChooser.APPROVE_OPTION) {
+            int a=0;int b=0;int c=0;int d=0;
+            a = Integer.parseInt(jTextField1.getText());
+            b = Integer.parseInt(jTextField2.getText());
+            c = Integer.parseInt(jTextField3.getText());
+            d = Integer.parseInt(jTextField4.getText());
+
+            HillDTO hillDTO = new HillDTO();
+
+            hillDTO.setCurrentStep(1);
+            hillDTO.setC11(a);
+            hillDTO.setC12(b);
+            hillDTO.setC21(c);
+            hillDTO.setC22(d);
+
+
+            try {
+                AlgorithmStateStorage.saveHill(path, hillDTO);
+                JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
+            } catch (IOException ex) {
+                Logger.getLogger(HillEvaluarPanel.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
+            }
+        }
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        JFileChooser saveFile = new JFileChooser();
+        int selectOp = saveFile.showSaveDialog(null);
+        String path=saveFile.getSelectedFile().getAbsolutePath();
         
         if (selectOp == JFileChooser.APPROVE_OPTION) {
             int a=0;int b=0;int c=0;int d=0;
@@ -606,19 +654,99 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
             hillDTO.setC12(b);
             hillDTO.setC21(c);
             hillDTO.setC22(d);
-
-
+            
+            hillDTO.setMessage(jTextArea1.getText());
+            hillDTO.setCipherMessage(jTextArea2.getText());
+            
             try {
-                AlgorithmStateStorage.saveHill(path.concat(filename), hillDTO);
+                AlgorithmStateStorage.saveHill(path, hillDTO);
                 JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
             } catch (IOException ex) {
                 Logger.getLogger(HillEvaluarPanel.class.getName()).log(Level.SEVERE, null, ex);
                 JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
             }
-            
-            
         }
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        JFileChooser saveFile = new JFileChooser();
+        int selectOp = saveFile.showSaveDialog(null);
+        String path=saveFile.getSelectedFile().getAbsolutePath();
+        
+        if (selectOp == JFileChooser.APPROVE_OPTION) {
+            int a=0;int b=0;int c=0;int d=0;
+            a = Integer.parseInt(jTextField1.getText());
+            b = Integer.parseInt(jTextField2.getText());
+            c = Integer.parseInt(jTextField3.getText());
+            d = Integer.parseInt(jTextField4.getText());
+
+            HillDTO hillDTO = new HillDTO();
+
+            hillDTO.setCurrentStep(3);
+            hillDTO.setC11(a);
+            hillDTO.setC12(b);
+            hillDTO.setC21(c);
+            hillDTO.setC22(d);
+            
+            hillDTO.setMessage(jTextArea1.getText());
+            hillDTO.setCipherMessage(jTextArea2.getText());
+         
+            hillDTO.setCipherMessage3(jTextArea3.getText());
+            hillDTO.setMessage3(jTextArea4.getText());
+            try {
+                AlgorithmStateStorage.saveHill(path, hillDTO);
+                JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
+            } catch (IOException ex) {
+                Logger.getLogger(HillEvaluarPanel.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
+            }
+        }
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    public void load(HillDTO hillDTO) {
+        
+        int step = hillDTO.getCurrentStep();
+        
+        if (step == 1) {
+            this.jTextField1.setText(""+hillDTO.getC11());
+            this.jTextField2.setText(""+hillDTO.getC12());
+            this.jTextField3.setText(""+hillDTO.getC21());
+            this.jTextField4.setText(""+hillDTO.getC22());
+            jTabbedPane1.setEnabledAt(1, true);
+            jTabbedPane1.setSelectedIndex(1);
+        } else if (step == 2) {
+            this.jTextField1.setText(""+hillDTO.getC11());
+            this.jTextField2.setText(""+hillDTO.getC12());
+            this.jTextField3.setText(""+hillDTO.getC21());
+            this.jTextField4.setText(""+hillDTO.getC22());
+            
+            this.jTextArea1.setText(hillDTO.getMessage());
+            this.jTextArea2.setText(hillDTO.getCipherMessage());
+            jTabbedPane1.setEnabledAt(1, true);
+            jTabbedPane1.setEnabledAt(2, true);
+            jTabbedPane1.setSelectedIndex(2);
+        } else if (step == 3) {
+            this.jTextField1.setText(""+hillDTO.getC11());
+            this.jTextField2.setText(""+hillDTO.getC12());
+            this.jTextField3.setText(""+hillDTO.getC21());
+            this.jTextField4.setText(""+hillDTO.getC22());
+            
+            this.jTextArea1.setText(hillDTO.getMessage());
+            this.jTextArea2.setText(hillDTO.getCipherMessage());
+            
+            this.jTextArea3.setText(hillDTO.getCipherMessage3());
+            this.jTextArea4.setText(hillDTO.getMessage3());
+            jTabbedPane1.setEnabledAt(1, true);
+            jTabbedPane1.setEnabledAt(2, true);
+            jTabbedPane1.setEnabledAt(3, true);
+            jTabbedPane1.setSelectedIndex(3);
+        } else {
+            // no corresponde el paso
+        }
+        
+    
+    }
+    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -631,6 +759,8 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
     private javax.swing.JPanel hillPaso3Panel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -681,4 +811,6 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
     private javax.swing.JRadioButton rbCorrecto2;
     private javax.swing.JRadioButton rbCorrecto3;
     // End of variables declaration//GEN-END:variables
+
+    
 }

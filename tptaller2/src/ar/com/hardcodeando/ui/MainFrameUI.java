@@ -336,7 +336,7 @@ public class MainFrameUI extends javax.swing.JFrame {
 
     private void jMenuItem4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem4MousePressed
         
-        this.showHillPanelAprender(null);
+        this.showHillPanelAutoevaluar(null);
         //jLabel1.setVisible(false);
     }//GEN-LAST:event_jMenuItem4MousePressed
 
@@ -419,7 +419,7 @@ public class MainFrameUI extends javax.swing.JFrame {
             switch (type) {
                 case AlgorithmStateStorage.ALGO_HILL:  
                      HillDTO hillDTO = AlgorithmStateStorage.loadHill(file.getAbsolutePath());
-                     showHillPanelAprender(hillDTO);
+                     showHillPanelAutoevaluar(hillDTO);
                      break;
                 case AlgorithmStateStorage.ALGO_NLFRS:  //TODO:
                      break;
@@ -517,20 +517,23 @@ public class MainFrameUI extends javax.swing.JFrame {
     private java.awt.MenuBar menuBar1;
     // End of variables declaration//GEN-END:variables
 
-    private void showHillPanelAprender(HillDTO hillDTO) {
-        if (this.hpanel==null){
-            this.hpanel = new HillPanel();       
+    
+    
+    private void showHillPanelAutoevaluar(HillDTO hillDTO) {
+        
+        if(this.hEvaluarPanel==null){
+            this.hEvaluarPanel = new HillEvaluarPanel();       
         }
         
         if (hillDTO != null) {
-            this.hpanel.load(hillDTO);
+            this.hEvaluarPanel.load(hillDTO);
         }
         
         if(this.currentComponent!=null){
             this.remove(this.currentComponent);
         }
         //this.setLayout(new BorderLayout());
-        this.currentComponent=hpanel;
+        this.currentComponent=hEvaluarPanel;
         
         this.add(this.currentComponent, BorderLayout.CENTER);
         this.setVisible(true);
