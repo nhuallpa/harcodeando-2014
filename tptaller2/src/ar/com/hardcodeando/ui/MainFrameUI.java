@@ -270,7 +270,17 @@ public class MainFrameUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-  
+        if(this.hpanel==null){	
+            this.hpanel = new HillPanel();		
+        }		
+        if(this.currentComponent!=null){		
+            this.remove(this.currentComponent);		
+        }		
+        //this.setLayout(new BorderLayout());		
+        this.currentComponent=hpanel;		
+
+        this.add(this.currentComponent, BorderLayout.CENTER);		
+        this.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
