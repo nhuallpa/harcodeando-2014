@@ -837,9 +837,9 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         jTabbedPane1.setBounds(20, 50, 1250, 600);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("MD5");
+        jLabel1.setText("MD5 - Modo Autoevaluar");
         add(jLabel1);
-        jLabel1.setBounds(480, 10, 46, 22);
+        jLabel1.setBounds(400, 10, 320, 22);
 
         getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
