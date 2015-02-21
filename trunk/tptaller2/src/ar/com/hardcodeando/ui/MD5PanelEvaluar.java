@@ -7,6 +7,8 @@ package ar.com.hardcodeando.ui;
 
 import ar.com.hardcodeando.ui.utils.SaveFile;
 import ar.com.hardcodeando.algorithm.MD5;
+import ar.com.hardcodeando.dto.MD5DTO;
+import ar.com.hardcodeando.ui.utils.AlgorithmStateStorage;
 import ar.com.hardcodeando.ui.utils.MyCellEditor;
 import ar.com.hardcodeando.ui.utils.StatusColumnCellRenderer;
 import java.awt.Color;
@@ -954,21 +956,31 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
     }//GEN-LAST:event_botonSiguientePaso2AEMousePressed
 
     private void buttonGuardarArchivoPaso1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGuardarArchivoPaso1ActionPerformed
-       
-         JFileChooser saveFile = new JFileChooser();
-         saveFile.showSaveDialog(null);
-         String path=saveFile.getSelectedFile().getAbsolutePath();
-         String filename=saveFile.getSelectedFile().getName();
-         SaveFile sf = SaveFile.getInstance();
-         String jsonStr = this.messageToJson(1);         
-         sf.saveToFile(filename, path, jsonStr);
+        try {
+            JFileChooser saveFile = new JFileChooser();
+            saveFile.showSaveDialog(null);
+            String path=saveFile.getSelectedFile().getAbsolutePath();
+            String filename=saveFile.getSelectedFile().getName();
+            // SaveFile sf = SaveFile.getInstance();
+            //String jsonStr = this.messageToJson(1);
+            //sf.saveToFile(filename, path, jsonStr);
+            AlgorithmStateStorage.saveMD5(filename, path, this.messageToJson(1));
+        } catch (IOException ex) {
+            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_buttonGuardarArchivoPaso1ActionPerformed
 
-    public String messageToJson(int step){
-
-        StringWriter out = new StringWriter();
+    public MD5DTO messageToJson(int step){
+            MD5DTO md5DTO = new MD5DTO();
+            md5DTO.setCurrentStep(step);
+            md5DTO.setMessage(mensajeAEncriptar.getText());
+            md5DTO.setCipherMessage("");
+            
+     /*   StringWriter out = new StringWriter();
         try {
-            JSONObject obj = new JSONObject();
+           
+            
+            /*JSONObject obj = new JSONObject();
             obj.put("algorithm", "MD5");
             obj.put("message", mensajeAEncriptar.getText());
             obj.put("key", "");
@@ -977,7 +989,8 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         } catch (IOException ex) {
             Logger.getLogger(SaveFile.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return out.toString();    
+        return out.toString();    */
+            return md5DTO;
     }
     
     public boolean compararIgualdadTextos(String valor1, String valor2) {
@@ -1331,43 +1344,51 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
     }//GEN-LAST:event_buttonValidarAdicionBits1ActionPerformed
 
     private void buttonGuardarArchivoPaso2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGuardarArchivoPaso2ActionPerformed
-         JFileChooser saveFile = new JFileChooser();
-         saveFile.showSaveDialog(null);
-         String path=saveFile.getSelectedFile().getAbsolutePath();
-         String filename=saveFile.getSelectedFile().getName();
-         SaveFile sf = SaveFile.getInstance();
-         String jsonStr = this.messageToJson(2);         
-         sf.saveToFile(filename, path, jsonStr);
+         try {
+            JFileChooser saveFile = new JFileChooser();
+            saveFile.showSaveDialog(null);
+            String path=saveFile.getSelectedFile().getAbsolutePath();
+            String filename=saveFile.getSelectedFile().getName();
+            AlgorithmStateStorage.saveMD5(filename, path, this.messageToJson(2));
+        } catch (IOException ex) {
+            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_buttonGuardarArchivoPaso2ActionPerformed
 
     private void buttonGuardarArchivoPaso3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGuardarArchivoPaso3ActionPerformed
-         JFileChooser saveFile = new JFileChooser();
-         saveFile.showSaveDialog(null);
-         String path=saveFile.getSelectedFile().getAbsolutePath();
-         String filename=saveFile.getSelectedFile().getName();
-         SaveFile sf = SaveFile.getInstance();
-         String jsonStr = this.messageToJson(3);         
-         sf.saveToFile(filename, path, jsonStr);
+        try {
+            JFileChooser saveFile = new JFileChooser();
+            saveFile.showSaveDialog(null);
+            String path=saveFile.getSelectedFile().getAbsolutePath();
+            String filename=saveFile.getSelectedFile().getName();
+            AlgorithmStateStorage.saveMD5(filename, path, this.messageToJson(3));
+        } catch (IOException ex) {
+            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_buttonGuardarArchivoPaso3ActionPerformed
 
     private void buttonGuardarArchivoPaso4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGuardarArchivoPaso4ActionPerformed
-         JFileChooser saveFile = new JFileChooser();
-         saveFile.showSaveDialog(null);
-         String path=saveFile.getSelectedFile().getAbsolutePath();
-         String filename=saveFile.getSelectedFile().getName();
-         SaveFile sf = SaveFile.getInstance();
-         String jsonStr = this.messageToJson(4);         
-         sf.saveToFile(filename, path, jsonStr);
+        try {
+            JFileChooser saveFile = new JFileChooser();
+            saveFile.showSaveDialog(null);
+            String path=saveFile.getSelectedFile().getAbsolutePath();
+            String filename=saveFile.getSelectedFile().getName();
+            AlgorithmStateStorage.saveMD5(filename, path, this.messageToJson(4));
+        } catch (IOException ex) {
+            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_buttonGuardarArchivoPaso4ActionPerformed
 
     private void buttonGuardarArchivoPaso5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGuardarArchivoPaso5ActionPerformed
-         JFileChooser saveFile = new JFileChooser();
-         saveFile.showSaveDialog(null);
-         String path=saveFile.getSelectedFile().getAbsolutePath();
-         String filename=saveFile.getSelectedFile().getName();
-         SaveFile sf = SaveFile.getInstance();
-         String jsonStr = this.messageToJson(5);         
-         sf.saveToFile(filename, path, jsonStr);
+         try {
+            JFileChooser saveFile = new JFileChooser();
+            saveFile.showSaveDialog(null);
+            String path=saveFile.getSelectedFile().getAbsolutePath();
+            String filename=saveFile.getSelectedFile().getName();
+            AlgorithmStateStorage.saveMD5(filename, path, this.messageToJson(5));
+        } catch (IOException ex) {
+            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_buttonGuardarArchivoPaso5ActionPerformed
 
     private void botResolverPreguntasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botResolverPreguntasActionPerformed

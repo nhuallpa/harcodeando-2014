@@ -11,6 +11,7 @@ import ar.com.hardcodeando.ui.utils.Ronda3Dialog;
 import ar.com.hardcodeando.ui.utils.Ronda2Dialog;
 import ar.com.hardcodeando.ui.utils.Ronda1Dialog;
 import ar.com.hardcodeando.algorithm.MD5;
+import ar.com.hardcodeando.dto.MD5DTO;
 import java.util.Enumeration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -53,17 +54,17 @@ public class MD5Panel extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         panelPaso1 = new javax.swing.JPanel();
-        lblHeaderPaso3 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        labelTextoHeader = new javax.swing.JLabel();
+        labelConvertirMensajeABin = new javax.swing.JLabel();
         siguientePaso1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        labelInformativoPaso1 = new javax.swing.JLabel();
+        messageWithAditionalBits = new javax.swing.JLabel();
+        messageToBinary = new javax.swing.JLabel();
         textMensaje = new javax.swing.JTextField();
-        jLabel66 = new javax.swing.JLabel();
-        textoABinario = new javax.swing.JButton();
-        adicionarBits = new javax.swing.JButton();
-        jLabel67 = new javax.swing.JLabel();
+        labelIntroducirMensaje = new javax.swing.JLabel();
+        botonTextoABinario = new javax.swing.JButton();
+        botonAdicionarBits = new javax.swing.JButton();
+        labelAdicionarBits = new javax.swing.JLabel();
         panelPaso2 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
@@ -185,12 +186,12 @@ public class MD5Panel extends javax.swing.JPanel {
 
         panelPaso1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblHeaderPaso3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblHeaderPaso3.setText("Paso 1: Adición de bits");
-        panelPaso1.add(lblHeaderPaso3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        labelTextoHeader.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labelTextoHeader.setText("Paso 1: Adición de bits");
+        panelPaso1.add(labelTextoHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        jLabel10.setText("<html> <ul> <li>Convertimos el mensaje a su valor binario.</li> </ul> </html>");
-        panelPaso1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 390, 50));
+        labelConvertirMensajeABin.setText("<html> <ul> <li>Convertimos el mensaje a su valor binario.</li> </ul> </html>");
+        panelPaso1.add(labelConvertirMensajeABin, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 390, 50));
 
         siguientePaso1.setText("Siguiente");
         siguientePaso1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -205,17 +206,17 @@ public class MD5Panel extends javax.swing.JPanel {
         });
         panelPaso1.add(siguientePaso1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 500, 100, -1));
 
-        jLabel2.setText("<html> A modo de ejemplo, supongamos que queremos encriptar un mensaje menor a 512 caracteres. Si el mensaje fuera más largo, el algoritmo parte el mensaje en bloques de 512 y trabaja por bloques</html>");
-        panelPaso1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 1000, 40));
+        labelInformativoPaso1.setText("<html> A modo de ejemplo, supongamos que queremos encriptar un mensaje menor a 512 caracteres. Si el mensaje fuera más largo, el algoritmo parte el mensaje en bloques de 512 y trabaja por bloques</html>");
+        panelPaso1.add(labelInformativoPaso1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 1000, 40));
 
-        jLabel3.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.highlight"));
-        jLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        panelPaso1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 440, 230));
+        messageWithAditionalBits.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.highlight"));
+        messageWithAditionalBits.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        panelPaso1.add(messageWithAditionalBits, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 440, 230));
 
-        jLabel4.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.highlight"));
-        jLabel4.setMaximumSize(new java.awt.Dimension(450, 70));
-        jLabel4.setPreferredSize(new java.awt.Dimension(450, 70));
-        panelPaso1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 450, 110));
+        messageToBinary.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.highlight"));
+        messageToBinary.setMaximumSize(new java.awt.Dimension(450, 70));
+        messageToBinary.setPreferredSize(new java.awt.Dimension(450, 70));
+        panelPaso1.add(messageToBinary, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 450, 110));
 
         textMensaje.setText("TOP SECRET MESSAGE");
         textMensaje.setToolTipText("");
@@ -226,27 +227,27 @@ public class MD5Panel extends javax.swing.JPanel {
         });
         panelPaso1.add(textMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 220, -1));
 
-        jLabel66.setText("Introduzca un mensaje a encriptar:");
-        panelPaso1.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+        labelIntroducirMensaje.setText("Introduzca un mensaje a encriptar:");
+        panelPaso1.add(labelIntroducirMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
-        textoABinario.setText("Texto a Binario");
-        textoABinario.addActionListener(new java.awt.event.ActionListener() {
+        botonTextoABinario.setText("Texto a Binario");
+        botonTextoABinario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textoABinarioActionPerformed(evt);
+                botonTextoABinarioActionPerformed(evt);
             }
         });
-        panelPaso1.add(textoABinario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, -1, -1));
+        panelPaso1.add(botonTextoABinario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, -1, -1));
 
-        adicionarBits.setText("Adicionar bits");
-        adicionarBits.addActionListener(new java.awt.event.ActionListener() {
+        botonAdicionarBits.setText("Adicionar bits");
+        botonAdicionarBits.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adicionarBitsActionPerformed(evt);
+                botonAdicionarBitsActionPerformed(evt);
             }
         });
-        panelPaso1.add(adicionarBits, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, -1, -1));
+        panelPaso1.add(botonAdicionarBits, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, -1, -1));
 
-        jLabel67.setText("<html> <ul> <li>Se rellena el mensaje binario con 0's y 1's de tal manera que sea 448 mod 512 bits de longitud.<br></li><br><li> Necesitaremos \"448 - LongitudMensaje\" bits para completar los 448.</li><br><li> Completamos la primer posición con el valor 1 y las restantes las completamos con ceros. </li> </ul></html>");
-        panelPaso1.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, 400, 140));
+        labelAdicionarBits.setText("<html> <ul> <li>Se rellena el mensaje binario con 0's y 1's de tal manera que sea 448 mod 512 bits de longitud.<br></li><br><li> Necesitaremos \"448 - LongitudMensaje\" bits para completar los 448.</li><br><li> Completamos la primer posición con el valor 1 y las restantes las completamos con ceros. </li> </ul></html>");
+        panelPaso1.add(labelAdicionarBits, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, 400, 140));
 
         jTabbedPane1.addTab("Paso 1 de 5", panelPaso1);
 
@@ -778,33 +779,33 @@ public class MD5Panel extends javax.swing.JPanel {
         jTabbedPane1.setSelectedIndex(3);
     }//GEN-LAST:event_siguientePaso2MousePressed
 
-    private void adicionarBitsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarBitsActionPerformed
+    private void botonAdicionarBitsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAdicionarBitsActionPerformed
         String msgAEncriptar = textMensaje.getText();
 
         try {
             if (!msgAEncriptar.equals("")) {
                 String msgPadeado = MD5.textoPadeado(msgAEncriptar, msgAEncriptar.length(), false);
-                jLabel3.setText("<html><div style=\"background-color: white;\">"+msgPadeado+"</html>");
+                messageWithAditionalBits.setText("<html><div style=\"background-color: white;\">"+msgPadeado+"</html>");
             }
         } catch (Exception ex) {
             Logger.getLogger(MD5Panel.class.getName()).log(Level.SEVERE, null, ex);
         }
         siguientePaso1.setVisible(true);
-    }//GEN-LAST:event_adicionarBitsActionPerformed
+    }//GEN-LAST:event_botonAdicionarBitsActionPerformed
 
-    private void textoABinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoABinarioActionPerformed
+    private void botonTextoABinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTextoABinarioActionPerformed
         String msgAEncriptar = textMensaje.getText();
 
         try {
             if (!msgAEncriptar.equals("")) {
                 String msgBinario = MD5.textoEnBinario(msgAEncriptar, false);
-                jLabel4.setText("<html><div style=\"background-color: white;\">"+msgBinario+"</html>");
+                messageToBinary.setText("<html><div style=\"background-color: white;\">"+msgBinario+"</html>");
             }
         } catch (Exception ex) {
             Logger.getLogger(MD5Panel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        adicionarBits.setVisible(true);
-    }//GEN-LAST:event_textoABinarioActionPerformed
+        botonAdicionarBits.setVisible(true);
+    }//GEN-LAST:event_botonTextoABinarioActionPerformed
 
     private void textMensajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMensajeActionPerformed
         // TODO add your handling code here:
@@ -823,7 +824,7 @@ public class MD5Panel extends javax.swing.JPanel {
     private void comenzarIntroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comenzarIntroActionPerformed
         jTabbedPane1.setEnabledAt(1, true);
         jTabbedPane1.setSelectedIndex(1);
-        adicionarBits.setVisible(false);
+        botonAdicionarBits.setVisible(false);
         siguientePaso1.setVisible(false);
     }//GEN-LAST:event_comenzarIntroActionPerformed
 
@@ -845,7 +846,6 @@ public class MD5Panel extends javax.swing.JPanel {
                 return button.getText();
             }
         }
-
         return null;
     }
     
@@ -1053,8 +1053,8 @@ public class MD5Panel extends javax.swing.JPanel {
         salidaFinal.setText("");
         ianterior = 0;
         janterior = 0;
-        
     }
+    
     int pasos= 0; 
     protected int limitei= 0; 
     protected int limitej= 0;
@@ -1063,8 +1063,9 @@ public class MD5Panel extends javax.swing.JPanel {
     int iteracionRonda1 = 0;    int iteracionRonda2 = 0;    int iteracionRonda3 = 0;    int iteracionRonda4 = 0;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel IntroMD5;
-    private javax.swing.JButton adicionarBits;
     private javax.swing.JButton adicionarLongitud;
+    private javax.swing.JButton botonAdicionarBits;
+    private javax.swing.JButton botonTextoABinario;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton buttonRonda1;
     private javax.swing.JButton buttonRonda2;
@@ -1073,7 +1074,6 @@ public class MD5Panel extends javax.swing.JPanel {
     private javax.swing.JButton comenzarIntro;
     private javax.swing.JLabel hashSalida;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -1083,7 +1083,6 @@ public class MD5Panel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -1094,7 +1093,6 @@ public class MD5Panel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -1105,7 +1103,6 @@ public class MD5Panel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -1121,8 +1118,6 @@ public class MD5Panel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel64;
-    private javax.swing.JLabel jLabel66;
-    private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
@@ -1147,8 +1142,14 @@ public class MD5Panel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel labelAdicionarBits;
+    private javax.swing.JLabel labelConvertirMensajeABin;
+    private javax.swing.JLabel labelInformativoPaso1;
+    private javax.swing.JLabel labelIntroducirMensaje;
     private javax.swing.JLabel labelSumaFinal;
-    private javax.swing.JLabel lblHeaderPaso3;
+    private javax.swing.JLabel labelTextoHeader;
+    private javax.swing.JLabel messageToBinary;
+    private javax.swing.JLabel messageWithAditionalBits;
     private javax.swing.JPanel panelPaso1;
     private javax.swing.JPanel panelPaso2;
     private javax.swing.JPanel panelPaso3;
@@ -1163,11 +1164,38 @@ public class MD5Panel extends javax.swing.JPanel {
     private javax.swing.JButton siguientePaso4ii;
     private javax.swing.JLabel sumaSalidaFinal;
     private javax.swing.JTextField textMensaje;
-    private javax.swing.JButton textoABinario;
     private javax.swing.JLabel valoresIniciales;
     private javax.swing.JLabel valoresLabel;
     private javax.swing.JLabel variablesEntrada;
     private javax.swing.JLabel variablesSalida;
     // End of variables declaration//GEN-END:variables
+
+    void load(MD5DTO md5DTO) {
+        
+        int step = md5DTO.getCurrentStep();
+        
+        switch(step){
+            case 2 : 
+                this.textMensaje.setText(md5DTO.getMessage());
+                this.messageToBinary.setText(md5DTO.getCipherMessage());
+                jTabbedPane1.setEnabledAt(1, true);
+                jTabbedPane1.setEnabledAt(2, true);
+                jTabbedPane1.setSelectedIndex(2);
+                break;
+            case 3:    
+                 /*       this.textSecreto.setText(md5DTO.getCipherMessage());
+                this.textMensajeDescubierto.setText(md5DTO.getMessage());*/
+                jTabbedPane1.setEnabledAt(1, true);
+                jTabbedPane1.setEnabledAt(2, true);
+                jTabbedPane1.setEnabledAt(3, true);
+                jTabbedPane1.setSelectedIndex(3);
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            default:
+        }        
+    }
 
 }

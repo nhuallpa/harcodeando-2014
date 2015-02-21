@@ -128,7 +128,7 @@
             <Property name="useNullLayout" type="boolean" value="false"/>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lblHeaderPaso3">
+            <Component class="javax.swing.JLabel" name="labelTextoHeader">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
@@ -141,7 +141,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel10">
+            <Component class="javax.swing.JLabel" name="labelConvertirMensajeABin">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;ul&gt; &lt;li&gt;Convertimos el mensaje a su valor binario.&lt;/li&gt; &lt;/ul&gt; &lt;/html&gt;"/>
               </Properties>
@@ -165,7 +165,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="labelInformativoPaso1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt; A modo de ejemplo, supongamos que queremos encriptar un mensaje menor a 512 caracteres. Si el mensaje fuera m&#xe1;s largo, el algoritmo parte el mensaje en bloques de 512 y trabaja por bloques&lt;/html&gt;"/>
               </Properties>
@@ -175,7 +175,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="messageWithAditionalBits">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" id="Button.highlight" palette="3" red="ff" type="palette"/>
@@ -188,7 +188,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JLabel" name="messageToBinary">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" id="Button.highlight" palette="3" red="ff" type="palette"/>
@@ -220,7 +220,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel66">
+            <Component class="javax.swing.JLabel" name="labelIntroducirMensaje">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Introduzca un mensaje a encriptar:"/>
               </Properties>
@@ -230,12 +230,12 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="textoABinario">
+            <Component class="javax.swing.JButton" name="botonTextoABinario">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Texto a Binario"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textoABinarioActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonTextoABinarioActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -243,12 +243,12 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="adicionarBits">
+            <Component class="javax.swing.JButton" name="botonAdicionarBits">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Adicionar bits"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="adicionarBitsActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonAdicionarBitsActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -256,7 +256,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel67">
+            <Component class="javax.swing.JLabel" name="labelAdicionarBits">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;ul&gt; &lt;li&gt;Se rellena el mensaje binario con 0&apos;s y 1&apos;s de tal manera que sea 448 mod 512 bits de longitud.&lt;br&gt;&lt;/li&gt;&lt;br&gt;&lt;li&gt; Necesitaremos &quot;448 - LongitudMensaje&quot; bits para completar los 448.&lt;/li&gt;&lt;br&gt;&lt;li&gt; Completamos la primer posici&#xf3;n con el valor 1 y las restantes las completamos con ceros. &lt;/li&gt; &lt;/ul&gt;&lt;/html&gt;"/>
               </Properties>
