@@ -15,6 +15,8 @@ public class MD5DTO {
     private int currentStep;
     private String message;
     private String cipherMessage;
+    private String binaryMessage;
+    private String representationBitsPlusFiller;
 
     public String getType() {
         return type;
@@ -47,5 +49,19 @@ public class MD5DTO {
     public void setCipherMessage(String cipherMessage) {
         this.cipherMessage = cipherMessage;
     }
-    
+
+    public String getBinaryMessage() {
+        return binaryMessage;
+    }
+
+    public void setBinaryMessage(String binaryMessage) {
+        this.binaryMessage = binaryMessage;
+    }
+
+    public void setRepresentationBitsPlusFiller(String representationBitsPlusFiller) {
+        this.representationBitsPlusFiller = representationBitsPlusFiller;
+    }
+    public String getRepresentationBitsPlusFiller() {
+       return representationBitsPlusFiller;
+    }
 }

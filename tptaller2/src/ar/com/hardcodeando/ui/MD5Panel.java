@@ -1169,33 +1169,4 @@ public class MD5Panel extends javax.swing.JPanel {
     private javax.swing.JLabel variablesEntrada;
     private javax.swing.JLabel variablesSalida;
     // End of variables declaration//GEN-END:variables
-
-    void load(MD5DTO md5DTO) {
-        
-        int step = md5DTO.getCurrentStep();
-        
-        switch(step){
-            case 2 : 
-                this.textMensaje.setText(md5DTO.getMessage());
-                this.messageToBinary.setText(md5DTO.getCipherMessage());
-                jTabbedPane1.setEnabledAt(1, true);
-                jTabbedPane1.setEnabledAt(2, true);
-                jTabbedPane1.setSelectedIndex(2);
-                break;
-            case 3:    
-                 /*       this.textSecreto.setText(md5DTO.getCipherMessage());
-                this.textMensajeDescubierto.setText(md5DTO.getMessage());*/
-                jTabbedPane1.setEnabledAt(1, true);
-                jTabbedPane1.setEnabledAt(2, true);
-                jTabbedPane1.setEnabledAt(3, true);
-                jTabbedPane1.setSelectedIndex(3);
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-            default:
-        }        
-    }
-
 }

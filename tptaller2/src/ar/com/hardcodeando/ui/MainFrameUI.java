@@ -537,18 +537,18 @@ public class MainFrameUI extends javax.swing.JFrame {
     }
     
     private void showMD5PanelAutoevaluar(MD5DTO md5DTO) {
-        if (this.md5panel==null){
-            this.md5panel = new MD5Panel();       
+        if (this.md5EvaluarPanel==null){
+            this.md5EvaluarPanel = new MD5PanelEvaluar();
         }
         
         if (md5DTO != null) {
-            this.md5panel.load(md5DTO);
+            this.md5EvaluarPanel.load(md5DTO);
         }
         
         if(this.currentComponent!=null){
             this.remove(this.currentComponent);
         }
-        this.currentComponent=md5panel;
+        this.currentComponent=md5EvaluarPanel;
         
         this.add(this.currentComponent, BorderLayout.CENTER);
         this.setVisible(true);
