@@ -6,6 +6,7 @@
 package ar.com.hardcodeando.ui;
 
 import ar.com.hardcodeando.dto.HillDTO;
+import ar.com.hardcodeando.dto.MD5DTO;
 import ar.com.hardcodeando.ui.utils.AlgorithmStateStorage;
 import java.awt.BorderLayout;
 import javax.swing.JComponent;
@@ -415,16 +416,29 @@ public class MainFrameUI extends javax.swing.JFrame {
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
             String type = AlgorithmStateStorage.getType(file.getAbsolutePath());
-            if (type.equals(AlgorithmStateStorage.ALGO_HILL)) {
-                HillDTO hillDTO = AlgorithmStateStorage.loadHill(file.getAbsolutePath());
-                showHillPanelAprender(hillDTO);
+            switch (type) {
+                case AlgorithmStateStorage.ALGO_HILL:  
+                     HillDTO hillDTO = AlgorithmStateStorage.loadHill(file.getAbsolutePath());
+                     showHillPanelAprender(hillDTO);
+                     break;
+                case AlgorithmStateStorage.ALGO_NLFRS:  //TODO:
+                     break;
+                case AlgorithmStateStorage.ALGO_DES:  //TODO:
+                     break;
+                case AlgorithmStateStorage.ALGO_RSA:  //TODO:
+                     break;
+                case AlgorithmStateStorage.ALGO_MD5:  
+                     MD5DTO md5DTO = AlgorithmStateStorage.loadMD5(file.getAbsolutePath());
+                     showMD5PanelAutoevaluar(md5DTO);
+                     break;
+                default:  //TODO: mostrar mensaje diciendo que no se puede levantar el archivo/el archivo no corresponde al formato de ningun algoritmo
+                    System.out.println("ESTRUCTURA DEL ALGORITMO INVALIDA");
+                     break;
             }
         } else {
              System.out.println("File access cancelled by user.");
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-
     
     /**
      * @param args the command line arguments
@@ -517,6 +531,24 @@ public class MainFrameUI extends javax.swing.JFrame {
         }
         //this.setLayout(new BorderLayout());
         this.currentComponent=hpanel;
+        
+        this.add(this.currentComponent, BorderLayout.CENTER);
+        this.setVisible(true);
+    }
+    
+    private void showMD5PanelAutoevaluar(MD5DTO md5DTO) {
+        if (this.md5panel==null){
+            this.md5panel = new MD5Panel();       
+        }
+        
+        if (md5DTO != null) {
+            this.md5panel.load(md5DTO);
+        }
+        
+        if(this.currentComponent!=null){
+            this.remove(this.currentComponent);
+        }
+        this.currentComponent=md5panel;
         
         this.add(this.currentComponent, BorderLayout.CENTER);
         this.setVisible(true);
