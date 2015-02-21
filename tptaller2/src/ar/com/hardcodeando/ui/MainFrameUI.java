@@ -267,9 +267,9 @@ public class MainFrameUI extends javax.swing.JFrame {
        
         this.currentComponent=hEvaluarPanel;
 
-        this.add(this.currentComponent, BorderLayout.CENTER);
         this.currentComponent.setVisible(true);
         this.currentComponent.setEnabled(true);
+        this.add(this.currentComponent, BorderLayout.CENTER);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -284,9 +284,9 @@ public class MainFrameUI extends javax.swing.JFrame {
         //this.setLayout(new BorderLayout());		
         this.currentComponent=hpanel;		
 
-        this.add(this.currentComponent, BorderLayout.CENTER);
         this.currentComponent.setVisible(true);
         this.currentComponent.setEnabled(true);
+        this.add(this.currentComponent, BorderLayout.CENTER);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
@@ -304,9 +304,9 @@ public class MainFrameUI extends javax.swing.JFrame {
         }
         //this.setLayout(new BorderLayout());
         this.currentComponent= this.rpanelautoev;
-        this.add(this.currentComponent, BorderLayout.CENTER);
         this.currentComponent.setVisible(true);
         this.currentComponent.setEnabled(true);
+        this.add(this.currentComponent, BorderLayout.CENTER);
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
@@ -418,12 +418,9 @@ public class MainFrameUI extends javax.swing.JFrame {
          if(this.npanel == null){
             this.npanel = new NLFSRAprender();
         }
-        if(this.npanel == null){
+        if(this.currentComponent!=null){     
             this.currentComponent.setVisible(false);
             this.currentComponent.setEnabled(false);
-            this.remove(this.currentComponent);
-        }
-        if(this.currentComponent!=null){
             this.remove(this.currentComponent);
         }
         this.currentComponent = npanel;
