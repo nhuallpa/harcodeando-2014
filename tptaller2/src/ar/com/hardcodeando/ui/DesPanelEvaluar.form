@@ -259,6 +259,8 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                       <Component id="jButton19" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jButton35" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="jButton4" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -360,7 +362,7 @@
                                               <Component id="jTextField7" min="-2" pref="525" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="0" pref="237" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="155" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -467,6 +469,7 @@
                                   <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jButton19" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton35" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -775,6 +778,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton19ActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JButton" name="jButton35">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Guardar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton35ActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel7">
@@ -804,6 +815,8 @@
                           <Component id="jLabel29" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jButton28" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jButton36" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="jButton16" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -839,7 +852,7 @@
                                       <Component id="jTextField24" min="-2" pref="540" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="111" max="32767" attributes="0"/>
                           </Group>
                           <Component id="jLabel43" max="32767" attributes="0"/>
                       </Group>
@@ -893,6 +906,7 @@
                                   <Component id="jButton15" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jButton16" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jButton28" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton36" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1032,6 +1046,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton28ActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JButton" name="jButton36">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Guardar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton36ActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel8">
@@ -1060,6 +1082,8 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="jButton29" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jButton37" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="jButton8" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -1068,7 +1092,7 @@
                                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel13" max="32767" attributes="0"/>
-                                  <Component id="jLabel20" pref="837" max="32767" attributes="0"/>
+                                  <Component id="jLabel20" pref="0" max="32767" attributes="0"/>
                                   <Component id="jLabel21" max="32767" attributes="0"/>
                                   <Component id="jLabel23" pref="0" max="32767" attributes="0"/>
                                   <Component id="jLabel26" pref="0" max="32767" attributes="0"/>
@@ -1206,6 +1230,7 @@
                           <Component id="jButton7" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton8" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton29" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton37" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="216" max="32767" attributes="0"/>
                   </Group>
@@ -1416,6 +1441,14 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel44">
             </Component>
+            <Component class="javax.swing.JButton" name="jButton37">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Guardar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton37ActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel9">
@@ -1444,6 +1477,8 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jButton30" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jButton38" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="jButton21" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -1452,7 +1487,7 @@
                                       <Component id="jButton9" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel95" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel98" alignment="0" pref="837" max="32767" attributes="0"/>
+                                  <Component id="jLabel98" alignment="0" pref="0" max="32767" attributes="0"/>
                                   <Component id="jLabel99" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jLabel101" alignment="0" pref="0" max="32767" attributes="0"/>
                                   <Component id="jLabel103" alignment="0" pref="0" max="32767" attributes="0"/>
@@ -1590,6 +1625,7 @@
                           <Component id="jButton20" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton21" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton30" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton38" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="216" max="32767" attributes="0"/>
                   </Group>
@@ -1800,6 +1836,14 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel77">
             </Component>
+            <Component class="javax.swing.JButton" name="jButton38">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Guardar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton38ActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel14">
@@ -1828,6 +1872,8 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jButton31" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jButton39" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="jButton24" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -1836,7 +1882,7 @@
                                       <Component id="jButton22" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel114" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel117" alignment="0" pref="837" max="32767" attributes="0"/>
+                                  <Component id="jLabel117" alignment="0" pref="0" max="32767" attributes="0"/>
                                   <Component id="jLabel118" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jLabel120" alignment="0" pref="0" max="32767" attributes="0"/>
                                   <Component id="jLabel122" alignment="0" pref="0" max="32767" attributes="0"/>
@@ -1974,6 +2020,7 @@
                           <Component id="jButton23" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton24" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton31" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton39" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="216" max="32767" attributes="0"/>
                   </Group>
@@ -2184,6 +2231,14 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel78">
             </Component>
+            <Component class="javax.swing.JButton" name="jButton39">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Guardar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton39ActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel15">
@@ -2212,6 +2267,8 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jButton32" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jButton40" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="jButton27" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -2220,7 +2277,7 @@
                                       <Component id="jButton25" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel133" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel136" alignment="0" pref="837" max="32767" attributes="0"/>
+                                  <Component id="jLabel136" alignment="0" pref="0" max="32767" attributes="0"/>
                                   <Component id="jLabel137" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jLabel139" alignment="0" pref="0" max="32767" attributes="0"/>
                                   <Component id="jLabel141" alignment="0" pref="0" max="32767" attributes="0"/>
@@ -2358,6 +2415,7 @@
                           <Component id="jButton26" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton27" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton32" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton40" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="216" max="32767" attributes="0"/>
                   </Group>
@@ -2568,6 +2626,14 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel79">
             </Component>
+            <Component class="javax.swing.JButton" name="jButton40">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Guardar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton40ActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel12">
@@ -2595,6 +2661,8 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="jButton33" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jButton41" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="jButton11" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -2621,7 +2689,7 @@
                                               <Component id="jTextField35" min="-2" pref="530" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="0" pref="212" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="130" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -2666,6 +2734,7 @@
                           <Component id="jButton11" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton17" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton33" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton41" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="349" max="32767" attributes="0"/>
                   </Group>
@@ -2775,6 +2844,14 @@
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel80">
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton41">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Guardar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton41ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

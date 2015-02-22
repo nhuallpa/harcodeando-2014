@@ -7,8 +7,14 @@ package ar.com.hardcodeando.ui;
 
 import ar.com.hardcodeando.ui.*;
 import ar.com.hardcodeando.algorithm.Des;
+import ar.com.hardcodeando.dto.DesDTO;
+import ar.com.hardcodeando.ui.utils.AlgorithmStateStorage;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -100,6 +106,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jLabel33 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
         jButton19 = new javax.swing.JButton();
+        jButton35 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
@@ -121,6 +128,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jLabel67 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
         jButton28 = new javax.swing.JButton();
+        jButton36 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -154,6 +162,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jButton8 = new javax.swing.JButton();
         jButton29 = new javax.swing.JButton();
         jLabel44 = new javax.swing.JLabel();
+        jButton37 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel95 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
@@ -187,6 +196,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jButton21 = new javax.swing.JButton();
         jButton30 = new javax.swing.JButton();
         jLabel77 = new javax.swing.JLabel();
+        jButton38 = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
         jLabel114 = new javax.swing.JLabel();
         jButton22 = new javax.swing.JButton();
@@ -220,6 +230,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jButton24 = new javax.swing.JButton();
         jButton31 = new javax.swing.JButton();
         jLabel78 = new javax.swing.JLabel();
+        jButton39 = new javax.swing.JButton();
         jPanel15 = new javax.swing.JPanel();
         jLabel133 = new javax.swing.JLabel();
         jButton25 = new javax.swing.JButton();
@@ -253,6 +264,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jButton27 = new javax.swing.JButton();
         jButton32 = new javax.swing.JButton();
         jLabel79 = new javax.swing.JLabel();
+        jButton40 = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
@@ -269,6 +281,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jButton17 = new javax.swing.JButton();
         jButton33 = new javax.swing.JButton();
         jLabel80 = new javax.swing.JLabel();
+        jButton41 = new javax.swing.JButton();
         jPanel13 = new javax.swing.JPanel();
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
@@ -527,6 +540,13 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
             }
         });
 
+        jButton35.setText("Guardar");
+        jButton35.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton35ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -542,6 +562,8 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(jButton19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton35)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -622,7 +644,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                                         .addComponent(jLabel33)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 237, Short.MAX_VALUE)))
+                                .addGap(0, 155, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -706,7 +728,8 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                             .addComponent(jButton5)
                             .addComponent(jButton3)
                             .addComponent(jButton4)
-                            .addComponent(jButton19))))
+                            .addComponent(jButton19)
+                            .addComponent(jButton35))))
                 .addContainerGap(311, Short.MAX_VALUE))
         );
 
@@ -775,6 +798,13 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
             }
         });
 
+        jButton36.setText("Guardar");
+        jButton36.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton36ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -789,6 +819,8 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                     .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addComponent(jButton28)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton36)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -817,7 +849,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                                 .addComponent(jLabel67)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 111, Short.MAX_VALUE))
                     .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -862,7 +894,8 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                             .addComponent(jButton6)
                             .addComponent(jButton15)
                             .addComponent(jButton16)
-                            .addComponent(jButton28))))
+                            .addComponent(jButton28)
+                            .addComponent(jButton36))))
                 .addContainerGap(391, Short.MAX_VALUE))
         );
 
@@ -957,6 +990,13 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
             }
         });
 
+        jButton37.setText("Guardar");
+        jButton37.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton37ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -970,6 +1010,8 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addComponent(jButton29)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton37)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -977,7 +1019,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton1))
                             .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -1089,7 +1131,8 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                     .addComponent(jButton1)
                     .addComponent(jButton7)
                     .addComponent(jButton8)
-                    .addComponent(jButton29))
+                    .addComponent(jButton29)
+                    .addComponent(jButton37))
                 .addContainerGap(216, Short.MAX_VALUE))
         );
 
@@ -1184,6 +1227,13 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
             }
         });
 
+        jButton38.setText("Guardar");
+        jButton38.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton38ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -1197,6 +1247,8 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addComponent(jButton30)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton38)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton21)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1204,7 +1256,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton9))
                             .addComponent(jLabel95, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel98, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
+                            .addComponent(jLabel98, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jLabel99, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel101, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jLabel103, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -1316,7 +1368,8 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                     .addComponent(jButton9)
                     .addComponent(jButton20)
                     .addComponent(jButton21)
-                    .addComponent(jButton30))
+                    .addComponent(jButton30)
+                    .addComponent(jButton38))
                 .addContainerGap(216, Short.MAX_VALUE))
         );
 
@@ -1411,6 +1464,13 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
             }
         });
 
+        jButton39.setText("Guardar");
+        jButton39.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton39ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
@@ -1424,6 +1484,8 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                         .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel14Layout.createSequentialGroup()
                                 .addComponent(jButton31)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton39)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton24)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1431,7 +1493,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton22))
                             .addComponent(jLabel114, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel117, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
+                            .addComponent(jLabel117, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jLabel118, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel120, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jLabel122, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -1543,7 +1605,8 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                     .addComponent(jButton22)
                     .addComponent(jButton23)
                     .addComponent(jButton24)
-                    .addComponent(jButton31))
+                    .addComponent(jButton31)
+                    .addComponent(jButton39))
                 .addContainerGap(216, Short.MAX_VALUE))
         );
 
@@ -1638,6 +1701,13 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
             }
         });
 
+        jButton40.setText("Guardar");
+        jButton40.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton40ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
@@ -1651,6 +1721,8 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                         .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel15Layout.createSequentialGroup()
                                 .addComponent(jButton32)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton40)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton27)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1658,7 +1730,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton25))
                             .addComponent(jLabel133, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel136, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
+                            .addComponent(jLabel136, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jLabel137, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel139, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(jLabel141, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -1770,7 +1842,8 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                     .addComponent(jButton25)
                     .addComponent(jButton26)
                     .addComponent(jButton27)
-                    .addComponent(jButton32))
+                    .addComponent(jButton32)
+                    .addComponent(jButton40))
                 .addContainerGap(216, Short.MAX_VALUE))
         );
 
@@ -1837,6 +1910,13 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
             }
         });
 
+        jButton41.setText("Guardar");
+        jButton41.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton41ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
@@ -1849,6 +1929,8 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(jButton33)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton41)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton11)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1871,7 +1953,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                                         .addComponent(jLabel2)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 212, Short.MAX_VALUE)))
+                                .addGap(0, 130, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addComponent(jLabel80, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -1905,7 +1987,8 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                     .addComponent(jButton10)
                     .addComponent(jButton11)
                     .addComponent(jButton17)
-                    .addComponent(jButton33))
+                    .addComponent(jButton33)
+                    .addComponent(jButton41))
                 .addContainerGap(349, Short.MAX_VALUE))
         );
 
@@ -2547,6 +2630,90 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
     private void jButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton34ActionPerformed
         limpiarDesencriptar();
     }//GEN-LAST:event_jButton34ActionPerformed
+
+    private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
+        try {
+            JFileChooser saveFile = new JFileChooser();
+            saveFile.showSaveDialog(null);
+            String path=saveFile.getSelectedFile().getAbsolutePath();
+            String filename=saveFile.getSelectedFile().getName();
+            AlgorithmStateStorage.saveDes(filename, path, this.messageToJsonPaso2(2));
+        } catch (IOException ex) {
+            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton35ActionPerformed
+
+    private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
+        try {
+            JFileChooser saveFile = new JFileChooser();
+            saveFile.showSaveDialog(null);
+            String path=saveFile.getSelectedFile().getAbsolutePath();
+            String filename=saveFile.getSelectedFile().getName();
+            AlgorithmStateStorage.saveDes(filename, path, this.messageToJsonPaso3(3));
+        } catch (IOException ex) {
+            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton36ActionPerformed
+
+    private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37ActionPerformed
+        try {
+            JFileChooser saveFile = new JFileChooser();
+            saveFile.showSaveDialog(null);
+            String path=saveFile.getSelectedFile().getAbsolutePath();
+            String filename=saveFile.getSelectedFile().getName();
+            AlgorithmStateStorage.saveDes(filename, path, this.messageToJsonPaso4(4));
+        } catch (IOException ex) {
+            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton37ActionPerformed
+
+    private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton38ActionPerformed
+        try {
+            JFileChooser saveFile = new JFileChooser();
+            saveFile.showSaveDialog(null);
+            String path=saveFile.getSelectedFile().getAbsolutePath();
+            String filename=saveFile.getSelectedFile().getName();
+            AlgorithmStateStorage.saveDes(filename, path, this.messageToJsonPaso5(5));
+        } catch (IOException ex) {
+            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton38ActionPerformed
+
+    private void jButton39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton39ActionPerformed
+        try {
+            JFileChooser saveFile = new JFileChooser();
+            saveFile.showSaveDialog(null);
+            String path=saveFile.getSelectedFile().getAbsolutePath();
+            String filename=saveFile.getSelectedFile().getName();
+            AlgorithmStateStorage.saveDes(filename, path, this.messageToJsonPaso6(6));
+        } catch (IOException ex) {
+            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton39ActionPerformed
+
+    private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed
+        try {
+            JFileChooser saveFile = new JFileChooser();
+            saveFile.showSaveDialog(null);
+            String path=saveFile.getSelectedFile().getAbsolutePath();
+            String filename=saveFile.getSelectedFile().getName();
+            AlgorithmStateStorage.saveDes(filename, path, this.messageToJsonPaso7(7));
+        } catch (IOException ex) {
+            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton40ActionPerformed
+
+    private void jButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton41ActionPerformed
+        try {
+            JFileChooser saveFile = new JFileChooser();
+            saveFile.showSaveDialog(null);
+            String path=saveFile.getSelectedFile().getAbsolutePath();
+            String filename=saveFile.getSelectedFile().getName();
+            AlgorithmStateStorage.saveDes(filename, path, this.messageToJsonPaso8(8));
+        } catch (IOException ex) {
+            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton41ActionPerformed
 
 
     
@@ -3861,9 +4028,138 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jLabel81.setText("");
     }
    
+     public DesDTO messageToJsonPaso2(int step){
+        DesDTO desDTO = new DesDTO();
+        desDTO.setCurrentStep(step);
+        desDTO.setMessage(jTextField2.getText());
+        desDTO.setKey(jTextField1.getText());
+
+        desDTO.setKBinario(jTextField7.getText());
+        desDTO.setPk(jTextField8.getText());
+        desDTO.setC0(jTextField9.getText());
+        desDTO.setD0(jTextField10.getText());
+        desDTO.setC1(jTextField11.getText());
+        desDTO.setD1(jTextField12.getText());
+        desDTO.setC2(jTextField13.getText());
+        desDTO.setD2(jTextField14.getText());
+        desDTO.setC3(jTextField15.getText());
+        desDTO.setD3(jTextField16.getText());
+        desDTO.setC4(jTextField17.getText());
+        desDTO.setD4(jTextField18.getText());
+        desDTO.setK1(jTextField19.getText());
+        desDTO.setK2(jTextField20.getText());
+        desDTO.setK3(jTextField21.getText());
+        desDTO.setK4(jTextField22.getText());
+
+
+        return desDTO;
+    }  
    
+     
+     public DesDTO messageToJsonPaso3(int step){
+        DesDTO desDTO = new DesDTO();
+        desDTO.setCurrentStep(step);
+        desDTO.setMessage(jTextField2.getText());
+        desDTO.setKey(jTextField1.getText());
+
+        desDTO.setM(jTextField23.getText());
+        desDTO.setP1(jTextField24.getText());
+        desDTO.setR0(jTextField25.getText());
+        desDTO.setL0(jTextField26.getText());
+
+        return desDTO;
+    }       
+     
+
+     public DesDTO messageToJsonPaso4(int step){
+        DesDTO desDTO = new DesDTO();
+        desDTO.setCurrentStep(step);
+        desDTO.setMessage(jTextField2.getText());
+        desDTO.setKey(jTextField1.getText());
+
+        desDTO.setEr0(jTextField27.getText());
+        desDTO.setK1Xer0(jTextField28.getText());
+        desDTO.setM1(jTextField29.getText());
+        desDTO.setN1(jTextField30.getText());
+        desDTO.setS1b1(jTextField31.getText());
+        desDTO.setsTotal1(jTextField32.getText());
+        desDTO.setPostP1(jTextField33.getText());
+        desDTO.setpXl0(jTextField34.getText());
+
+        return desDTO;
+    }      
+     
    
+     public DesDTO messageToJsonPaso5(int step){
+        DesDTO desDTO = new DesDTO();
+        desDTO.setCurrentStep(step);
+        desDTO.setMessage(jTextField2.getText());
+        desDTO.setKey(jTextField1.getText());
+
+        desDTO.setEr1(jTextField43.getText());
+        desDTO.setK2Xer1(jTextField44.getText());
+        desDTO.setM2(jTextField45.getText());
+        desDTO.setN2(jTextField46.getText());
+        desDTO.setS2b2(jTextField47.getText());
+        desDTO.setsTotal2(jTextField48.getText());
+        desDTO.setPostP2(jTextField49.getText());
+        desDTO.setpXl1(jTextField50.getText());
+
+        return desDTO;
+    }   
+       
+     public DesDTO messageToJsonPaso6(int step){
+        DesDTO desDTO = new DesDTO();
+        desDTO.setCurrentStep(step);
+        desDTO.setMessage(jTextField2.getText());
+        desDTO.setKey(jTextField1.getText());
+
+        desDTO.setEr2(jTextField51.getText());
+        desDTO.setK3Xer2(jTextField52.getText());
+        desDTO.setM3(jTextField53.getText());
+        desDTO.setN3(jTextField54.getText());
+        desDTO.setS3b3(jTextField55.getText());
+        desDTO.setsTotal3(jTextField56.getText());
+        desDTO.setPostP3(jTextField57.getText());
+        desDTO.setpXl2(jTextField58.getText());
+
+        return desDTO;
+    }   
+     
+   
+     public DesDTO messageToJsonPaso7(int step){
+        DesDTO desDTO = new DesDTO();
+        desDTO.setCurrentStep(step);
+        desDTO.setMessage(jTextField2.getText());
+        desDTO.setKey(jTextField1.getText());
+
+        desDTO.setEr15(jTextField59.getText());
+        desDTO.setK16Xer15(jTextField60.getText());
+        desDTO.setM16(jTextField61.getText());
+        desDTO.setN16(jTextField62.getText());
+        desDTO.setS16b16(jTextField63.getText());
+        desDTO.setsTotal16(jTextField64.getText());
+        desDTO.setPostP16(jTextField65.getText());
+        desDTO.setpXl15(jTextField66.getText());
+
+        return desDTO;
+    }      
     
+     
+     public DesDTO messageToJsonPaso8(int step){
+        DesDTO desDTO = new DesDTO();
+        desDTO.setCurrentStep(step);
+        desDTO.setMessage(jTextField2.getText());
+        desDTO.setKey(jTextField1.getText());
+
+        desDTO.setcFinal(jTextField35.getText());
+        desDTO.setCipherMessage(jTextField36.getText());
+
+        return desDTO;
+    }  
+     
+     
+     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -3893,7 +4189,14 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
     private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton33;
     private javax.swing.JButton jButton34;
+    private javax.swing.JButton jButton35;
+    private javax.swing.JButton jButton36;
+    private javax.swing.JButton jButton37;
+    private javax.swing.JButton jButton38;
+    private javax.swing.JButton jButton39;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton40;
+    private javax.swing.JButton jButton41;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;

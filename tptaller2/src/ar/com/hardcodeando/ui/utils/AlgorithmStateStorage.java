@@ -5,6 +5,7 @@
  */
 package ar.com.hardcodeando.ui.utils;
 
+import ar.com.hardcodeando.dto.DesDTO;
 import ar.com.hardcodeando.dto.HillDTO;
 import ar.com.hardcodeando.dto.MD5DTO;
 import com.google.gson.Gson;
@@ -41,6 +42,16 @@ public class AlgorithmStateStorage {
         String out = header.concat(body);
         SaveFile.getInstance().saveToFile(filename, path, out);
     }
+    
+
+    public static void saveDes(String filename, String path, DesDTO desDTO) throws IOException {
+        Gson gson = new Gson();
+        String header = "type:"+ALGO_DES+"\n";
+        String body = gson.toJson(desDTO);
+        String out = header.concat(body);
+        SaveFile.getInstance().saveToFile(filename, path, out);
+    }
+    
     
     
     public static String getType(String pathFile) {
