@@ -10,7 +10,6 @@ import ar.com.hardcodeando.algorithm.HillCipher;
 import ar.com.hardcodeando.dto.HillDTO;
 import ar.com.hardcodeando.ui.utils.AlgorithmStateStorage;
 import ar.com.hardcodeando.ui.utils.MyIntFilter;
-import ar.com.hardcodeando.ui.utils.SaveFile;
 import java.awt.Color;
 import java.io.IOException;
 import java.util.logging.Level;
