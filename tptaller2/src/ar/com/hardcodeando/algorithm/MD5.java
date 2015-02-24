@@ -1,10 +1,5 @@
 package ar.com.hardcodeando.algorithm;
 
-import ar.com.hardcodeando.ui.utils.SaveFile;
-import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.json.simple.JSONObject;
 
  /**
 	 * MD5 Esta clase encapsula un conjunto de funciones MD5 Message Digest.

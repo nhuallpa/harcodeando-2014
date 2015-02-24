@@ -11,7 +11,6 @@ import ar.com.hardcodeando.ui.utils.Ronda3Dialog;
 import ar.com.hardcodeando.ui.utils.Ronda2Dialog;
 import ar.com.hardcodeando.ui.utils.Ronda1Dialog;
 import ar.com.hardcodeando.algorithm.MD5;
-import ar.com.hardcodeando.dto.MD5DTO;
 import java.util.Enumeration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,12 +28,12 @@ public class MD5Panel extends javax.swing.JPanel {
      */
     public MD5Panel() {
         initComponents();
-        jTabbedPane1.setEnabledAt(1, false);
-        jTabbedPane1.setEnabledAt(2, false);
-        jTabbedPane1.setEnabledAt(3, false);
-        jTabbedPane1.setEnabledAt(4, false);
-        jTabbedPane1.setEnabledAt(5, false);
-        jTabbedPane1.setEnabledAt(6, false);
+        MD5TabbedPane1.setEnabledAt(1, false);
+        MD5TabbedPane1.setEnabledAt(2, false);
+        MD5TabbedPane1.setEnabledAt(3, false);
+        MD5TabbedPane1.setEnabledAt(4, false);
+        MD5TabbedPane1.setEnabledAt(5, false);
+        MD5TabbedPane1.setEnabledAt(6, false);
     }
 
     /**
@@ -47,7 +46,7 @@ public class MD5Panel extends javax.swing.JPanel {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        MD5TabbedPane1 = new javax.swing.JTabbedPane();
         IntroMD5 = new javax.swing.JPanel();
         comenzarIntro = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -156,8 +155,8 @@ public class MD5Panel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1024, 1000));
         setLayout(null);
 
-        jTabbedPane1.setFocusable(false);
-        jTabbedPane1.setPreferredSize(new java.awt.Dimension(846, 519));
+        MD5TabbedPane1.setFocusable(false);
+        MD5TabbedPane1.setPreferredSize(new java.awt.Dimension(846, 519));
 
         IntroMD5.setMinimumSize(new java.awt.Dimension(0, 0));
         IntroMD5.setPreferredSize(new java.awt.Dimension(80, 379));
@@ -182,7 +181,7 @@ public class MD5Panel extends javax.swing.JPanel {
         jLabel15.setDoubleBuffered(true);
         IntroMD5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 420, 190));
 
-        jTabbedPane1.addTab("Introducción", IntroMD5);
+        MD5TabbedPane1.addTab("Introducción", IntroMD5);
 
         panelPaso1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -249,7 +248,7 @@ public class MD5Panel extends javax.swing.JPanel {
         labelAdicionarBits.setText("<html> <ul> <li>Se rellena el mensaje binario con 0's y 1's de tal manera que sea 448 mod 512 bits de longitud.<br></li><br><li> Necesitaremos \"448 - LongitudMensaje\" bits para completar los 448.</li><br><li> Completamos la primer posición con el valor 1 y las restantes las completamos con ceros. </li> </ul></html>");
         panelPaso1.add(labelAdicionarBits, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, 400, 140));
 
-        jTabbedPane1.addTab("Paso 1 de 5", panelPaso1);
+        MD5TabbedPane1.addTab("Paso 1 de 5", panelPaso1);
 
         panelPaso2.setLayout(null);
 
@@ -288,7 +287,7 @@ public class MD5Panel extends javax.swing.JPanel {
         panelPaso2.add(jLabel33);
         jLabel33.setBounds(20, 50, 410, 20);
 
-        jTabbedPane1.addTab("Paso 2 de 5", panelPaso2);
+        MD5TabbedPane1.addTab("Paso 2 de 5", panelPaso2);
 
         panelPaso3.setPreferredSize(new java.awt.Dimension(640, 860));
         panelPaso3.setLayout(null);
@@ -347,7 +346,7 @@ public class MD5Panel extends javax.swing.JPanel {
         panelPaso3.add(jLabel75);
         jLabel75.setBounds(640, 270, 170, 20);
 
-        jTabbedPane1.addTab("Paso 3 de 5", panelPaso3);
+        MD5TabbedPane1.addTab("Paso 3 de 5", panelPaso3);
 
         panelPaso4i.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -406,7 +405,7 @@ public class MD5Panel extends javax.swing.JPanel {
         jLabel9.setText("<html>Si Mj representa el j-ésimo sub-bloque del mensaje (desde 0 hasta 15), y &lt;&lt;&lt; s representa un cambio circular a la izquierda de s bits (______________) , entonces las cuatro operaciones son:</html>");
         panelPaso4i.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 450, 50));
 
-        jTabbedPane1.addTab("Paso 4i de 5", panelPaso4i);
+        MD5TabbedPane1.addTab("Paso 4i de 5", panelPaso4i);
 
         panelPaso4ii.setLayout(null);
 
@@ -695,7 +694,7 @@ public class MD5Panel extends javax.swing.JPanel {
         panelPaso4ii.add(jScrollPane1);
         jScrollPane1.setBounds(640, 100, 580, 370);
 
-        jTabbedPane1.addTab("Paso 4ii de 5", panelPaso4ii);
+        MD5TabbedPane1.addTab("Paso 4ii de 5", panelPaso4ii);
 
         panelPaso5.setLayout(null);
 
@@ -736,10 +735,10 @@ public class MD5Panel extends javax.swing.JPanel {
         panelPaso5.add(jLabel27);
         jLabel27.setBounds(20, 240, 69, 15);
 
-        jTabbedPane1.addTab("Paso 5 de 5", panelPaso5);
+        MD5TabbedPane1.addTab("Paso 5 de 5", panelPaso5);
 
-        add(jTabbedPane1);
-        jTabbedPane1.setBounds(20, 60, 1250, 600);
+        add(MD5TabbedPane1);
+        MD5TabbedPane1.setBounds(20, 60, 1250, 600);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -753,12 +752,12 @@ public class MD5Panel extends javax.swing.JPanel {
     private void siguientePaso3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_siguientePaso3MousePressed
         sumaSalidaFinal.setVisible(false);
         salidaFinal.setVisible(false);
-        jTabbedPane1.setEnabledAt(4, true);
+        MD5TabbedPane1.setEnabledAt(4, true);
         System.out.println("contenido button 6" + buttonRonda4);
         buttonRonda2.setVisible(false);
         buttonRonda3.setVisible(false);
         buttonRonda4.setVisible(false);
-        jTabbedPane1.setSelectedIndex(4);
+        MD5TabbedPane1.setSelectedIndex(4);
     }//GEN-LAST:event_siguientePaso3MousePressed
 
     private void adicionarLongitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarLongitudActionPerformed
@@ -776,8 +775,8 @@ public class MD5Panel extends javax.swing.JPanel {
     }//GEN-LAST:event_adicionarLongitudActionPerformed
 
     private void siguientePaso2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_siguientePaso2MousePressed
-        jTabbedPane1.setEnabledAt(3, true);
-        jTabbedPane1.setSelectedIndex(3);
+        MD5TabbedPane1.setEnabledAt(3, true);
+        MD5TabbedPane1.setSelectedIndex(3);
     }//GEN-LAST:event_siguientePaso2MousePressed
 
     private void botonAdicionarBitsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAdicionarBitsActionPerformed
@@ -817,21 +816,21 @@ public class MD5Panel extends javax.swing.JPanel {
     }//GEN-LAST:event_siguientePaso1ActionPerformed
 
     private void siguientePaso1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_siguientePaso1MousePressed
-        jTabbedPane1.setEnabledAt(2, true);
-        jTabbedPane1.setSelectedIndex(2);
+        MD5TabbedPane1.setEnabledAt(2, true);
+        MD5TabbedPane1.setSelectedIndex(2);
         siguientePaso2.setVisible(false);
     }//GEN-LAST:event_siguientePaso1MousePressed
 
     private void comenzarIntroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comenzarIntroActionPerformed
-        jTabbedPane1.setEnabledAt(1, true);
-        jTabbedPane1.setSelectedIndex(1);
+        MD5TabbedPane1.setEnabledAt(1, true);
+        MD5TabbedPane1.setSelectedIndex(1);
         botonAdicionarBits.setVisible(false);
         siguientePaso1.setVisible(false);
     }//GEN-LAST:event_comenzarIntroActionPerformed
 
     private void siguientePaso4iMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_siguientePaso4iMousePressed
-       jTabbedPane1.setEnabledAt(5, true);
-       jTabbedPane1.setSelectedIndex(5);
+       MD5TabbedPane1.setEnabledAt(5, true);
+       MD5TabbedPane1.setSelectedIndex(5);
     }//GEN-LAST:event_siguientePaso4iMousePressed
 
     private void jLabel8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MousePressed
@@ -864,8 +863,8 @@ public class MD5Panel extends javax.swing.JPanel {
     }//GEN-LAST:event_jRadioButton5MouseClicked
 
     private void siguientePaso4iiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siguientePaso4iiActionPerformed
-            jTabbedPane1.setEnabledAt(6, true);
-            jTabbedPane1.setSelectedIndex(6);
+            MD5TabbedPane1.setEnabledAt(6, true);
+            MD5TabbedPane1.setSelectedIndex(6);
             variablesEntrada.setText(valoresIniciales.getText());
             variablesEntrada.setVisible(true);
             variablesSalida.setText(salidaFinal.getText());
@@ -1064,6 +1063,7 @@ public class MD5Panel extends javax.swing.JPanel {
     int iteracionRonda1 = 0;    int iteracionRonda2 = 0;    int iteracionRonda3 = 0;    int iteracionRonda4 = 0;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel IntroMD5;
+    private javax.swing.JTabbedPane MD5TabbedPane1;
     private javax.swing.JButton adicionarLongitud;
     private javax.swing.JButton botonAdicionarBits;
     private javax.swing.JButton botonTextoABinario;
@@ -1141,7 +1141,6 @@ public class MD5Panel extends javax.swing.JPanel {
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel labelAdicionarBits;
     private javax.swing.JLabel labelConvertirMensajeABin;

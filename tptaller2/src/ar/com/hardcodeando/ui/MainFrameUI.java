@@ -98,7 +98,6 @@ public class MainFrameUI extends javax.swing.JFrame {
         fileChooser.setCurrentDirectory(new java.io.File("/"));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(860, 540));
 
         jLayeredPane1.setMinimumSize(new java.awt.Dimension(800, 600));
         jLayeredPane1.setLayout(new java.awt.BorderLayout());
@@ -256,37 +255,21 @@ public class MainFrameUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        if(this.hEvaluarPanel==null){
-            this.hEvaluarPanel = new HillEvaluarPanel();       
+        removeCurrentComponent();
+        if (this.hEvaluarPanel == null) {
+            this.hEvaluarPanel = new HillEvaluarPanel();
         }
-        if(this.currentComponent!=null){
-            this.currentComponent.setVisible(false);
-            this.currentComponent.setEnabled(false);
-            this.remove(this.currentComponent);
-        }
-       
-        this.currentComponent=hEvaluarPanel;
-
-        this.currentComponent.setVisible(true);
-        this.currentComponent.setEnabled(true);
-        this.add(this.currentComponent, BorderLayout.CENTER);
+        this.currentComponent = this.hEvaluarPanel;
+        insertCurrentComponent();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        if(this.hpanel==null){	
-            this.hpanel = new HillPanel();		
-        }		
-        if(this.currentComponent!=null){
-            this.currentComponent.setVisible(false);
-            this.currentComponent.setEnabled(false);
-            this.remove(this.currentComponent);
-        }		
-        //this.setLayout(new BorderLayout());		
-        this.currentComponent=hpanel;		
-
-        this.currentComponent.setVisible(true);
-        this.currentComponent.setEnabled(true);
-        this.add(this.currentComponent, BorderLayout.CENTER);
+        removeCurrentComponent();
+        if (this.hpanel == null) {
+            this.hpanel = new HillPanel();
+        }
+        this.currentComponent = this.hpanel;
+        insertCurrentComponent();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
@@ -294,35 +277,21 @@ public class MainFrameUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
-        if(this.rpanelautoev==null){
+        removeCurrentComponent();
+        if (this.rpanelautoev == null) {
             this.rpanelautoev = new RSAPanelAutoevaluar();
         }
-        if(this.currentComponent!=null){
-            this.currentComponent.setVisible(false);
-            this.currentComponent.setEnabled(false);
-            this.remove(this.currentComponent);
-        }
-        //this.setLayout(new BorderLayout());
-        this.currentComponent= this.rpanelautoev;
-        this.currentComponent.setVisible(true);
-        this.currentComponent.setEnabled(true);
-        this.add(this.currentComponent, BorderLayout.CENTER);
+        this.currentComponent = this.rpanelautoev;
+        insertCurrentComponent();
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
-        if(this.md5EvaluarPanel==null){
-            this.md5EvaluarPanel = new MD5PanelEvaluar();       
+       removeCurrentComponent();
+        if (this.md5EvaluarPanel == null) {
+            this.md5EvaluarPanel = new MD5PanelEvaluar();
         }
-        if(this.currentComponent!=null){
-            this.currentComponent.setVisible(false);
-            this.currentComponent.setEnabled(false);
-            this.remove(this.currentComponent);
-        }
-        
-        this.currentComponent=md5EvaluarPanel;
-        this.currentComponent.setVisible(true);
-        this.currentComponent.setEnabled(true);
-        this.add(this.currentComponent, BorderLayout.CENTER);
+        this.currentComponent = this.md5EvaluarPanel;
+        insertCurrentComponent();
     }//GEN-LAST:event_jMenuItem13ActionPerformed
 
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
@@ -334,21 +303,20 @@ public class MainFrameUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem12MouseClicked
 
     private void jMenuItem12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem12MousePressed
-        
-        if(this.md5panel==null){
-            this.md5panel = new MD5Panel();       
+        removeCurrentComponent();
+        if (this.md5panel == null) {
+            this.md5panel = new MD5Panel();
         }
-        if(this.currentComponent!=null){
-            this.currentComponent.setVisible(false);
-            this.currentComponent.setEnabled(false);
-            this.remove(this.currentComponent);
-        }
-        
-        this.currentComponent=md5panel;
+        this.currentComponent = this.md5panel;
+        insertCurrentComponent();
+    }//GEN-LAST:event_jMenuItem12MousePressed
+
+    private void insertCurrentComponent() {
+        this.add(this.currentComponent, BorderLayout.CENTER);
         this.currentComponent.setVisible(true);
         this.currentComponent.setEnabled(true);
-        this.add(this.currentComponent, BorderLayout.CENTER);
-    }//GEN-LAST:event_jMenuItem12MousePressed
+        this.setVisible(true);
+    }
 
     private void menu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu1ActionPerformed
         // TODO add your handling code here:
@@ -369,79 +337,48 @@ public class MainFrameUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        if(this.dPanelEvaluar==null){
-            this.dPanelEvaluar = new DesPanelEvaluar();       
+        removeCurrentComponent();
+        if (this.dPanelEvaluar == null) {
+            this.dPanelEvaluar = new DesPanelEvaluar();
         }
-        if(this.currentComponent!=null){
-            this.currentComponent.setVisible(false);
-            this.currentComponent.setEnabled(false);
-            this.remove(this.currentComponent);
-        }
-        //this.setLayout(new BorderLayout());
-        this.currentComponent=dPanelEvaluar;
-        this.currentComponent.setVisible(true);
-        this.currentComponent.setEnabled(true);
-        this.add(this.currentComponent, BorderLayout.CENTER);
+        this.currentComponent = this.dPanelEvaluar;
+        insertCurrentComponent();
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuItem8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem8MousePressed
-        if(this.dpanel==null){
-            this.dpanel = new DesPanel();       
+        removeCurrentComponent();
+        if (this.dpanel == null) {
+            this.dpanel = new DesPanel();
         }
-        if(this.currentComponent!=null){
-            this.currentComponent.setVisible(false);
-            this.currentComponent.setEnabled(false);
-            this.remove(this.currentComponent);
-        }
-        this.currentComponent=dpanel;
-        this.currentComponent.setVisible(true);
-        this.currentComponent.setEnabled(true);
-        this.add(this.currentComponent, BorderLayout.CENTER);
+        this.currentComponent = this.dpanel;
+        insertCurrentComponent();
     }//GEN-LAST:event_jMenuItem8MousePressed
 
     private void jMenuItem10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem10MousePressed
-        if(this.rpanel == null){
+        removeCurrentComponent();
+        if (this.rpanel == null) {
             this.rpanel = new RSAPanel();
         }
-        if(this.currentComponent!=null){
-            this.currentComponent.setVisible(false);
-            this.currentComponent.setEnabled(false);
-            this.remove(this.currentComponent);
-        }
-        this.currentComponent = rpanel;
-        this.currentComponent.setVisible(true);
-        this.currentComponent.setEnabled(true);        
-        this.add(this.currentComponent, BorderLayout.CENTER);
+        this.currentComponent = this.dpanel;
+        insertCurrentComponent();
     }//GEN-LAST:event_jMenuItem10MousePressed
 
     private void jMenuItem6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem6MousePressed
-         if(this.npanel == null){
+        removeCurrentComponent();
+        if (this.npanel == null) {
             this.npanel = new NLFSRAprender();
         }
-        if(this.currentComponent!=null){     
-            this.currentComponent.setVisible(false);
-            this.currentComponent.setEnabled(false);
-            this.remove(this.currentComponent);
-        }
-        this.currentComponent = npanel;
-        this.currentComponent.setVisible(true);
-        this.currentComponent.setEnabled(true);        
-        this.add(this.currentComponent, BorderLayout.CENTER);
+        this.currentComponent = this.npanel;
+        insertCurrentComponent();
     }//GEN-LAST:event_jMenuItem6MousePressed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        if(this.nEvaluar == null){
+        removeCurrentComponent();
+        if (this.nEvaluar == null) {
             this.nEvaluar = new NLFSREvaluar();
         }
-        if(this.currentComponent!=null){
-            this.currentComponent.setVisible(false);
-            this.currentComponent.setEnabled(false);
-            this.remove(this.currentComponent);
-        }
-        this.currentComponent = nEvaluar;
-        this.currentComponent.setVisible(true);
-        this.currentComponent.setEnabled(true);        
-        this.add(this.currentComponent, BorderLayout.CENTER);
+        this.currentComponent = this.nEvaluar;
+        insertCurrentComponent();
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -553,40 +490,34 @@ public class MainFrameUI extends javax.swing.JFrame {
     
     
     private void showHillPanelAutoevaluar(HillDTO hillDTO) {
-        
-        this.hEvaluarPanel = new HillEvaluarPanel();       
-        
+        removeCurrentComponent();
+        this.hEvaluarPanel = new HillEvaluarPanel();
+
         if (hillDTO != null) {
             this.hEvaluarPanel.load(hillDTO);
         }
-        
-        if(this.currentComponent!=null){
-            this.currentComponent.setVisible(false);
-            this.currentComponent.setEnabled(false);
-            this.remove(this.currentComponent);
-        }
-        this.currentComponent=hEvaluarPanel;
-        this.add(this.currentComponent, BorderLayout.CENTER);
-        this.currentComponent.setVisible(true);
-        this.currentComponent.setEnabled(true);
+
+        this.currentComponent = hEvaluarPanel;
+        insertCurrentComponent();
     }
     
     private void showMD5PanelAutoevaluar(MD5DTO md5DTO) {
-        
+        removeCurrentComponent();
         this.md5EvaluarPanel = new MD5PanelEvaluar();
-        
+
         if (md5DTO != null) {
             this.md5EvaluarPanel.load(md5DTO);
         }
-        
+
+        this.currentComponent = md5EvaluarPanel;
+        insertCurrentComponent();
+    }
+
+    private void removeCurrentComponent() {
         if(this.currentComponent!=null){
             this.currentComponent.setVisible(false);
             this.currentComponent.setEnabled(false);
             this.remove(this.currentComponent);
         }
-        this.currentComponent=md5EvaluarPanel;
-        this.add(this.currentComponent, BorderLayout.CENTER);
-        this.currentComponent.setVisible(true);
-        this.currentComponent.setEnabled(true);
     }
 }
