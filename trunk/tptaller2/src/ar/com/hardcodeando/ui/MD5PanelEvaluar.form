@@ -496,7 +496,6 @@
             <Component class="javax.swing.JButton" name="buttonGuardarArchivoPaso1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Guardar"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGuardarArchivoPaso1ActionPerformed"/>
@@ -671,7 +670,6 @@
             <Component class="javax.swing.JButton" name="buttonGuardarArchivoPaso2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Guardar"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGuardarArchivoPaso2ActionPerformed"/>
@@ -837,7 +835,6 @@
             <Component class="javax.swing.JButton" name="buttonGuardarArchivoPaso3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Guardar"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGuardarArchivoPaso3ActionPerformed"/>
@@ -1189,7 +1186,6 @@
             <Component class="javax.swing.JButton" name="buttonGuardarArchivoPaso4">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Guardar"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGuardarArchivoPaso4ActionPerformed"/>
@@ -1390,7 +1386,6 @@
             <Component class="javax.swing.JButton" name="buttonGuardarArchivoPaso5">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Guardar"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGuardarArchivoPaso5ActionPerformed"/>
