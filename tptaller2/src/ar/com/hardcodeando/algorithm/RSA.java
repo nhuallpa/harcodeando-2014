@@ -22,8 +22,8 @@ public class RSA {
     private long e;
     private final int max_primo;
     private final int min_primo;
-    private long intervalo_d_inf;
-    private long intervalo_d_sup;
+    private long intervalo_e_inf;
+    private long intervalo_e_sup;
     private long p1q1;
     
     
@@ -34,8 +34,8 @@ public class RSA {
         this.d = 0;
         this.e = 0;
         this.long_bloque = 0;               
-        this.intervalo_d_inf = 0;
-        this.intervalo_d_sup = 0;
+        this.intervalo_e_inf = 0;
+        this.intervalo_e_sup = 0;
         this.p1q1 = 0;
         this.max_primo = 811;
         this.min_primo = 601;
@@ -193,11 +193,11 @@ public class RSA {
     }
     
     public long GetIntervaloInfD(){
-        return this.intervalo_d_inf;
+        return this.intervalo_e_inf;
     }
     
     public long GetIntervaloSupD(){
-        return this.intervalo_d_sup;
+        return this.intervalo_e_sup;
     }
     
     public long GetP1Q1(){
@@ -220,27 +220,27 @@ public class RSA {
         return this.long_bloque;    
     }
        
-    public boolean SetD(long valor){
+    public boolean SetE(long valor){
         boolean ret = false;
-        if(valor > this.intervalo_d_inf && valor < this.intervalo_d_sup){
+        if(valor > this.intervalo_e_inf && valor < this.intervalo_e_sup){
             if(this.MCD(valor, this.p1q1) == 1){
-                this.d = valor;
+                this.e = valor;
                 ret = true;
             }
         }
         return ret;
     }
     
-    public boolean SetE(long valor){
+    public boolean SetD(long valor){
         boolean ret = false;
-        if(this.d != 0){
-            long mult = valor * this.d;
+        if(this.e != 0){
+            long mult = valor * this.e;
             BigInteger multBE = new BigInteger(Long.toString(mult));
             BigInteger modulo = new BigInteger(Long.toString(this.p1q1));
             multBE = multBE.mod(modulo);
             mult = multBE.longValue();
             if(mult == 1){
-                this.e = valor;
+                this.d = valor;
                 ret = true;
             }
         }
@@ -260,8 +260,8 @@ public class RSA {
         boolean ret = false;
         if(this.p != 0 && this.q != 0){
             this.n = this.p * this.q;
-            this.intervalo_d_inf = (this.p > this.q)? p + 1:q + 1;
-            this.intervalo_d_sup = this.n - 1;
+            this.intervalo_e_inf = (this.p > this.q)? p + 1:q + 1;
+            this.intervalo_e_sup = this.n - 1;
             this.p1q1 = (this.p -1)*(this.q-1);
             this.CalcularTamañoBloque();
             ret = true;
@@ -276,16 +276,16 @@ public class RSA {
     
     /**
      *  Generar numero relativamente primo a (p-1)*(q-1)
-     *  Junto con el modulo forman la clave privada
-     * @return true si pudo generar exponente privado, false si no.
+     *  Junto con el modulo forman la clave pública
+     * @return true si pudo generar exponente público, false si no.
      */
-    public boolean GenerarExponentePrivado(){
+    public boolean GenerarExponentePublico(){
         boolean ret = false;
         if(this.p1q1 != 0){
-            this.d = this.intervalo_d_inf;
-            while(this.MCD(this.d, this.p1q1)!= 1)
+            this.e = this.intervalo_e_inf;
+            while(this.MCD(this.e, this.p1q1)!= 1)
             {
-                this.d++;
+                this.e++;
             } 
             ret = true;
         }  
@@ -297,11 +297,11 @@ public class RSA {
      * Junto con el modulo forman la clave publica
      * @return true si pudo generar el exponente publico, false si no
      */
-    public boolean GenerarExponentePublico(){
-        //Hallar el inverso modular de d mod (p-1)(q-1)--> de = 1 mod (p-1)(q-1)
+    public boolean GenerarExponentePrivado(){
+        //Hallar el inverso modular de e mod (p-1)(q-1)--> de = 1 mod (p-1)(q-1)
         boolean ret = false;
-        if(this.d != 0 && this.p1q1 != 0){
-            this.e = this.InversoMultiplicativo(this.d, this.p1q1);
+        if(this.e != 0 && this.p1q1 != 0){
+            this.d = this.InversoMultiplicativo(this.e, this.p1q1);
             ret = true;
         }
         return ret;
@@ -374,8 +374,8 @@ public class RSA {
         this.n = 0;
         this.e = 0;
         this.p1q1 = 0;
-        this.intervalo_d_inf = 0;
-        this.intervalo_d_sup = 0; 
+        this.intervalo_e_inf = 0;
+        this.intervalo_e_sup = 0; 
         this.long_bloque = 0;
     }    
     
