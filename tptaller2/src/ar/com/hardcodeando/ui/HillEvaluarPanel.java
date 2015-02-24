@@ -303,7 +303,7 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        hillPaso2Panel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 470, -1, -1));
+        hillPaso2Panel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 470, 100, 30));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setText("Paso 2: Vamos a encriptar");
@@ -321,7 +321,7 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
                 jButton5ActionPerformed(evt);
             }
         });
-        hillPaso2Panel.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 470, 90, -1));
+        hillPaso2Panel.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 470, 100, 30));
 
         jLabel13.setText("Introduzca el mensaje encriptado:");
         hillPaso2Panel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
@@ -344,7 +344,7 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
                 jButton8ActionPerformed(evt);
             }
         });
-        hillPaso2Panel.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 100, -1));
+        hillPaso2Panel.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 110, 30));
 
         jButton11.setText("Guardar");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -352,7 +352,7 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
                 jButton11ActionPerformed(evt);
             }
         });
-        hillPaso2Panel.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 470, 110, -1));
+        hillPaso2Panel.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, 110, -1));
 
         jTabbedPane1.addTab("Paso 2 de 3", hillPaso2Panel);
 

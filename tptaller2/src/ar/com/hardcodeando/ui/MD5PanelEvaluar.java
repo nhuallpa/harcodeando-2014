@@ -360,7 +360,6 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         panelPaso1.add(jLabel80, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
         buttonGuardarArchivoPaso1.setText("Guardar");
-        buttonGuardarArchivoPaso1.setEnabled(false);
         buttonGuardarArchivoPaso1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonGuardarArchivoPaso1ActionPerformed(evt);
@@ -452,7 +451,6 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         jScrollPane6.setBounds(370, 170, 610, 140);
 
         buttonGuardarArchivoPaso2.setText("Guardar");
-        buttonGuardarArchivoPaso2.setEnabled(false);
         buttonGuardarArchivoPaso2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonGuardarArchivoPaso2ActionPerformed(evt);
@@ -533,7 +531,6 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         botonMostrarVariablesConcat.setBounds(430, 440, 110, 30);
 
         buttonGuardarArchivoPaso3.setText("Guardar");
-        buttonGuardarArchivoPaso3.setEnabled(false);
         buttonGuardarArchivoPaso3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonGuardarArchivoPaso3ActionPerformed(evt);
@@ -720,7 +717,6 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         botonCompletarGrilla.setBounds(290, 510, 140, 30);
 
         buttonGuardarArchivoPaso4.setText("Guardar");
-        buttonGuardarArchivoPaso4.setEnabled(false);
         buttonGuardarArchivoPaso4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonGuardarArchivoPaso4ActionPerformed(evt);
@@ -822,7 +818,6 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         jLabel44.setBounds(230, 340, 140, 15);
 
         buttonGuardarArchivoPaso5.setText("Guardar");
-        buttonGuardarArchivoPaso5.setEnabled(false);
         buttonGuardarArchivoPaso5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonGuardarArchivoPaso5ActionPerformed(evt);
@@ -959,8 +954,10 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             String path=saveFile.getSelectedFile().getAbsolutePath();
             String filename=saveFile.getSelectedFile().getName();
             AlgorithmStateStorage.saveMD5(filename, path, this.messageToJsonPaso1(1));
+            JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
         } catch (IOException ex) {
             Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
         }
     }//GEN-LAST:event_buttonGuardarArchivoPaso1ActionPerformed
 
@@ -1398,8 +1395,10 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             String path=saveFile.getSelectedFile().getAbsolutePath();
             String filename=saveFile.getSelectedFile().getName();
             AlgorithmStateStorage.saveMD5(filename, path, this.messageToJsonPaso2(2));
+            JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
         } catch (IOException ex) {
             Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
         }
     }//GEN-LAST:event_buttonGuardarArchivoPaso2ActionPerformed
 
@@ -1410,9 +1409,12 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             String path=saveFile.getSelectedFile().getAbsolutePath();
             String filename=saveFile.getSelectedFile().getName();
             AlgorithmStateStorage.saveMD5(filename, path, this.messageToJsonPaso3(3));
+            JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
         } catch (IOException ex) {
             Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
         }
+        
     }//GEN-LAST:event_buttonGuardarArchivoPaso3ActionPerformed
 
     private void buttonGuardarArchivoPaso4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGuardarArchivoPaso4ActionPerformed
@@ -1422,8 +1424,10 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             String path=saveFile.getSelectedFile().getAbsolutePath();
             String filename=saveFile.getSelectedFile().getName();
             AlgorithmStateStorage.saveMD5(filename, path, this.messageToJsonPaso4(4));
+            JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
         } catch (IOException ex) {
             Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
         }
     }//GEN-LAST:event_buttonGuardarArchivoPaso4ActionPerformed
 
@@ -1434,8 +1438,10 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             String path=saveFile.getSelectedFile().getAbsolutePath();
             String filename=saveFile.getSelectedFile().getName();
             AlgorithmStateStorage.saveMD5(filename, path, this.messageToJsonPaso5(5));
+            JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
         } catch (IOException ex) {
             Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
         }
     }//GEN-LAST:event_buttonGuardarArchivoPaso5ActionPerformed
 
