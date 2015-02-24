@@ -8,6 +8,7 @@ package ar.com.hardcodeando.ui.utils;
 import ar.com.hardcodeando.dto.DesDTO;
 import ar.com.hardcodeando.dto.HillDTO;
 import ar.com.hardcodeando.dto.MD5DTO;
+import ar.com.hardcodeando.dto.RSADTO;
 import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -52,7 +53,13 @@ public class AlgorithmStateStorage {
         SaveFile.getInstance().saveToFile(filename, path, out);
     }
     
-    
+    public static void saveRSA(String filename, String path, RSADTO rsaDTO) throws IOException{
+        Gson gson = new Gson();
+        String header = "type:" + ALGO_RSA + "\n";
+        String body = gson.toJson(rsaDTO);
+        String out = header.concat(body);
+        SaveFile.getInstance().saveToFile(filename, path, out);
+    }
     
     public static String getType(String pathFile) {
         String type = ALGO_NONE;

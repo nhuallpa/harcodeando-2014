@@ -2133,8 +2133,8 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     private void botContinuarCIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botContinuarCIMousePressed
         this.RSAEvaluarPanel.setEnabledAt(this.RSAEvaluarPanel.getSelectedIndex() + 1, true);
         this.RSAEvaluarPanel.setSelectedIndex(this.RSAEvaluarPanel.getSelectedIndex() + 1);
-        this.rsa_evaluar.LimpiarValores();
-        this.NuevoRSA();
+        //this.rsa_evaluar.LimpiarValores();
+        //this.NuevoRSA();
         long e = this.rsa_evaluar.GetE();
         long n = this.rsa_evaluar.GetModulo();
         this.text_e_encriptar.setText(Long.toString(e));
