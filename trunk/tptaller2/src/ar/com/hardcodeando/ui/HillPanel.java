@@ -7,7 +7,6 @@ package ar.com.hardcodeando.ui;
 
 import ar.com.hardcodeando.algorithm.BadFormedKeyException;
 import ar.com.hardcodeando.algorithm.HillCipher;
-import ar.com.hardcodeando.dto.HillDTO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;

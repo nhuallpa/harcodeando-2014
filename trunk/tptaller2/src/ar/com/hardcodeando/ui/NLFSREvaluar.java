@@ -11,23 +11,14 @@ import ar.com.hardcodeando.ui.utils.ComboItem;
 import ar.com.hardcodeando.ui.utils.SaveFile;
 import java.awt.Color;
 import static java.awt.image.ImageObserver.WIDTH;
-import java.io.IOException;
 import java.io.StringWriter;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.ButtonModel;
-import static javax.swing.JComponent.TOOL_TIP_TEXT_KEY;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.table.DefaultTableModel;
-import org.json.simple.JSONObject;
 
 /**
  *
@@ -1186,6 +1177,7 @@ public class NLFSREvaluar extends javax.swing.JPanel {
     private String messageToJson(int step){
 
         StringWriter out = new StringWriter();
+        /*FIXME: Comentado para que no rompa. En vez de usar JSONObject usar NLFSRDTO
         try {
             JSONObject obj = new JSONObject();
             obj.put("algorithm", "NLFSR");
@@ -1225,7 +1217,7 @@ public class NLFSREvaluar extends javax.swing.JPanel {
             obj.writeJSONString(out);
         } catch (IOException ex) {
             Logger.getLogger(SaveFile.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
         return out.toString();    
     }
     
