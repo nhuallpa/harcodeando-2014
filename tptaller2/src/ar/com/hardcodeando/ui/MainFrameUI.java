@@ -13,8 +13,6 @@ import javax.swing.JComponent;
 
 import java.awt.Dimension;
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFileChooser;
@@ -359,7 +357,7 @@ public class MainFrameUI extends javax.swing.JFrame {
         if (this.rpanel == null) {
             this.rpanel = new RSAPanel();
         }
-        this.currentComponent = this.dpanel;
+        this.currentComponent = this.rpanel;
         insertCurrentComponent();
     }//GEN-LAST:event_jMenuItem10MousePressed
 
