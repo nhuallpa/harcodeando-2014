@@ -36,8 +36,8 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         this.RSAEvaluarPanel.setEnabledAt(2, false);
         this.RSAEvaluarPanel.setEnabledAt(3, false);
         this.labelCorreccionN.setVisible(false);
-        this.labelCorreccionD.setVisible(false);
         this.labelCorreccionE.setVisible(false);
+        this.labelCorreccionD.setVisible(false);
         this.labelCorreccionEncriptarTodo.setVisible(false);
         this.labelCorreccionEncriptarBloques.setVisible(false);
         this.labelCorreccionDesTodo.setVisible(false);
@@ -174,24 +174,24 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     private void NuevoRSA(){
         this.rsa_evaluar.GenerarPrimos();
         this.rsa_evaluar.GenerarModulo();
-        this.rsa_evaluar.GenerarExponentePrivado();
         this.rsa_evaluar.GenerarExponentePublico();
+        this.rsa_evaluar.GenerarExponentePrivado();        
     }
     
     private void LimpiarCalculosIniciales(){
         this.text_p_ev.setText("");
         this.text_q_ev.setText("");
         this.text_modulo_ev.setText("");
+        this.textClavePrivadaDEv.setText("");
         this.textClavePublicaEEv.setText("");
-        this.textClavePrivadaDEv.setText("");
-        this.panClavePrivadaEv.setEnabled(false);
-        this.textClavePrivadaDEv.setText("");
-        this.textClavePrivadaDEv.setEnabled(false);
-        this.botAceptarClavePrivEv.setEnabled(false);
         this.panClavePublicaEv.setEnabled(false);
         this.textClavePublicaEEv.setText("");
         this.textClavePublicaEEv.setEnabled(false);
-        this.botAceptarClavePublEv.setEnabled(false);
+        this.botAceptarClavePublicaEv.setEnabled(false);
+        this.panClavePrivadaEv.setEnabled(false);
+        this.textClavePrivadaDEv.setText("");
+        this.textClavePrivadaDEv.setEnabled(false);
+        this.botAceptarClavePrivadaEv.setEnabled(false);
         this.botCalcularModuloEv.setEnabled(true);
         this.botContinuarCI.setEnabled(false);
         this.botReintentarCI.setEnabled(false);
@@ -199,8 +199,8 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         this.botCorregirCI.setEnabled(false);
         this.botNuevoCI.setEnabled(false);
         this.labelCorreccionN.setVisible(false);
-        this.labelCorreccionD.setVisible(false);
         this.labelCorreccionE.setVisible(false);
+        this.labelCorreccionD.setVisible(false);
         this.modulo_generado = false;
     }
     
@@ -373,20 +373,20 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         botCalcularModuloEv = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         labelCorreccionN = new javax.swing.JLabel();
-        panClavePrivadaEv = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
-        textClavePrivadaDEv = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
-        botAceptarClavePrivEv = new javax.swing.JButton();
-        jPanel10 = new javax.swing.JPanel();
-        labelCorreccionD = new javax.swing.JLabel();
         panClavePublicaEv = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
         textClavePublicaEEv = new javax.swing.JTextField();
-        jLabel21 = new javax.swing.JLabel();
-        botAceptarClavePublEv = new javax.swing.JButton();
-        jPanel11 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        botAceptarClavePublicaEv = new javax.swing.JButton();
+        jPanel10 = new javax.swing.JPanel();
         labelCorreccionE = new javax.swing.JLabel();
+        panClavePrivadaEv = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        textClavePrivadaDEv = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        botAceptarClavePrivadaEv = new javax.swing.JButton();
+        jPanel11 = new javax.swing.JPanel();
+        labelCorreccionD = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         botReintentarCI = new javax.swing.JButton();
         botCorregirCI = new javax.swing.JButton();
@@ -947,24 +947,24 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        panClavePrivadaEv.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Definir clave privada", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(51, 0, 51)));
-        panClavePrivadaEv.setEnabled(false);
+        panClavePublicaEv.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Definir clave pública", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(51, 0, 51)));
+        panClavePublicaEv.setEnabled(false);
 
-        jLabel18.setText("<html>En base al <strong>módulo</strong> calculado, calcule el valor de la <br>componente de la clave privada d.<br>Recuerde que debe pertenecer al intervalo<br><strong>[max(p,q)+1,n-1]</strong> y que <strong>MCD(d, (p-1)&times;(q-1)) = 1</strong></html>");
+        jLabel18.setText("<html>En base al <strong>módulo</strong> calculado, calcule el valor de la <br>componente de la clave pública e.<br>Recuerde que debe pertenecer al intervalo<br><strong>[max(p,q)+1,n-1]</strong> y que <strong>MCD(e, (p-1)&times;(q-1)) = 1</strong></html>");
 
-        textClavePrivadaDEv.setEnabled(false);
+        textClavePublicaEEv.setEnabled(false);
 
-        jLabel19.setText("d:");
+        jLabel19.setText("e:");
 
-        botAceptarClavePrivEv.setText("Aceptar");
-        botAceptarClavePrivEv.setEnabled(false);
-        botAceptarClavePrivEv.addMouseListener(new java.awt.event.MouseAdapter() {
+        botAceptarClavePublicaEv.setText("Aceptar");
+        botAceptarClavePublicaEv.setEnabled(false);
+        botAceptarClavePublicaEv.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                botAceptarClavePrivEvMousePressed(evt);
+                botAceptarClavePublicaEvMousePressed(evt);
             }
         });
 
-        labelCorreccionD.setText("Corrección:");
+        labelCorreccionE.setText("Corrección:");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -972,88 +972,15 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelCorreccionD, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelCorreccionE, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelCorreccionD)
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout panClavePrivadaEvLayout = new javax.swing.GroupLayout(panClavePrivadaEv);
-        panClavePrivadaEv.setLayout(panClavePrivadaEvLayout);
-        panClavePrivadaEvLayout.setHorizontalGroup(
-            panClavePrivadaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panClavePrivadaEvLayout.createSequentialGroup()
-                .addGroup(panClavePrivadaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panClavePrivadaEvLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panClavePrivadaEvLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(panClavePrivadaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panClavePrivadaEvLayout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(jLabel19)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(textClavePrivadaDEv, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(botAceptarClavePrivEv)))))
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-        panClavePrivadaEvLayout.setVerticalGroup(
-            panClavePrivadaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panClavePrivadaEvLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(panClavePrivadaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textClavePrivadaDEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19)
-                    .addComponent(botAceptarClavePrivEv))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        panClavePublicaEv.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Definir clave pública", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(51, 0, 51)));
-        panClavePublicaEv.setEnabled(false);
-
-        jLabel20.setText("<html>Teniendo en cuenta el valor <strong>d</strong> calculado, calcule el valor de la <br>componente de la clave pública e.<br>Recuerde que <strong>e</strong> es el multiplicador modular inverso de <br><strong>d mod (p-1)&times;(q-1)</strong></html>");
-
-        textClavePublicaEEv.setEnabled(false);
-
-        jLabel21.setText("e:");
-
-        botAceptarClavePublEv.setText("Aceptar");
-        botAceptarClavePublEv.setEnabled(false);
-        botAceptarClavePublEv.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                botAceptarClavePublEvMousePressed(evt);
-            }
-        });
-
-        labelCorreccionE.setText("Corrección:");
-
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelCorreccionE, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(labelCorreccionE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panClavePublicaEvLayout = new javax.swing.GroupLayout(panClavePublicaEv);
@@ -1064,29 +991,102 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 .addGroup(panClavePublicaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panClavePublicaEvLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panClavePublicaEvLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
+                        .addGap(28, 28, 28)
                         .addGroup(panClavePublicaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panClavePublicaEvLayout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addComponent(jLabel21)
+                                .addGap(25, 25, 25)
+                                .addComponent(jLabel19)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(textClavePublicaEEv, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(botAceptarClavePublEv)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(botAceptarClavePublicaEv)))))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         panClavePublicaEvLayout.setVerticalGroup(
             panClavePublicaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panClavePublicaEvLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(panClavePublicaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textClavePublicaEEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botAceptarClavePublEv)
+                    .addComponent(jLabel19)
+                    .addComponent(botAceptarClavePublicaEv))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panClavePrivadaEv.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Definir clave privada", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(51, 0, 51)));
+        panClavePrivadaEv.setEnabled(false);
+
+        jLabel20.setText("<html>Teniendo en cuenta el valor <strong>e</strong> calculado, calcule el valor de la <br>componente de la clave privada d.<br>Recuerde que <strong>d</strong> es el multiplicador modular inverso de <br><strong>e mod (p-1)&times;(q-1)</strong></html>");
+
+        textClavePrivadaDEv.setEnabled(false);
+
+        jLabel21.setText("d:");
+
+        botAceptarClavePrivadaEv.setText("Aceptar");
+        botAceptarClavePrivadaEv.setEnabled(false);
+        botAceptarClavePrivadaEv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botAceptarClavePrivadaEvMousePressed(evt);
+            }
+        });
+
+        labelCorreccionD.setText("Corrección:");
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelCorreccionD, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelCorreccionD)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout panClavePrivadaEvLayout = new javax.swing.GroupLayout(panClavePrivadaEv);
+        panClavePrivadaEv.setLayout(panClavePrivadaEvLayout);
+        panClavePrivadaEvLayout.setHorizontalGroup(
+            panClavePrivadaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panClavePrivadaEvLayout.createSequentialGroup()
+                .addGroup(panClavePrivadaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panClavePrivadaEvLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panClavePrivadaEvLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(panClavePrivadaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panClavePrivadaEvLayout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(textClavePrivadaDEv, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botAceptarClavePrivadaEv)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panClavePrivadaEvLayout.setVerticalGroup(
+            panClavePrivadaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panClavePrivadaEvLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panClavePrivadaEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textClavePrivadaDEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botAceptarClavePrivadaEv)
                     .addComponent(jLabel21))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1184,9 +1184,9 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                             .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCalculosInicialesEvLayout.createSequentialGroup()
-                                .addComponent(panClavePrivadaEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(panClavePublicaEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(panClavePublicaEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(panClavePrivadaEv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(125, Short.MAX_VALUE))
         );
         panelCalculosInicialesEvLayout.setVerticalGroup(
@@ -1198,16 +1198,18 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelCalculosInicialesEvLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panClavePrivadaEv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panClavePublicaEv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(panClavePublicaEv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panClavePrivadaEv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(184, 184, 184))
         );
 
+        panClavePublicaEv.getAccessibleContext().setAccessibleName("Definir clave pública");
+
         RSAEvaluarPanel.addTab("Cálculos Iniciales", panelCalculosInicialesEv);
 
-        jLabel22.setText("<html>De acuerdo a los parámetros <strong>(n, e)</strong> indicados, encripte el siguiente mensaje. Recuerde que cada bloque de 1 o 2 caracteres debe representarse con 6 dígitos.</html>");
+        jLabel22.setText("<html>De acuerdo a los parámetros <strong>(n, e)</strong> indicados, encripte un mensaje. Recuerde que cada bloque de 1 o 2 caracteres debe representarse con 6 dígitos.</html>");
 
         panEncriptarTodo.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 0, 51), null));
         panEncriptarTodo.setEnabled(false);
@@ -1606,7 +1608,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
 
         RSAEvaluarPanel.addTab("Encriptar", panelEncriptarEv);
 
-        jLabel32.setText("<html>De acuerdo a los parámetros <strong>(n, d)</strong> desencripte el siguiente mensaje. Recuerde que los bloques son de 6 dígitos y que debe tener en cuenta si se encriptó<br> de a 1 o de a 2 caracteres y que cada caracter ascii desencriptado se representa con 3 dígitos.</html> ");
+        jLabel32.setText("<html>De acuerdo a los parámetros <strong>(n, d)</strong> desencripte el mensaje del paso anterior. Recuerde que los bloques son de 6 dígitos y que debe tener en cuenta si se encriptó<br> de a 1 o de a 2 caracteres y que cada caracter ASCII desencriptado se representa con 3 dígitos.</html> ");
 
         jLabel33.setText("Mensaje encriptado:");
 
@@ -2116,9 +2118,9 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                     long qu = Long.parseLong(q);
                     long modulo = pe * qu;
                     this.text_modulo_ev.setText(Long.toString(modulo));                
-                    this.panClavePrivadaEv.setEnabled(true);
-                    this.textClavePrivadaDEv.setEnabled(true);
-                    this.botAceptarClavePrivEv.setEnabled(true);
+                    this.panClavePublicaEv.setEnabled(true);
+                    this.textClavePublicaEEv.setEnabled(true);
+                    this.botAceptarClavePublicaEv.setEnabled(true);
                     this.botCalcularModuloEv.setEnabled(false);
                     this.botNuevoCI.setEnabled(true);
                     this.modulo_generado = true;
@@ -2141,27 +2143,27 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
 
     private void botCorregirCIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botCorregirCIMousePressed
         this.CorregirModulo();
-        this.CorregirD();
         this.CorregirE();
+        this.CorregirD();        
         this.labelCorreccionN.setVisible(true);
         this.labelCorreccionD.setVisible(true);
-        this.labelCorreccionE.setVisible(true);
+        this.labelCorreccionE.setVisible(true);       
         this.botReintentarCI.setEnabled(true);
         this.botCorregirCI.setEnabled(false);
         this.botResolverCI.setEnabled(false);
     }//GEN-LAST:event_botCorregirCIMousePressed
 
     private void botReintentarCIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botReintentarCIMousePressed
-        this.panClavePrivadaEv.setEnabled(true);
-        this.textClavePrivadaDEv.setEnabled(true);
-        this.textClavePrivadaDEv.setText("");
-        this.botAceptarClavePrivEv.setEnabled(true);
-        this.labelCorreccionD.setVisible(false);
-        this.panClavePublicaEv.setEnabled(false);
-        this.textClavePublicaEEv.setEnabled(false);
+        this.panClavePublicaEv.setEnabled(true);
+        this.textClavePublicaEEv.setEnabled(true);
         this.textClavePublicaEEv.setText("");
-        this.botAceptarClavePublEv.setEnabled(false);
+        this.botAceptarClavePublicaEv.setEnabled(true);
         this.labelCorreccionE.setVisible(false);
+        this.panClavePrivadaEv.setEnabled(false);
+        this.textClavePrivadaDEv.setEnabled(false);
+        this.textClavePrivadaDEv.setText("");
+        this.botAceptarClavePrivadaEv.setEnabled(false);
+        this.labelCorreccionD.setVisible(false);
         
         this.botCorregirCI.setEnabled(false);
         this.botReintentarCI.setEnabled(false);
@@ -2170,49 +2172,49 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         this.botNuevoCI.setEnabled(true);
     }//GEN-LAST:event_botReintentarCIMousePressed
 
-    private void botAceptarClavePrivEvMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botAceptarClavePrivEvMousePressed
-        String texto = this.textClavePrivadaDEv.getText();        
+    private void botAceptarClavePublicaEvMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botAceptarClavePublicaEvMousePressed
+        String texto = this.textClavePublicaEEv.getText();        
         if(texto.isEmpty())
             JOptionPane.showMessageDialog(null, "Ingrese el valor D.");
         else{
             if(!this.esNumero(texto)){                            
                 JOptionPane.showMessageDialog(null, "Debe ingresar valores numéricos.");  
-                this.textClavePrivadaDEv.setText("");
+                this.textClavePublicaEEv.setText("");
             }
             else{
-                this.textClavePrivadaDEv.setEnabled(false);
-                this.botAceptarClavePrivEv.setEnabled(false);
-                this.panClavePublicaEv.setEnabled(true);
-                this.textClavePublicaEEv.setEnabled(true);
-                this.botAceptarClavePublEv.setEnabled(true);
+                this.textClavePublicaEEv.setEnabled(false);
+                this.botAceptarClavePublicaEv.setEnabled(false);
+                this.panClavePrivadaEv.setEnabled(true);
+                this.textClavePrivadaDEv.setEnabled(true);
+                this.botAceptarClavePrivadaEv.setEnabled(true);
             }
         }        
-    }//GEN-LAST:event_botAceptarClavePrivEvMousePressed
+    }//GEN-LAST:event_botAceptarClavePublicaEvMousePressed
 
-    private void botAceptarClavePublEvMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botAceptarClavePublEvMousePressed
-        String texto = this.textClavePublicaEEv.getText();
+    private void botAceptarClavePrivadaEvMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botAceptarClavePrivadaEvMousePressed
+        String texto = this.textClavePrivadaDEv.getText();
         if(texto.isEmpty())
             JOptionPane.showMessageDialog(null, "Ingrese el valor E.");
         else{
             if(!this.esNumero(texto)){                            
                 JOptionPane.showMessageDialog(null, "Debe ingresar valores numéricos.");  
-                this.textClavePublicaEEv.setText("");
+                this.textClavePrivadaDEv.setText("");
             }   
             else{
-                this.botAceptarClavePublEv.setEnabled(false);
-                this.textClavePublicaEEv.setEnabled(false);
+                this.botAceptarClavePrivadaEv.setEnabled(false);
+                this.textClavePrivadaDEv.setEnabled(false);
                 this.botCorregirCI.setEnabled(true);
                 this.botResolverCI.setEnabled(false);
             }
         }
-    }//GEN-LAST:event_botAceptarClavePublEvMousePressed
+    }//GEN-LAST:event_botAceptarClavePrivadaEvMousePressed
 
     private void botResolverCIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botResolverCIMousePressed
         if(!this.modulo_generado)
             this.rsa_evaluar.GenerarPrimos();
         this.rsa_evaluar.GenerarModulo();
-        this.rsa_evaluar.GenerarExponentePrivado();
         this.rsa_evaluar.GenerarExponentePublico();
+        this.rsa_evaluar.GenerarExponentePrivado();        
         long p = this.rsa_evaluar.GetP();
         long q = this.rsa_evaluar.GetQ();
         long n = this.rsa_evaluar.GetModulo();
@@ -2221,12 +2223,12 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         this.text_p_ev.setText(Long.toString(p));
         this.text_q_ev.setText(Long.toString(q));
         this.text_modulo_ev.setText(Long.toString(n));
-        this.textClavePrivadaDEv.setText(Long.toString(d));
         this.textClavePublicaEEv.setText(Long.toString(e));
-        this.panClavePrivadaEv.setEnabled(true);
-        this.textClavePrivadaDEv.setEnabled(true);
+        this.textClavePrivadaDEv.setText(Long.toString(d));
         this.panClavePublicaEv.setEnabled(true);
         this.textClavePublicaEEv.setEnabled(true);
+        this.panClavePrivadaEv.setEnabled(true);
+        this.textClavePrivadaDEv.setEnabled(true);
         this.botResolverCI.setEnabled(false);
         this.botReintentarCI.setEnabled(true);
         this.botContinuarCI.setEnabled(true);        
@@ -2693,8 +2695,8 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane RSAEvaluarPanel;
     private javax.swing.JButton botAceptarBloques;
-    private javax.swing.JButton botAceptarClavePrivEv;
-    private javax.swing.JButton botAceptarClavePublEv;
+    private javax.swing.JButton botAceptarClavePrivadaEv;
+    private javax.swing.JButton botAceptarClavePublicaEv;
     private javax.swing.JButton botAceptarDesBloque;
     private javax.swing.JButton botAceptarDesTodo;
     private javax.swing.JButton botAceptarTodo;

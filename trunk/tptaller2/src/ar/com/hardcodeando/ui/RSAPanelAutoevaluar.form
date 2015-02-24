@@ -743,9 +743,9 @@
                                   <Component id="jPanel6" alignment="1" max="32767" attributes="0"/>
                                   <Component id="jPanel3" alignment="1" max="32767" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="panClavePrivadaEv" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="panClavePublicaEv" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="panClavePrivadaEv" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -763,8 +763,8 @@
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="panClavePrivadaEv" max="32767" attributes="0"/>
                           <Component id="panClavePublicaEv" max="32767" attributes="0"/>
+                          <Component id="panClavePrivadaEv" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel6" max="32767" attributes="0"/>
@@ -931,17 +931,20 @@
                 </Container>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="panClavePrivadaEv">
+            <Container class="javax.swing.JPanel" name="panClavePublicaEv">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Definir clave privada">
+                    <TitledBorder title="Definir clave p&#xfa;blica">
                       <Color PropertyName="color" blue="33" green="0" red="33" type="rgb"/>
                     </TitledBorder>
                   </Border>
                 </Property>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Definir clave p&#xfa;blica"/>
+              </AccessibilityProperties>
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -960,9 +963,9 @@
                                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                           <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="textClavePrivadaDEv" min="-2" pref="73" max="-2" attributes="0"/>
+                                          <Component id="textClavePublicaEEv" min="-2" pref="73" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="botAceptarClavePrivEv" min="-2" max="-2" attributes="0"/>
+                                          <Component id="botAceptarClavePublicaEv" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -978,9 +981,9 @@
                           <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="textClavePrivadaDEv" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="textClavePublicaEEv" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="botAceptarClavePrivEv" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="botAceptarClavePublicaEv" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jPanel10" min="-2" max="-2" attributes="0"/>
@@ -992,26 +995,26 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel18">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="&lt;html&gt;En base al &lt;strong&gt;m&#xf3;dulo&lt;/strong&gt; calculado, calcule el valor de la &lt;br&gt;componente de la clave privada d.&lt;br&gt;Recuerde que debe pertenecer al intervalo&lt;br&gt;&lt;strong&gt;[max(p,q)+1,n-1]&lt;/strong&gt; y que &lt;strong&gt;MCD(d, (p-1)&amp;times;(q-1)) = 1&lt;/strong&gt;&lt;/html&gt;"/>
+                    <Property name="text" type="java.lang.String" value="&lt;html&gt;En base al &lt;strong&gt;m&#xf3;dulo&lt;/strong&gt; calculado, calcule el valor de la &lt;br&gt;componente de la clave p&#xfa;blica e.&lt;br&gt;Recuerde que debe pertenecer al intervalo&lt;br&gt;&lt;strong&gt;[max(p,q)+1,n-1]&lt;/strong&gt; y que &lt;strong&gt;MCD(e, (p-1)&amp;times;(q-1)) = 1&lt;/strong&gt;&lt;/html&gt;"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="textClavePrivadaDEv">
+                <Component class="javax.swing.JTextField" name="textClavePublicaEEv">
                   <Properties>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel19">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="d:"/>
+                    <Property name="text" type="java.lang.String" value="e:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="botAceptarClavePrivEv">
+                <Component class="javax.swing.JButton" name="botAceptarClavePublicaEv">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Aceptar"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botAceptarClavePrivEvMousePressed"/>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botAceptarClavePublicaEvMousePressed"/>
                   </Events>
                 </Component>
                 <Container class="javax.swing.JPanel" name="jPanel10">
@@ -1021,7 +1024,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="labelCorreccionD" min="-2" pref="245" max="-2" attributes="0"/>
+                              <Component id="labelCorreccionE" min="-2" pref="245" max="-2" attributes="0"/>
                               <EmptySpace pref="17" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -1030,14 +1033,14 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="labelCorreccionD" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelCorreccionE" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="21" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="labelCorreccionD">
+                    <Component class="javax.swing.JLabel" name="labelCorreccionE">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Correcci&#xf3;n:"/>
                       </Properties>
@@ -1046,11 +1049,11 @@
                 </Container>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="panClavePublicaEv">
+            <Container class="javax.swing.JPanel" name="panClavePrivadaEv">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Definir clave p&#xfa;blica">
+                    <TitledBorder title="Definir clave privada">
                       <Color PropertyName="color" blue="33" green="0" red="33" type="rgb"/>
                     </TitledBorder>
                   </Border>
@@ -1075,9 +1078,9 @@
                                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                                           <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="textClavePublicaEEv" min="-2" pref="73" max="-2" attributes="0"/>
+                                          <Component id="textClavePrivadaDEv" min="-2" pref="73" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="botAceptarClavePublEv" min="-2" max="-2" attributes="0"/>
+                                          <Component id="botAceptarClavePrivadaEv" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -1093,8 +1096,8 @@
                           <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="textClavePublicaEEv" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="botAceptarClavePublEv" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="textClavePrivadaDEv" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="botAceptarClavePrivadaEv" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -1107,26 +1110,26 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel20">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="&lt;html&gt;Teniendo en cuenta el valor &lt;strong&gt;d&lt;/strong&gt; calculado, calcule el valor de la &lt;br&gt;componente de la clave p&#xfa;blica e.&lt;br&gt;Recuerde que &lt;strong&gt;e&lt;/strong&gt; es el multiplicador modular inverso de &lt;br&gt;&lt;strong&gt;d mod (p-1)&amp;times;(q-1)&lt;/strong&gt;&lt;/html&gt;"/>
+                    <Property name="text" type="java.lang.String" value="&lt;html&gt;Teniendo en cuenta el valor &lt;strong&gt;e&lt;/strong&gt; calculado, calcule el valor de la &lt;br&gt;componente de la clave privada d.&lt;br&gt;Recuerde que &lt;strong&gt;d&lt;/strong&gt; es el multiplicador modular inverso de &lt;br&gt;&lt;strong&gt;e mod (p-1)&amp;times;(q-1)&lt;/strong&gt;&lt;/html&gt;"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="textClavePublicaEEv">
+                <Component class="javax.swing.JTextField" name="textClavePrivadaDEv">
                   <Properties>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel21">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="e:"/>
+                    <Property name="text" type="java.lang.String" value="d:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="botAceptarClavePublEv">
+                <Component class="javax.swing.JButton" name="botAceptarClavePrivadaEv">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Aceptar"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botAceptarClavePublEvMousePressed"/>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botAceptarClavePrivadaEvMousePressed"/>
                   </Events>
                 </Component>
                 <Container class="javax.swing.JPanel" name="jPanel11">
@@ -1136,7 +1139,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="labelCorreccionE" min="-2" pref="236" max="-2" attributes="0"/>
+                              <Component id="labelCorreccionD" min="-2" pref="236" max="-2" attributes="0"/>
                               <EmptySpace pref="21" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -1145,14 +1148,14 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="labelCorreccionE" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelCorreccionD" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="labelCorreccionE">
+                    <Component class="javax.swing.JLabel" name="labelCorreccionD">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Correcci&#xf3;n:"/>
                       </Properties>
@@ -1321,7 +1324,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel22">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;De acuerdo a los par&#xe1;metros &lt;strong&gt;(n, e)&lt;/strong&gt; indicados, encripte el siguiente mensaje. Recuerde que cada bloque de 1 o 2 caracteres debe representarse con 6 d&#xed;gitos.&lt;/html&gt;"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;De acuerdo a los par&#xe1;metros &lt;strong&gt;(n, e)&lt;/strong&gt; indicados, encripte un mensaje. Recuerde que cada bloque de 1 o 2 caracteres debe representarse con 6 d&#xed;gitos.&lt;/html&gt;"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JPanel" name="panEncriptarTodo">
@@ -1899,7 +1902,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel32">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;De acuerdo a los par&#xe1;metros &lt;strong&gt;(n, d)&lt;/strong&gt; desencripte el siguiente mensaje. Recuerde que los bloques son de 6 d&#xed;gitos y que debe tener en cuenta si se encript&#xf3;&lt;br&gt; de a 1 o de a 2 caracteres y que cada caracter ascii desencriptado se representa con 3 d&#xed;gitos.&lt;/html&gt; "/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;De acuerdo a los par&#xe1;metros &lt;strong&gt;(n, d)&lt;/strong&gt; desencripte el mensaje del paso anterior. Recuerde que los bloques son de 6 d&#xed;gitos y que debe tener en cuenta si se encript&#xf3;&lt;br&gt; de a 1 o de a 2 caracteres y que cada caracter ASCII desencriptado se representa con 3 d&#xed;gitos.&lt;/html&gt; "/>
               </Properties>
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel12">
