@@ -119,7 +119,7 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
         jButton12 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Hill Cipher - Modo Autoevaluar");
+        jLabel1.setText("Hill Cipher - Modo Evaluar");
 
         jTabbedPane1.setFocusable(false);
 
