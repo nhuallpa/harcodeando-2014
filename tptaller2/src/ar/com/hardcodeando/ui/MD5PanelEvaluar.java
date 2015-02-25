@@ -265,11 +265,6 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
                 botCorregirPreguntasMousePressed(evt);
             }
         });
-        botCorregirPreguntas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botCorregirPreguntasActionPerformed(evt);
-            }
-        });
         IntroMD5.add(botCorregirPreguntas, new org.netbeans.lib.awtextra.AbsoluteConstraints(292, 430, 110, 30));
 
         botReintentarPreguntas.setText("Reintentar");
@@ -285,11 +280,6 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         botResolverPreguntas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 botResolverPreguntasMousePressed(evt);
-            }
-        });
-        botResolverPreguntas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botResolverPreguntasActionPerformed(evt);
             }
         });
         IntroMD5.add(botResolverPreguntas, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 430, 110, 30));
@@ -325,11 +315,6 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
                 botonSiguientePaso1AEMousePressed(evt);
             }
         });
-        botonSiguientePaso1AE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonSiguientePaso1AEActionPerformed(evt);
-            }
-        });
         panelPaso1.add(botonSiguientePaso1AE, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 460, 110, 30));
 
         jLabel2.setText("<html> Trabajaremos con un mensaje menor a 512 caracteres. Si el mensaje fuera más largo, el algoritmo parte el mensaje en bloques de 512 y trabaja por bloques</html>");
@@ -337,11 +322,6 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
 
         mensajeAEncriptar.setText("TOP SECRET MESSAGE");
         mensajeAEncriptar.setToolTipText("");
-        mensajeAEncriptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mensajeAEncriptarActionPerformed(evt);
-            }
-        });
         panelPaso1.add(mensajeAEncriptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, 220, -1));
 
         jLabel66.setText("<html>Introduzca aquí el relleno del mensaje para que el bloque sea 448 mod 512, sin espacios ni saltos de línea:</html>");
@@ -410,11 +390,6 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
                 botonSiguientePaso2AEMousePressed(evt);
             }
         });
-        botonSiguientePaso2AE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonSiguientePaso2AEActionPerformed(evt);
-            }
-        });
         panelPaso2.add(botonSiguientePaso2AE);
         botonSiguientePaso2AE.setBounds(700, 440, 110, 30);
 
@@ -471,11 +446,6 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
 
         botonSiguientePaso3AE.setText("Siguiente");
         botonSiguientePaso3AE.setEnabled(false);
-        botonSiguientePaso3AE.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                botonSiguientePaso3AEMousePressed(evt);
-            }
-        });
         botonSiguientePaso3AE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonSiguientePaso3AEActionPerformed(evt);
@@ -902,7 +872,6 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
     }
      
     private void botonSiguientePaso4AEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguientePaso4AEActionPerformed
-        
         jTabbedPane1.setEnabledAt(5, true);
         jTabbedPane1.setSelectedIndex(5);
     }//GEN-LAST:event_botonSiguientePaso4AEActionPerformed
@@ -926,10 +895,6 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             jTabbedPane1.setSelectedIndex(4);
     }//GEN-LAST:event_botonSiguientePaso3AEActionPerformed
 
-    private void botonSiguientePaso3AEMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonSiguientePaso3AEMousePressed
-
-    }//GEN-LAST:event_botonSiguientePaso3AEMousePressed
-
     private void botonMostrarMensajeConLongitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMostrarMensajeConLongitudActionPerformed
             String msgAEncriptar = mensajeAEncriptar.getText();
             String msgAprocesar = MD5.textoAProcesar(msgAEncriptar, msgAEncriptar.length(), true);
@@ -937,10 +902,6 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             botonSiguientePaso2AE.setEnabled(true);      
             buttonGuardarArchivoPaso2.setEnabled(true);
     }//GEN-LAST:event_botonMostrarMensajeConLongitudActionPerformed
-
-    private void botonSiguientePaso2AEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguientePaso2AEActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonSiguientePaso2AEActionPerformed
 
     private void botonSiguientePaso2AEMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonSiguientePaso2AEMousePressed
         jTabbedPane1.setEnabledAt(3, true);
@@ -953,7 +914,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             saveFile.showSaveDialog(null);
             String path=saveFile.getSelectedFile().getAbsolutePath();
             String filename=saveFile.getSelectedFile().getName();
-            AlgorithmStateStorage.saveMD5(filename, path, this.messageToJsonPaso1(1));
+            AlgorithmStateStorage.saveMD5(filename, path, this.messageToJson(1));
             JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
         } catch (IOException ex) {
             Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
@@ -961,87 +922,46 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_buttonGuardarArchivoPaso1ActionPerformed
 
-    public MD5DTO messageToJsonPaso1(int step){
+    public MD5DTO messageToJson(int step){
             MD5DTO md5DTO = new MD5DTO();
             md5DTO.setCurrentStep(step);
             md5DTO.setMessage(mensajeAEncriptar.getText());
-            md5DTO.setBinaryMessage(representacionBinaria.getText());
-            md5DTO.setRepresentationBitsPlusFiller(representacionBinMasRelleno.getText());
-            return md5DTO;
-    }
-    public MD5DTO messageToJsonPaso2(int step){
-            MD5DTO md5DTO = new MD5DTO();
-            md5DTO.setCurrentStep(step);
-            md5DTO.setMessage(mensajeAEncriptar.getText());
-            md5DTO.setBinaryMessage(representacionBinaria.getText());
-            md5DTO.setRepresentationBitsPlusFiller(representacionBinMasRelleno.getText());
-            md5DTO.setRepresentationBitsPlusLong(representacionBinariaMasLongitud.getText());
-            return md5DTO;
-    }
-    public MD5DTO messageToJsonPaso3(int step){
-            MD5DTO md5DTO = new MD5DTO();
-            md5DTO.setCurrentStep(step);
-            md5DTO.setMessage(mensajeAEncriptar.getText());
-            md5DTO.setBinaryMessage(representacionBinaria.getText());
-            md5DTO.setRepresentationBitsPlusFiller(representacionBinMasRelleno.getText());
-            md5DTO.setRepresentationBitsPlusLong(representacionBinariaMasLongitud.getText());
-            md5DTO.setInitialValueA(valorInicialA.getText());
-            md5DTO.setInitialValueB(valorInicialB.getText());
-            md5DTO.setInitialValueC(valorInicialC.getText());
-            md5DTO.setInitialValueD(valorInicialD.getText());
-            return md5DTO;
-    }
-    public MD5DTO messageToJsonPaso4(int step){
-            MD5DTO md5DTO = new MD5DTO();
-            md5DTO.setCurrentStep(step);
-            md5DTO.setMessage(mensajeAEncriptar.getText());
-            md5DTO.setBinaryMessage(representacionBinaria.getText());
-            md5DTO.setRepresentationBitsPlusFiller(representacionBinMasRelleno.getText());
-            md5DTO.setRepresentationBitsPlusLong(representacionBinariaMasLongitud.getText());
-            md5DTO.setInitialValueA(valorInicialA.getText());
-            md5DTO.setInitialValueB(valorInicialB.getText());
-            md5DTO.setInitialValueC(valorInicialC.getText());
-            md5DTO.setInitialValueD(valorInicialD.getText());
-            String [][] matrizActual = new String[16][4];
-            for (int i = 0; i < 16; i++) {
-                for (int j = 1; j < 5; j++) {
-                    matrizActual[i][j-1] = tablaPaso4.getValueAt(i, j).toString();
-                }
+            if (step >= 1) {
+                md5DTO.setBinaryMessage(representacionBinaria.getText());
+                md5DTO.setRepresentationBitsPlusFiller(representacionBinMasRelleno.getText());
+            } 
+            if (step >= 2){
+                md5DTO.setRepresentationBitsPlusLong(representacionBinariaMasLongitud.getText());    
+            } 
+            if (step >= 3){
+                md5DTO.setInitialValueA(valorInicialA.getText());
+                md5DTO.setInitialValueB(valorInicialB.getText());
+                md5DTO.setInitialValueC(valorInicialC.getText());
+                md5DTO.setInitialValueD(valorInicialD.getText());
             }
-            md5DTO.setMatrixStep4(matrizActual);
+            if (step >= 4){
+                String [][] matrizActual = new String[16][4];
+                for (int i = 0; i < 16; i++) {
+                    for (int j = 1; j < 5; j++) {
+                        matrizActual[i][j-1] = tablaPaso4.getValueAt(i, j).toString();
+                    }
+                }
+                md5DTO.setMatrixStep4(matrizActual);
+            }
+            if (step >= 5) {
+                md5DTO.setResumeValue(valorResumen.getText());
+                String [][] matrizActualPaso5 = new String[3][4];
+                for (int i = 0; i < 3; i++) {
+                    for (int j = 0; j < 4; j++) {
+                        matrizActualPaso5[i][j] = tablaPaso5.getValueAt(i, j).toString();
+                    }
+                }
+                md5DTO.setMatrixStep5(matrizActualPaso5);
+            }
+            
             return md5DTO;
     }
-    
-    public MD5DTO messageToJsonPaso5(int step){
-            MD5DTO md5DTO = new MD5DTO();
-            md5DTO.setCurrentStep(step);
-            md5DTO.setMessage(mensajeAEncriptar.getText());
-            md5DTO.setMessage(mensajeAEncriptar.getText());
-            md5DTO.setBinaryMessage(representacionBinaria.getText());
-            md5DTO.setRepresentationBitsPlusFiller(representacionBinMasRelleno.getText());
-            md5DTO.setRepresentationBitsPlusLong(representacionBinariaMasLongitud.getText());
-            md5DTO.setInitialValueA(valorInicialA.getText());
-            md5DTO.setInitialValueB(valorInicialB.getText());
-            md5DTO.setInitialValueC(valorInicialC.getText());
-            md5DTO.setInitialValueD(valorInicialD.getText());
-            String [][] matrizActualPaso4 = new String[16][4];
-            for (int i = 0; i < 16; i++) {
-                for (int j = 1; j < 5; j++) {
-                    matrizActualPaso4[i][j-1] = tablaPaso4.getValueAt(i, j).toString();
-                }
-            }
-            md5DTO.setMatrixStep4(matrizActualPaso4);
-            md5DTO.setResumeValue(valorResumen.getText());
-            String [][] matrizActualPaso5 = new String[3][4];
-            for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 4; j++) {
-                    matrizActualPaso5[i][j] = tablaPaso5.getValueAt(i, j).toString();
-                }
-            }
-            md5DTO.setMatrixStep5(matrizActualPaso5);
-            return md5DTO;
-    }
-    
+
     public boolean compararIgualdadTextos(String valor1, String valor2) {
         boolean sonIguales = false;
         valor1 = valor1.trim();
@@ -1052,14 +972,6 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         return sonIguales;
     }
     
-    private void mensajeAEncriptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mensajeAEncriptarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mensajeAEncriptarActionPerformed
-
-    private void botonSiguientePaso1AEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguientePaso1AEActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonSiguientePaso1AEActionPerformed
-
     private void botonSiguientePaso1AEMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonSiguientePaso1AEMousePressed
         jTabbedPane1.setEnabledAt(2, true);
         jTabbedPane1.setSelectedIndex(2);
@@ -1081,7 +993,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
     private void botReintentarPreguntasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botReintentarPreguntasMousePressed
         this.botReintentarPreguntas.setEnabled(false);
         this.botCorregirPreguntas.setEnabled(true);
-        this.ResetearPreguntas();
+        this.resetearPreguntas();
     }//GEN-LAST:event_botReintentarPreguntasMousePressed
 
     private void botCorregirPreguntasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botCorregirPreguntasMousePressed
@@ -1360,7 +1272,6 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
     }//GEN-LAST:event_tablaPaso5MouseDragged
 
     private void botonCompletarGrillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCompletarGrillaActionPerformed
-       // seteoInicial();
         completarGrilla(4, 16, false);
         botonSiguientePaso4AE.setEnabled(true);  
     }//GEN-LAST:event_botonCompletarGrillaActionPerformed
@@ -1394,7 +1305,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             saveFile.showSaveDialog(null);
             String path=saveFile.getSelectedFile().getAbsolutePath();
             String filename=saveFile.getSelectedFile().getName();
-            AlgorithmStateStorage.saveMD5(filename, path, this.messageToJsonPaso2(2));
+            AlgorithmStateStorage.saveMD5(filename, path, this.messageToJson(2));
             JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
         } catch (IOException ex) {
             Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
@@ -1408,7 +1319,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             saveFile.showSaveDialog(null);
             String path=saveFile.getSelectedFile().getAbsolutePath();
             String filename=saveFile.getSelectedFile().getName();
-            AlgorithmStateStorage.saveMD5(filename, path, this.messageToJsonPaso3(3));
+            AlgorithmStateStorage.saveMD5(filename, path, this.messageToJson(3));
             JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
         } catch (IOException ex) {
             Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
@@ -1423,7 +1334,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             saveFile.showSaveDialog(null);
             String path=saveFile.getSelectedFile().getAbsolutePath();
             String filename=saveFile.getSelectedFile().getName();
-            AlgorithmStateStorage.saveMD5(filename, path, this.messageToJsonPaso4(4));
+            AlgorithmStateStorage.saveMD5(filename, path, this.messageToJson(4));
             JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
         } catch (IOException ex) {
             Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
@@ -1437,21 +1348,13 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
             saveFile.showSaveDialog(null);
             String path=saveFile.getSelectedFile().getAbsolutePath();
             String filename=saveFile.getSelectedFile().getName();
-            AlgorithmStateStorage.saveMD5(filename, path, this.messageToJsonPaso5(5));
+            AlgorithmStateStorage.saveMD5(filename, path, this.messageToJson(5));
             JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
         } catch (IOException ex) {
             Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
         }
     }//GEN-LAST:event_buttonGuardarArchivoPaso5ActionPerformed
-
-    private void botResolverPreguntasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botResolverPreguntasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botResolverPreguntasActionPerformed
-
-    private void botCorregirPreguntasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botCorregirPreguntasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botCorregirPreguntasActionPerformed
 
     public void handleGrillaEventsPaso5(java.awt.event.ComponentEvent evt){
        
@@ -1481,7 +1384,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
         return null;
     }
         
-    private void ResetearPreguntas(){
+    private void resetearPreguntas(){
         this.rbcorrecto1.setForeground(Color.black);
         this.rbcorrecto2.setForeground(Color.black);
         this.rbcorrecto3.setForeground(Color.black);
@@ -1563,7 +1466,7 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
                 jTabbedPane1.setSelectedIndex(4);
                 break;
             case 5:
-                 this.mensajeAEncriptar.setText(md5DTO.getMessage());
+                this.mensajeAEncriptar.setText(md5DTO.getMessage());
                 this.representacionBinaria.setText(md5DTO.getBinaryMessage());
                 this.representacionBinMasRelleno.setText(md5DTO.getRepresentationBitsPlusFiller());
                 this.representacionBinariaMasLongitud.setText(md5DTO.getRepresentationBitsPlusLong());
@@ -1591,8 +1494,8 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
                 jTabbedPane1.setEnabledAt(5, true);
                 jTabbedPane1.setSelectedIndex(5);
                 break;
-            default:
-        }        
+            default:break;
+        }
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
