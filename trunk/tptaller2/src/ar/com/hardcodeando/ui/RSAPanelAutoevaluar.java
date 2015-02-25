@@ -6,8 +6,14 @@
 package ar.com.hardcodeando.ui;
 
 import ar.com.hardcodeando.algorithm.RSA;
+import ar.com.hardcodeando.dto.RSADTO;
+import ar.com.hardcodeando.ui.utils.AlgorithmStateStorage;
 import java.awt.Color;
+import java.io.IOException;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
@@ -295,6 +301,55 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         return texto.length() <= this.max_lenght_encriptar;
     }
     
+    private void LlenarDTOCalculosIniciales(RSADTO rsaDTO){
+        rsaDTO.setP_CI(this.text_p_ev.getText());
+        rsaDTO.setQ_CI(this.text_q_ev.getText());
+        rsaDTO.setN_CI(this.text_modulo_ev.getText());
+        rsaDTO.setE_CI(this.textClavePublicaEEv.getText());
+        rsaDTO.setD_CI(this.textClavePrivadaDEv.getText());        
+    }
+    
+    private void LlenarDTOEncriptar(RSADTO rsaDTO){
+        rsaDTO.setMensajeEncriptar(this.text_mens_encriptar.getText());
+        int value = (int) this.spinTamBloque.getValue();
+        rsaDTO.setTamBloque(Integer.toString(value));
+        rsaDTO.setResultadoEncriptarTodo(this.textResultadoTodo.getText());
+        rsaDTO.setPosEncriptar(Long.toString(this.pos_encriptar));
+        rsaDTO.setResultadoEncriptarBloques(this.textResultadoBloque.getText());
+        rsaDTO.setResultadoParcialEncriptar(this.textResParcial.getText());        
+    }
+    
+    private void LlenarDTODesencriptar(RSADTO rsaDTO){
+        rsaDTO.setResultadoDesencriptarTodo(this.text_resultado_des_todo.getText());
+        rsaDTO.setPosDesencriptar(Long.toString(this.pos_desencriptar));
+        rsaDTO.setResultadoEncriptarBloques(this.text_resultado_des_bloque.getText());
+        rsaDTO.setResultadoParcialDesencriptar(this.text_parcial_des_bloque.getText());        
+    }
+    
+    private RSADTO generarJsonCalculosIniciales(){
+        RSADTO rsaDTO = new RSADTO();
+        rsaDTO.setCurrentStep(1);
+        this.LlenarDTOCalculosIniciales(rsaDTO);
+        return rsaDTO;
+    }
+    
+        private RSADTO generarJsonPasoEncriptar(){
+        RSADTO rsaDTO = new RSADTO();
+        rsaDTO.setCurrentStep(2);
+        this.LlenarDTOCalculosIniciales(rsaDTO);
+        this.LlenarDTOEncriptar(rsaDTO);
+        return rsaDTO;
+    }
+        
+    private RSADTO generarJsonPasoDesencriptar(){
+        RSADTO rsaDTO = new RSADTO();
+        rsaDTO.setCurrentStep(3);
+        this.LlenarDTOCalculosIniciales(rsaDTO);
+        this.LlenarDTOEncriptar(rsaDTO);
+        this.LlenarDTODesencriptar(rsaDTO);
+        return rsaDTO;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -393,6 +448,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         botResolverCI = new javax.swing.JButton();
         botContinuarCI = new javax.swing.JButton();
         botNuevoCI = new javax.swing.JButton();
+        botGuardarCalculosIniciales = new javax.swing.JButton();
         panelEncriptarEv = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         panEncriptarTodo = new javax.swing.JPanel();
@@ -433,6 +489,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         botReintenterEncriptar = new javax.swing.JButton();
         botResolverEncriptar = new javax.swing.JButton();
         botContinuarEncriptar = new javax.swing.JButton();
+        botGuardarEncriptar = new javax.swing.JButton();
         panelDesencriptarEv = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
@@ -471,6 +528,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         botCorregirDesencriptar = new javax.swing.JButton();
         botReintentarDesencriptar = new javax.swing.JButton();
         botResolverDesencriptar = new javax.swing.JButton();
+        botGuardarDesencriptar = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(860, 679));
 
@@ -1134,21 +1192,30 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             }
         });
 
+        botGuardarCalculosIniciales.setText("Guardar");
+        botGuardarCalculosIniciales.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botGuardarCalculosInicialesMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(199, 199, 199)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(botGuardarCalculosIniciales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botCorregirCI, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE))
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(botCorregirCI, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(botReintentarCI)
                         .addGap(18, 18, 18)
                         .addComponent(botResolverCI, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addComponent(botContinuarCI, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(botNuevoCI, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1165,7 +1232,8 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botContinuarCI)
-                    .addComponent(botNuevoCI))
+                    .addComponent(botNuevoCI)
+                    .addComponent(botGuardarCalculosIniciales))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1541,19 +1609,32 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             }
         });
 
+        botGuardarEncriptar.setText("Guardar");
+        botGuardarEncriptar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botGuardarEncriptarMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(botCorregirEncriptar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(botContinuarEncriptar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botReintenterEncriptar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botResolverEncriptar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(botCorregirEncriptar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botReintenterEncriptar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botResolverEncriptar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(botGuardarEncriptar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(botContinuarEncriptar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)))
                 .addContainerGap(101, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -1565,7 +1646,9 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                     .addComponent(botReintenterEncriptar)
                     .addComponent(botResolverEncriptar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botContinuarEncriptar)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botContinuarEncriptar)
+                    .addComponent(botGuardarEncriptar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1603,7 +1686,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 .addComponent(panEncriptarBloques, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
 
         RSAEvaluarPanel.addTab("Encriptar", panelEncriptarEv);
@@ -1918,28 +2001,40 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             }
         });
 
+        botGuardarDesencriptar.setText("Guardar");
+        botGuardarDesencriptar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botGuardarDesencriptarMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(botCorregirDesencriptar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(botReintentarDesencriptar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(botResolverDesencriptar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addGap(154, 154, 154)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botCorregirDesencriptar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botReintentarDesencriptar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(botGuardarDesencriptar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botResolverDesencriptar, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botReintentarDesencriptar)
                     .addComponent(botResolverDesencriptar)
                     .addComponent(botCorregirDesencriptar))
-                .addGap(0, 10, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botGuardarDesencriptar)
+                    .addComponent(botReintentarDesencriptar))
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelDesencriptarEvLayout = new javax.swing.GroupLayout(panelDesencriptarEv);
@@ -1974,7 +2069,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 .addComponent(panDesenBloques, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         RSAEvaluarPanel.addTab("Desencriptar", panelDesencriptarEv);
@@ -2691,6 +2786,48 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         this.LimpiarEncriptar();
     }//GEN-LAST:event_botNuevoEncriptarMousePressed
 
+    private void botGuardarCalculosInicialesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botGuardarCalculosInicialesMousePressed
+        try {
+            JFileChooser saveFile = new JFileChooser();
+            saveFile.showSaveDialog(null);
+            String path=saveFile.getSelectedFile().getAbsolutePath();
+            String filename=saveFile.getSelectedFile().getName();
+            AlgorithmStateStorage.saveRSA(filename, path, this.generarJsonCalculosIniciales());
+            JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
+        } catch (IOException ex) {
+            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
+        }
+    }//GEN-LAST:event_botGuardarCalculosInicialesMousePressed
+
+    private void botGuardarEncriptarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botGuardarEncriptarMousePressed
+        try {
+            JFileChooser saveFile = new JFileChooser();
+            saveFile.showSaveDialog(null);
+            String path=saveFile.getSelectedFile().getAbsolutePath();
+            String filename=saveFile.getSelectedFile().getName();
+            AlgorithmStateStorage.saveRSA(filename, path, this.generarJsonPasoEncriptar());
+            JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
+        } catch (IOException ex) {
+            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
+        }
+    }//GEN-LAST:event_botGuardarEncriptarMousePressed
+
+    private void botGuardarDesencriptarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botGuardarDesencriptarMousePressed
+        try {
+            JFileChooser saveFile = new JFileChooser();
+            saveFile.showSaveDialog(null);
+            String path=saveFile.getSelectedFile().getAbsolutePath();
+            String filename=saveFile.getSelectedFile().getName();
+            AlgorithmStateStorage.saveRSA(filename, path, this.generarJsonPasoDesencriptar());
+            JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
+        } catch (IOException ex) {
+            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
+        }
+    }//GEN-LAST:event_botGuardarDesencriptarMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane RSAEvaluarPanel;
@@ -2712,6 +2849,9 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     private javax.swing.JButton botDesencTodo;
     private javax.swing.JButton botEncriptarBloques;
     private javax.swing.JButton botEncriptarTodo;
+    private javax.swing.JButton botGuardarCalculosIniciales;
+    private javax.swing.JButton botGuardarDesencriptar;
+    private javax.swing.JButton botGuardarEncriptar;
     private javax.swing.JButton botNuevoCI;
     private javax.swing.JButton botNuevoEncriptar;
     private javax.swing.JButton botReintentarCI;
