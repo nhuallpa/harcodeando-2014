@@ -7,13 +7,19 @@ package ar.com.hardcodeando.ui;
 
 import ar.com.hardcodeando.algorithm.NLFSR;
 import ar.com.hardcodeando.algorithm.NLFSRFunction;
+import ar.com.hardcodeando.dto.NLFSRDTO;
+import ar.com.hardcodeando.ui.utils.AlgorithmStateStorage;
 import ar.com.hardcodeando.ui.utils.ComboItem;
 import ar.com.hardcodeando.ui.utils.SaveFile;
 import java.awt.Color;
 import static java.awt.image.ImageObserver.WIDTH;
+import java.io.IOException;
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -1174,61 +1180,58 @@ public class NLFSREvaluar extends javax.swing.JPanel {
         saveFile(5);
     }//GEN-LAST:event_jButton22ActionPerformed
 
-    private String messageToJson(int step){
-
-        StringWriter out = new StringWriter();
-        /*FIXME: Comentado para que no rompa. En vez de usar JSONObject usar NLFSRDTO
-        try {
-            JSONObject obj = new JSONObject();
-            obj.put("algorithm", "NLFSR");
-            obj.put("seed", this.jTextField1.getText());
-            obj.put("register", this.jTextField2.getText());
-            if(step > 1)
-                obj.put("function", this.jComboBox1.getSelectedIndex());
-            if(step > 2){
-                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-                LinkedList list = new LinkedList();
-                list.add(model.getValueAt(0, 0).toString());
-                list.add(model.getValueAt(0, 1).toString());
-                list.add(model.getValueAt(0, 2).toString());
-                obj.put("rowStep3", list);
+    private NLFSRDTO messageToJson(int step){
+        
+        NLFSRDTO dto = new NLFSRDTO();
+        dto.setCurrentStep(step);
+        dto.setSeed(this.jTextField1.getText());
+        dto.setRegister(this.jTextField2.getText());
+        if(step > 1)
+            dto.setFunctionId(this.jComboBox1.getSelectedIndex());
+        if(step > 2){
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            String[] list = new String[3];
+            for (int i = 0; i < model.getColumnCount(); i++) {
+                list[i] = model.getValueAt(0, i).toString();
             }
-            if(step > 3){
-                DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-                LinkedList list = new LinkedList();
-                list.add(model.getValueAt(0, 0).toString());
-                list.add(model.getValueAt(0, 1).toString());
-                list.add(model.getValueAt(0, 2).toString());
-                list.add(model.getValueAt(0, 3).toString());
-                obj.put("rowStep4", list);
+            dto.setRowStep3(list);
+        }
+        if(step > 3){
+            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+            String[] list = new String[4];
+            for (int i = 0; i < model.getColumnCount(); i++) {
+                list[i] = model.getValueAt(0, i).toString();
             }
-            if(step > 4){
-                DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
-                for (int i = 0; i < model.getRowCount(); i++) {
-                    LinkedList list = new LinkedList();
-                    list.add(model.getValueAt(i, 0).toString());
-                    list.add(model.getValueAt(i, 1).toString());
-                    list.add(model.getValueAt(i, 2).toString());
-                    list.add(model.getValueAt(i, 3).toString());
-                    obj.put("row"+i, list);
-                }                
+            dto.setRowStep4(list);
+        }
+        if(step > 4){
+            DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
+            String[][] table = new String[16][4];
+            for (int i = 0; i < model.getRowCount(); i++) {
+                for (int j = 0; j < model.getColumnCount(); j++) {
+                    table[i][j] = model.getValueAt(i, j).toString();
+                }
             }
-            obj.put("step", step);
-            obj.writeJSONString(out);
-        } catch (IOException ex) {
-            Logger.getLogger(SaveFile.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        return out.toString();    
+            dto.setTableStep5(table);
+            dto.setKey(this.jTextField3.getText());
+            dto.setPeriod(Integer.parseInt(this.jTextField4.getText()));
+            dto.setKeyDecimal(Integer.parseInt(this.jTextField5.getText()));
+        }
+        return dto;
     }
     
     private void saveFile(int step){
-        JFileChooser saveFile = new JFileChooser();
-        saveFile.showSaveDialog(null);
-        String path=saveFile.getSelectedFile().getAbsolutePath();
-        String filename=saveFile.getSelectedFile().getName();
-        SaveFile sf = SaveFile.getInstance();
-        String jsonStr = this.messageToJson(step);         
-        sf.saveToFile(filename, path, jsonStr);
+        try {
+            JFileChooser saveFile = new JFileChooser();
+            saveFile.showSaveDialog(null);
+            String path=saveFile.getSelectedFile().getAbsolutePath();
+            String filename=saveFile.getSelectedFile().getName();
+            AlgorithmStateStorage.saveNLFSR(filename, path, this.messageToJson(step));
+            JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
+        } catch (IOException ex) {
+            Logger.getLogger(NLFSREvaluar.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
+        }
     }
     
     private void setWrongAnswers(ArrayList<JRadioButton> buttons){
