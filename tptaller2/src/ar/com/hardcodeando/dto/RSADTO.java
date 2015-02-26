@@ -31,9 +31,9 @@ public class RSADTO {
     private String panel_desenc_bloquees_enabled;
     private String resultado_desencriptar_todo;
     private String pos_desencriptar;
-    String parcial_desenc_numerico;
-    String parcial_desenc_ascii;
-    private String resultado_desenriptar_bloques;
+    private String parcial_desenc_numerico;
+    private String parcial_desenc_ascii;
+    private String resultado_desenriptar_bloques;    
     
     public String getType() {
         return type;
