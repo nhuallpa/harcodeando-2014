@@ -306,7 +306,11 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         rsaDTO.setQ_CI(this.text_q_ev.getText());
         rsaDTO.setN_CI(this.text_modulo_ev.getText());
         rsaDTO.setE_CI(this.textClavePublicaEEv.getText());
-        rsaDTO.setD_CI(this.textClavePrivadaDEv.getText());        
+        rsaDTO.setD_CI(this.textClavePrivadaDEv.getText());
+        if(this.botAceptarClavePublicaEv.isEnabled()) rsaDTO.setBotAceptarClavePublicaEnabled("true");
+        else rsaDTO.setBotAceptarClavePublicaEnabled("false");
+        if(this.botAceptarClavePrivadaEv.isEnabled()) rsaDTO.setBotAceptarClavePrivadaEnabled("true");
+        else rsaDTO.setBotAceptarClavePrivadaEnabled("false");
     }
     
     private void LlenarDTOEncriptar(RSADTO rsaDTO){
@@ -316,14 +320,23 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         rsaDTO.setResultadoEncriptarTodo(this.textResultadoTodo.getText());
         rsaDTO.setPosEncriptar(Long.toString(this.pos_encriptar));
         rsaDTO.setResultadoEncriptarBloques(this.textResultadoBloque.getText());
-        rsaDTO.setResultadoParcialEncriptar(this.textResParcial.getText());        
+        rsaDTO.setResultadoParcialEncriptar(this.textResParcial.getText());
+        if(this.panEncriptarTodo.isEnabled()) rsaDTO.setPanelEncriptarTodoEnabled("true");
+        else rsaDTO.setPanelEncriptarTodoEnabled("false");
+        if(this.panEncriptarBloques.isEnabled()) rsaDTO.setPanelEncriptarBloquesEnabled("true");
+        else rsaDTO.setPanelEncriptarBloquesEnabled("false");
     }
     
     private void LlenarDTODesencriptar(RSADTO rsaDTO){
         rsaDTO.setResultadoDesencriptarTodo(this.text_resultado_des_todo.getText());
         rsaDTO.setPosDesencriptar(Long.toString(this.pos_desencriptar));
         rsaDTO.setResultadoEncriptarBloques(this.text_resultado_des_bloque.getText());
-        rsaDTO.setResultadoParcialDesencriptar(this.text_parcial_des_bloque.getText());        
+        rsaDTO.setResultadoParcialDesenecNumerico(this.text_parcial_des_bloque.getText());
+        rsaDTO.setResultadoParcialDesencAscii(this.text_string_resultante_Des.getText());
+        if(this.panDesencTodo.isEnabled()) rsaDTO.setPanelDesencriptarTodoEnabled("true");
+        else rsaDTO.setPanelDesencriptarTodoEnabled("false");
+        if(this.panDesenBloques.isEnabled()) rsaDTO.setPanelDesencriptarBloquesEnabled("true");
+        else rsaDTO.setPanelDesencriptarBloquesEnabled("false");
     }
     
     private RSADTO generarJsonCalculosIniciales(){
@@ -338,6 +351,10 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         rsaDTO.setCurrentStep(2);
         this.LlenarDTOCalculosIniciales(rsaDTO);
         this.LlenarDTOEncriptar(rsaDTO);
+        if(this.panEncriptarTodo.isEnabled()) rsaDTO.setPanelEncriptarTodoEnabled("true");
+        else rsaDTO.setPanelEncriptarTodoEnabled("false");
+        if(this.panEncriptarBloques.isEnabled()) rsaDTO.setPanelEncriptarBloquesEnabled("true");
+        else rsaDTO.setPanelEncriptarBloquesEnabled("false");
         return rsaDTO;
     }
         
@@ -348,6 +365,153 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         this.LlenarDTOEncriptar(rsaDTO);
         this.LlenarDTODesencriptar(rsaDTO);
         return rsaDTO;
+    }
+    
+    private void CargarCalculosIniciales(RSADTO rsaDTO){
+        this.text_p_ev.setText(rsaDTO.getP_CI());
+        this.text_q_ev.setText(rsaDTO.getQ_CI());
+        String n = rsaDTO.getN_CI();
+        if(n.compareTo("") != 0){
+            this.botCalcularModuloEv.setEnabled(false);
+            this.modulo_generado = true;
+            this.text_p_ev.setEnabled(false);
+            this.text_q_ev.setEnabled(false);
+            this.panClavePublicaEv.setEnabled(true);
+            this.textClavePublicaEEv.setEnabled(true);
+            this.botAceptarClavePublicaEv.setEnabled(true);
+            this.text_modulo_ev.setText(n);
+            this.textClavePublicaEEv.setText(rsaDTO.getE_CI());
+            String status_boton = rsaDTO.getBotAceptarClavePublicaEnabled();
+            if(status_boton.compareTo("false") != 0){
+                this.botAceptarClavePublicaEv.setEnabled(false);
+                this.textClavePublicaEEv.setEnabled(false);
+                this.panClavePublicaEv.setEnabled(false);
+                this.textClavePrivadaDEv.setText(rsaDTO.getD_CI());
+                status_boton = rsaDTO.getBotAceptarClavePrivadaEnabled();
+                if(status_boton.compareTo("false") != 0){
+                    this.textClavePrivadaDEv.setEnabled(false);
+                    this.botAceptarClavePrivadaEv.setEnabled(false);
+                    this.panClavePrivadaEv.setEnabled(false);
+                    this.botCorregirCI.setEnabled(true);
+                }
+            }
+        }     
+}
+    
+    private void CargarEncriptar(RSADTO rsaDTO){
+        this.CargarCalculosIniciales(rsaDTO);
+        this.text_e_encriptar.setText(rsaDTO.getE_CI());
+        this.text_modulo_encriptar.setText(rsaDTO.getN_CI());
+        int tam = Integer.parseInt(rsaDTO.getTamBloque());
+        this.spinTamBloque.setValue(tam);
+        String texto = rsaDTO.getMensajeEncritar();
+        this.text_mens_encriptar.setText(texto);
+        String status_boton = rsaDTO.getPanelEncriptarTodoEnabled();
+        if(status_boton.compareTo("true") == 0){
+            this.panEncriptarTodo.setEnabled(true);
+            this.textResultadoTodo.setEnabled(true);
+            this.botAceptarTodo.setEnabled(true);
+            this.botResolverEncriptar.setEnabled(true);
+            this.botEncriptarBloques.setEnabled(false);
+            this.botEncriptarTodo.setEnabled(false);
+            this.spinTamBloque.setEnabled(false);
+            this.text_mens_encriptar.setEnabled(false);
+            this.text_repnum_encriptar.setText(this.rsa_evaluar.Codificar(this.text_mens_encriptar.getText()));
+            this.botNuevoEncriptar.setEnabled(true);
+            this.textResultadoTodo.setText(rsaDTO.getResultadoEncriptarTodo());
+        }
+        status_boton = rsaDTO.getPanelEncriptarBloquesEnabled();
+        if(status_boton.compareTo("true") == 0){
+            this.panEncriptarBloques.setEnabled(true);
+            this.textResultadoBloque.setEnabled(true);
+            this.textBloqueActual.setEnabled(true);
+            this.text_ascii_enc.setEnabled(true);
+            this.botAceptarBloques.setEnabled(true);
+            this.spinTamBloque.setEnabled(false);
+            this.botEncriptarTodo.setEnabled(false);
+            this.botEncriptarBloques.setEnabled(false);
+            this.botResolverEncriptar.setEnabled(true);
+            this.text_mens_encriptar.setEnabled(false);
+            this.text_repnum_encriptar.setText(this.rsa_evaluar.Codificar(this.text_mens_encriptar.getText()));
+            this.textResultadoBloque.setText(rsaDTO.getResultadoEncriptarBloques());
+            this.textResParcial.setText(rsaDTO.getResultadoParcialEncriptar());
+            this.pos_encriptar = Integer.parseInt(rsaDTO.getPosEncriptar());
+            if(this.pos_encriptar > 0) this.pos_encriptar -= 3*tam;            
+            
+            String repnum = this.text_repnum_encriptar.getText();
+            String bloque;
+            String caracteres;           
+            if(this.pos_encriptar + 3*tam < repnum.length()){
+                bloque = repnum.substring(this.pos_encriptar, this.pos_encriptar + (3*tam));
+                caracteres = texto.substring(this.pos_encriptar/3, (this.pos_encriptar/3) + tam);
+            }
+            else{
+                bloque = repnum.substring(this.pos_encriptar);
+                caracteres = texto.substring(this.pos_encriptar/3);
+            }
+            this.textBloqueActual.setText(bloque);
+            this.text_ascii_enc.setText(caracteres);
+            this.pos_encriptar += 3*tam;  
+        }                
+    }
+    
+    private void CargarDesencriptar(RSADTO rsaDTO){
+        this.CargarCalculosIniciales(rsaDTO);
+        this.CargarEncriptar(rsaDTO);
+        this.text_d_desenc.setText(rsaDTO.getD_CI());
+        this.text_n_desenc.setText(rsaDTO.getN_CI());
+        int tam = Integer.parseInt(rsaDTO.getTamBloque());
+        this.spinTamBloqueDes.setValue(tam);
+        if(this.panEncriptarTodo.isEnabled())
+            this.text_mens_encriptado.setText(this.textResultadoTodo.getText());
+        else{
+            if(this.panEncriptarBloques.isEnabled())
+                this.text_mens_encriptado.setText(this.textResParcial.getText());
+        }
+        String status_panel = rsaDTO.getPanelDesencriptarTodoEnabled();
+        if(status_panel.compareTo("true") == 0){
+            this.panDesencTodo.setEnabled(true);
+            this.text_resultado_des_todo.setEnabled(true);
+            this.botAceptarDesTodo.setEnabled(true);
+            this.botDesencTodo.setEnabled(false);
+            this.botDesencBloques.setEnabled(false);
+            this.botResolverDesencriptar.setEnabled(true);
+            this.text_resultado_des_todo.setText(rsaDTO.getResultadoDesencriptarTodo());
+        }
+        status_panel = rsaDTO.getPanelDesencriptarBloquesEnabled();
+        if(status_panel.compareTo("true") == 0){
+            this.panDesenBloques.setEnabled(true);
+            this.text_resultado_des_bloque.setEnabled(true);
+            this.text_bloque_des_bloque.setEnabled(true);
+            this.botAceptarDesBloque.setEnabled(true);
+            this.botDesencTodo.setEnabled(false);
+            this.botDesencBloques.setEnabled(false);
+            this.botCorregirDesencriptar.setEnabled(false);
+            this.botResolverDesencriptar.setEnabled(true);
+            this.botReintentarDesencriptar.setEnabled(false);   
+            this.text_resultado_des_bloque.setText(rsaDTO.getResultadoDesencriptarBloques());
+            this.pos_desencriptar = Integer.parseInt(rsaDTO.getPosDesencriptar());
+            this.text_parcial_des_bloque.setText(rsaDTO.getResultadoParcialDesencNumerico());
+            this.text_string_resultante_Des.setText(rsaDTO.getResultadoParcialDesencAscii());
+        }
+    }
+    
+    public void loadRSA(RSADTO rsaDTO){
+        int paso = rsaDTO.getCurrentStep();
+        switch(paso){
+            case 1: this.CargarCalculosIniciales(rsaDTO);                    
+                    break;
+            case 2: this.CargarEncriptar(rsaDTO);
+                    break;
+            case 3: this.CargarDesencriptar(rsaDTO);
+                    break;
+            default: break;
+        }
+        int i;
+        for(i = 0; i < paso; i++){
+            this.RSAEvaluarPanel.setEnabledAt(i + 1, true);
+            this.RSAEvaluarPanel.setSelectedIndex(i + 1);
+        }
     }
     
     /**
@@ -503,6 +667,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         botDesencBloques = new javax.swing.JButton();
         spinTamBloqueDes = new javax.swing.JSpinner();
         jLabel42 = new javax.swing.JLabel();
+        botReiniciarDes = new javax.swing.JButton();
         panDesencTodo = new javax.swing.JPanel();
         jLabel36 = new javax.swing.JLabel();
         text_resultado_des_todo = new javax.swing.JTextField();
@@ -1273,11 +1438,9 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 .addGap(184, 184, 184))
         );
 
-        panClavePublicaEv.getAccessibleContext().setAccessibleName("Definir clave pública");
-
         RSAEvaluarPanel.addTab("Cálculos Iniciales", panelCalculosInicialesEv);
 
-        jLabel22.setText("<html>De acuerdo a los parámetros <strong>(n, e)</strong> indicados, encripte un mensaje. Recuerde que cada bloque de 1 o 2 caracteres debe representarse con 6 dígitos.</html>");
+        jLabel22.setText("<html>De acuerdo a los parámetros <strong>(n, e)</strong> obtenidos en el paso anterior, encripte un mensaje. Recuerde que cada bloque de 1 o 2 caracteres debe representarse con 6 dígitos.</html>");
 
         panEncriptarTodo.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 0, 51), null));
         panEncriptarTodo.setEnabled(false);
@@ -1505,7 +1668,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
 
         jLabel30.setText("Tamaño Bloque:");
 
-        botNuevoEncriptar.setText("Nuevo");
+        botNuevoEncriptar.setText("Reiniciar");
         botNuevoEncriptar.setEnabled(false);
         botNuevoEncriptar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -1729,6 +1892,13 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
 
         jLabel42.setText("Tamaño Bloque:");
 
+        botReiniciarDes.setText("Reiniciar");
+        botReiniciarDes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botReiniciarDesMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
@@ -1758,7 +1928,9 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 .addComponent(botDesencTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botDesencBloques, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botReiniciarDes, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1778,7 +1950,8 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botDesencBloques)
-                    .addComponent(botDesencTodo))
+                    .addComponent(botDesencTodo)
+                    .addComponent(botReiniciarDes))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -2014,13 +2187,13 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addGap(154, 154, 154)
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botCorregirDesencriptar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botReintentarDesencriptar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botGuardarDesencriptar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botCorregirDesencriptar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(botGuardarDesencriptar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botResolverDesencriptar, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botResolverDesencriptar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botReintentarDesencriptar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(157, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
@@ -2217,6 +2390,8 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                     this.textClavePublicaEEv.setEnabled(true);
                     this.botAceptarClavePublicaEv.setEnabled(true);
                     this.botCalcularModuloEv.setEnabled(false);
+                    this.text_p_ev.setEnabled(false);
+                    this.text_q_ev.setEnabled(false);
                     this.botNuevoCI.setEnabled(true);
                     this.modulo_generado = true;
                 }
@@ -2704,7 +2879,27 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     }//GEN-LAST:event_botCorregirDesencriptarMousePressed
 
     private void botReintentarDesencriptarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botReintentarDesencriptarMousePressed
-        this.LimpiarDesencriptar();
+        if(this.panDesencTodo.isEnabled()){
+            this.text_resultado_des_todo.setText("");
+            this.text_resultado_des_todo.setEnabled(true);
+            this.text_res_decodificado_todo.setText("");
+            this.botAceptarDesTodo.setEnabled(true);
+            this.labelCorreccionDesTodo.setVisible(false);
+            this.botResolverDesencriptar.setEnabled(true);
+            this.botCorregirDesencriptar.setEnabled(false);
+            this.botReintentarDesencriptar.setEnabled(false);            
+        }
+        else{
+            if(this.panDesenBloques.isEnabled()){
+                this.text_resultado_des_bloque.setEnabled(true);
+                this.text_resultado_des_bloque.setText("");
+                this.labelCorreccionDesencBloque.setVisible(false);
+                this.botAceptarDesBloque.setEnabled(true);
+                this.botCorregirDesencriptar.setEnabled(false);
+                this.botReintentarDesencriptar.setEnabled(false);
+                this.botResolverDesencriptar.setEnabled(true);                
+            }
+        }
     }//GEN-LAST:event_botReintentarDesencriptarMousePressed
 
     private void botDesencBloquesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botDesencBloquesMousePressed
@@ -2828,6 +3023,10 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_botGuardarDesencriptarMousePressed
 
+    private void botReiniciarDesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botReiniciarDesMousePressed
+        this.LimpiarDesencriptar();
+    }//GEN-LAST:event_botReiniciarDesMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane RSAEvaluarPanel;
@@ -2854,6 +3053,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     private javax.swing.JButton botGuardarEncriptar;
     private javax.swing.JButton botNuevoCI;
     private javax.swing.JButton botNuevoEncriptar;
+    private javax.swing.JButton botReiniciarDes;
     private javax.swing.JButton botReintentarCI;
     private javax.swing.JButton botReintentarDesencriptar;
     private javax.swing.JButton botReintentarPreguntas;

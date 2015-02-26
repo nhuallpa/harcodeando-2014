@@ -7,6 +7,7 @@ package ar.com.hardcodeando.ui;
 
 import ar.com.hardcodeando.dto.HillDTO;
 import ar.com.hardcodeando.dto.MD5DTO;
+import ar.com.hardcodeando.dto.RSADTO;
 import ar.com.hardcodeando.ui.utils.AlgorithmStateStorage;
 import java.awt.BorderLayout;
 import javax.swing.JComponent;
@@ -393,7 +394,9 @@ public class MainFrameUI extends javax.swing.JFrame {
                      break;
                 case AlgorithmStateStorage.ALGO_DES:  //TODO:
                      break;
-                case AlgorithmStateStorage.ALGO_RSA:  //TODO:
+                case AlgorithmStateStorage.ALGO_RSA:
+                     RSADTO rsaDTO = AlgorithmStateStorage.loadRSA(file.getAbsolutePath());
+                     showRSAPanelAutoevaluar(rsaDTO);
                      break;
                 case AlgorithmStateStorage.ALGO_MD5:  
                      MD5DTO md5DTO = AlgorithmStateStorage.loadMD5(file.getAbsolutePath());
@@ -508,6 +511,18 @@ public class MainFrameUI extends javax.swing.JFrame {
         }
 
         this.currentComponent = md5EvaluarPanel;
+        insertCurrentComponent();
+    }
+    
+    private void showRSAPanelAutoevaluar(RSADTO rsaDTO){
+        removeCurrentComponent();
+        this.rpanelautoev = new RSAPanelAutoevaluar();
+        
+        if(rsaDTO != null){
+            this.rpanelautoev.loadRSA(rsaDTO);
+        }
+        
+        this.currentComponent = this.rpanelautoev;
         insertCurrentComponent();
     }
 
