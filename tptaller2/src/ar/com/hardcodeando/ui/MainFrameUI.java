@@ -20,6 +20,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
@@ -403,7 +404,7 @@ public class MainFrameUI extends javax.swing.JFrame {
                      showMD5PanelAutoevaluar(md5DTO);
                      break;
                 default:  //TODO: mostrar mensaje diciendo que no se puede levantar el archivo/el archivo no corresponde al formato de ningun algoritmo
-                    System.out.println("ESTRUCTURA DEL ALGORITMO INVALIDA");
+                     JOptionPane.showMessageDialog(null, "El archivo seleccionado no corresponde a ningún algoritmo del sistema", "Menu", JOptionPane.ERROR_MESSAGE);
                      break;
             }
         } else {
