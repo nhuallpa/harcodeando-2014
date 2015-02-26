@@ -151,7 +151,8 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         return res;
     }
     
-    private void CorregirD(){
+    private boolean CorregirD(){
+        boolean res = false;
         String texto = this.textClavePrivadaDEv.getText();
         long valor = Long.parseLong(texto);
         if(!this.rsa_evaluar.SetD(valor)){
@@ -161,10 +162,13 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         else{
             this.labelCorreccionD.setText("Correcto.");
             this.labelCorreccionD.setForeground(Color.green);
+            res = true;
         }
+        return res;
     }
     
-    private void CorregirE(){
+    private boolean CorregirE(){
+        boolean res = false;
         String texto = this.textClavePublicaEEv.getText();
         long valor = Long.parseLong(texto);
         if(!this.rsa_evaluar.SetE(valor)){
@@ -174,7 +178,9 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         else{
             this.labelCorreccionE.setText("Correcto.");
             this.labelCorreccionE.setForeground(Color.green);
+            res = true;
         }
+        return res;
     }
     
     private void NuevoRSA(){
@@ -186,7 +192,9 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     
     private void LimpiarCalculosIniciales(){
         this.text_p_ev.setText("");
+        this.text_p_ev.setEnabled(true);
         this.text_q_ev.setText("");
+        this.text_q_ev.setEnabled(true);
         this.text_modulo_ev.setText("");
         this.textClavePrivadaDEv.setText("");
         this.textClavePublicaEEv.setText("");
@@ -212,12 +220,12 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     
     private void LimpiarEncriptar(){
         this.pos_encriptar = 0;
-        this.rsa_evaluar.LimpiarValores();        
-        this.NuevoRSA();
-        long e = this.rsa_evaluar.GetE();
-        long n = this.rsa_evaluar.GetModulo();
-        this.text_e_encriptar.setText(Long.toString(e));
-        this.text_modulo_encriptar.setText(Long.toString(n));
+        //this.rsa_evaluar.LimpiarValores();        
+        //this.NuevoRSA();
+        //long e = this.rsa_evaluar.GetE();
+        //long n = this.rsa_evaluar.GetModulo();
+        //this.text_e_encriptar.setText(Long.toString(e));
+        //this.text_modulo_encriptar.setText(Long.toString(n));
         this.botEncriptarBloques.setEnabled(true);
         this.botEncriptarTodo.setEnabled(true);
         this.botNuevoEncriptar.setEnabled(false);
@@ -374,25 +382,35 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         if(n.compareTo("") != 0){
             this.botCalcularModuloEv.setEnabled(false);
             this.modulo_generado = true;
+            Long p = Long.parseLong(this.text_p_ev.getText());
+            Long q = Long.parseLong(this.text_q_ev.getText());
+            this.rsa_evaluar.SetP(p);
+            this.rsa_evaluar.SetQ(q);
+            this.rsa_evaluar.GenerarModulo();
             this.text_p_ev.setEnabled(false);
             this.text_q_ev.setEnabled(false);
             this.panClavePublicaEv.setEnabled(true);
             this.textClavePublicaEEv.setEnabled(true);
             this.botAceptarClavePublicaEv.setEnabled(true);
+            this.botNuevoCI.setEnabled(true);
             this.text_modulo_ev.setText(n);
             this.textClavePublicaEEv.setText(rsaDTO.getE_CI());
             String status_boton = rsaDTO.getBotAceptarClavePublicaEnabled();
-            if(status_boton.compareTo("false") != 0){
+            if(status_boton.compareTo("false") == 0){
                 this.botAceptarClavePublicaEv.setEnabled(false);
+                this.botAceptarClavePrivadaEv.setEnabled(true);
                 this.textClavePublicaEEv.setEnabled(false);
                 this.panClavePublicaEv.setEnabled(false);
-                this.textClavePrivadaDEv.setText(rsaDTO.getD_CI());
+                this.panClavePrivadaEv.setEnabled(true);
+                this.textClavePrivadaDEv.setEnabled(true);
+                this.textClavePrivadaDEv.setText(rsaDTO.getD_CI());             
                 status_boton = rsaDTO.getBotAceptarClavePrivadaEnabled();
-                if(status_boton.compareTo("false") != 0){
+                if(status_boton.compareTo("false") == 0){
                     this.textClavePrivadaDEv.setEnabled(false);
                     this.botAceptarClavePrivadaEv.setEnabled(false);
                     this.panClavePrivadaEv.setEnabled(false);
                     this.botCorregirCI.setEnabled(true);
+                    this.botResolverCI.setEnabled(false);
                 }
             }
         }     
@@ -400,6 +418,11 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     
     private void CargarEncriptar(RSADTO rsaDTO){
         this.CargarCalculosIniciales(rsaDTO);
+        this.botCorregirCI.setEnabled(false);
+        Long e = Long.parseLong(this.textClavePublicaEEv.getText());
+        Long d = Long.parseLong(this.textClavePrivadaDEv.getText());
+        this.rsa_evaluar.SetE(e);
+        this.rsa_evaluar.SetD(d);
         this.text_e_encriptar.setText(rsaDTO.getE_CI());
         this.text_modulo_encriptar.setText(rsaDTO.getN_CI());
         int tam = Integer.parseInt(rsaDTO.getTamBloque());
@@ -427,6 +450,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             this.textBloqueActual.setEnabled(true);
             this.text_ascii_enc.setEnabled(true);
             this.botAceptarBloques.setEnabled(true);
+            this.botNuevoEncriptar.setEnabled(true);
             this.spinTamBloque.setEnabled(false);
             this.botEncriptarTodo.setEnabled(false);
             this.botEncriptarBloques.setEnabled(false);
@@ -436,9 +460,9 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             this.textResultadoBloque.setText(rsaDTO.getResultadoEncriptarBloques());
             this.textResParcial.setText(rsaDTO.getResultadoParcialEncriptar());
             this.pos_encriptar = Integer.parseInt(rsaDTO.getPosEncriptar());
-            if(this.pos_encriptar > 0) this.pos_encriptar -= 3*tam;            
-            
             String repnum = this.text_repnum_encriptar.getText();
+            if(this.pos_encriptar > 0) this.pos_encriptar -= 3*tam;            
+
             String bloque;
             String caracteres;           
             if(this.pos_encriptar + 3*tam < repnum.length()){
@@ -451,7 +475,8 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             }
             this.textBloqueActual.setText(bloque);
             this.text_ascii_enc.setText(caracteres);
-            this.pos_encriptar += 3*tam;  
+            this.pos_encriptar += 3*tam;
+            if(this.pos_encriptar == repnum.length()) this.AvisarMensajeEncriptado();
         }                
     }
     
@@ -514,6 +539,19 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         }
     }
     
+    private void AvisarMensajeEncriptado(){            
+            this.labelCorreccionEncriptarBloques.setText("Mensaje final encriptado: " + this.textResParcial.getText());
+            this.labelCorreccionEncriptarBloques.setForeground(Color.blue);
+            this.labelCorreccionEncriptarBloques.setVisible(true);
+            this.textResultadoBloque.setEnabled(false);
+            this.botAceptarBloques.setEnabled(false);
+            this.botSiguienteBloque.setEnabled(false);
+            this.botResolverEncriptar.setEnabled(false);
+            this.botCorregirEncriptar.setEnabled(false);
+            this.botReintenterEncriptar.setEnabled(false);
+            this.botContinuarEncriptar.setEnabled(true);
+            this.botGuardarEncriptar.setEnabled(true);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -2412,15 +2450,16 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     }//GEN-LAST:event_botContinuarCIMousePressed
 
     private void botCorregirCIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botCorregirCIMousePressed
-        this.CorregirModulo();
-        this.CorregirE();
-        this.CorregirD();        
-        this.labelCorreccionN.setVisible(true);
+//        this.CorregirModulo();
+        boolean res_e = this.CorregirE();
+        boolean res_d = this.CorregirD();        
+//        this.labelCorreccionN.setVisible(true);
         this.labelCorreccionD.setVisible(true);
         this.labelCorreccionE.setVisible(true);       
         this.botReintentarCI.setEnabled(true);
         this.botCorregirCI.setEnabled(false);
         this.botResolverCI.setEnabled(false);
+        if(res_e && res_d) this.botContinuarCI.setEnabled(true);
     }//GEN-LAST:event_botCorregirCIMousePressed
 
     private void botReintentarCIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botReintentarCIMousePressed
@@ -2445,7 +2484,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     private void botAceptarClavePublicaEvMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botAceptarClavePublicaEvMousePressed
         String texto = this.textClavePublicaEEv.getText();        
         if(texto.isEmpty())
-            JOptionPane.showMessageDialog(null, "Ingrese el valor D.");
+            JOptionPane.showMessageDialog(null, "Ingrese el valor E.");
         else{
             if(!this.esNumero(texto)){                            
                 JOptionPane.showMessageDialog(null, "Debe ingresar valores numéricos.");  
@@ -2464,7 +2503,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     private void botAceptarClavePrivadaEvMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botAceptarClavePrivadaEvMousePressed
         String texto = this.textClavePrivadaDEv.getText();
         if(texto.isEmpty())
-            JOptionPane.showMessageDialog(null, "Ingrese el valor E.");
+            JOptionPane.showMessageDialog(null, "Ingrese el valor D.");
         else{
             if(!this.esNumero(texto)){                            
                 JOptionPane.showMessageDialog(null, "Debe ingresar valores numéricos.");  
@@ -2495,6 +2534,8 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
         this.text_modulo_ev.setText(Long.toString(n));
         this.textClavePublicaEEv.setText(Long.toString(e));
         this.textClavePrivadaDEv.setText(Long.toString(d));
+        this.botAceptarClavePublicaEv.setEnabled(false);
+        this.botAceptarClavePrivadaEv.setEnabled(false);
         this.panClavePublicaEv.setEnabled(true);
         this.textClavePublicaEEv.setEnabled(true);
         this.panClavePrivadaEv.setEnabled(true);
@@ -2589,6 +2630,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 this.textResultadoBloque.setText("");
                 this.botAceptarBloques.setEnabled(true);
                 this.botSiguienteBloque.setEnabled(false);
+                this.botGuardarEncriptar.setEnabled(true);
                 this.botReintenterEncriptar.setEnabled(false);
                 this.botResolverEncriptar.setEnabled(true);
                 this.labelCorreccionEncriptarBloques.setVisible(false);
@@ -2645,6 +2687,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
                 else{
                     this.botAceptarBloques.setEnabled(false);
                     this.botResolverEncriptar.setEnabled(false);
+                    this.botGuardarEncriptar.setEnabled(false);
                     this.botCorregirEncriptar.setEnabled(true);
                     this.textResultadoBloque.setEnabled(false);
                     this.textResParcial.setText(this.textResParcial.getText() + this.textResultadoBloque.getText());
@@ -2712,23 +2755,16 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             this.pos_encriptar += 3*tam_bloque;            
             this.botAceptarBloques.setEnabled(true);
             this.botSiguienteBloque.setEnabled(false);
+            this.botGuardarEncriptar.setEnabled(true);
             this.botReintenterEncriptar.setEnabled(false);
             this.botResolverEncriptar.setEnabled(true);
             this.textResultadoBloque.setEnabled(true);
             this.labelCorreccionEncriptarBloques.setVisible(false);
             this.textResultadoBloque.setText("");
         }
-        else{ 
+        else{
             JOptionPane.showMessageDialog(null, "El mensaje ha sido encriptado.");
-            this.labelCorreccionEncriptarBloques.setText("Mensaje final encriptado: " + this.textResParcial.getText());
-            this.labelCorreccionEncriptarBloques.setForeground(Color.blue);
-            this.labelCorreccionEncriptarBloques.setVisible(true);
-            this.botAceptarBloques.setEnabled(false);
-            this.botSiguienteBloque.setEnabled(false);
-            this.botResolverEncriptar.setEnabled(false);
-            this.botCorregirEncriptar.setEnabled(false);
-            this.botReintenterEncriptar.setEnabled(false);
-            this.botContinuarEncriptar.setEnabled(true);
+            this.AvisarMensajeEncriptado();
         }
         this.textResultadoBloque.setText("");
     }//GEN-LAST:event_botSiguienteBloqueMousePressed
@@ -2740,7 +2776,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             this.labelCorreccionEncriptarTodo.setText("<html>Mensaje encriptado: " + res + "</html>" );
             this.labelCorreccionEncriptarTodo.setForeground(Color.blue);
             this.labelCorreccionEncriptarTodo.setVisible(true);
-            this.botAceptarTodo.setEnabled(false);
+            this.botAceptarTodo.setEnabled(false);            
             this.textResultadoTodo.setText(res);
             this.textResultadoTodo.setEnabled(false);
             this.botContinuarEncriptar.setEnabled(true);
@@ -2751,6 +2787,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             this.labelCorreccionEncriptarBloques.setForeground(Color.blue);            
             this.labelCorreccionEncriptarBloques.setVisible(true);
             this.textResParcial.setText(this.textResParcial.getText() + res);
+            this.botGuardarEncriptar.setEnabled(false);
             this.botAceptarBloques.setEnabled(false);
             this.botSiguienteBloque.setEnabled(true);
             this.textResultadoBloque.setEnabled(false);
