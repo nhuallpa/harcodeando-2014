@@ -17,16 +17,23 @@ public class RSADTO {
     private String n_ci;
     private String e_ci;
     private String d_ci;
-    private String mens_encriptar;
+    private String bot_aceptar_cpublica_enabled;
+    private String bot_aceptar_cprivada_enabled;
+    private String mens_encriptar;    
     private String tam_bloque;
+    private String panel_encriptar_todo_enabled;
+    private String panel_encriptar_bloques_enabled;    
     private String resultado_encriptar_todo;
     private String pos_encriptar;
     private String resultado_encriptar_bloques;
     private String resultado_encriptar_parcial;
+    private String panel_desenc_todo_enabled;
+    private String panel_desenc_bloquees_enabled;
     private String resultado_desencriptar_todo;
     private String pos_desencriptar;
+    String parcial_desenc_numerico;
+    String parcial_desenc_ascii;
     private String resultado_desenriptar_bloques;
-    private String reultado_desencriptar_parcial;
     
     public String getType() {
         return type;
@@ -56,7 +63,7 @@ public class RSADTO {
         this.q_ci = q;
     }
     
-    public String getQ_CI(String q){
+    public String getQ_CI(){
         return this.q_ci;
     }
     
@@ -84,6 +91,22 @@ public class RSADTO {
         return this.d_ci;
     }
     
+    public void setBotAceptarClavePublicaEnabled(String b){
+        this.bot_aceptar_cpublica_enabled = b;
+    }
+    
+    public String getBotAceptarClavePublicaEnabled(){
+        return this.bot_aceptar_cpublica_enabled;
+    }
+    
+    public void setBotAceptarClavePrivadaEnabled(String b){
+        this.bot_aceptar_cprivada_enabled = b;
+    }
+    
+    public String getBotAceptarClavePrivadaEnabled(){
+        return this.bot_aceptar_cprivada_enabled;
+    }
+    
     public void setMensajeEncriptar(String mens){
         this.mens_encriptar = mens;
     }
@@ -95,9 +118,25 @@ public class RSADTO {
     public void setTamBloque(String t){
         this.tam_bloque = t;
     }
-    
+           
     public String getTamBloque(){
         return this.tam_bloque;
+    }
+    
+    public void setPanelEncriptarTodoEnabled(String b){
+        this.panel_encriptar_todo_enabled = b;
+    }
+    
+    public String getPanelEncriptarTodoEnabled(){
+        return this.panel_encriptar_todo_enabled;
+    }
+    
+    public void setPanelEncriptarBloquesEnabled(String b){
+        this.panel_encriptar_bloques_enabled = b;
+    }
+    
+    public String getPanelEncriptarBloquesEnabled(){
+        return this.panel_encriptar_bloques_enabled;
     }
     
     public void setResultadoEncriptarTodo(String m){
@@ -132,6 +171,22 @@ public class RSADTO {
         return this.resultado_encriptar_parcial;
     }
     
+    public void setPanelDesencriptarTodoEnabled(String p){
+        this.panel_desenc_todo_enabled = p;
+    }
+    
+    public String getPanelDesencriptarTodoEnabled(){
+        return this.panel_desenc_todo_enabled;
+    }
+    
+    public void setPanelDesencriptarBloquesEnabled(String p){
+        this.panel_desenc_bloquees_enabled = p;
+    }
+    
+    public String getPanelDesencriptarBloquesEnabled(){
+        return this.panel_desenc_bloquees_enabled;
+    }
+    
     public void setResultadoDesencriptarTodo(String d){
         this.resultado_desencriptar_todo = d;
     }
@@ -148,19 +203,27 @@ public class RSADTO {
         return this.pos_desencriptar;
     }
     
+    public void setResultadoParcialDesenecNumerico(String p){
+        this.parcial_desenc_numerico = p;
+    }
+    
+    public String getResultadoParcialDesencNumerico(){
+        return this.parcial_desenc_numerico;
+    }
+    
+    public void setResultadoParcialDesencAscii(String p){
+        this.parcial_desenc_ascii = p;
+    }
+    
+    public String getResultadoParcialDesencAscii(){
+        return this.parcial_desenc_ascii;
+    }
+    
     public void setResultadoDesencriptarBloques(String d){
         this.resultado_desenriptar_bloques = d;
     }
     
     public String getResultadoDesencriptarBloques(){
         return this.resultado_desenriptar_bloques;
-    }
-    
-    public void setResultadoParcialDesencriptar(String d){
-        this.reultado_desencriptar_parcial = d;
-    }
-    
-    public String getResultadoParcialDesencriptar(){
-        return this.reultado_desencriptar_parcial;
     }
 }

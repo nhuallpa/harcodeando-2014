@@ -150,4 +150,33 @@ public class AlgorithmStateStorage {
         }
         return md5DtoRetrieve;
     }
+    
+    public static RSADTO loadRSA(String pathFile) {
+        StringBuilder sb = new StringBuilder();
+        RSADTO rsaDTORetrieve;
+        boolean isFirstLine = true;
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(pathFile));
+            String line;
+            
+            while ((line = reader.readLine()) != null) {
+                if (isFirstLine) {
+                    isFirstLine = !isFirstLine; // skip
+                } else {
+                    sb.append(line);
+                }
+                
+            }
+            reader.close();
+            Gson gson = new Gson();
+            rsaDTORetrieve = gson.fromJson(sb.toString(), RSADTO.class);
+            
+        } catch (Exception e) {
+            System.err.format("Exception occurred trying to read '%s'.", pathFile);
+            e.printStackTrace();
+            return null;
+        }
+        return rsaDTORetrieve;
+    }
 }
