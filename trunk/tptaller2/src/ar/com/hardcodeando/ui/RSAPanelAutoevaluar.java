@@ -338,7 +338,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     private void LlenarDTODesencriptar(RSADTO rsaDTO){
         rsaDTO.setResultadoDesencriptarTodo(this.text_resultado_des_todo.getText());
         rsaDTO.setPosDesencriptar(Long.toString(this.pos_desencriptar));
-        rsaDTO.setResultadoEncriptarBloques(this.text_resultado_des_bloque.getText());
+        rsaDTO.setResultadoDesencriptarBloques(this.text_resultado_des_bloque.getText());
         rsaDTO.setResultadoParcialDesenecNumerico(this.text_parcial_des_bloque.getText());
         rsaDTO.setResultadoParcialDesencAscii(this.text_string_resultante_Des.getText());
         if(this.panDesencTodo.isEnabled()) rsaDTO.setPanelDesencriptarTodoEnabled("true");
@@ -376,6 +376,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     }
     
     private void CargarCalculosIniciales(RSADTO rsaDTO){
+        this.rsa_evaluar.LimpiarValores();
         this.text_p_ev.setText(rsaDTO.getP_CI());
         this.text_q_ev.setText(rsaDTO.getQ_CI());
         String n = rsaDTO.getN_CI();
@@ -483,8 +484,8 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
     private void CargarDesencriptar(RSADTO rsaDTO){
         this.CargarCalculosIniciales(rsaDTO);
         this.CargarEncriptar(rsaDTO);
-        this.text_d_desenc.setText(rsaDTO.getD_CI());
-        this.text_n_desenc.setText(rsaDTO.getN_CI());
+        this.text_d_desenc.setText(Long.toString(this.rsa_evaluar.GetD()));
+        this.text_n_desenc.setText(Long.toString(this.rsa_evaluar.GetModulo()));
         int tam = Integer.parseInt(rsaDTO.getTamBloque());
         this.spinTamBloqueDes.setValue(tam);
         if(this.panEncriptarTodo.isEnabled())
@@ -516,8 +517,19 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             this.botReintentarDesencriptar.setEnabled(false);   
             this.text_resultado_des_bloque.setText(rsaDTO.getResultadoDesencriptarBloques());
             this.pos_desencriptar = Integer.parseInt(rsaDTO.getPosDesencriptar());
+            if(this.pos_desencriptar > 0) this.pos_desencriptar -= this.rsa_evaluar.GetLongitudBloque();
+            String texto = this.text_mens_encriptado.getText();
+            this.text_bloque_des_bloque.setText(texto.substring(this.pos_desencriptar, 
+                                            this.pos_desencriptar + this.rsa_evaluar.GetLongitudBloque()));
+            this.pos_desencriptar += this.rsa_evaluar.GetLongitudBloque();            
             this.text_parcial_des_bloque.setText(rsaDTO.getResultadoParcialDesencNumerico());
             this.text_string_resultante_Des.setText(rsaDTO.getResultadoParcialDesencAscii());
+            String msg = this.text_mens_encriptado.getText();
+            if(this.pos_desencriptar == msg.length()){
+                this.AvisarMensajeDesencriptado();
+                this.botAceptarDesBloque.setEnabled(false);
+                this.text_resultado_des_bloque.setEnabled(false);
+            }            
         }
     }
     
@@ -551,6 +563,14 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             this.botReintenterEncriptar.setEnabled(false);
             this.botContinuarEncriptar.setEnabled(true);
             this.botGuardarEncriptar.setEnabled(true);
+    }
+    
+    private void AvisarMensajeDesencriptado(){
+            this.botResolverDesencriptar.setEnabled(false);
+            this.labelCorreccionDesencBloque.setText("Mensaje final desencriptado: " + this.text_parcial_des_bloque.getText()
+                     + " -- Mensaje final decodificado: " + this.text_string_resultante_Des.getText());
+            this.labelCorreccionDesencBloque.setForeground(Color.blue);
+            this.labelCorreccionDesencBloque.setVisible(true);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -2870,6 +2890,7 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             this.text_resultado_des_bloque.setEnabled(false);
             this.botAceptarDesBloque.setEnabled(false);
             this.botSiguienteDesBloque.setEnabled(true);
+            this.botGuardarDesencriptar.setEnabled(false);
         }
         this.botResolverDesencriptar.setEnabled(false);
         this.botReintentarDesencriptar.setEnabled(true);
@@ -2993,17 +3014,14 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             this.botAceptarDesBloque.setEnabled(true);
             this.text_resultado_des_bloque.setText("");
             this.text_resultado_des_bloque.setEnabled(true);            
-            this.botResolverDesencriptar.setEnabled(true);   
+            this.botResolverDesencriptar.setEnabled(true);             
             this.labelCorreccionDesencBloque.setVisible(false);
         }
         else{
             JOptionPane.showMessageDialog(null, "El mensaje ha sido desencriptado.");
-            this.botResolverDesencriptar.setEnabled(false);
-            this.labelCorreccionDesencBloque.setText("Mensaje final desencriptado: " + this.text_parcial_des_bloque.getText()
-                     + " -- Mensaje final decodificado: " + this.text_string_resultante_Des.getText());
-            this.labelCorreccionDesencBloque.setForeground(Color.blue);
-            this.labelCorreccionDesencBloque.setVisible(true);
-        }               
+            this.AvisarMensajeDesencriptado();
+        } 
+        this.botGuardarDesencriptar.setEnabled(true);
         this.botReintentarDesencriptar.setEnabled(false);
         this.botCorregirDesencriptar.setEnabled(false);
         this.botSiguienteDesBloque.setEnabled(false);
