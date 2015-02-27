@@ -19,8 +19,8 @@ public class NLFSRDTO {
     private String[] rowStep4 = new String[4];
     private String[][] tableStep5 = new String[16][4];
     private String key;
-    private int period;
-    private int keyDecimal;
+    private String period;
+    private String keyDecimal;
     
     public void setCurrentStep(int currentStep) {
         this.currentStep = currentStep;
@@ -86,19 +86,19 @@ public class NLFSRDTO {
         return key;
     }
 
-    public void setPeriod(int period) {
+    public void setPeriod(String period) {
         this.period = period;
     }
     
-    public int getPeriod(){
+    public String getPeriod(){
         return period;
     }
 
-    public void setKeyDecimal(int keyDecimal) {
+    public void setKeyDecimal(String keyDecimal) {
         this.keyDecimal = keyDecimal;
     }
     
-    public int getKeyDecimal(){
+    public String getKeyDecimal(){
         return keyDecimal;
     }
 }

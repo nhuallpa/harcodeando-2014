@@ -997,7 +997,6 @@ public class NLFSREvaluar extends javax.swing.JPanel {
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             String k = (String)model.getValueAt(0, 1);
             int x = Integer.parseInt(model.getValueAt(0, 2).toString());            
-            showPopup(jPanel3, "Bit clave y x correctos. Puede continuar con el proximo paso.");
             jButton6.setEnabled(true);
             s0 = x;
             key = k;
@@ -1274,8 +1273,8 @@ public class NLFSREvaluar extends javax.swing.JPanel {
             }
             dto.setTableStep5(table);
             dto.setKey(this.jTextField3.getText());
-            dto.setPeriod(Integer.parseInt(this.jTextField4.getText()));
-            dto.setKeyDecimal(Integer.parseInt(this.jTextField5.getText()));
+            dto.setPeriod(this.jTextField4.getText());
+            dto.setKeyDecimal(this.jTextField5.getText());
         }
         return dto;
     }
@@ -1331,14 +1330,23 @@ public class NLFSREvaluar extends javax.swing.JPanel {
             setUpStep5();
             DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
             String[][] table = nlfsrDTO.getTableStep5();
-            for (int i = 0; i < model.getRowCount(); i++) {
-                for (int j = 0; j < model.getColumnCount(); j++) {
+            for (int i = 0; i < 16; i++) {
+                for (int j = 0; j < 4; j++) {
                     model.setValueAt(table[i][j], i, j);
+                    model.addRow(new Object[]{"","","",""});
                 }
             }
             this.jTextField3.setText(nlfsrDTO.getKey());
-            this.jTextField4.setText(String.valueOf(nlfsrDTO.getPeriod()));
-            this.jTextField5.setText(String.valueOf(nlfsrDTO.getKeyDecimal()));
+            this.jTextField4.setText(nlfsrDTO.getPeriod());
+            this.jTextField5.setText(nlfsrDTO.getKeyDecimal());
+            
+            if(nlfsrDTO.getKey() != null && !nlfsrDTO.getKey().isEmpty() 
+                    || nlfsrDTO.getPeriod() != null && !nlfsrDTO.getPeriod().isEmpty()
+                    || nlfsrDTO.getKeyDecimal() != null && !nlfsrDTO.getKeyDecimal().isEmpty()){
+                this.jTextField3.setEnabled(true);
+                this.jTextField4.setEnabled(true);
+                this.jTextField5.setEnabled(true);
+            }                
         }
         
         for (int i = 1; i <= step; i++) {
