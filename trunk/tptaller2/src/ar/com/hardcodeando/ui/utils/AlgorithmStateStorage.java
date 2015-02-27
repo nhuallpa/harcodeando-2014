@@ -179,4 +179,33 @@ public class AlgorithmStateStorage {
         }
         return rsaDTORetrieve;
     }
+    
+    public static NLFSRDTO loadNLFSR(String pathFile){
+        StringBuilder sb = new StringBuilder();
+        NLFSRDTO nlfsrDTORetrieve;
+        boolean isFirstLine = true;
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(pathFile));
+            String line;
+            
+            while ((line = reader.readLine()) != null) {
+                if (isFirstLine) {
+                    isFirstLine = !isFirstLine; // skip
+                } else {
+                    sb.append(line);
+                }
+                
+            }
+            reader.close();
+            Gson gson = new Gson();
+            nlfsrDTORetrieve = gson.fromJson(sb.toString(), NLFSRDTO.class);
+            
+        } catch (Exception e) {
+            System.err.format("Exception occurred trying to read '%s'.", pathFile);
+            e.printStackTrace();
+            return null;
+        }
+        return nlfsrDTORetrieve;
+    }
 }

@@ -7,6 +7,7 @@ package ar.com.hardcodeando.ui;
 
 import ar.com.hardcodeando.dto.HillDTO;
 import ar.com.hardcodeando.dto.MD5DTO;
+import ar.com.hardcodeando.dto.NLFSRDTO;
 import ar.com.hardcodeando.dto.RSADTO;
 import ar.com.hardcodeando.ui.utils.AlgorithmStateStorage;
 import java.awt.BorderLayout;
@@ -391,7 +392,9 @@ public class MainFrameUI extends javax.swing.JFrame {
                      HillDTO hillDTO = AlgorithmStateStorage.loadHill(file.getAbsolutePath());
                      showHillPanelAutoevaluar(hillDTO);
                      break;
-                case AlgorithmStateStorage.ALGO_NLFRS:  //TODO:
+                case AlgorithmStateStorage.ALGO_NLFRS:
+                     NLFSRDTO nlfsrDTO = AlgorithmStateStorage.loadNLFSR(file.getAbsolutePath());
+                     showNLFSRPanelAutoevaluar(nlfsrDTO);
                      break;
                 case AlgorithmStateStorage.ALGO_DES:  //TODO:
                      break;
@@ -524,6 +527,18 @@ public class MainFrameUI extends javax.swing.JFrame {
         }
         
         this.currentComponent = this.rpanelautoev;
+        insertCurrentComponent();
+    }
+    
+    private void showNLFSRPanelAutoevaluar(NLFSRDTO nlfsrDTO){
+        removeCurrentComponent();
+        this.nEvaluar = new NLFSREvaluar();
+        
+        if(nlfsrDTO != null){
+            this.nEvaluar.load(nlfsrDTO);
+        }
+        
+        this.currentComponent = this.nEvaluar;
         insertCurrentComponent();
     }
 
