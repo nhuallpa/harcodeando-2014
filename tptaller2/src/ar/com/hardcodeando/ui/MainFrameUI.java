@@ -5,6 +5,7 @@
  */
 package ar.com.hardcodeando.ui;
 
+import ar.com.hardcodeando.dto.DesDTO;
 import ar.com.hardcodeando.dto.HillDTO;
 import ar.com.hardcodeando.dto.MD5DTO;
 import ar.com.hardcodeando.dto.NLFSRDTO;
@@ -396,7 +397,9 @@ public class MainFrameUI extends javax.swing.JFrame {
                      NLFSRDTO nlfsrDTO = AlgorithmStateStorage.loadNLFSR(file.getAbsolutePath());
                      showNLFSRPanelAutoevaluar(nlfsrDTO);
                      break;
-                case AlgorithmStateStorage.ALGO_DES:  //TODO:
+                case AlgorithmStateStorage.ALGO_DES:
+                     DesDTO desDTO = AlgorithmStateStorage.loadDes(file.getAbsolutePath());
+                     showDesPanelAutoevaluar(desDTO);
                      break;
                 case AlgorithmStateStorage.ALGO_RSA:
                      RSADTO rsaDTO = AlgorithmStateStorage.loadRSA(file.getAbsolutePath());
@@ -542,6 +545,18 @@ public class MainFrameUI extends javax.swing.JFrame {
         insertCurrentComponent();
     }
 
+    private void showDesPanelAutoevaluar(DesDTO desDTO){
+        removeCurrentComponent();
+        this.dPanelEvaluar = new DesPanelEvaluar();
+        
+        if(desDTO != null){
+            this.dPanelEvaluar.load(desDTO);
+        }
+        
+        this.currentComponent = this.dPanelEvaluar;
+        insertCurrentComponent();
+    }    
+    
     private void removeCurrentComponent() {
         if(this.currentComponent!=null){
             this.currentComponent.setVisible(false);

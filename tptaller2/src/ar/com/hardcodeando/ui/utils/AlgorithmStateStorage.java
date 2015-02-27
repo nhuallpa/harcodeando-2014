@@ -208,4 +208,35 @@ public class AlgorithmStateStorage {
         }
         return nlfsrDTORetrieve;
     }
+    
+    
+    public static DesDTO loadDes(String pathFile){
+        StringBuilder sb = new StringBuilder();
+        DesDTO desDTORetrieve;
+        boolean isFirstLine = true;
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(pathFile));
+            String line;
+            
+            while ((line = reader.readLine()) != null) {
+                if (isFirstLine) {
+                    isFirstLine = !isFirstLine; // skip
+                } else {
+                    sb.append(line);
+                }
+                
+            }
+            reader.close();
+            Gson gson = new Gson();
+            desDTORetrieve = gson.fromJson(sb.toString(), DesDTO.class);
+            
+        } catch (Exception e) {
+            System.err.format("Exception occurred trying to read '%s'.", pathFile);
+            e.printStackTrace();
+            return null;
+        }
+        return desDTORetrieve;
+    }
+    
 }

@@ -939,6 +939,7 @@
             <Component class="javax.swing.JButton" name="jButton6">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Siguiente"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
@@ -1247,6 +1248,7 @@
             <Component class="javax.swing.JButton" name="jButton1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Siguiente"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
@@ -1642,6 +1644,7 @@
             <Component class="javax.swing.JButton" name="jButton9">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Siguiente"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton9ActionPerformed"/>
@@ -2037,6 +2040,7 @@
             <Component class="javax.swing.JButton" name="jButton22">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Siguiente"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton22ActionPerformed"/>
@@ -2432,6 +2436,7 @@
             <Component class="javax.swing.JButton" name="jButton25">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Siguiente"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton25ActionPerformed"/>
@@ -2830,6 +2835,7 @@
             <Component class="javax.swing.JButton" name="jButton17">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Desencriptar"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton17ActionPerformed"/>

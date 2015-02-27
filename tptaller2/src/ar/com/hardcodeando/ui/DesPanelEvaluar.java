@@ -747,6 +747,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jLabel29.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         jButton6.setText("Siguiente");
+        jButton6.setEnabled(false);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -907,6 +908,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jLabel13.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         jButton1.setText("Siguiente");
+        jButton1.setEnabled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -1144,6 +1146,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jLabel95.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         jButton9.setText("Siguiente");
+        jButton9.setEnabled(false);
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -1381,6 +1384,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jLabel114.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         jButton22.setText("Siguiente");
+        jButton22.setEnabled(false);
         jButton22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton22ActionPerformed(evt);
@@ -1618,6 +1622,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jLabel133.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         jButton25.setText("Siguiente");
+        jButton25.setEnabled(false);
         jButton25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton25ActionPerformed(evt);
@@ -1897,6 +1902,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         });
 
         jButton17.setText("Desencriptar");
+        jButton17.setEnabled(false);
         jButton17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton17ActionPerformed(evt);
@@ -2138,6 +2144,10 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        resolverRonda2();
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void resolverRonda2() {
         int[] rondasR = des.getRondasR();
         long[] rondasE = des.getRondasE();
         long[] xorFeistel = des.getRondasXorFeistel();
@@ -2177,9 +2187,9 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jTextField49.setText(des.formatBinary(Long.toBinaryString(permFeistel[j]&0xFFFFFFFFL),32, 4));
         jTextField50.setText(des.formatBinary(Long.toBinaryString(rondasR[i]&0xFFFFFFFFL), 32, 4));
         
-        evaluarRonda2();
-    }//GEN-LAST:event_jButton20ActionPerformed
-
+        evaluarRonda2();        
+    }
+    
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         jTabbedPane1.setEnabledAt(5, true);
         jTabbedPane1.setSelectedIndex(5);
@@ -2238,6 +2248,10 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        resolverRonda1();
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void resolverRonda1(){
         int[] rondasR = des.getRondasR();
         long[] rondasE = des.getRondasE();
         long[] xorFeistel = des.getRondasXorFeistel();
@@ -2278,14 +2292,19 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jTextField34.setText(des.formatBinary(Long.toBinaryString(rondasR[i]&0xFFFFFFFFL), 32, 4));
         
         evaluarRonda1();
-    }//GEN-LAST:event_jButton7ActionPerformed
-
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         jTabbedPane1.setEnabledAt(4, true);
         jTabbedPane1.setSelectedIndex(4);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        
+        resolverRondaInicial();
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void resolverRondaInicial(){
         String mensaje = jTextField2.getText();
         int[] rondasL = des.getRondasL();
         int[] rondasR = des.getRondasR();
@@ -2303,9 +2322,8 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jTextField26.setText(des.formatBinary(Long.toBinaryString(rondasR[0]&0xFFFFFFFFL), 32, 4));
         
         evaluarRondaInicial();
-
-    }//GEN-LAST:event_jButton15ActionPerformed
-
+    }
+    
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         jTabbedPane1.setEnabledAt(3, true);
         jTabbedPane1.setSelectedIndex(3);
@@ -2313,6 +2331,12 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
               
+        resolverSubclaves();
+        
+        //jLabel42.setText("");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void resolverSubclaves(){
         jButton5.setEnabled(true);
         
         long[] subclaves = des.getSubkeys();
@@ -2350,10 +2374,9 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jTextField22.setText(des.formatBinary(Long.toBinaryString(subclaves[3]), 48, 4));
         
         evaluarSubclaves();
-        
-        //jLabel42.setText("");
-    }//GEN-LAST:event_jButton3ActionPerformed
-
+    }
+    
+    
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
@@ -2377,57 +2400,7 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
                 
                 //jTextField3.setText(des.getMsjCifrado());
 
-                String subclavesLabel1 = crearLabelSubclaves1();
-                String subclavesLabel2 = crearLabelSubclaves2();
-                String subclavesLabel3 = crearLabelSubclaves3();
-                String subclavesLabel4 = crearLabelSubclaves4();
-
-                String rondaInicial1Label = crearLabelRondaInicial1();
-                String rondaInicial2Label = crearLabelRondaInicial2();
-                String rondaInicial3Label = crearLabelRondaInicial3();
-                String rondaInicial4Label = crearLabelRondaInicial4();
-
-                String rondaFinal1Label = crearLabelRondaFinal1();
-
-                String ronda1LabelA = crearLabelRondaIa(1);
-                String ronda1LabelB = crearLabelRondaIb(1);
-
-                String ronda2LabelA = crearLabelRondaIa(2);
-                String ronda2LabelB = crearLabelRondaIb(2);
-
-                String ronda3LabelA = crearLabelRondaIa(3);
-                String ronda3LabelB = crearLabelRondaIb(3);
-
-                String ronda16LabelA = crearLabelRondaIa(16);
-                String ronda16LabelB = crearLabelRondaIb(16);
-
-                jLabel11.setText(subclavesLabel1);
-                jLabel7.setText(subclavesLabel2);
-                jLabel12.setText(subclavesLabel3);
-                jLabel56.setText(subclavesLabel4);
-
-                jLabel24.setText(rondaInicial1Label);
-                jLabel62.setText(rondaInicial2Label);
-                jLabel29.setText(rondaInicial3Label);
-                jLabel66.setText(rondaInicial4Label);
-
-                jLabel30.setText(rondaFinal1Label);
-                //jLabel32.setText(rondaFinal2Label);
-                //jLabel33.setText(rondaFinal3Label);
-
-                jLabel13.setText( ronda1LabelA );
-                jLabel21.setText( ronda1LabelB );
-
-                jLabel95.setText( ronda2LabelA );
-                jLabel99.setText( ronda2LabelB );
-
-                jLabel114.setText( ronda3LabelA );
-                jLabel118.setText( ronda3LabelB );
-                
-                jLabel133.setText( ronda16LabelA );
-                jLabel137.setText( ronda16LabelB );
-
-                jButton2.setEnabled(true);
+                iniciar();
 
             } else {
                 jLabel38.setText("La clave debe ser hexadecimal hasta 64 bits");
@@ -2440,6 +2413,60 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton13ActionPerformed
 
+    
+    private void iniciar() {
+        String subclavesLabel1 = crearLabelSubclaves1();
+        String subclavesLabel2 = crearLabelSubclaves2();
+        String subclavesLabel3 = crearLabelSubclaves3();
+        String subclavesLabel4 = crearLabelSubclaves4();
+
+        String rondaInicial1Label = crearLabelRondaInicial1();
+        String rondaInicial2Label = crearLabelRondaInicial2();
+        String rondaInicial3Label = crearLabelRondaInicial3();
+        String rondaInicial4Label = crearLabelRondaInicial4();
+
+        String rondaFinal1Label = crearLabelRondaFinal1();
+
+        String ronda1LabelA = crearLabelRondaIa(1);
+        String ronda1LabelB = crearLabelRondaIb(1);
+
+        String ronda2LabelA = crearLabelRondaIa(2);
+        String ronda2LabelB = crearLabelRondaIb(2);
+
+        String ronda3LabelA = crearLabelRondaIa(3);
+        String ronda3LabelB = crearLabelRondaIb(3);
+
+        String ronda16LabelA = crearLabelRondaIa(16);
+        String ronda16LabelB = crearLabelRondaIb(16);
+
+        jLabel11.setText(subclavesLabel1);
+        jLabel7.setText(subclavesLabel2);
+        jLabel12.setText(subclavesLabel3);
+        jLabel56.setText(subclavesLabel4);
+
+        jLabel24.setText(rondaInicial1Label);
+        jLabel62.setText(rondaInicial2Label);
+        jLabel29.setText(rondaInicial3Label);
+        jLabel66.setText(rondaInicial4Label);
+
+        jLabel30.setText(rondaFinal1Label);
+        //jLabel32.setText(rondaFinal2Label);
+        //jLabel33.setText(rondaFinal3Label);
+
+        jLabel13.setText( ronda1LabelA );
+        jLabel21.setText( ronda1LabelB );
+
+        jLabel95.setText( ronda2LabelA );
+        jLabel99.setText( ronda2LabelB );
+
+        jLabel114.setText( ronda3LabelA );
+        jLabel118.setText( ronda3LabelB );
+
+        jLabel133.setText( ronda16LabelA );
+        jLabel137.setText( ronda16LabelB );
+
+        jButton2.setEnabled(true);        
+    }
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
@@ -2456,6 +2483,10 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        resolverRonda3();
+    }//GEN-LAST:event_jButton23ActionPerformed
+
+    private void resolverRonda3() {
         int[] rondasR = des.getRondasR();
         long[] rondasE = des.getRondasE();
         long[] xorFeistel = des.getRondasXorFeistel();
@@ -2496,14 +2527,20 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jTextField58.setText(des.formatBinary(Long.toBinaryString(rondasR[i]&0xFFFFFFFFL), 32, 4));
         
         evaluarRonda3();
-    }//GEN-LAST:event_jButton23ActionPerformed
-
+        
+    }
+    
+    
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
         jTabbedPane1.setEnabledAt(7, true);
         jTabbedPane1.setSelectedIndex(7);
     }//GEN-LAST:event_jButton25ActionPerformed
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
+        resolverRonda16();
+    }//GEN-LAST:event_jButton26ActionPerformed
+
+    private void resolverRonda16(){
         int[] rondasR = des.getRondasR();
         long[] rondasE = des.getRondasE();
         long[] xorFeistel = des.getRondasXorFeistel();
@@ -2543,19 +2580,22 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         jTextField65.setText(des.formatBinary(Long.toBinaryString(permFeistel[j]&0xFFFFFFFFL),32, 4));
         jTextField66.setText(des.formatBinary(Long.toBinaryString(rondasR[i]&0xFFFFFFFFL), 32, 4));
         
-        evaluarRonda16();
-    }//GEN-LAST:event_jButton26ActionPerformed
-
+        evaluarRonda16();        
+    }
+    
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        resolverFinal();
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void resolverFinal() {
         long fp = des.getRondasFP();
 
         jTextField35.setText(des.formatBinary(Long.toBinaryString(fp), 64, 4));
         jTextField36.setText(Long.toHexString(fp).toUpperCase());
         
         evaluarRondaFinal();
-        
-    }//GEN-LAST:event_jButton10ActionPerformed
-
+    }
+    
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
         jTabbedPane1.setEnabledAt(8, true);
         jTabbedPane1.setSelectedIndex(8);
@@ -2795,8 +2835,10 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
         
         if (!valido) {
             jLabel80.setText("Revise las cuentas, hay valores incorrectos.");
+            jButton17.setEnabled(false);
         } else {
             jLabel80.setText("");
+            jButton17.setEnabled(true);
         }        
         
     }
@@ -4064,8 +4106,8 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
 
         desDTO.setM(jTextField23.getText());
         desDTO.setP1(jTextField24.getText());
-        desDTO.setR0(jTextField25.getText());
-        desDTO.setL0(jTextField26.getText());
+        desDTO.setL0(jTextField25.getText());
+        desDTO.setR0(jTextField26.getText());
 
         return desDTO;
     }       
@@ -4157,6 +4199,213 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
 
         return desDTO;
     }  
+     
+     
+     
+    private void activarPaso2(DesDTO desDTO) {
+                
+        this.jTextField7.setText(desDTO.getKBinario());
+        this.jTextField8.setText(desDTO.getPk());
+        this.jTextField9.setText(desDTO.getC0());
+        this.jTextField10.setText(desDTO.getD0());
+        this.jTextField11.setText(desDTO.getC1());
+        this.jTextField12.setText(desDTO.getD1());
+        this.jTextField13.setText(desDTO.getC2());
+        this.jTextField14.setText(desDTO.getD2());
+        this.jTextField15.setText(desDTO.getC3());
+        this.jTextField16.setText(desDTO.getD3());
+        this.jTextField17.setText(desDTO.getC4());
+        this.jTextField18.setText(desDTO.getD4());
+
+        this.jTextField19.setText(desDTO.getK1());
+        this.jTextField20.setText(desDTO.getK2());
+        this.jTextField21.setText(desDTO.getK3());
+        this.jTextField22.setText(desDTO.getK4());        
+    }
+     
+    
+    private void activarPaso3(DesDTO desDTO) {
+                
+        this.jTextField23.setText(desDTO.getM());
+        this.jTextField24.setText(desDTO.getP1());
+        this.jTextField25.setText(desDTO.getL0());
+        this.jTextField26.setText(desDTO.getR0());
+     
+    }    
+    
+    
+    private void activarPaso4(DesDTO desDTO) {
+                
+        this.jTextField27.setText(desDTO.getEr0());
+        this.jTextField28.setText(desDTO.getK1Xer0());
+        this.jTextField29.setText(desDTO.getM1());
+        this.jTextField30.setText(desDTO.getN1());
+        this.jTextField31.setText(desDTO.getS1b1());
+        this.jTextField32.setText(desDTO.getsTotal1());
+        this.jTextField33.setText(desDTO.getPostP1());
+        this.jTextField34.setText(desDTO.getpXl0());
+
+    }    
+
+    private void activarPaso5(DesDTO desDTO) {
+                
+        this.jTextField43.setText(desDTO.getEr1());
+        this.jTextField44.setText(desDTO.getK2Xer1());
+        this.jTextField45.setText(desDTO.getM2());
+        this.jTextField46.setText(desDTO.getN2());
+        this.jTextField47.setText(desDTO.getS2b2());
+        this.jTextField48.setText(desDTO.getsTotal2());
+        this.jTextField49.setText(desDTO.getPostP2());
+        this.jTextField50.setText(desDTO.getpXl1());
+
+    }    
+    
+
+    private void activarPaso6(DesDTO desDTO) {
+                
+        this.jTextField51.setText(desDTO.getEr2());
+        this.jTextField52.setText(desDTO.getK3Xer2());
+        this.jTextField53.setText(desDTO.getM3());
+        this.jTextField54.setText(desDTO.getN3());
+        this.jTextField55.setText(desDTO.getS3b3());
+        this.jTextField56.setText(desDTO.getsTotal3());
+        this.jTextField57.setText(desDTO.getPostP3());
+        this.jTextField58.setText(desDTO.getpXl2());
+    }
+    
+    
+    private void activarPaso7(DesDTO desDTO) {
+                
+        this.jTextField59.setText(desDTO.getEr15());
+        this.jTextField60.setText(desDTO.getK16Xer15());
+        this.jTextField61.setText(desDTO.getM16());
+        this.jTextField62.setText(desDTO.getN16());
+        this.jTextField63.setText(desDTO.getS16b16());
+        this.jTextField64.setText(desDTO.getsTotal16());
+        this.jTextField65.setText(desDTO.getPostP16());
+        this.jTextField66.setText(desDTO.getpXl15());
+    }        
+
+    
+    private void activarPaso8(DesDTO desDTO) {
+                
+        this.jTextField35.setText(desDTO.getcFinal());
+        this.jTextField36.setText(desDTO.getCipherMessage());
+    }        
+    
+    
+    void load(DesDTO desDTO) {
+        
+        String clave = desDTO.getKey();
+        String mensaje = desDTO.getMessage();
+       
+        this.jTextField2.setText(mensaje);
+        this.jTextField1.setText(clave);        
+        
+        des.encrypt(des.parseBytes(mensaje), des.parseBytes(clave));
+        
+        iniciar();
+        
+        int step = desDTO.getCurrentStep();
+        
+        switch(step){
+            case 2 : 
+
+                activarPaso2(desDTO);
+                
+                jTabbedPane1.setEnabledAt(1, true);
+                jTabbedPane1.setSelectedIndex(1);
+                break;
+            case 3:    
+                resolverSubclaves();
+                activarPaso3(desDTO);
+                
+                jTabbedPane1.setEnabledAt(1, true);
+                jTabbedPane1.setEnabledAt(2, true);
+                jTabbedPane1.setSelectedIndex(2);
+                break;
+            case 4:
+                resolverSubclaves();
+                resolverRondaInicial();
+                activarPaso4(desDTO);
+                
+                jTabbedPane1.setEnabledAt(1, true);
+                jTabbedPane1.setEnabledAt(2, true);
+                jTabbedPane1.setEnabledAt(3, true);
+                
+                jTabbedPane1.setSelectedIndex(3);
+                break;
+            case 5:
+                resolverSubclaves();
+                resolverRondaInicial();
+                resolverRonda1();
+                activarPaso5(desDTO);
+                
+                jTabbedPane1.setEnabledAt(1, true);
+                jTabbedPane1.setEnabledAt(2, true);
+                jTabbedPane1.setEnabledAt(3, true);
+                jTabbedPane1.setEnabledAt(4, true);
+                
+                jTabbedPane1.setSelectedIndex(4);
+                break;
+            case 6:
+                resolverSubclaves();
+                resolverRondaInicial();
+                resolverRonda1();
+                resolverRonda2();
+                activarPaso6(desDTO);
+                
+                jTabbedPane1.setEnabledAt(1, true);
+                jTabbedPane1.setEnabledAt(2, true);
+                jTabbedPane1.setEnabledAt(3, true);
+                jTabbedPane1.setEnabledAt(4, true);
+                jTabbedPane1.setEnabledAt(5, true);
+                
+                jTabbedPane1.setSelectedIndex(5);
+                break;
+            case 7:
+                resolverSubclaves();
+                resolverRondaInicial();
+                resolverRonda1();
+                resolverRonda2();
+                resolverRonda3();
+                activarPaso7(desDTO);
+                
+                jTabbedPane1.setEnabledAt(1, true);
+                jTabbedPane1.setEnabledAt(2, true);
+                jTabbedPane1.setEnabledAt(3, true);
+                jTabbedPane1.setEnabledAt(4, true);
+                jTabbedPane1.setEnabledAt(5, true);
+                jTabbedPane1.setEnabledAt(6, true);
+                
+                jTabbedPane1.setSelectedIndex(6);
+                break;
+            case 8:
+                resolverSubclaves();
+                resolverRondaInicial();
+                resolverRonda1();
+                resolverRonda2();
+                resolverRonda3();
+                resolverRonda16();
+                activarPaso8(desDTO);
+                
+                jTabbedPane1.setEnabledAt(1, true);
+                jTabbedPane1.setEnabledAt(2, true);
+                jTabbedPane1.setEnabledAt(3, true);
+                jTabbedPane1.setEnabledAt(4, true);
+                jTabbedPane1.setEnabledAt(5, true);
+                jTabbedPane1.setEnabledAt(6, true);
+                jTabbedPane1.setEnabledAt(7, true);
+                
+                jTabbedPane1.setSelectedIndex(7);
+                break;                
+            default:break;
+        }
+        
+    }
+     
+     
+     
      
      
      
