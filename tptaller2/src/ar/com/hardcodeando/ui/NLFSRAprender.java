@@ -12,6 +12,7 @@ package ar.com.hardcodeando.ui;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import ar.com.hardcodeando.algorithm.*;
+import ar.com.hardcodeando.dto.NLFSRDTO;
 import ar.com.hardcodeando.ui.utils.*;
 import java.util.Map;
 import javax.swing.table.DefaultTableModel;

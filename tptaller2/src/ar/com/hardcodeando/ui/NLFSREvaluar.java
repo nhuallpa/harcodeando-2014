@@ -880,8 +880,7 @@ public class NLFSREvaluar extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
-        //validate step 2
+        //validate step 1
         try{
             seed = Integer.parseInt(jTextField1.getText());
             if(!Integer.toBinaryString(seed).equals(jTextField2.getText())){
@@ -898,10 +897,25 @@ public class NLFSREvaluar extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void enableStep1(){
+        try{
+            seed = Integer.parseInt(jTextField1.getText());
+            jButton1.setEnabled(true);
+            length = Integer.toBinaryString(seed).length();
+            seedStr = Integer.toBinaryString(seed);
+        }
+        catch(NumberFormatException e){
+            
+        }
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         jTabbedPane1.setEnabledAt(2, true);
         jTabbedPane1.setSelectedIndex(2);
-        
+        setUpStep2();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void setUpStep2(){
         jLabel9.setText(NLFSRCommon.getFunctionDescription(length));
         
         Map<Integer,NLFSRFunction> functions = NLFSRFunction.getFunctions();
@@ -910,22 +924,23 @@ public class NLFSREvaluar extends javax.swing.JPanel {
             jComboBox1.addItem(new ComboItem(Integer.toString(i),functions.get(i).getDescription()));
         }
         jComboBox1.setSelectedIndex(0);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
+    }
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
         jTabbedPane1.setEnabledAt(3, true);
         jTabbedPane1.setSelectedIndex(3);
-        
+        setUpStep3();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void setUpStep3(){
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.addRow(new Object []{ Integer.toBinaryString(seed), "", "" });
         
         maxIt = (int) Math.pow(2, length) - 1;
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
-
+    }
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        
+        //validate step 2
         ComboItem item = (ComboItem) jComboBox1.getSelectedItem();
         Map<Integer,NLFSRFunction> functions = NLFSRFunction.getFunctions();
         function = functions.get(Integer.parseInt(item.getKey()));
@@ -938,6 +953,14 @@ public class NLFSREvaluar extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void enableStep2(){
+        ComboItem item = (ComboItem) jComboBox1.getSelectedItem();
+        Map<Integer,NLFSRFunction> functions = NLFSRFunction.getFunctions();
+        function = functions.get(Integer.parseInt(item.getKey()));
+        jButton3.setEnabled(true);
+        nlfsr = new NLFSR(function, seedStr);
+    }
+    
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         //validate step 3
         try{
@@ -969,6 +992,20 @@ public class NLFSREvaluar extends javax.swing.JPanel {
         
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    private void enableStep3(){
+        try{
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            String k = (String)model.getValueAt(0, 1);
+            int x = Integer.parseInt(model.getValueAt(0, 2).toString());            
+            showPopup(jPanel3, "Bit clave y x correctos. Puede continuar con el proximo paso.");
+            jButton6.setEnabled(true);
+            s0 = x;
+            key = k;
+            
+        }catch(Exception e){
+            
+        }
+    }
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         
         //display step 4
@@ -981,6 +1018,12 @@ public class NLFSREvaluar extends javax.swing.JPanel {
         model2.addRow(new Object[]{ seedStr, NLFSRCommon.getKey(seedStr), function.getResult(nlfsr.getSeedArray(seedStr)), "" });
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void setUpStep4(){
+        DefaultTableModel model1 = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel model2 = (DefaultTableModel) jTable2.getModel();
+        
+        model2.addRow(new Object[]{ seedStr, NLFSRCommon.getKey(seedStr), function.getResult(nlfsr.getSeedArray(seedStr)), "" });
+    }
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         //validate step 4
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
@@ -995,6 +1038,10 @@ public class NLFSREvaluar extends javax.swing.JPanel {
         
     }//GEN-LAST:event_jButton9ActionPerformed
 
+    private void enableStep4(){
+        jButton8.setEnabled(true);        
+    }
+    
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
@@ -1013,6 +1060,19 @@ public class NLFSREvaluar extends javax.swing.JPanel {
         nlfsr.Execute();
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void setUpStep5(){
+        
+        jTabbedPane1.setEnabledAt(5, true);
+        jTabbedPane1.setSelectedIndex(5);
+        
+        DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
+        
+        String newSeedOk = NLFSRCommon.getSeedString(nlfsr.shiftSeed(nlfsr.getSeedArray(seedStr), s0));
+        model.addRow(new Object[]{seedStr, NLFSRCommon.getKey(seedStr), function.getResult(nlfsr.getSeedArray(seedStr)), newSeedOk});
+        model.addRow(new Object[]{"","","",""});
+        
+        nlfsr.Execute();
+    }
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         //validate step 5        
         
@@ -1232,6 +1292,59 @@ public class NLFSREvaluar extends javax.swing.JPanel {
             Logger.getLogger(NLFSREvaluar.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
         }
+    }
+    
+    public void load(NLFSRDTO nlfsrDTO) {
+        int step = nlfsrDTO.getCurrentStep();
+        
+        this.jTextField1.setText(nlfsrDTO.getSeed());
+        this.jTextField2.setText(nlfsrDTO.getRegister());
+        if(step > 1){
+            //update step 2
+            enableStep1();
+            setUpStep2();
+            this.jComboBox1.setSelectedIndex(nlfsrDTO.getFunctionId());
+        }
+        if(step > 2){
+            //update step 3
+            enableStep2();
+            setUpStep3();
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            String[] list = nlfsrDTO.getRowStep3();
+            for (int i = 0; i < model.getColumnCount(); i++) {
+                model.setValueAt(list[i], 0, i);
+            }
+        }
+        if(step > 3){
+            //update step 4
+            enableStep3();
+            setUpStep4();
+            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+            String[] list = nlfsrDTO.getRowStep4();
+            for (int i = 0; i < model.getColumnCount(); i++) {
+                model.setValueAt(list[i], 0, i);
+            }
+        }
+        if(step > 4){
+            //update step 5
+            enableStep4();
+            setUpStep5();
+            DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
+            String[][] table = nlfsrDTO.getTableStep5();
+            for (int i = 0; i < model.getRowCount(); i++) {
+                for (int j = 0; j < model.getColumnCount(); j++) {
+                    model.setValueAt(table[i][j], i, j);
+                }
+            }
+            this.jTextField3.setText(nlfsrDTO.getKey());
+            this.jTextField4.setText(String.valueOf(nlfsrDTO.getPeriod()));
+            this.jTextField5.setText(String.valueOf(nlfsrDTO.getKeyDecimal()));
+        }
+        
+        for (int i = 1; i <= step; i++) {
+            jTabbedPane1.setEnabledAt(i, true);
+        }
+        jTabbedPane1.setSelectedIndex(step);
     }
     
     private void setWrongAnswers(ArrayList<JRadioButton> buttons){
