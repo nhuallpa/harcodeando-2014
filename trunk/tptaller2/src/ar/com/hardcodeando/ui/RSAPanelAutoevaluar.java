@@ -3045,8 +3045,10 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             AlgorithmStateStorage.saveRSA(filename, path, this.generarJsonCalculosIniciales());
             JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
         } catch (IOException ex) {
-            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RSAPanelAutoevaluar.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
+        } catch (NullPointerException npe) {
+            Logger.getLogger(RSAPanelAutoevaluar.class.getName()).log(Level.SEVERE, null, npe);
         }
     }//GEN-LAST:event_botGuardarCalculosInicialesMousePressed
 
@@ -3059,9 +3061,12 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             AlgorithmStateStorage.saveRSA(filename, path, this.generarJsonPasoEncriptar());
             JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
         } catch (IOException ex) {
-            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RSAPanelAutoevaluar.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
+        } catch (NullPointerException npe) {
+            Logger.getLogger(RSAPanelAutoevaluar.class.getName()).log(Level.SEVERE, null, npe);
         }
+        
     }//GEN-LAST:event_botGuardarEncriptarMousePressed
 
     private void botGuardarDesencriptarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botGuardarDesencriptarMousePressed
@@ -3073,8 +3078,10 @@ public class RSAPanelAutoevaluar extends javax.swing.JPanel {
             AlgorithmStateStorage.saveRSA(filename, path, this.generarJsonPasoDesencriptar());
             JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
         } catch (IOException ex) {
-            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RSAPanelAutoevaluar.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
+        } catch (NullPointerException npe) {
+            Logger.getLogger(RSAPanelAutoevaluar.class.getName()).log(Level.SEVERE, null, npe);
         }
     }//GEN-LAST:event_botGuardarDesencriptarMousePressed
 

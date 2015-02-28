@@ -2679,7 +2679,9 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
             String filename=saveFile.getSelectedFile().getName();
             AlgorithmStateStorage.saveDes(filename, path, this.messageToJsonPaso2(2));
         } catch (IOException ex) {
-            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DesPanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NullPointerException npe) {
+            Logger.getLogger(DesPanelEvaluar.class.getName()).log(Level.SEVERE, null, npe);
         }
     }//GEN-LAST:event_jButton35ActionPerformed
 
@@ -2691,7 +2693,9 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
             String filename=saveFile.getSelectedFile().getName();
             AlgorithmStateStorage.saveDes(filename, path, this.messageToJsonPaso3(3));
         } catch (IOException ex) {
-            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DesPanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NullPointerException npe) {
+            Logger.getLogger(DesPanelEvaluar.class.getName()).log(Level.SEVERE, null, npe);
         }
     }//GEN-LAST:event_jButton36ActionPerformed
 
@@ -2703,7 +2707,9 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
             String filename=saveFile.getSelectedFile().getName();
             AlgorithmStateStorage.saveDes(filename, path, this.messageToJsonPaso4(4));
         } catch (IOException ex) {
-            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DesPanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NullPointerException npe) {
+            Logger.getLogger(DesPanelEvaluar.class.getName()).log(Level.SEVERE, null, npe);
         }
     }//GEN-LAST:event_jButton37ActionPerformed
 
@@ -2715,7 +2721,9 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
             String filename=saveFile.getSelectedFile().getName();
             AlgorithmStateStorage.saveDes(filename, path, this.messageToJsonPaso5(5));
         } catch (IOException ex) {
-            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DesPanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NullPointerException npe) {
+            Logger.getLogger(DesPanelEvaluar.class.getName()).log(Level.SEVERE, null, npe);
         }
     }//GEN-LAST:event_jButton38ActionPerformed
 
@@ -2727,7 +2735,9 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
             String filename=saveFile.getSelectedFile().getName();
             AlgorithmStateStorage.saveDes(filename, path, this.messageToJsonPaso6(6));
         } catch (IOException ex) {
-            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DesPanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NullPointerException npe) {
+            Logger.getLogger(DesPanelEvaluar.class.getName()).log(Level.SEVERE, null, npe);
         }
     }//GEN-LAST:event_jButton39ActionPerformed
 
@@ -2739,7 +2749,9 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
             String filename=saveFile.getSelectedFile().getName();
             AlgorithmStateStorage.saveDes(filename, path, this.messageToJsonPaso7(7));
         } catch (IOException ex) {
-            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DesPanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NullPointerException npe) {
+            Logger.getLogger(DesPanelEvaluar.class.getName()).log(Level.SEVERE, null, npe);
         }
     }//GEN-LAST:event_jButton40ActionPerformed
 
@@ -2751,7 +2763,9 @@ public class DesPanelEvaluar extends javax.swing.JPanel {
             String filename=saveFile.getSelectedFile().getName();
             AlgorithmStateStorage.saveDes(filename, path, this.messageToJsonPaso8(8));
         } catch (IOException ex) {
-            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DesPanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NullPointerException npe) {
+            Logger.getLogger(DesPanelEvaluar.class.getName()).log(Level.SEVERE, null, npe);
         }
     }//GEN-LAST:event_jButton41ActionPerformed
 

@@ -909,19 +909,25 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
     }//GEN-LAST:event_botonSiguientePaso2AEMousePressed
 
     private void buttonGuardarArchivoPaso1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGuardarArchivoPaso1ActionPerformed
+        saveFile(1);
+    }//GEN-LAST:event_buttonGuardarArchivoPaso1ActionPerformed
+
+    public void saveFile (int step) {
         try {
             JFileChooser saveFile = new JFileChooser();
             saveFile.showSaveDialog(null);
             String path=saveFile.getSelectedFile().getAbsolutePath();
             String filename=saveFile.getSelectedFile().getName();
-            AlgorithmStateStorage.saveMD5(filename, path, this.messageToJson(1));
+            AlgorithmStateStorage.saveMD5(filename, path, this.messageToJson(step));
             JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
         } catch (IOException ex) {
             Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
+        } catch (NullPointerException npe) {
+            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, npe);
         }
-    }//GEN-LAST:event_buttonGuardarArchivoPaso1ActionPerformed
-
+    }
+    
     public MD5DTO messageToJson(int step){
             MD5DTO md5DTO = new MD5DTO();
             md5DTO.setCurrentStep(step);
@@ -1300,60 +1306,19 @@ public class MD5PanelEvaluar extends javax.swing.JPanel {
     }//GEN-LAST:event_buttonValidarAdicionBits1ActionPerformed
 
     private void buttonGuardarArchivoPaso2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGuardarArchivoPaso2ActionPerformed
-         try {
-            JFileChooser saveFile = new JFileChooser();
-            saveFile.showSaveDialog(null);
-            String path=saveFile.getSelectedFile().getAbsolutePath();
-            String filename=saveFile.getSelectedFile().getName();
-            AlgorithmStateStorage.saveMD5(filename, path, this.messageToJson(2));
-            JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
-        } catch (IOException ex) {
-            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
-        }
+         saveFile(2);
     }//GEN-LAST:event_buttonGuardarArchivoPaso2ActionPerformed
 
     private void buttonGuardarArchivoPaso3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGuardarArchivoPaso3ActionPerformed
-        try {
-            JFileChooser saveFile = new JFileChooser();
-            saveFile.showSaveDialog(null);
-            String path=saveFile.getSelectedFile().getAbsolutePath();
-            String filename=saveFile.getSelectedFile().getName();
-            AlgorithmStateStorage.saveMD5(filename, path, this.messageToJson(3));
-            JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
-        } catch (IOException ex) {
-            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
-        }
-        
+        saveFile(3);        
     }//GEN-LAST:event_buttonGuardarArchivoPaso3ActionPerformed
 
     private void buttonGuardarArchivoPaso4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGuardarArchivoPaso4ActionPerformed
-        try {
-            JFileChooser saveFile = new JFileChooser();
-            saveFile.showSaveDialog(null);
-            String path=saveFile.getSelectedFile().getAbsolutePath();
-            String filename=saveFile.getSelectedFile().getName();
-            AlgorithmStateStorage.saveMD5(filename, path, this.messageToJson(4));
-            JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
-        } catch (IOException ex) {
-            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
-        }
+        saveFile(4);
     }//GEN-LAST:event_buttonGuardarArchivoPaso4ActionPerformed
 
     private void buttonGuardarArchivoPaso5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGuardarArchivoPaso5ActionPerformed
-         try {
-            JFileChooser saveFile = new JFileChooser();
-            saveFile.showSaveDialog(null);
-            String path=saveFile.getSelectedFile().getAbsolutePath();
-            String filename=saveFile.getSelectedFile().getName();
-            AlgorithmStateStorage.saveMD5(filename, path, this.messageToJson(5));
-            JOptionPane.showMessageDialog(null, "El archivo se salvo correctamente");
-        } catch (IOException ex) {
-            Logger.getLogger(MD5PanelEvaluar.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
-        }
+        saveFile(5);
     }//GEN-LAST:event_buttonGuardarArchivoPaso5ActionPerformed
 
     public void handleGrillaEventsPaso5(java.awt.event.ComponentEvent evt){

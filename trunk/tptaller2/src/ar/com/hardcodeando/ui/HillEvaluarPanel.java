@@ -631,6 +631,7 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_botonCorregirActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        try {
         JFileChooser saveFile = new JFileChooser();
         int selectOp = saveFile.showSaveDialog(null);
         String path=saveFile.getSelectedFile().getAbsolutePath();
@@ -659,9 +660,13 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
             }
         }
+        } catch (NullPointerException npe) {
+            Logger.getLogger(HillEvaluarPanel.class.getName()).log(Level.SEVERE, null, npe);
+        }
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        try {
         JFileChooser saveFile = new JFileChooser();
         int selectOp = saveFile.showSaveDialog(null);
         String path=saveFile.getSelectedFile().getAbsolutePath();
@@ -692,9 +697,13 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
             }
         }
+        } catch (NullPointerException npe) {
+            Logger.getLogger(HillEvaluarPanel.class.getName()).log(Level.SEVERE, null, npe);
+        }
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        try {
         JFileChooser saveFile = new JFileChooser();
         int selectOp = saveFile.showSaveDialog(null);
         String path=saveFile.getSelectedFile().getAbsolutePath();
@@ -726,6 +735,9 @@ public class HillEvaluarPanel extends javax.swing.JPanel {
                 Logger.getLogger(HillEvaluarPanel.class.getName()).log(Level.SEVERE, null, ex);
                 JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
             }
+        }
+        } catch (NullPointerException npe) {
+            Logger.getLogger(HillEvaluarPanel.class.getName()).log(Level.SEVERE, null, npe);
         }
     }//GEN-LAST:event_jButton12ActionPerformed
 
