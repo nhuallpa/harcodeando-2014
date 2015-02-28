@@ -1290,6 +1290,8 @@ public class NLFSREvaluar extends javax.swing.JPanel {
         } catch (IOException ex) {
             Logger.getLogger(NLFSREvaluar.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Hubo un error al guardar el archivo");
+        } catch (Exception e) {
+            Logger.getLogger(NLFSREvaluar.class.getName()).log(Level.SEVERE, null, e);
         }
     }
     
